@@ -375,3 +375,110 @@ body {
     .left-content h1 { font-size: 2.2rem; }
     .left-content .hero-actions { flex-direction: column; width: 100%; }
 }
+/* ===== GANTI TOTAL KODE CSS TOMBOL DENGAN INI ===== */
+
+.hero-actions .hero-button {
+    display: inline-block !important;
+    padding: 12px 24px !important;
+    border: 2px solid #555 !important;
+    border-radius: 50px !important;
+    font-weight: bold !important;
+    text-decoration: none !important;
+    margin-right: 10px !important;
+    transition: all 0.3s ease !important;
+
+    /* Gaya dasar (tombol Services) */
+    background-color: transparent !important;
+    color: #333 !important;
+}
+
+.hero-actions .hero-button.primary {
+    /* Gaya utama (tombol Hire Me) */
+    background-color: #333 !important;
+    color: #fff !important;
+    border-color: #333 !important;
+}
+
+.hero-actions .hero-button:hover {
+    /* EFEK GLOW SAAT HOVER */
+    background-color: #ff8c00 !important;
+    border-color: #ffa500 !important;
+    color: #fff !important;
+    box-shadow: 0 0 8px #ffa500, 0 0 20px #ff8c00 !important;
+    transform: translateY(-2px) !important;
+}
+/* Menambahkan style untuk link navbar yang aktif */
+.nav-links .nav-link.active {
+    color: #ff8c00; /* Warna oranye, bisa diganti sesuai selera */
+    font-weight: bold;
+}
+/* Style untuk galeri mini di dalam service details */
+.details .design-gallery {
+    display: flex;
+    gap: 15px; /* Memberi jarak antar gambar */
+    margin-top: 20px; /* Jarak dari deskripsi di atasnya */
+    flex-wrap: wrap; /* Agar gambar turun ke baris baru jika tidak muat */
+}
+
+.details .design-gallery img {
+    width: 100%;
+    max-width: 150px; /* Atur ukuran maksimal gambar, sesuaikan jika perlu */
+    height: 100px; /* Atur tinggi gambar agar seragam */
+    border-radius: 8px; /* Membuat sudut gambar melengkung */
+    object-fit: cover; /* Memastikan gambar terpotong rapi tanpa distorsi */
+    border: 1px solid #eee; /* Optional: memberi bingkai tipis */
+}
+/* Style untuk Portfolio Tab Folder */
+.portfolio-container {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.folder-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.folder-tab {
+    padding: 10px 15px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.folder-tab:hover {
+    background-color: #e0e0e0;
+    border-color: #ccc;
+}
+
+/* Style untuk folder yang sedang aktif/dipilih */
+.folder-tab.active {
+    background-color: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+/* Panel galeri disembunyikan secara default */
+.gallery-pane {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+/* Panel galeri yang aktif akan ditampilkan */
+.gallery-pane.active {
+    display: block;
+}
+
+/* Animasi sederhana saat galeri muncul */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

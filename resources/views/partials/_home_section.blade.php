@@ -1,4 +1,3 @@
-<!-- Partial untuk Bagian Home -->
 <div class="container">
     <section id="home">
         <div class="main-content">
@@ -19,15 +18,13 @@
                 </div>
                 <div class="review-desc">Reviews from Valued Clients</div>
                 <div class="hero-actions">
-                    <a href="#services">Services <i class="fa-solid fa-arrow-right" style="margin-left:8px;"></i></a>
-                    <button onclick="window.location.href='#contact'">Hire Me</button>
-                </div>
+    <a href="#services" class="hero-button">Services &rarr;</a>
+    <a href="#contact" class="hero-button primary">Hire Me</a>
+</div>
                 <div style="margin-top:24px;font-size:1rem;color:#888;">Follow Us On</div>
                 <div class="socials">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/hamidabdulaziz_/"><i class="fab fa-instagram"></i></a>
                     <a href="https://id.pinterest.com/hamidabdulaziz36/"><i class="fab fa-pinterest-p"></i></a>
-                    <a href="#"><i class="fab fa-dribbble"></i></a>
                 </div>
             </div>
             <div class="center-content">
@@ -35,12 +32,9 @@
                 <div class="hero-image">
                     <img src="{{ asset('images/foto_profil.jpg') }}" alt="Foto Profil">
                 </div>
-                <div class="circle-badge">
-                    <div>HIRE ME<br><i class="fa-solid fa-paper-plane"></i></div>
                 </div>
-            </div>
             <div class="right-content">
-                 <div class="hero-tags">
+                <div class="hero-tags">
                     <span>Prototype</span>
                     <span class="black">Dashboard</span>
                     <span>Mobile App Design</span>
