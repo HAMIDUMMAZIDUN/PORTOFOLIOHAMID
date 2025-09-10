@@ -1,4 +1,22 @@
-<nav x-data="{ open: false }" class="bg-gray-800 text-white shadow-md sticky top-0 z-50">
+<nav x-data="{ 
+        open: false, 
+        activeSection: 'home',
+        updateActiveSection() {
+            let currentSection = 'home';
+            const sections = ['home', 'about', 'blogs', 'project', 'services', 'contact'];
+            
+            for (const sectionId of sections) {
+                const section = document.getElementById(sectionId);
+                if (section && section.getBoundingClientRect().top < window.innerHeight / 2) {
+                    currentSection = sectionId;
+                }
+            }
+            this.activeSection = currentSection;
+        }
+    }" 
+    @scroll.window.throttle.100ms="updateActiveSection()"
+    class="bg-gray-800 text-white shadow-md sticky top-0 z-50">
+
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
@@ -9,11 +27,12 @@
                 </div>
 
                 <div class="hidden space-x-6 sm:-my-px sm:ms-10 sm:flex">
-                    <a href="/#home" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-primary-400 hover:border-primary-400 transition">Home</a>
-                    <a href="/#services" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-primary-400 hover:border-primary-400 transition">Services</a>
-                    <a href="/#about" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-primary-400 hover:border-primary-400 transition">About</a>
-                    <a href="/#project" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-primary-400 hover:border-primary-400 transition">Project</a>
-                    <a href="/#blogs" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-primary-400 hover:border-primary-400 transition">Journey</a>
+                    <a href="/#home" :class="{'text-primary-400 border-primary-400': activeSection === 'home'}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-primary-400 hover:border-primary-400 transition">Home</a>
+                    <a href="/#about" :class="{'text-primary-400 border-primary-400': activeSection === 'about'}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-primary-400 hover:border-primary-400 transition">About</a>
+                    <a href="/#blogs" :class="{'text-primary-400 border-primary-400': activeSection === 'blogs'}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-primary-400 hover:border-primary-400 transition">Journey</a>
+                    <a href="/#project" :class="{'text-primary-400 border-primary-400': activeSection === 'project'}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-primary-400 hover:border-primary-400 transition">Project</a> 
+                    <a href="/#services" :class="{'text-primary-400 border-primary-400': activeSection === 'services'}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-primary-400 hover:border-primary-400 transition">Services</a>
+                    <a href="/#contact" :class="{'text-primary-400 border-primary-400': activeSection === 'contact'}" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 hover:text-primary-400 hover:border-primary-400 transition">Contact</a>
                 </div>
             </div>
 
@@ -60,33 +79,20 @@
 
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link href="/#home">Home</x-responsive-nav-link>
-            <x-responsive-nav-link href="/#services">Services</x-responsive-nav-link>
-            <x-responsive-nav-link href="/#about">About</x-responsive-nav-link>
-            <x-responsive-nav-link href="/#project">Project</x-responsive-nav-link>
-            <x-responsive-nav-link href="/#blogs">Journey</x-responsive-nav-link>
-            <x-responsive-nav-link href="/#contact">Contact</x-responsive-nav-link>
+            {{-- Mobile nav links can be updated similarly if they are Alpine components --}}
+            <x-responsive-nav-link href="/home" :active="request()->is('/')">Home</x-responsive-nav-link>
+            <x-responsive-nav-link href="/services">Services</x-responsive-nav-link>
+            <x-responsive-nav-link href="/about">About</x-responsive-nav-link>
+            <x-responsive-nav-link href="/project">Project</x-responsive-nav-link>
+            <x-responsive-nav-link href="/blogs">Journey</x-responsive-nav-link>
+            <x-responsive-nav-link href="/contact">Contact</x-responsive-nav-link>
         </div>
 
         <div class="pt-4 pb-1 border-t border-gray-600">
             @auth
-                <div class="px-4">
-                    <div class="font-medium text-base text-gray-200">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-400">{{ Auth::user()->email }}</div>
-                </div>
-                <div class="mt-3 space-y-1">
-                    <x-responsive-nav-link :href="route('dashboard')">Dashboard</x-responsive-nav-link>
-                    <x-responsive-nav-link :href="route('profile.edit')">Profile</x-responsive-nav-link>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();">Log Out</x-responsive-nav-link>
-                    </form>
-                </div>
+                {{-- User auth info for mobile --}}
             @else
-                <x-responsive-nav-link :href="route('login')">Log in</x-responsive-nav-link>
-                @if (Route::has('register'))
-                    <x-responsive-nav-link :href="route('register')">Register</x-responsive-nav-link>
-                @endif
+                {{-- Login/register for mobile --}}
             @endauth
         </div>
     </div>

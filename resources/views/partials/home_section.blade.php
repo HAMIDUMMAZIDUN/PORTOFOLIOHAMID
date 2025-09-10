@@ -41,17 +41,31 @@
 
             <div class="lg:col-span-1 flex justify-center items-center relative order-first md:order-none">
                 <div class="absolute w-64 h-64 md:w-80 md:h-80 bg-primary-800 rounded-full blur-2xl opacity-30"></div>
-                <img src="{{ asset('images/foto_profil.jpg') }}" alt="Foto Profil" class="relative w-60 h-60 md:w-72 md:h-72 rounded-full object-cover border-4 border-gray-700 shadow-lg">
+                <img src="{{ asset('images/HAMID.jpg') }}" alt="Foto Profil" class="relative w-60 h-60 md:w-72 md:h-72 rounded-full object-cover border-4 border-gray-700 shadow-lg">
             </div>
+                <div class="lg:col-span-1 hidden lg:flex flex-col items-center space-y-8 w-full">
 
-            <div class="lg:col-span-1 hidden lg:flex flex-col items-center space-y-4">
-                <span class="bg-gray-700 py-2 px-4 rounded-full">Prototype</span>
-                <span class="bg-white text-gray-900 py-2 px-4 rounded-full font-semibold">Dashboard</span>
-                <span class="bg-gray-700 py-2 px-4 rounded-full">Mobile App Design</span>
-                <span class="bg-white text-gray-900 py-2 px-4 rounded-full font-semibold">Website Design</span>
-                <span class="bg-gray-700 py-2 px-4 rounded-full">Design System</span>
+                <!-- GitHub Stats Section -->
+                <div class="w-full">
+                    <h2 class="text-center text-xl font-semibold text-gray-200 mb-4">
+                        📊 My GitHub Stats 📊
+                    </h2>
+                    <div class="flex flex-col items-center gap-4">
+                        <img src="https://github-readme-stats.vercel.app/api?username=HAMIDUMMAZIDUN&show_icons=true&theme=dracula&include_all_commits=true&count_private=true" alt="GitHub Stats" class="max-w-full h-auto rounded-lg shadow-md"/>
+                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=HAMIDUMMAZIDUN&layout=compact&langs_count=8&theme=dracula" alt="Top Languages" class="max-w-full h-auto rounded-lg shadow-md"/>
+                    </div>
+                </div>
+
+                <!-- Contribution Graph Section -->
+                <div class="w-full">
+                    <h2 class="text-center text-xl font-semibold text-gray-200 mb-4">
+                        Contribution Graph
+                    </h2>
+                    <div class="flex justify-center">
+                        <img src="https://github-readme-activity-graph.vercel.app/graph?username=HAMIDUMMAZIDUN&theme=dracula" alt="Contribution Graph" class="max-w-full h-auto rounded-lg shadow-md"/>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
 </section>

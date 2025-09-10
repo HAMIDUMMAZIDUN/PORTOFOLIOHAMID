@@ -3,46 +3,40 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\File; // PENTING: Tambahkan ini untuk menggunakan 'File'
+use Illuminate\Support\Str;
 
 class WelcomeController extends Controller
 {
-    /**
-     * Menampilkan halaman utama (welcome) dan mengirimkan
-     * data galeri gambar ke view.
-     */
-    public function index()
+    // Nama fungsi diubah dari showHomePage menjadi "home" agar cocok dengan route
+    public function home() 
     {
-        // --- LOGIKA PENGAMBILAN GAMBAR DIMASUKKAN DI SINI ---
-
-        // 1. Tentukan path dasar ke folder gambar di dalam 'public'
-        $basePath = 'images/';
-
-        // 2. Definisikan kategori dan nama folder yang sesuai
-        $categories = [
-            'baju'  => 'desain baju',
-            'feed'  => 'feed instagram',
-            'tugas' => 'mastertugas',
-        ];
-
         $galleries = [];
+        $imagesPath = public_path('images'); // Path ke folder public/images
 
-        // 3. Loop setiap kategori untuk membaca file di dalamnya
-        foreach ($categories as $key => $folder) {
-            $path = public_path($basePath . $folder);
-            
-            // Cek apakah folder ada sebelum mencoba membaca
-            $files = File::exists($path) ? File::files($path) : [];
-            
-            $images = [];
-            foreach ($files as $file) {
-                // Buat path relatif yang akan digunakan di view (cth: 'images/desain baju/file.jpg')
-                $images[] = $basePath . $folder . '/' . $file->getFilename();
+        // Mengambil semua folder di dalam public/images
+        $projectFolders = glob($imagesPath . '/*', GLOB_ONLYDIR);
+
+        foreach ($projectFolders as $folderPath) {
+            $folderName = basename($folderPath);
+            $title = Str::of($folderName)->replace('-', ' ')->title();
+            $imageFiles = glob($folderPath . '/*.{jpg,jpeg,png,gif,webp}', GLOB_BRACE);
+
+            $cleanedImagePaths = [];
+            foreach ($imageFiles as $imageFile) {
+                // Membersihkan path agar bisa digunakan oleh fungsi asset()
+                $cleanedImagePaths[] = Str::after($imageFile, public_path());
             }
-            $galleries[$key] = $images;
+
+            $galleries[] = [
+                'key' => Str::slug($folderName),
+                'title' => $title,
+                'images' => $cleanedImagePaths
+            ];
         }
 
-        // 4. Kirim data variabel $galleries ke view 'welcome'
-        return view('welcome', ['galleries' => $galleries]);
+        // Mengirimkan variabel $galleries ke view
+        return view('welcome', [
+            'galleries' => $galleries
+        ]);
     }
 }

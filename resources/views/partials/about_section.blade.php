@@ -3,7 +3,7 @@
         <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div class="flex justify-center">
                 <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl">
-                    <img src="{{ asset('images/foto_profil.jpg') }}" alt="Foto Profil" class="w-full h-full object-cover">
+                    <img src="{{ asset('images/HAMID.jpg') }}" alt="Foto Profil" class="w-full h-full object-cover">
                 </div>
             </div>
             <div>
