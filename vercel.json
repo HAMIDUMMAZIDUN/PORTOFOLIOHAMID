@@ -2,18 +2,22 @@
     "version": 2,
     "framework": null,
     "functions": {
-        "api/index.php": { "runtime": "vercel-php@0.6.0" }
+        "public/index.php": { "runtime": "vercel-php@0.6.0" }
     },
     "routes": [
         {
+            "src": "/(build|css|js|images|storage|assets)/(.*)",
+            "dest": "/public/$1/$2"
+        },
+        {
             "src": "/(.*)",
-            "dest": "/api/index.php"
+            "dest": "/public/index.php"
         }
     ],
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
         "APP_URL": "https://nama-project-kamu.vercel.app",
-        "APP_KEY": "base64:COPY_KEY_DARI_ENV_LOKAL_KAMU_PASTE_DISINI"
+        "APP_KEY": "base64:ACmA+NwiX55fpsiLze2Vgkk+cbXV6ZOcS4WyzxyZxOU=" 
     }
 }
