@@ -1,0 +1,24 @@
+{
+    "version": 2,
+    "framework": null,
+    "builds": [
+        { "src": "/public/index.php", "use": "vercel-php@0.7.1" },
+        { "src": "/public/**", "use": "@vercel/static" }
+    ],
+    "routes": [
+        {
+            "src": "/(build|css|js|images|storage|assets|favicon.ico)/(.*)",
+            "dest": "/public/$1/$2"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/public/index.php"
+        }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "true",
+        "APP_URL": "https://nama-project-kamu.vercel.app",
+        "APP_KEY": "base64:ACmA+NwiX55fpsiLze2Vgkk+cbXV6ZOcS4WyzxyZxOU="
+    }
+}
