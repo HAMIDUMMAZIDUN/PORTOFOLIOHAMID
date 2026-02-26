@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Saya | Hamid Abdul Aziz</title>
+    <title>Tentang Saya | Hamid Abdul Aziz - Web Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>body { font-family: 'Inter', sans-serif; }</style>
@@ -12,7 +12,7 @@
 
     <nav class="w-full bg-white border-b border-gray-200">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="{{ url('/') }}" class="text-xl font-bold text-blue-900">Hamid<span class="text-orange-500">.Dev</span></a>
+            <a href="{{ url('/') }}" class="text-xl font-bold text-blue-900">Portofolio<span class="text-orange-500">Hamid</span></a>
             <a href="{{ url('/') }}" class="text-sm font-medium text-gray-500 hover:text-blue-900 transition">← Kembali ke Beranda</a>
         </div>
     </nav>
@@ -24,16 +24,22 @@
             </div>
             
             <h1 class="text-4xl font-bold text-gray-900 mb-2">Hamid Abdul Aziz</h1>
-            <p class="text-xl text-gray-500 mb-6">Junior IT Support & Creative QA Tester</p>
+            <p class="text-xl text-gray-500 mb-2">Web Developer · Junior IT Support · QA Tester · Creative Visual</p>
+            <div class="flex justify-center gap-2 flex-wrap mb-6">
+                <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">Laravel</span>
+                <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">PHP</span>
+                <span class="px-3 py-1 bg-amber-100 text-amber-700 text-xs font-bold rounded-full">HTML/CSS/JS</span>
+                <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">QA Testing</span>
+                <span class="px-3 py-1 bg-pink-100 text-pink-700 text-xs font-bold rounded-full">Photography</span>
+            </div>
             
             <p class="leading-relaxed text-gray-600 mb-8 max-w-2xl mx-auto">
-                Saya adalah mahasiswa tingkat akhir yang memiliki hasrat besar dalam pengembangan teknologi web dan dokumentasi visual. 
-                Memiliki pengalaman nyata dalam memimpin proyek backend dan manajemen kualitas aplikasi (QA), serta kreativitas dalam fotografi acara.
+                Saya adalah seorang <strong>Web Developer</strong> yang berpengalaman membangun aplikasi web berbasis Laravel. Selain itu, saya juga aktif sebagai Junior IT Support, QA Tester, dan Fotografer/Videografer — menjadikan saya sosok yang memahami aspek teknis maupun kreatif secara menyeluruh.
             </p>
             
             <div class="flex justify-center gap-4">
                 <a href="https://wa.me/6281214019947" class="px-6 py-2 bg-blue-900 text-white rounded-lg font-semibold hover:bg-blue-800 transition shadow-lg shadow-blue-900/20">Hubungi Saya</a>
-                <a href="{{ asset('cv-hamid.pdf') }}" download="CV_Hamid_Abdul_Aziz_IT_Creative.pdf" class="px-6 py-2 border border-gray-300 text-gray-700 bg-white rounded-lg font-semibold hover:bg-gray-50 hover:text-blue-600 hover:border-blue-300 transition flex items-center gap-2">
+                <a href="{{ asset('cv-hamid.pdf') }}" download="CV_Hamid_Abdul_Aziz.pdf" class="px-6 py-2 border border-gray-300 text-gray-700 bg-white rounded-lg font-semibold hover:bg-gray-50 hover:text-blue-600 hover:border-blue-300 transition flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
@@ -93,56 +99,79 @@
 
     <section class="py-16 bg-white border-t border-gray-100">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-2xl font-bold mb-8 text-center">Keahlian Teknis</h2>
+            <h2 class="text-2xl font-bold mb-2 text-center">Keahlian Teknis</h2>
+            <p class="text-center text-gray-500 text-sm mb-8">Skill yang saya kuasai sebagai Web Developer & IT Creative</p>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div class="p-4 bg-gray-50 rounded-lg">
+
+                {{-- Web Developer Skills --}}
+                <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
                     <div class="text-3xl mb-2 flex justify-center text-blue-600">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
                     </div>
                     <h3 class="font-semibold">Laravel (PHP)</h3>
+                    <p class="text-xs text-blue-500 mt-1">Web Dev</p>
                 </div>
-                <div class="p-4 bg-gray-50 rounded-lg">
-                    <div class="text-3xl mb-2 flex justify-center text-green-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <div class="p-4 bg-amber-50 rounded-lg border border-amber-100">
+                    <div class="text-3xl mb-2 flex justify-center text-amber-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                     </div>
-                    <h3 class="font-semibold">QA Testing</h3>
+                    <h3 class="font-semibold">HTML/CSS/JS</h3>
+                    <p class="text-xs text-amber-500 mt-1">Web Dev</p>
                 </div>
-                <div class="p-4 bg-gray-50 rounded-lg">
-                    <div class="text-3xl mb-2 flex justify-center text-cyan-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.5L7 13.5l1.5-1.5L12 15.5l8-8 1.5 1.5L12 18.5zM12 11.5L7 6.5l1.5-1.5L12 8.5l3.5-3.5 1.5 1.5L12 11.5z" /></svg>
-                    </div>
-                    <h3 class="font-semibold">Flutter</h3>
-                </div>
-                <div class="p-4 bg-gray-50 rounded-lg">
-                    <div class="text-3xl mb-2 flex justify-center text-orange-500">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                    </div>
-                    <h3 class="font-semibold">Photography</h3>
-                </div>
-                <div class="p-4 bg-gray-50 rounded-lg">
-                    <div class="text-3xl mb-2 flex justify-center text-purple-600">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
-                    </div>
-                    <h3 class="font-semibold">Video Editing</h3>
-                </div>
-                <div class="p-4 bg-gray-50 rounded-lg">
+                <div class="p-4 bg-blue-50 rounded-lg border border-blue-100">
                     <div class="text-3xl mb-2 flex justify-center text-blue-500">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
                     </div>
                     <h3 class="font-semibold">MySQL</h3>
+                    <p class="text-xs text-blue-500 mt-1">Web Dev</p>
                 </div>
-                <div class="p-4 bg-gray-50 rounded-lg">
+
+                {{-- QA & IT --}}
+                <div class="p-4 bg-green-50 rounded-lg border border-green-100">
+                    <div class="text-3xl mb-2 flex justify-center text-green-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <h3 class="font-semibold">QA Testing</h3>
+                    <p class="text-xs text-green-600 mt-1">IT Support</p>
+                </div>
+                <div class="p-4 bg-cyan-50 rounded-lg border border-cyan-100">
+                    <div class="text-3xl mb-2 flex justify-center text-cyan-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18.5L7 13.5l1.5-1.5L12 15.5l8-8 1.5 1.5L12 18.5zM12 11.5L7 6.5l1.5-1.5L12 8.5l3.5-3.5 1.5 1.5L12 11.5z" /></svg>
+                    </div>
+                    <h3 class="font-semibold">Flutter</h3>
+                    <p class="text-xs text-cyan-500 mt-1">Mobile Dev</p>
+                </div>
+                <div class="p-4 bg-teal-50 rounded-lg border border-teal-100">
                     <div class="text-3xl mb-2 flex justify-center text-teal-600">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg>
                     </div>
                     <h3 class="font-semibold">Networking</h3>
+                    <p class="text-xs text-teal-600 mt-1">IT Support</p>
                 </div>
-                <div class="p-4 bg-gray-50 rounded-lg">
+                <div class="p-4 bg-gray-100 rounded-lg border border-gray-200">
                     <div class="text-3xl mb-2 flex justify-center text-gray-700">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
                     </div>
                     <h3 class="font-semibold">Git / Github</h3>
+                    <p class="text-xs text-gray-500 mt-1">Version Control</p>
                 </div>
+
+                {{-- Creative --}}
+                <div class="p-4 bg-orange-50 rounded-lg border border-orange-100">
+                    <div class="text-3xl mb-2 flex justify-center text-orange-500">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    </div>
+                    <h3 class="font-semibold">Photography</h3>
+                    <p class="text-xs text-orange-500 mt-1">Creative</p>
+                </div>
+                <div class="p-4 bg-purple-50 rounded-lg border border-purple-100">
+                    <div class="text-3xl mb-2 flex justify-center text-purple-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10l4.553-2.276A1 1 0 0121 8.723v6.554a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+                    </div>
+                    <h3 class="font-semibold">Video Editing</h3>
+                    <p class="text-xs text-purple-500 mt-1">Creative</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -154,13 +183,11 @@
             <div class="grid md:grid-cols-3 gap-8">
 
                 {{-- Card: Undangan Digital --}}
-                <a href="https://undanganbybiru.pameuntasan.com/" target="_blank" class="group relative overflow-hidden rounded-xl bg-gray-900 aspect-video block shadow-lg">
+                <a href="https://undanganbybiru.pameuntasan.com/" target="_blank" class="group relative overflow-hidden bg-gray-900 aspect-video block shadow-lg">
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-900 flex items-center justify-center">
                         <div class="text-center px-6">
                             <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/20">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
+                                <img src="{{ asset('scanundangan.png') }}" alt="Backend System PT DIGI TEKO" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
                             </div>
                             <p class="text-blue-200 text-sm font-medium">undanganbybiru.pameuntasan.com</p>
                         </div>
@@ -180,7 +207,7 @@
                 </a>
 
                 {{-- Card: Backend System PT DIGI TEKO --}}
-                <a href="https://absensiptdigi.pameuntasan.com/" target="_blank" class="group relative overflow-hidden rounded-xl bg-gray-900 aspect-video block shadow-lg">
+                <a href="https://absensiptdigi.pameuntasan.com/" target="_blank" class="group relative overflow-hidden bg-gray-900 aspect-video block shadow-lg">
                     <img src="{{ asset('landpage-pt-digi.jpg') }}" alt="Backend System PT DIGI TEKO" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
 
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -197,13 +224,11 @@
                 </a>
 
                 {{-- Card: Instagram --}}
-                <a href="https://instagram.com/galerihamidabdulaziz_" target="_blank" class="group relative overflow-hidden rounded-xl bg-gray-900 aspect-video block shadow-lg">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 flex items-center justify-center">
+                <a href="https://instagram.com/galerihamidabdulaziz_" target="_blank" class="group relative overflow-hidden bg-gray-900 aspect-video block shadow-lg">
+                    <div class="absolute inset-0 bg-gradient-to-br flex items-center justify-center">
                         <div class="text-center px-6">
                             <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/20">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                                </svg>
+                               <img src="{{ asset('wedding-salsa-sidik.jpg') }}" alt="Backend System PT DIGI TEKO" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
                             </div>
                             <p class="text-pink-100 text-sm font-medium">@galerihamidabdulaziz_</p>
                         </div>

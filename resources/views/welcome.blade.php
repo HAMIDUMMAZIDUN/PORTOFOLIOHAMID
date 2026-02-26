@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamid Abdul Aziz | IT Support & Creative Visual</title>
+    <title>Hamid Abdul Aziz | Web Developer & IT Creative</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -15,7 +15,7 @@
 
     <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-blue-900">Hamid<span class="text-orange-500">.Dev</span></a>
+            <a href="#" class="text-xl font-bold text-blue-900">Portofolio<span class="text-orange-500">Hamid</span></a>
             <div class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="{{ url('/tentang-saya') }}" class="hover:text-orange-500 transition">Tentang Saya</a>
                 <a href="#services" class="hover:text-orange-500 transition">Layanan</a>
@@ -34,15 +34,16 @@
         <div class="container mx-auto text-center">
             <span class="inline-block py-1 px-3 rounded-full bg-orange-100 text-orange-600 text-xs font-bold tracking-wide mb-4">OPEN FOR PROJECTS</span>
             <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                IT Solution & <br>
+                Web Developer &<br>
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">Creative Visual Storyteller</span>
             </h1>
             <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Halo, saya <b>Hamid Abdul Aziz</b>. Mahasiswa tingkat akhir yang menggabungkan logika pemrograman (Web/QA) dengan estetika visual (Fotografi/Videografi).
+                Halo, saya <b>Hamid Abdul Aziz</b>. Web Developer & Junior IT Support yang juga berpengalaman sebagai QA Tester dan Fotografer/Videografer profesional.
             </p>
-            <div class="flex justify-center gap-4">
+            <div class="flex justify-center gap-4 flex-wrap">
                 <a href="#contact" class="px-8 py-3 bg-blue-900 text-white rounded-lg font-semibold hover:bg-blue-800 transition shadow-lg shadow-blue-900/20">Ayo Diskusi</a>
                 <a href="{{ url('/tentang-saya') }}" class="px-8 py-3 bg-white text-gray-700 border border-gray-200 rounded-lg font-semibold hover:bg-gray-50 transition">Lihat Karya</a>
+                <a href="#portfolio" class="px-8 py-3 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-400 transition shadow-lg shadow-orange-500/20">Portofolio Web</a>
             </div>
         </div>
     </section>
@@ -56,18 +57,18 @@
                     </div>
                 </div>
                 <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold mb-4">Lebih dari Sekedar Kode</h2>
+                    <h2 class="text-3xl font-bold mb-4">Web Developer & Lebih dari Sekedar Kode</h2>
                     <p class="text-gray-600 mb-6">
-                        Saya memiliki latar belakang unik. Di satu sisi, saya berpengalaman sebagai <b>Backend Developer & Project Manager</b> saat magang di <b>PT DIGI TEKO INDONESIA</b>. Di sisi lain, saya aktif mendokumentasikan momen berharga seperti pernikahan dan event.
+                        Saya adalah <b>Web Developer</b> dengan pengalaman nyata membangun aplikasi web menggunakan <b>Laravel (PHP)</b>, HTML, CSS, dan JavaScript. Selain itu, saya pernah menjabat sebagai <b>Backend Developer & Project Manager</b> di <b>PT DIGI TEKO INDONESIA</b>, serta aktif sebagai fotografer/videografer profesional untuk event pernikahan.
                     </p>
                     <div class="grid grid-cols-2 gap-4">
                         <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-600">
-                            <h3 class="font-bold text-gray-900">Tech Stack</h3>
-                            <p class="text-sm text-gray-500 mt-1">Laravel, MySQL, Git, QA Testing, Flutter</p>
+                            <h3 class="font-bold text-gray-900">Web Dev Stack</h3>
+                            <p class="text-sm text-gray-500 mt-1">Laravel, PHP, HTML/CSS/JS, MySQL, Git, Flutter, QA Testing</p>
                         </div>
                         <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-orange-500">
                             <h3 class="font-bold text-gray-900">Creative Tools</h3>
-                            <p class="text-sm text-gray-500 mt-1">Lightroom, Capcut, Canva, Photography</p>
+                            <p class="text-sm text-gray-500 mt-1">Lightroom, Capcut, Canva, Photography & Videography</p>
                         </div>
                     </div>
                 </div>
@@ -107,6 +108,80 @@
                     <h3 class="text-xl font-bold mb-3">Creative Photo & Video</h3>
                     <p class="text-gray-500 mb-4 text-sm">Dokumentasi Wedding, foto produk UMKM, hingga konten video pendek (Reels/TikTok) untuk promosi.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== PORTFOLIO SECTION ====== -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-700 text-xs font-bold tracking-wide mb-3">KARYA NYATA</span>
+                <h2 class="text-3xl font-bold mb-4">Portofolio Web Development</h2>
+                <p class="text-gray-500 max-w-xl mx-auto">Proyek-proyek web yang telah saya bangun dan deploy secara nyata, mulai dari sistem absensi hingga platform undangan digital.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Project 1: E-Undangan -->
+                <a href="https://undanganbybiru.pameuntasan.com/" target="_blank" class="group block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
+                    <div class="h-48 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-900 flex items-center justify-center relative overflow-hidden">
+                        <img src="{{ asset('scanundangan.png') }}" alt="E-Undangan Digital Biru" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500">
+                        <span class="relative z-10 bg-white/20 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full border border-white/30">LIVE WEBSITE</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-blue-600 text-xs font-bold tracking-widest uppercase">Web Development</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2 text-gray-900">E-Undangan Digital "Biru"</h3>
+                        <p class="text-gray-500 text-sm mb-4">Platform undangan pernikahan digital interaktif yang dapat dikustomisasi.</p>
+                        <span class="inline-flex items-center text-blue-600 text-sm font-semibold gap-1 group-hover:gap-2 transition-all">
+                            Kunjungi Website
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Project 2: Backend PT DIGI TEKO -->
+                <a href="https://absensiptdigi.pameuntasan.com/" target="_blank" class="group block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <img src="{{ asset('landpage-pt-digi.jpg') }}" alt="Backend System PT DIGI TEKO" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
+                        <span class="absolute top-3 right-3 z-10 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">LIVE WEBSITE</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-green-600 text-xs font-bold tracking-widest uppercase">Laravel Backend</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2 text-gray-900">Backend System PT DIGI TEKO</h3>
+                        <p class="text-gray-500 text-sm mb-4">Sistem absensi, project management & dashboard berbasis Laravel untuk perusahaan IT.</p>
+                        <span class="inline-flex items-center text-green-600 text-sm font-semibold gap-1 group-hover:gap-2 transition-all">
+                            Kunjungi Website
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Project 3: Portofolio ini sendiri -->
+                <div class="group block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
+                    <div class="h-48 bg-gradient-to-br from-gray-800 to-blue-900 flex items-center justify-center relative overflow-hidden">
+                        <div class="text-center">
+                            <div class="text-5xl font-black text-white/20 select-none">Hamid<span class="text-orange-400">.Dev</span></div>
+                        </div>
+                        <span class="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">PROJECT INI</span>
+                    </div>
+                    <div class="p-6">
+                        <span class="text-orange-500 text-xs font-bold tracking-widest uppercase">Laravel + Tailwind</span>
+                        <h3 class="text-lg font-bold mt-1 mb-2 text-gray-900">Website Portofolio Ini</h3>
+                        <p class="text-gray-500 text-sm mb-4">Portofolio pribadi yang dibangun dengan Laravel framework & Tailwind CSS, deployed di hosting.</p>
+                        <span class="inline-flex items-center text-orange-500 text-sm font-semibold gap-1">
+                            Sedang Anda Baca
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="{{ url('/tentang-saya') }}" class="inline-flex items-center gap-2 text-blue-900 font-semibold hover:underline">
+                    Lihat Semua Karya → 
+                </a>
             </div>
         </div>
     </section>
