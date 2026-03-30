@@ -2,8 +2,14 @@
     "version": 2,
     "framework": null,
     "builds": [
-        { "src": "/public/index.php", "use": "vercel-php@0.7.1" },
-        { "src": "/public/**", "use": "@vercel/static" }
+        {
+            "src": "/public/index.php",
+            "use": "vercel-php@0.7.1"
+        },
+        {
+            "src": "/public/**",
+            "use": "@vercel/static"
+        }
     ],
     "routes": [
         {
@@ -17,8 +23,13 @@
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "true",
-        "APP_URL": "https://nama-project-kamu.vercel.app",
-        "APP_KEY": "base64:ACmA+NwiX55fpsiLze2Vgkk+cbXV6ZOcS4WyzxyZxOU="
+        "APP_DEBUG": "false",
+        "APP_URL": "https://portofoliohamid.vercel.app",
+        "APP_KEY": "base64:W7B+3I3w06YRL5CuiJK0Wk+XOvPGPgEkNHgFiEbcKU8=",
+        "DB_CONNECTION": "sqlite",
+        "DB_DATABASE": "/tmp/database.sqlite",
+        "SESSION_DRIVER": "cookie",
+        "CACHE_STORE": "array",
+        "LOG_CHANNEL": "stderr"
     }
 }
