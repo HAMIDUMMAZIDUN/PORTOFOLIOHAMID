@@ -23,7 +23,7 @@
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "false",
+        "APP_DEBUG": "true",
         "APP_URL": "https://portofoliohamid.vercel.app",
         "APP_KEY": "base64:W7B+3I3w06YRL5CuiJK0Wk+XOvPGPgEkNHgFiEbcKU8=",
         "DB_CONNECTION": "sqlite",
