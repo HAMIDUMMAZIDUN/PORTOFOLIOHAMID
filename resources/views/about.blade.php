@@ -183,13 +183,13 @@
             <div class="grid md:grid-cols-3 gap-8">
 
                 {{-- Card: Undangan Digital --}}
-                <a href="https://undanganbybiru.pameuntasan.com/" target="_blank" class="group relative overflow-hidden bg-gray-900 aspect-video block shadow-lg">
+                <a href="https://bybiru.my.id/" target="_blank" class="group relative overflow-hidden bg-gray-900 aspect-video block shadow-lg">
                     <div class="absolute inset-0 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-900 flex items-center justify-center">
                         <div class="text-center px-6">
                             <div class="w-16 h-16 bg-white/10 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/20">
                                 <img src="{{ asset('scanundangan.png') }}" alt="Backend System PT DIGI TEKO" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
                             </div>
-                            <p class="text-blue-200 text-sm font-medium">undanganbybiru.pameuntasan.com</p>
+                            <p class="text-blue-200 text-sm font-medium">bybiru.my.id</p>
                         </div>
                     </div>
 
