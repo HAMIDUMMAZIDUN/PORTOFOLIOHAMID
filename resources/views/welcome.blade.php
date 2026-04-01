@@ -124,7 +124,7 @@
             <div class="grid md:grid-cols-3 gap-8">
 
                 <!-- Project 1: E-Undangan -->
-                <a href="https://undanganbybiru.pameuntasan.com/" target="_blank" class="group block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
+                <a href="https://bybiru.my.id/" target="_blank" class="group block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
                     <div class="h-48 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-900 flex items-center justify-center relative overflow-hidden">
                         <img src="{{ asset('scanundangan.png') }}" alt="E-Undangan Digital Biru" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500">
                         <span class="relative z-10 bg-white/20 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full border border-white/30">LIVE WEBSITE</span>
