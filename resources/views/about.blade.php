@@ -207,7 +207,7 @@
                 </a>
 
                 {{-- Card: Backend System PT DIGI TEKO --}}
-                <a href="https://absensiptdigi.pameuntasan.com/" target="_blank" class="group relative overflow-hidden bg-gray-900 aspect-video block shadow-lg">
+                <a href="https://absensiptdigidemoweb.vercel.app/" target="_blank" class="group relative overflow-hidden bg-gray-900 aspect-video block shadow-lg">
                     <img src="{{ asset('landpage-pt-digi.jpg') }}" alt="Backend System PT DIGI TEKO" class="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100">
 
                     <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">

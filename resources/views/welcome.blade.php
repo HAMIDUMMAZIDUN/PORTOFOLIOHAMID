@@ -141,7 +141,7 @@
                 </a>
 
                 <!-- Project 2: Backend PT DIGI TEKO -->
-                <a href="https://absensiptdigi.pameuntasan.com/" target="_blank" class="group block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
+                <a href="https://absensiptdigidemoweb.vercel.app/" target="_blank" class="group block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
                     <div class="h-48 bg-gray-200 relative overflow-hidden">
                         <img src="{{ asset('landpage-pt-digi.jpg') }}" alt="Backend System PT DIGI TEKO" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
                         <span class="absolute top-3 right-3 z-10 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">LIVE WEBSITE</span>
