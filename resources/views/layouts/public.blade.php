@@ -75,13 +75,13 @@
             </a>
 
             <!-- Navigation Links (Desktop) -->
-            <div class="hidden md:flex items-center space-x-8 text-[13px] font-semibold tracking-wide uppercase text-slate-600 dark:text-slate-300">
-                <a href="{{ route('home') }}#services" class="hover:text-premium-navy dark:hover:text-white transition-colors duration-200">Layanan</a>
-                <a href="{{ route('pricing') }}" class="hover:text-premium-navy dark:hover:text-white transition-colors duration-200">Paket Harga</a>
-                <a href="{{ route('portfolio') }}" class="hover:text-premium-navy dark:hover:text-white transition-colors duration-200">Portofolio</a>
-                <a href="{{ route('social-media') }}" class="hover:text-premium-navy dark:hover:text-white transition-colors duration-200">Sosmed</a>
-                <a href="{{ route('blog') }}" class="hover:text-premium-navy dark:hover:text-white transition-colors duration-200">Blog</a>
-                <a href="{{ route('about') }}" class="hover:text-premium-navy dark:hover:text-white transition-colors duration-200 font-medium">Tentang</a>
+            <div class="hidden md:flex items-center space-x-8 text-[13px] font-semibold tracking-wide uppercase">
+                <a href="{{ route('home') }}#services" class="border-b-2 {{ request()->routeIs('home') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Layanan</a>
+                <a href="{{ route('pricing') }}" class="border-b-2 {{ request()->routeIs('pricing') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Paket Harga</a>
+                <a href="{{ route('portfolio') }}" class="border-b-2 {{ request()->routeIs('portfolio') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Portofolio</a>
+                <a href="{{ route('social-media') }}" class="border-b-2 {{ request()->routeIs('social-media') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Sosmed</a>
+                <a href="{{ route('blog') }}" class="border-b-2 {{ request()->routeIs('blog') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Blog</a>
+                <a href="{{ route('about') }}" class="border-b-2 {{ request()->routeIs('about') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Tentang</a>
             </div>
 
             <!-- CTA / Theme Switcher / Admin Login (Desktop) -->
@@ -136,12 +136,12 @@
         <!-- Mobile Navigation Menu -->
         <div x-show="mobileOpen" @click.away="mobileOpen = false" x-transition 
              class="md:hidden border-t border-slate-200 dark:border-slate-800 bg-[#fcfbf9] dark:bg-[#0b0f19] px-6 py-6 space-y-4 shadow-inner" style="display: none;">
-            <a href="{{ route('home') }}#services" @click="mobileOpen = false" class="block text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white">Layanan</a>
-            <a href="{{ route('pricing') }}" @click="mobileOpen = false" class="block text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white">Paket Harga</a>
-            <a href="{{ route('portfolio') }}" @click="mobileOpen = false" class="block text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white">Portofolio</a>
-            <a href="{{ route('social-media') }}" @click="mobileOpen = false" class="block text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white">Sosmed</a>
-            <a href="{{ route('blog') }}" @click="mobileOpen = false" class="block text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white">Blog</a>
-            <a href="{{ route('about') }}" @click="mobileOpen = false" class="block text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white">Tentang</a>
+            <a href="{{ route('home') }}#services" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('home') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Layanan</a>
+            <a href="{{ route('pricing') }}" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('pricing') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Paket Harga</a>
+            <a href="{{ route('portfolio') }}" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('portfolio') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Portofolio</a>
+            <a href="{{ route('social-media') }}" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('social-media') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Sosmed</a>
+            <a href="{{ route('blog') }}" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('blog') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Blog</a>
+            <a href="{{ route('about') }}" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('about') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Tentang</a>
             <hr class="border-slate-200 dark:border-slate-800 my-2">
             <div class="flex items-center justify-between">
                 @auth
