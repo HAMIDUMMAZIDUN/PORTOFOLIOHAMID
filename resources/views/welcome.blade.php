@@ -1,210 +1,503 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hamid Abdul Aziz | Web Developer & IT Creative</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-        .scroll-smooth { scroll-behavior: smooth; }
-    </style>
-</head>
-<body class="bg-gray-50 text-gray-800 scroll-smooth">
+@extends('layouts.public')
 
-    <nav class="fixed w-full bg-white/90 backdrop-blur-sm shadow-sm z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold text-blue-900">Portofolio<span class="text-orange-500">Hamid</span></a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="{{ url('/tentang-saya') }}" class="hover:text-orange-500 transition">Tentang Saya</a>
-                <a href="#services" class="hover:text-orange-500 transition">Layanan</a>
-                <a href="#portfolio" class="hover:text-orange-500 transition">Portofolio</a>
-                <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20tertarik%20dengan%20jasa%20Anda" target="_blank" class="px-8 py-4 bg-green-500 rounded-lg font-bold hover:bg-green-400 transition flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-8.68-2.031-.967-.272-.099-.47-.149-.669.198-.198.346-.769.967-.943 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
-                    </svg>
-                    <span>Chat WhatsApp</span>
-                </a>
-            </div>
-        </div>
-    </nav>
+@section('title', 'HA Creative | Jasa Pembuatan Website & Desain Grafis Premium')
 
-    <section class="pt-32 pb-20 px-6 bg-gradient-to-br from-blue-50 to-white">
-        <div class="container mx-auto text-center">
-            <span class="inline-block py-1 px-3 rounded-full bg-orange-100 text-orange-600 text-xs font-bold tracking-wide mb-4">OPEN FOR PROJECTS</span>
-            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Web Developer &<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-orange-500">Creative Visual Storyteller</span>
-            </h1>
-            <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Halo, saya <b>Hamid Abdul Aziz</b>. Web Developer & Junior IT Support yang juga berpengalaman sebagai QA Tester dan Fotografer/Videografer profesional.
-            </p>
-            <div class="flex justify-center gap-4 flex-wrap">
-                <a href="#contact" class="px-8 py-3 bg-blue-900 text-white rounded-lg font-semibold hover:bg-blue-800 transition shadow-lg shadow-blue-900/20">Ayo Diskusi</a>
-                <a href="{{ url('/tentang-saya') }}" class="px-8 py-3 bg-white text-gray-700 border border-gray-200 rounded-lg font-semibold hover:bg-gray-50 transition">Lihat Karya</a>
-                <a href="#portfolio" class="px-8 py-3 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-400 transition shadow-lg shadow-orange-500/20">Portofolio Web</a>
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="md:w-1/2">
-                    <div class="h-64 w-64 bg-gray-200 rounded-2xl mx-auto md:mx-0 overflow-hidden shadow-xl border-4 border-white transform hover:scale-105 transition duration-300">
-                        <img src="{{ asset('hamid.jpg') }}" alt="Hamid Abdul Aziz" class="w-full h-full object-cover">
-                    </div>
-                </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-bold mb-4">Web Developer & Lebih dari Sekedar Kode</h2>
-                    <p class="text-gray-600 mb-6">
-                        Saya adalah <b>Web Developer</b> dengan pengalaman nyata membangun aplikasi web menggunakan <b>Laravel (PHP)</b>, HTML, CSS, dan JavaScript. Selain itu, saya pernah menjabat sebagai <b>Backend Developer & Project Manager</b> di <b>PT DIGI TEKO INDONESIA</b>, serta aktif sebagai fotografer/videografer profesional untuk event pernikahan.
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-blue-600">
-                            <h3 class="font-bold text-gray-900">Web Dev Stack</h3>
-                            <p class="text-sm text-gray-500 mt-1">Laravel, PHP, HTML/CSS/JS, MySQL, Git, Flutter, QA Testing</p>
-                        </div>
-                        <div class="p-4 bg-gray-50 rounded-lg border-l-4 border-orange-500">
-                            <h3 class="font-bold text-gray-900">Creative Tools</h3>
-                            <p class="text-sm text-gray-500 mt-1">Lightroom, Capcut, Canva, Photography & Videography</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="services" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">Solusi Hybrid Untuk Anda</h2>
-                <p class="text-gray-600">Pilih layanan yang sesuai dengan kebutuhan bisnis atau proyek Anda.</p>
-            </div>
+@section('content')
+    <!-- Hero Section -->
+    <section id="hero" class="relative py-24 md:py-32 px-6 overflow-hidden">
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <!-- Subtle Badge -->
+            <span class="inline-flex items-center px-4 py-1.5 rounded-full border border-slate-200 text-slate-500 text-[11px] font-semibold uppercase tracking-wider mb-8 bg-white shadow-sm">
+                Desain & Pengembangan Website Premium
+            </span>
             
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100">
-                    <div class="w-12 h-12 text-blue-600 rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Web Development & IT Support</h3>
-                    <p class="text-gray-500 mb-4 text-sm">Pembuatan website profil, maintenance sistem sekolah/UMKM, hingga instalasi jaringan & hardware.</p>
-                </div>
+            <!-- Headline -->
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-premium-navy tracking-tight leading-[1.1] mb-8">
+                Wujudkan Visi Digital <br>
+                <span class="text-slate-400 font-light">Anda Bersama Kami.</span>
+            </h1>
+            
+            <!-- Sub-headline -->
+            <p class="text-base md:text-lg text-slate-500 mb-12 max-w-2xl mx-auto leading-relaxed font-light font-sans">
+                Tingkatkan citra & kepercayaan bisnismu dengan website desain profesional premium, performa cepat, SEO friendly, dan fitur lengkap aktif 24 jam dengan jangkauan tanpa batas.
+            </p>
+            
+            <!-- Call to Actions -->
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                <a href="{{ route('portfolio') }}" class="w-full sm:w-auto px-7 py-3.5 bg-premium-navy hover:bg-slate-800 text-white rounded-lg text-xs font-bold uppercase tracking-wider shadow-sm transition duration-200 text-center">
+                    Lihat Portofolio
+                </a>
+                <a href="#contact" class="w-full sm:w-auto px-7 py-3.5 border border-slate-300 hover:border-premium-navy text-slate-700 hover:text-premium-navy rounded-lg text-xs font-bold uppercase tracking-wider transition duration-200 text-center">
+                    Konsultasi Gratis
+                </a>
+            </div>
+        </div>
+    </section>
 
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 bg-blue-600 text-white text-xs px-2 py-1 rounded-bl-lg">Special Skill</div>
-                    <div class="w-12 h-12 text-green-600 rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+    <!-- Trust Features Section (Keunggulan Kami) -->
+    <section class="py-16 bg-white border-t border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8 text-center">
+                <!-- feature 1 -->
+                <div class="p-6">
+                    <div class="w-10 h-10 bg-slate-100 text-premium-navy rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">QA & Bug Testing</h3>
-                    <p class="text-gray-500 mb-4 text-sm">Testing aplikasi web/mobile (Manual/Blackbox) untuk memastikan software berjalan lancar sebelum rilis.</p>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy mb-2">Tim Profesional</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-light">Dikerjakan oleh tim developer & desainer berpengalaman.</p>
                 </div>
-
-                <div class="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition border border-gray-100">
-                    <div class="w-12 h-12 text-orange-600 rounded-lg flex items-center justify-center text-2xl mb-6">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                <!-- feature 2 -->
+                <div class="p-6">
+                    <div class="w-10 h-10 bg-slate-100 text-premium-navy rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Creative Photo & Video</h3>
-                    <p class="text-gray-500 mb-4 text-sm">Dokumentasi Wedding, foto produk UMKM, hingga konten video pendek (Reels/TikTok) untuk promosi.</p>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy mb-2">Anti Lemot & Cepat</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-light">Optimasi struktur kode & kompresi aset gambar maksimal.</p>
+                </div>
+                <!-- feature 3 -->
+                <div class="p-6">
+                    <div class="w-10 h-10 bg-slate-100 text-premium-navy rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy mb-2">Free Maintenance</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-light">Dukungan pemeliharaan sistem gratis selama aktif.</p>
+                </div>
+                <!-- feature 4 -->
+                <div class="p-6">
+                    <div class="w-10 h-10 bg-slate-100 text-premium-navy rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path></svg>
+                    </div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy mb-2">SEO Friendly</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-light">Membantu website bisnis Anda lebih mudah ditemukan di Google.</p>
+                </div>
+                <!-- feature 5 -->
+                <div class="p-6">
+                    <div class="w-10 h-10 bg-slate-100 text-premium-navy rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy mb-2">Video Tutorial</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-light">Modul video penggunaan untuk kelola konten mandiri.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ====== PORTFOLIO SECTION ====== -->
-    <section id="portfolio" class="py-20 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-12">
-                <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-700 text-xs font-bold tracking-wide mb-3">KARYA NYATA</span>
-                <h2 class="text-3xl font-bold mb-4">Portofolio Web Development</h2>
-                <p class="text-gray-500 max-w-xl mx-auto">Proyek-proyek web yang telah saya bangun dan deploy secara nyata, mulai dari sistem absensi hingga platform undangan digital.</p>
+    <!-- Layanan Kami (Services Overview) -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="text-premium-navy text-xs font-bold uppercase tracking-widest block mb-3">Layanan Kami</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-premium-navy">Keahlian Utama Kami</h2>
+                <p class="text-slate-500 mt-4 leading-relaxed font-light text-sm">
+                    Fokus pada estetika visual berkelas dan performa kode yang optimal untuk melahirkan produk digital terbaik.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8">
-
-                <!-- Project 1: E-Undangan -->
-                <a href="https://bybiru.my.id/" target="_blank" class="group block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
-                    <div class="h-48 bg-gradient-to-br from-blue-800 via-blue-900 to-indigo-900 flex items-center justify-center relative overflow-hidden">
-                        <img src="{{ asset('scanundangan.png') }}" alt="E-Undangan Digital Biru" class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-90 group-hover:scale-110 transition-all duration-500">
-                        <span class="relative z-10 bg-white/20 backdrop-blur text-white text-xs font-bold px-3 py-1 rounded-full border border-white/30">LIVE WEBSITE</span>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-blue-600 text-xs font-bold tracking-widest uppercase">Web Development</span>
-                        <h3 class="text-lg font-bold mt-1 mb-2 text-gray-900">E-Undangan Digital "Biru"</h3>
-                        <p class="text-gray-500 text-sm mb-4">Platform undangan pernikahan digital interaktif yang dapat dikustomisasi.</p>
-                        <span class="inline-flex items-center text-blue-600 text-sm font-semibold gap-1 group-hover:gap-2 transition-all">
-                            Kunjungi Website
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Project 2: Backend PT DIGI TEKO -->
-                <a href="https://absensiptdigidemoweb.vercel.app/" target="_blank" class="group block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
-                    <div class="h-48 bg-gray-200 relative overflow-hidden">
-                        <img src="{{ asset('landpage-pt-digi.jpg') }}" alt="Backend System PT DIGI TEKO" class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-                        <span class="absolute top-3 right-3 z-10 bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">LIVE WEBSITE</span>
-                    </div>
-                    <div class="p-6">
-                        <span class="text-green-600 text-xs font-bold tracking-widest uppercase">Laravel Backend</span>
-                        <h3 class="text-lg font-bold mt-1 mb-2 text-gray-900">Backend System PT DIGI TEKO</h3>
-                        <p class="text-gray-500 text-sm mb-4">Sistem absensi, project management & dashboard berbasis Laravel untuk perusahaan IT.</p>
-                        <span class="inline-flex items-center text-green-600 text-sm font-semibold gap-1 group-hover:gap-2 transition-all">
-                            Kunjungi Website
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
-                        </span>
-                    </div>
-                </a>
-
-                <!-- Project 3: Portofolio ini sendiri -->
-                <div class="group block bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-1">
-                    <div class="h-48 bg-gradient-to-br from-gray-800 to-blue-900 flex items-center justify-center relative overflow-hidden">
-                        <div class="text-center">
-                            <div class="text-5xl font-black text-white/20 select-none">Hamid<span class="text-orange-400">.Dev</span></div>
+            <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <!-- Card 1: Jasa Pembuatan Website -->
+                <div class="p-10 rounded-2xl border border-slate-150 bg-[#fcfbf9] hover:shadow-lg hover:border-slate-300 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-slate-900/5 text-premium-navy flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            </svg>
                         </div>
-                        <span class="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">PROJECT INI</span>
+                        <h3 class="text-xl font-bold text-premium-navy mb-4">Jasa Pembuatan Website</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6 font-light">
+                            Mulai dari landing page profil perusahaan, platform katalog produk, hingga sistem dashboard operasional custom yang cepat, ramah SEO, dan responsif di semua perangkat.
+                        </p>
                     </div>
-                    <div class="p-6">
-                        <span class="text-orange-500 text-xs font-bold tracking-widest uppercase">Laravel + Tailwind</span>
-                        <h3 class="text-lg font-bold mt-1 mb-2 text-gray-900">Website Portofolio Ini</h3>
-                        <p class="text-gray-500 text-sm mb-4">Portofolio pribadi yang dibangun dengan Laravel framework & Tailwind CSS, deployed di hosting.</p>
-                        <span class="inline-flex items-center text-orange-500 text-sm font-semibold gap-1">
-                            Sedang Anda Baca
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                        </span>
+                    <a href="{{ route('pricing') }}" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-premium-navy hover:underline mt-4">
+                        <span>Pesan Website & Lihat Paket</span>
+                        <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Card 2: Jasa Desain Grafis & UI/UX -->
+                <div class="p-10 rounded-2xl border border-slate-150 bg-[#fcfbf9] hover:shadow-lg hover:border-slate-300 transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-lg bg-slate-900/5 text-premium-navy flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-premium-navy mb-4">Jasa Desain Grafis & UI/UX</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6 font-light">
+                            Desain antarmuka (UI/UX) aplikasi web/mobile menggunakan Figma, rancangan identitas brand (logo & visual guidelines), serta desain media sosial yang premium dan profesional.
+                        </p>
+                    </div>
+                    <a href="{{ route('social-media') }}" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-premium-navy hover:underline mt-4">
+                        <span>Lihat Paket Sosmed & Desain</span>
+                        <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portofolio Highlights (Dynamic Data) -->
+    <section id="portfolio" class="py-24 bg-slate-50 border-t border-b border-slate-200/60" 
+             x-data="{ activeCategory: 'Semua', lightboxOpen: false, lightboxMediaType: '', lightboxSrc: '', lightboxTitle: '' }">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-premium-navy text-xs font-bold uppercase tracking-widest block mb-3">Karya Pilihan</span>
+                    <h2 class="text-3xl md:text-4xl font-extrabold text-premium-navy">Portofolio Terbaru</h2>
+                </div>
+                
+                <!-- Category Filter Tabs -->
+                <div class="flex items-center space-x-1 bg-slate-200/50 p-1 rounded-xl">
+                    <button @click="activeCategory = 'Semua'" 
+                        :class="activeCategory === 'Semua' ? 'bg-white text-premium-navy shadow-sm' : 'text-slate-600 hover:text-premium-navy'"
+                        class="px-5 py-2 text-xs font-bold rounded-lg transition duration-150">
+                        Semua
+                    </button>
+                    <button @click="activeCategory = 'Website'" 
+                        :class="activeCategory === 'Website' ? 'bg-white text-premium-navy shadow-sm' : 'text-slate-600 hover:text-premium-navy'"
+                        class="px-5 py-2 text-xs font-bold rounded-lg transition duration-150">
+                        Website
+                    </button>
+                    <button @click="activeCategory = 'Desain'" 
+                        :class="activeCategory === 'Desain' ? 'bg-white text-premium-navy shadow-sm' : 'text-slate-600 hover:text-premium-navy'"
+                        class="px-5 py-2 text-xs font-bold rounded-lg transition duration-150">
+                        Desain
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Grid -->
+            @if($portfolios->isEmpty())
+                <div class="text-center py-20 bg-white rounded-2xl border border-slate-200/60 max-w-md mx-auto shadow-sm">
+                    <svg class="mx-auto h-12 w-12 text-slate-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    <h3 class="text-sm font-semibold text-slate-800">Portofolio Belum Tersedia</h3>
+                    <p class="text-xs text-slate-400 mt-1">Gunakan panel admin untuk mengunggah beberapa portofolio.</p>
+                </div>
+            @else
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    @foreach($portfolios as $item)
+                        <div x-show="activeCategory === 'Semua' || activeCategory === '{{ $item->category }}'"
+                             x-transition:enter="transition ease-out duration-300"
+                             x-transition:enter-start="opacity-0 transform scale-95"
+                             x-transition:enter-end="opacity-100 transform scale-100"
+                             class="bg-white rounded-2xl border border-slate-200/50 shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-all duration-300 group">
+                            
+                            <!-- Image / Video Container -->
+                            <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 border-b border-slate-100 cursor-pointer"
+                                 @if($item->media_type === 'video')
+                                     @click="lightboxMediaType = 'video'; lightboxSrc = '{{ $item->video_file ? asset('storage/' . $item->video_file) : ($item->video_url ?? '') }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
+                                 @elseif($item->media_type === 'link')
+                                     @click="window.open('{{ $item->link }}', '_blank')"
+                                 @else
+                                     @click="lightboxMediaType = 'image'; lightboxSrc = '{{ asset('storage/' . $item->image) }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
+                                 @endif>
+                                
+                                @if($item->image)
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}"
+                                         class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                                @else
+                                    <!-- Fallback dark block if video only -->
+                                    <div class="w-full h-full bg-slate-900 flex items-center justify-center text-slate-500">
+                                        <span class="text-xs uppercase tracking-widest font-bold">Media Video</span>
+                                    </div>
+                                @endif
+
+                                <!-- Play button overlay if media_type = video -->
+                                @if($item->media_type === 'video')
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors duration-200">
+                                        <div class="w-14 h-14 bg-white/90 hover:bg-white text-premium-navy rounded-full flex items-center justify-center shadow-lg transition-transform duration-200 transform group-hover:scale-105">
+                                            <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                @endif
+
+                                <!-- Category & Media Type Tag Overlay -->
+                                <div class="absolute top-4 left-4 flex items-center space-x-1.5">
+                                    <span class="bg-premium-navy text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm">
+                                        {{ $item->category }}
+                                    </span>
+                                    <span class="bg-white/95 text-slate-800 text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm border border-slate-200 capitalize">
+                                        {{ $item->media_type }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Content Details -->
+                            <div class="p-6 flex-1 flex flex-col justify-between">
+                                <div>
+                                    <h3 class="text-lg font-bold text-premium-navy mb-2 line-clamp-1">
+                                        {{ $item->title }}
+                                    </h3>
+                                    <p class="text-slate-500 text-xs leading-relaxed mb-6 line-clamp-2 font-light font-sans">
+                                        {{ $item->description }}
+                                    </p>
+                                </div>
+
+                                <!-- CTA Link logic -->
+                                <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                                    @if($item->media_type === 'video')
+                                        <button @click="lightboxMediaType = 'video'; lightboxSrc = '{{ $item->video_file ? asset('storage/' . $item->video_file) : ($item->video_url ?? '') }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
+                                                class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-premium-emerald hover:text-emerald-700 transition-colors duration-150">
+                                            <span>Putar Video</span>
+                                            <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                        </button>
+                                    @elseif($item->media_type === 'link' || ($item->category === 'Website' && $item->link))
+                                        <a href="{{ $item->link }}" target="_blank" 
+                                           class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-premium-navy hover:text-indigo-600 transition-colors duration-150">
+                                            <span>Kunjungi Link</span>
+                                            <svg class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                            </svg>
+                                        </a>
+                                    @else
+                                        <button @click="lightboxMediaType = 'image'; lightboxSrc = '{{ asset('storage/' . $item->image) }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
+                                                class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-slate-500 hover:text-premium-navy transition-colors duration-150">
+                                            <span>Lihat Gambar</span>
+                                            <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                            </svg>
+                                        </button>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="{{ route('portfolio') }}" class="inline-flex items-center justify-center px-6 py-3 border border-slate-300 hover:border-premium-navy text-slate-700 hover:text-premium-navy text-xs font-bold uppercase tracking-wider rounded-lg transition duration-200">
+                        Lihat Semua Portofolio
+                    </a>
+                </div>
+            @endif
+        </div>
+
+        <!-- Lightbox Modal Container -->
+        <div x-show="lightboxOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+             x-transition style="display: none;" @keydown.escape.window="lightboxOpen = false">
+            
+            <!-- Close Button -->
+            <button @click="lightboxOpen = false" class="absolute top-6 right-6 text-white/70 hover:text-white focus:outline-none z-10">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <!-- Modal Body -->
+            <div class="bg-slate-950 rounded-2xl overflow-hidden max-w-4xl w-full border border-slate-800 shadow-2xl flex flex-col justify-between" 
+                 @click.away="lightboxOpen = false">
+                
+                <!-- Media Player -->
+                <div class="aspect-video bg-black flex items-center justify-center relative overflow-hidden">
+                    
+                    <!-- Youtube/Web Embed Iframe -->
+                    <template x-if="lightboxOpen && lightboxMediaType === 'video' && (lightboxSrc.includes('http') && !lightboxSrc.includes('.mp4') && !lightboxSrc.includes('.mov'))">
+                        @php
+                            // Pre-parse helper template
+                        @endphp
+                        <iframe class="w-full h-full" :src="lightboxSrc" frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </template>
+
+                    <!-- Native HTML5 video player -->
+                    <template x-if="lightboxOpen && lightboxMediaType === 'video' && (lightboxSrc.includes('.mp4') || lightboxSrc.includes('.mov') || !lightboxSrc.includes('http'))">
+                        <video class="w-full h-full object-contain" controls autoplay>
+                            <source :src="lightboxSrc" type="video/mp4">
+                            Browser Anda tidak mendukung pemutaran video.
+                        </video>
+                    </template>
+
+                    <!-- Image Display -->
+                    <template x-if="lightboxOpen && lightboxMediaType === 'image'">
+                        <img :src="lightboxSrc" class="max-w-full max-h-full object-contain" :alt="lightboxTitle">
+                    </template>
+                </div>
+
+                <!-- Title & Meta -->
+                <div class="p-6 bg-slate-900 border-t border-slate-800 text-white flex justify-between items-center">
+                    <h4 class="text-sm font-bold tracking-tight" x-text="lightboxTitle"></h4>
+                    <button @click="lightboxOpen = false" class="text-xs text-slate-400 hover:text-white uppercase tracking-wider font-semibold">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section (Cara Order) -->
+    <section id="how-it-works" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-20">
+                <span class="text-premium-navy text-xs font-bold uppercase tracking-widest block mb-3">Cara Pemesanan</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-premium-navy">Langkah Mudah Memesan Layanan</h2>
+                <p class="text-slate-500 mt-4 leading-relaxed font-light text-sm">
+                    Ikuti 5 langkah sederhana berikut hingga website/desain Anda siap diterbitkan secara global.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 max-w-6xl mx-auto relative">
+                <!-- Step 1 -->
+                <div class="text-center relative">
+                    <div class="w-12 h-12 bg-premium-navy text-white text-sm font-bold rounded-full flex items-center justify-center mx-auto mb-6">
+                        01
+                    </div>
+                    <h4 class="text-sm font-bold text-premium-navy mb-2">Konsultasi Ide</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-light">Diskusikan ide & fitur website melalui chat WhatsApp.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="text-center relative">
+                    <div class="w-12 h-12 bg-premium-navy text-white text-sm font-bold rounded-full flex items-center justify-center mx-auto mb-6">
+                        02
+                    </div>
+                    <h4 class="text-sm font-bold text-premium-navy mb-2">Pilih Paket</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-light">Tentukan paket harga yang paling sesuai dengan kebutuhan bisnis.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="text-center relative">
+                    <div class="w-12 h-12 bg-premium-navy text-white text-sm font-bold rounded-full flex items-center justify-center mx-auto mb-6">
+                        03
+                    </div>
+                    <h4 class="text-sm font-bold text-premium-navy mb-2">Kirim Bahan</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-light">Kirimkan materi logo, teks, dan foto produk ke tim kami.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="text-center relative">
+                    <div class="w-12 h-12 bg-premium-navy text-white text-sm font-bold rounded-full flex items-center justify-center mx-auto mb-6">
+                        04
+                    </div>
+                    <h4 class="text-sm font-bold text-premium-navy mb-2">Proses Pengerjaan</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-light">Kami kerjakan projek & lakukan penyesuaian revisi sesuai kebutuhan.</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="text-center relative">
+                    <div class="w-12 h-12 bg-premium-emerald text-white text-sm font-bold rounded-full flex items-center justify-center mx-auto mb-6 shadow-md shadow-emerald-500/10">
+                        05
+                    </div>
+                    <h4 class="text-sm font-bold text-premium-emerald mb-2">Voila! Web Live</h4>
+                    <p class="text-xs text-slate-500 leading-relaxed font-light">Website resmi Anda siap diakses lengkap dengan free maintenance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section Accordion -->
+    <section id="faq" class="py-24 bg-slate-50 border-t border-b border-slate-200/60" x-data="{ activeFaq: null }">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-premium-navy text-xs font-bold uppercase tracking-widest block mb-3">FAQ</span>
+                <h2 class="text-3xl md:text-4xl font-extrabold text-premium-navy">Pertanyaan Umum</h2>
+                <p class="text-slate-500 mt-4 leading-relaxed font-light text-sm">
+                    Temukan jawaban atas pertanyaan paling umum tentang jasa pembuatan website & branding di bawah ini.
+                </p>
+            </div>
+
+            <div class="space-y-4 max-w-3xl mx-auto">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm transition">
+                    <button @click="activeFaq = activeFaq === 1 ? null : 1" 
+                            class="w-full px-6 py-5 text-left font-bold text-premium-navy flex justify-between items-center text-sm focus:outline-none">
+                        <span>Bagaimana cara memesan layanan pembuatan website?</span>
+                        <svg class="w-4 h-4 transition-transform duration-200" :class="activeFaq === 1 ? 'transform rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="activeFaq === 1" x-collapse class="px-6 pb-5 text-xs text-slate-500 leading-relaxed font-light border-t border-slate-100 pt-3">
+                        Caranya sangat mudah. Cukup klik tombol konsultasi WhatsApp, sampaikan kebutuhan website Anda, pilih paket harga, kirimkan konten (teks/gambar), lakukan pembayaran, dan kami akan memproses pengerjaan serta revisi hingga website Anda siap diterbitkan.
                     </div>
                 </div>
 
-            </div>
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm transition">
+                    <button @click="activeFaq = activeFaq === 2 ? null : 2" 
+                            class="w-full px-6 py-5 text-left font-bold text-premium-navy flex justify-between items-center text-sm focus:outline-none">
+                        <span>Apakah ada garansi & pemeliharaan (maintenance) gratis?</span>
+                        <svg class="w-4 h-4 transition-transform duration-200" :class="activeFaq === 2 ? 'transform rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="activeFaq === 2" x-collapse class="px-6 pb-5 text-xs text-slate-500 leading-relaxed font-light border-t border-slate-100 pt-3">
+                        Ya. Kami memberikan layanan pemeliharaan (maintenance) secara GRATIS selama domain dan hosting website Anda aktif. Dukungan mencakup perbaikan bug, pemantauan server, dan pembaruan sistem berkala.
+                    </div>
+                </div>
 
-            <div class="text-center mt-10">
-                <a href="{{ url('/tentang-saya') }}" class="inline-flex items-center gap-2 text-blue-900 font-semibold hover:underline">
-                    Lihat Semua Karya → 
-                </a>
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm transition">
+                    <button @click="activeFaq = activeFaq === 3 ? null : 3" 
+                            class="w-full px-6 py-5 text-left font-bold text-premium-navy flex justify-between items-center text-sm focus:outline-none">
+                        <span>Apa manfaat memiliki website bagi branding bisnis saya?</span>
+                        <svg class="w-4 h-4 transition-transform duration-200" :class="activeFaq === 3 ? 'transform rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="activeFaq === 3" x-collapse class="px-6 pb-5 text-xs text-slate-500 leading-relaxed font-light border-t border-slate-100 pt-3">
+                        Website dapat memperkuat kredibilitas brand Anda, memberikan kesan profesional di mata pelanggan, mempermudah akses informasi 24 jam tanpa batas geografis, serta menjadi pusat pemasaran digital (Google Ads / SEO).
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm transition">
+                    <button @click="activeFaq = activeFaq === 4 ? null : 4" 
+                            class="w-full px-6 py-5 text-left font-bold text-premium-navy flex justify-between items-center text-sm focus:outline-none">
+                        <span>Berapa lama proses pengerjaan pembuatan website?</span>
+                        <svg class="w-4 h-4 transition-transform duration-200" :class="activeFaq === 4 ? 'transform rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="activeFaq === 4" x-collapse class="px-6 pb-5 text-xs text-slate-500 leading-relaxed font-light border-t border-slate-100 pt-3">
+                        Durasi pengerjaan bervariasi bergantung pada tingkat kerumitan. Untuk Paket Landing Page / Hemat biasanya selesai dalam 3-5 hari kerja. Sedangkan untuk paket bisnis kustom / toko online membutuhkan waktu sekitar 7-14 hari kerja setelah bahan lengkap diterima.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-20 bg-blue-900 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">Siap Memulai Project?</h2>
-            <p class="text-blue-200 mb-8 max-w-lg mx-auto">
-                Apakah Anda butuh sistem IT yang handal atau dokumentasi visual yang estetik? Hubungi saya untuk konsultasi gratis.
+    <!-- Call to Action & WhatsApp Form -->
+    <section id="contact" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-premium-navy mb-6 tracking-tight">
+                Siap Memulai Proyek Anda?
+            </h2>
+            <p class="text-slate-500 mb-12 max-w-xl mx-auto font-light leading-relaxed">
+                Hubungi kami sekarang untuk mendapatkan estimasi penawaran dan jadwal konsultasi awal gratis.
             </p>
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20tertarik%20dengan%20jasa%20Anda" target="_blank" class="px-8 py-4 bg-green-500 rounded-lg font-bold hover:bg-green-400 transition flex items-center justify-center gap-2">
-                    <span>Chat WhatsApp</span>
-                </a>
-                <a href="mailto:hamidabdulaziz36@gmail.com" class="px-8 py-4 bg-transparent border border-white rounded-lg font-bold hover:bg-white/10 transition">
-                    Kirim Email
-                </a>
+
+            <!-- Centered WhatsApp Contact Widget Form -->
+            <div class="max-w-md mx-auto p-8 rounded-2xl bg-[#fcfbf9] border border-slate-200/80 shadow-sm text-left"
+                 x-data="{ name: '', service: 'Website', message: '', get waUrl() { return 'https://wa.me/6281214019947?text=' + encodeURIComponent('Halo HA Creative,\n\nNama: ' + this.name + '\nLayanan: ' + this.service + '\nPesan: ' + this.message) } }">
+                <form @submit.prevent="window.open(waUrl, '_blank')">
+                    <div class="mb-5">
+                        <label for="client_name" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Nama Lengkap</label>
+                        <input type="text" id="client_name" x-model="name" required
+                               class="w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-premium-navy transition duration-150"
+                               placeholder="Nama atau Instansi">
+                    </div>
+                    
+                    <div class="mb-5">
+                        <label for="client_service" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Layanan yang Dibutuhkan</label>
+                        <select id="client_service" x-model="service" required
+                                class="w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-premium-navy transition duration-150">
+                            <option value="Website">Jasa Pembuatan Website</option>
+                            <option value="Desain">Jasa Pembuatan Desain</option>
+                            <option value="Website & Desain">Website + Desain Bundle</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="client_message" class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Pesan Singkat</label>
+                        <textarea id="client_message" x-model="message" rows="3" required
+                                  class="w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-sm text-slate-800 focus:outline-none focus:border-premium-navy transition duration-150"
+                                  placeholder="Detail fitur, referensi website, atau tujuan projek..."></textarea>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full inline-flex items-center justify-center space-x-2 px-6 py-3 bg-[#25d366] hover:bg-[#20ba5a] text-white font-bold rounded-lg shadow-sm transition duration-200 cursor-pointer text-sm">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-8.68-2.031-.967-.272-.099-.47-.149-.669.198-.198.346-.769.967-.943 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                        </svg>
+                        <span>Konsultasi via WhatsApp</span>
+                    </button>
+                </form>
             </div>
-            <p class="mt-12 text-blue-400 text-sm">
-                © 2026 Hamid Abdul Aziz. Built with Laravel & Tailwind.
-            </p>
         </div>
     </section>
-
-</body>
-</html>
+@endsection
