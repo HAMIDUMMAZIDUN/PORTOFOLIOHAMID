@@ -1,91 +1,125 @@
 @extends('layouts.public')
 
-@section('title', 'Tentang Saya | Hamid Abdul Aziz - Web Developer')
+@section('title', 'Tentang Kami | HA Creative Agency')
 
 @section('content')
-    <!-- Profile Header -->
-    <section class="py-24 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-800/80 px-6 text-center">
-        <div class="max-w-4xl mx-auto">
-            <div class="w-36 h-36 bg-slate-100 dark:bg-slate-800 rounded-full mx-auto mb-8 flex items-center justify-center overflow-hidden border-4 border-white dark:border-slate-900 shadow-md">
-                <div class="w-full h-full bg-premium-navy text-white flex items-center justify-center text-4xl font-bold font-sans">
-                    HA
-                </div>
-            </div>
+    <!-- Profile Header / Hero -->
+    <section class="py-24 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-800/80 px-6 text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="inline-flex items-center px-4 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-semibold uppercase tracking-wider mb-6 bg-white dark:bg-[#0f1422] shadow-sm">
+                Tentang HA Creative
+            </span>
             
-            <h1 class="text-4xl font-extrabold text-premium-navy dark:text-white tracking-tight mb-2">Hamid Abdul Aziz</h1>
-            <p class="text-base text-slate-500 dark:text-slate-400 font-medium font-sans mb-4">Web Developer · Junior IT Support · QA Tester · Creative Visual</p>
-            
-            <div class="flex justify-center gap-2 flex-wrap mb-8">
-                <span class="px-3.5 py-1 bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-full border border-slate-200 dark:border-slate-700/60">Laravel</span>
-                <span class="px-3.5 py-1 bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-full border border-slate-200 dark:border-slate-700/60">PHP</span>
-                <span class="px-3.5 py-1 bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-full border border-slate-200 dark:border-slate-700/60">HTML/CSS/JS</span>
-                <span class="px-3.5 py-1 bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-full border border-slate-200 dark:border-slate-700/60">QA Testing</span>
-                <span class="px-3.5 py-1 bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 text-xs font-semibold rounded-full border border-slate-200 dark:border-slate-700/60">Photography</span>
-            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold text-premium-navy dark:text-white tracking-tight leading-tight mb-6">
+                Satu Atap untuk <br>
+                <span class="text-premium-emerald dark:text-emerald-400 font-light">Seluruh Solusi Kreatif Anda.</span>
+            </h1>
             
             <p class="leading-relaxed text-slate-500 dark:text-slate-400 mb-10 max-w-2xl mx-auto font-light text-sm md:text-base font-sans">
-                Saya adalah seorang <strong>Web Developer</strong> yang berpengalaman membangun aplikasi web berbasis Laravel. Selain itu, saya juga aktif sebagai Junior IT Support, QA Tester, dan Fotografer/Videografer — menjadikan saya sosok yang memahami aspek teknis maupun kreatif secara menyeluruh.
+                Kami adalah agensi kreatif kolaboratif yang menggabungkan para ahli teknologi, fotografer cinematic, spesialis pemasaran digital, dan desainer visual untuk mempercepat pertumbuhan bisnis dan mengabadikan momen penting Anda.
             </p>
             
             <div class="flex justify-center gap-4">
-                <a href="https://wa.me/6281214019947" class="px-6 py-2.5 bg-premium-navy dark:bg-emerald-600 hover:bg-slate-800 dark:hover:bg-emerald-500 text-white rounded-lg text-xs font-bold uppercase tracking-wider transition shadow-sm">
-                    Hubungi Saya
+                <a href="{{ route('home') }}#contact" class="px-7 py-3 bg-premium-navy dark:bg-emerald-600 hover:bg-slate-800 dark:hover:bg-emerald-500 text-white rounded-lg text-xs font-bold uppercase tracking-wider transition shadow-sm">
+                    Mulai Kolaborasi
                 </a>
-                <a href="{{ asset('cv-hamid.pdf') }}" download="CV_Hamid_Abdul_Aziz.pdf" class="px-6 py-2.5 border border-slate-300 dark:border-slate-700 hover:border-premium-navy dark:hover:border-white text-slate-700 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white bg-white dark:bg-[#0f1422] rounded-lg text-xs font-bold uppercase tracking-wider transition flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                    <span>Download CV</span>
+                <a href="{{ route('pricing') }}" class="px-7 py-3 border border-slate-300 dark:border-slate-700 hover:border-premium-navy dark:hover:border-white text-slate-700 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white bg-white dark:bg-[#0f1422] rounded-lg text-xs font-bold uppercase tracking-wider transition">
+                    Lihat Paket Harga
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Timeline Experience -->
+    <!-- Core Services Pillars -->
     <section class="py-24 px-6 bg-slate-50 dark:bg-[#0e1320] border-b border-slate-200/60 dark:border-slate-850">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Layanan Terpadu</span>
+                <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white tracking-tight">4 Pilar Keahlian Kami</h2>
+                <p class="text-slate-400 dark:text-slate-500 text-xs mt-2 max-w-lg mx-auto leading-relaxed">
+                    Dikerjakan secara sinergis oleh tim profesional untuk menghasilkan output berkualitas tinggi secara konsisten.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Pilar 1: Website Development -->
+                <div class="bg-white dark:bg-[#0f1422] p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-center text-premium-navy dark:text-white mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-premium-navy dark:text-white mb-3">Jasa Web Development</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light font-sans">
+                        Pembuatan website profile bisnis, landing page conversion-oriented, portal e-learning, hingga e-commerce berfitur kustom dan SEO-friendly.
+                    </p>
+                </div>
+
+                <!-- Pilar 2: Photo & Video Wedding -->
+                <div class="bg-white dark:bg-[#0f1422] p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-center text-premium-navy dark:text-white mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-premium-navy dark:text-white mb-3">Wedding Photography</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light font-sans">
+                        Dokumentasi foto dan video wedding & pre-wedding profesional berskala sinematik, menangkap emosi nyata di setiap momen sakral Anda.
+                    </p>
+                </div>
+
+                <!-- Pilar 3: Social Media Specialist -->
+                <div class="bg-white dark:bg-[#0f1422] p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-center text-premium-navy dark:text-white mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-premium-navy dark:text-white mb-3">Sosial Media Spesialis</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light font-sans">
+                        Pengelolaan konten branding akun Instagram/TikTok, optimasi interaksi audiens, strategi caption terstruktur, dan analisis report berkala.
+                    </p>
+                </div>
+
+                <!-- Pilar 4: Desain Grafis & Branding -->
+                <div class="bg-white dark:bg-[#0f1422] p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-center text-premium-navy dark:text-white mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-bold text-premium-navy dark:text-white mb-3">Desain Grafis & UI/UX</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light font-sans">
+                        Penyusunan identitas visual brand (logo guidlines), wireframing aplikasi, desain interface Figma interaktif, dan materi promosi cetak/digital.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Perjalanan Agensi -->
+    <section class="py-24 px-6 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-850">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white mb-16 text-center">Perjalanan Karir</h2>
+            <div class="text-center mb-16">
+                <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Sejarah Pembentukan</span>
+                <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white tracking-tight">Timeline Sejarah Agensi</h2>
+            </div>
             
             <div class="border-l-2 border-slate-200 dark:border-slate-800 ml-4 space-y-12">
-                <!-- Timeline 1 -->
+                <!-- Timeline: 2025 -->
                 <div class="relative pl-8">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-premium-navy dark:bg-emerald-600 rounded-full border-4 border-slate-50 dark:border-[#0e1320]"></div>
-                    <div class="bg-white dark:bg-[#0f1422] p-8 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm">
-                        <span class="text-[10px] font-bold text-premium-emerald dark:text-emerald-400 tracking-wider uppercase">Agustus - September 2025</span>
-                        <h3 class="text-lg font-bold text-premium-navy dark:text-white mt-1">Project Manager & Backend Developer</h3>
-                        <p class="text-slate-400 dark:text-slate-500 text-xs mb-4">PT DIGI TEKO INDONESIA, Summarecon Bandung</p>
-                        <ul class="list-disc list-inside text-xs text-slate-500 dark:text-slate-400 space-y-2 font-light font-sans">
-                            <li>Memimpin tim dalam pengembangan sistem backend menggunakan Laravel.</li>
-                            <li>Melakukan manajemen database MySQL dan integrasi API.</li>
-                            <li>Bertanggung jawab atas timeline proyek dan koordinasi tim.</li>
-                        </ul>
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-premium-navy dark:bg-emerald-600 rounded-full border-4 border-white dark:border-[#0b0f19]"></div>
+                    <div class="bg-slate-50 dark:bg-[#0f1422] p-8 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm">
+                        <span class="text-[10px] font-bold text-premium-emerald dark:text-emerald-400 tracking-wider uppercase">Tahun 2025</span>
+                        <h3 class="text-lg font-bold text-premium-navy dark:text-white mt-1">Inisiasi & Perumusan Ide</h3>
+                        <p class="text-slate-400 dark:text-slate-500 text-xs mb-4">Pengusulan Model Kolaborasi Agensi</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light font-sans">
+                            Gagasan awal lahir dari kebutuhan pasar akan pengerjaan digital satu pintu yang mulus. Para founder yang memiliki latar belakang berbeda (developer, desainer, fotografer) merancang struktur kerja kolaboratif agar dapat melayani kebutuhan klien secara efisien dan berkualitas tanpa batasan koordinasi pihak ketiga.
+                        </p>
                     </div>
                 </div>
 
-                <!-- Timeline 2 -->
+                <!-- Timeline: 2026 -->
                 <div class="relative pl-8">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-premium-navy dark:bg-emerald-600 rounded-full border-4 border-slate-50 dark:border-[#0e1320]"></div>
-                    <div class="bg-white dark:bg-[#0f1422] p-8 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm">
-                        <span class="text-[10px] font-bold text-premium-emerald dark:text-emerald-400 tracking-wider uppercase">2025 - Sekarang</span>
-                        <h3 class="text-lg font-bold text-premium-navy dark:text-white mt-1">Freelance Photographer & Videographer</h3>
-                        <p class="text-slate-400 dark:text-slate-500 text-xs mb-4">Self-Employed</p>
-                        <ul class="list-disc list-inside text-xs text-slate-500 dark:text-slate-400 space-y-2 font-light font-sans">
-                            <li>Mendokumentasikan acara pernikahan (Ex: Wedding Salsa & Sidik, Jan 2026 | Ricky & Elsa, Des 2025)</li>
-                            <li>Memproduksi konten video pendek untuk media sosial klien.</li>
-                            <li>Editing foto dan video menggunakan Adobe Lightroom & Premiere.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Timeline 3 -->
-                <div class="relative pl-8">
-                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-slate-300 dark:bg-slate-700 rounded-full border-4 border-slate-50 dark:border-[#0e1320]"></div>
-                    <div class="bg-white dark:bg-[#0f1422] p-8 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm">
-                        <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 tracking-wider uppercase">Sekarang</span>
-                        <h3 class="text-lg font-bold text-premium-navy dark:text-white mt-1">Mahasiswa Tingkat Akhir</h3>
-                        <p class="text-slate-400 dark:text-slate-550 text-xs mb-4">Sedang Menyusun Skripsi</p>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light font-sans leading-relaxed">
-                            Fokus pada pengembangan aplikasi web/mobile dan implementasi Quality Assurance (QA).
+                    <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-premium-emerald dark:bg-emerald-500 rounded-full border-4 border-white dark:border-[#0b0f19]"></div>
+                    <div class="bg-slate-50 dark:bg-[#0f1422] p-8 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm">
+                        <span class="text-[10px] font-bold text-premium-emerald dark:text-emerald-400 tracking-wider uppercase">Tahun 2026 (Awal Tahun)</span>
+                        <h3 class="text-lg font-bold text-premium-navy dark:text-white mt-1">Resmi Terbentuk & Ekspansi Layanan</h3>
+                        <p class="text-slate-400 dark:text-slate-500 text-xs mb-4">Grand Launching HA Creative Agency</p>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light font-sans">
+                            Melalui perancangan matang setahun ke belakang, agensi resmi didirikan dan diluncurkan. Kami mengintegrasikan empat divisi inti kami dalam satu sistem operasi profesional untuk melayani puluhan UMKM dan pasangan pernikahan di seluruh Indonesia.
                         </p>
                     </div>
                 </div>
@@ -93,60 +127,17 @@
         </div>
     </section>
 
-    <!-- Technical Skills -->
-    <section class="py-24 px-6 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-850">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white mb-3 text-center">Keahlian Teknis</h2>
-            <p class="text-center text-slate-400 dark:text-slate-500 text-xs mb-16">Skill yang saya kuasai sebagai Web Developer & IT Creative</p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <!-- Skill 1 -->
-                <div class="p-6 bg-slate-50 dark:bg-[#0f1422] rounded-xl border border-slate-200/60 dark:border-slate-800 hover:shadow-md transition">
-                    <div class="text-premium-navy dark:text-white flex justify-center mb-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                    </div>
-                    <h3 class="font-bold text-sm text-premium-navy dark:text-white">Laravel (PHP)</h3>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-1 uppercase tracking-wider font-semibold">Web Dev</p>
-                </div>
-                <!-- Skill 2 -->
-                <div class="p-6 bg-slate-50 dark:bg-[#0f1422] rounded-xl border border-slate-200/60 dark:border-slate-800 hover:shadow-md transition">
-                    <div class="text-premium-navy dark:text-white flex justify-center mb-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                    </div>
-                    <h3 class="font-bold text-sm text-premium-navy dark:text-white">HTML/CSS/JS</h3>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-1 uppercase tracking-wider font-semibold">Web Dev</p>
-                </div>
-                <!-- Skill 3 -->
-                <div class="p-6 bg-slate-50 dark:bg-[#0f1422] rounded-xl border border-slate-200/60 dark:border-slate-800 hover:shadow-md transition">
-                    <div class="text-premium-navy dark:text-white flex justify-center mb-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" /></svg>
-                    </div>
-                    <h3 class="font-bold text-sm text-premium-navy dark:text-white">MySQL</h3>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-1 uppercase tracking-wider font-semibold">Web Dev</p>
-                </div>
-                <!-- Skill 4 -->
-                <div class="p-6 bg-slate-50 dark:bg-[#0f1422] rounded-xl border border-slate-200/60 dark:border-slate-800 hover:shadow-md transition">
-                    <div class="text-premium-navy dark:text-white flex justify-center mb-3">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    </div>
-                    <h3 class="font-bold text-sm text-premium-navy dark:text-white">QA Testing</h3>
-                    <p class="text-[10px] text-slate-400 dark:text-slate-500 mt-1 uppercase tracking-wider font-semibold">Quality Assurance</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Latest Creative Works -->
+    <!-- Latest Creative Agency Works / Portfolio Highlights -->
     <section class="py-24 px-6 bg-slate-50 dark:bg-[#0e1320]">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white mb-16 text-center">Karya Terbaru</h2>
+            <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white mb-16 text-center">Portfolio Sorotan Kami</h2>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card: Undangan Digital -->
                 <a href="https://bybiru.my.id/" target="_blank" class="group relative overflow-hidden aspect-video block shadow-sm rounded-xl border border-slate-200/60 dark:border-slate-800 bg-premium-navy dark:bg-slate-900">
                     <div class="absolute inset-0 flex items-center justify-center p-6 text-center">
                         <div>
-                            <p class="text-slate-300 dark:text-slate-400 text-xs font-semibold font-sans tracking-wide">bybiru.my.id</p>
+                            <p class="text-slate-350 dark:text-slate-400 text-xs font-semibold font-sans tracking-wide">bybiru.my.id</p>
                             <h4 class="text-white dark:text-slate-200 font-bold text-sm mt-1">E-Undangan "Biru"</h4>
                         </div>
                     </div>
@@ -160,7 +151,7 @@
                 <a href="https://absensiptdigidemoweb.vercel.app/" target="_blank" class="group relative overflow-hidden aspect-video block shadow-sm rounded-xl border border-slate-200/60 dark:border-slate-800 bg-premium-navy dark:bg-slate-900">
                     <div class="absolute inset-0 flex items-center justify-center p-6 text-center">
                         <div>
-                            <p class="text-slate-300 dark:text-slate-400 text-xs font-semibold font-sans tracking-wide">absensiptdigidemoweb.vercel.app</p>
+                            <p class="text-slate-355 dark:text-slate-400 text-xs font-semibold font-sans tracking-wide">absensiptdigidemoweb.vercel.app</p>
                             <h4 class="text-white dark:text-slate-200 font-bold text-sm mt-1">Sistem Absensi PT Digi</h4>
                         </div>
                     </div>
@@ -174,13 +165,13 @@
                 <a href="https://instagram.com/galerihamidabdulaziz_" target="_blank" class="group relative overflow-hidden aspect-video block shadow-sm rounded-xl border border-slate-200/60 dark:border-slate-800 bg-premium-navy dark:bg-slate-900">
                     <div class="absolute inset-0 flex items-center justify-center p-6 text-center">
                         <div>
-                            <p class="text-slate-300 dark:text-slate-400 text-xs font-semibold font-sans tracking-wide">@galerihamidabdulaziz_</p>
-                            <h4 class="text-white dark:text-slate-200 font-bold text-sm mt-1">Galeri Instagram</h4>
+                            <p class="text-slate-350 dark:text-slate-400 text-xs font-semibold font-sans tracking-wide">@galerihamidabdulaziz_</p>
+                            <h4 class="text-white dark:text-slate-200 font-bold text-sm mt-1">Dokumentasi Pernikahan</h4>
                         </div>
                     </div>
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                        <span class="text-premium-emerald text-[9px] font-bold tracking-widest uppercase">Photography</span>
-                        <p class="text-white text-xs font-bold leading-snug">Wedding & Event Portfolio</p>
+                        <span class="text-premium-emerald text-[9px] font-bold tracking-widest uppercase">Wedding Photography</span>
+                        <p class="text-white text-xs font-bold leading-snug">Wedding & Pre-wedding Cinematics</p>
                     </div>
                 </a>
             </div>
