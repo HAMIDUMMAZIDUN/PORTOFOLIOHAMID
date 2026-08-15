@@ -1,6 +1,5 @@
 @extends('layouts.public')
 
-@section('title', 'HA Creative | Jasa Pembuatan Website & Desain Grafis Premium')
 
 @section('content')
     <!-- Hero Section -->

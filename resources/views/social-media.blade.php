@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Jasa Sosial Media Management Premium | HA Creative')
+@section('title', 'Sosmed')
 
 @section('content')
     <!-- Hero Header -->

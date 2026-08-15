@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Portofolio Projek & Hasil Karya Kami | HA Creative')
+@section('title', 'Portofolio')
 
 @section('content')
     <!-- Page Header -->

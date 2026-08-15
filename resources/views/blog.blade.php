@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Insights & Artikel Digital Marketing | HA Creative')
+@section('title', 'Blog')
 
 @section('content')
     <!-- Page Header -->

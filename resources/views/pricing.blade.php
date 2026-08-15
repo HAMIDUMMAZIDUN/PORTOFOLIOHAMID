@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Paket Harga Jasa Pembuatan Website & Desain | HA Creative')
+@section('title', 'Paket Harga')
 
 @section('content')
     <!-- Page Header -->

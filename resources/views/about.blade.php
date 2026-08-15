@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', 'Tentang Kami | HA Creative Agency')
+@section('title', 'Tentang Kami')
 
 @section('content')
     <!-- Profile Header / Hero -->

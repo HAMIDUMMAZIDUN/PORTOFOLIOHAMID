@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'HA Creative | Jasa Pembuatan Website & Desain Grafis Premium')</title>
+    <title>@hasSection('title') @yield('title') | HA Creative. @else HA Creative. | Jasa Pembuatan Website & Desain Grafis Premium @endif</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
