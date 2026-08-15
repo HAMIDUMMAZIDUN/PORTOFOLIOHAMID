@@ -159,31 +159,193 @@
     </main>
 
     <!-- Footer -->
-    <footer class="py-16 bg-[#fcfbf9] dark:bg-[#0b0f19] border-t border-slate-200/60 dark:border-slate-800/80 text-slate-500 dark:text-slate-400 text-xs">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <!-- Left Brand info -->
-            <div class="text-center md:text-left">
-                <p class="font-bold text-premium-navy dark:text-white text-sm mb-1.5 font-outfit">HA Creative Studio</p>
-                <p class="font-light">Premium Web & Design Studio. Melayani UMKM hingga Korporasi.</p>
-            </div>
-            
-            <!-- Contact info -->
-            <div class="text-center">
-                <p class="mb-1 font-medium text-slate-700 dark:text-slate-300">Hubungi kami: hamidabdulaziz36@gmail.com</p>
-                <p class="font-light">WhatsApp: +62 812-1401-9947</p>
+    <footer class="pt-20 pb-10 bg-[#0f172a] dark:bg-[#0b0f19] border-t border-slate-800 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-6">
+            <!-- Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-16">
+                <!-- Column 1: Logo, Slogan, Socials, Trust Badge (lg:col-span-4) -->
+                <div class="lg:col-span-4 flex flex-col items-start">
+                    <a href="{{ route('home') }}" class="text-2xl font-bold tracking-tight text-white flex items-center space-x-1 mb-4">
+                        <span>HA</span>
+                        <span class="text-slate-400 font-light">Creative.</span>
+                    </a>
+                    <p class="text-slate-400 mb-6 font-light leading-relaxed">
+                        Premium Web & Design Studio. Melayani UMKM hingga Korporasi dengan mengedepankan estetika visual berkelas dan performa optimal.
+                    </p>
+                    
+                    <!-- Social Media Links (White Circle, Dark Icon inside) -->
+                    <div class="flex items-center space-x-3 mb-6">
+                        <a href="https://facebook.com" class="w-9 h-9 rounded-full bg-white hover:bg-slate-200 text-slate-900 flex items-center justify-center transition duration-150" target="_blank" aria-label="Facebook">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                            </svg>
+                        </a>
+                        <a href="https://twitter.com" class="w-9 h-9 rounded-full bg-white hover:bg-slate-200 text-slate-900 flex items-center justify-center transition duration-150" target="_blank" aria-label="Twitter">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com" class="w-9 h-9 rounded-full bg-white hover:bg-slate-200 text-slate-900 flex items-center justify-center transition duration-150" target="_blank" aria-label="Instagram">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                            </svg>
+                        </a>
+                        <a href="https://linkedin.com" class="w-9 h-9 rounded-full bg-white hover:bg-slate-200 text-slate-900 flex items-center justify-center transition duration-150" target="_blank" aria-label="LinkedIn">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="https://youtube.com" class="w-9 h-9 rounded-full bg-white hover:bg-slate-200 text-slate-900 flex items-center justify-center transition duration-150" target="_blank" aria-label="YouTube">
+                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                                <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.507a3.003 3.003 0 00-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 002.11 2.11c1.871.507 9.388.507 9.388.507s7.517 0 9.388-.507a3.003 3.003 0 002.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Trust Badge -->
+                    <div class="inline-flex items-center space-x-3 px-4 py-2 border border-slate-800 rounded-xl bg-slate-950/40 backdrop-blur-sm max-w-xs">
+                        <svg class="w-8 h-8 text-amber-400 flex-shrink-0 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                        <div>
+                            <p class="text-[10px] font-bold uppercase tracking-wider text-slate-200">100% Satisfaction</p>
+                            <p class="text-[9px] text-slate-500 leading-none mt-0.5">Quality & Support Certified</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Hubungi Kami (lg:col-span-3) -->
+                <div class="lg:col-span-3">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-amber-400 mb-6">Hubungi Kami</h3>
+                    <div class="space-y-4 text-slate-350">
+                        <div>
+                            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Telepon / WhatsApp</p>
+                            <p class="text-sm text-white font-medium hover:text-amber-400 transition duration-150 mt-0.5">
+                                <a href="https://wa.me/6281214019947" target="_blank">+62 812-1401-9947</a>
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Email / Contact</p>
+                            <p class="text-sm text-white font-medium hover:text-amber-400 transition duration-150 mt-0.5">
+                                <a href="mailto:hamidabdulaziz36@gmail.com">hamidabdulaziz36@gmail.com</a>
+                            </p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Bandung (HQ)</p>
+                            <p class="text-xs text-slate-300 font-light mt-0.5 leading-relaxed">
+                                Kota Bandung,<br>
+                                Jawa Barat, Indonesia
+                            </p>
+                            <a href="https://maps.google.com" target="_blank" class="inline-flex items-center text-[10px] font-semibold text-amber-400 hover:underline mt-1.5">
+                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
+                                Lihat Peta
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3: Rekomendasi Layanan & Tutorial (lg:col-span-2) -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-amber-400 mb-6">Layanan Kami</h3>
+                    <ul class="space-y-2.5 text-slate-300 mb-8 font-light">
+                        <li><a href="{{ route('home') }}#services" class="hover:text-amber-400 transition duration-150">Jasa Pembuatan Website</a></li>
+                        <li><a href="{{ route('social-media') }}" class="hover:text-amber-400 transition duration-150">Sosial Media Management</a></li>
+                        <li><a href="{{ route('home') }}#services" class="hover:text-amber-400 transition duration-150">Desain Grafis Premium</a></li>
+                        <li><a href="{{ route('portfolio') }}" class="hover:text-amber-400 transition duration-150">Landing Page Bisnis</a></li>
+                        <li><a href="{{ route('home') }}#services" class="hover:text-amber-400 transition duration-150">Custom Web Development</a></li>
+                    </ul>
+
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-amber-400 mb-6">Tutorial</h3>
+                    <ul class="space-y-2.5 text-slate-300 font-light">
+                        <li><a href="{{ route('blog') }}" class="hover:text-amber-400 transition duration-150">Blog Edukasi</a></li>
+                        <li><a href="{{ route('blog') }}" class="hover:text-amber-400 transition duration-150">Panduan Kelola Web</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Informasi (lg:col-span-3) -->
+                <div class="lg:col-span-3">
+                    <h3 class="text-sm font-bold uppercase tracking-wider text-amber-400 mb-6">Informasi</h3>
+                    <ul class="space-y-2.5 text-slate-300 font-light">
+                        <li><a href="{{ route('about') }}" class="hover:text-amber-400 transition duration-150">Tentang HA Creative</a></li>
+                        <li><a href="{{ route('pricing') }}" class="hover:text-amber-400 transition duration-150">Paket Harga</a></li>
+                        <li><a href="{{ route('portfolio') }}" class="hover:text-amber-400 transition duration-150">Karya Portofolio</a></li>
+                        <li><a href="{{ route('home') }}#contact" class="hover:text-amber-400 transition duration-150">Konsultasi Project</a></li>
+                        <li><a href="{{ route('login') }}" class="hover:text-amber-400 transition duration-150 text-slate-500">Admin Login</a></li>
+                        <li><a href="#" class="hover:text-amber-400 transition duration-150">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="hover:text-amber-400 transition duration-150">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- Footer Meta & Social Links -->
-            <div class="text-center md:text-right">
-                <p class="mb-3 font-light">&copy; 2026 HA Creative. Hak Cipta Dilindungi.</p>
-                <div class="flex justify-center md:justify-end space-x-6 text-[11px] font-semibold tracking-wider uppercase text-slate-400 dark:text-slate-550">
-                    <a href="https://wa.me/6281214019947" target="_blank" class="hover:text-premium-navy dark:hover:text-white transition duration-150">WhatsApp</a>
-                    <a href="mailto:hamidabdulaziz36@gmail.com" class="hover:text-premium-navy dark:hover:text-white transition duration-150">Email</a>
-                    <a href="{{ route('login') }}" class="hover:text-premium-navy dark:hover:text-white transition duration-150 text-slate-300 dark:text-slate-650">Admin</a>
+            <!-- Horizontal Divider -->
+            <hr class="border-slate-800 my-8">
+
+            <!-- Bottom Row: Sublinks and Copyright -->
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-2 text-[10px] uppercase tracking-wider font-semibold text-slate-500">
+                    <a href="{{ route('home') }}" class="hover:text-amber-400 transition duration-150">Home</a>
+                    <span class="text-slate-850">&bull;</span>
+                    <a href="{{ route('home') }}#services" class="hover:text-amber-400 transition duration-150">Jasa Website</a>
+                    <span class="text-slate-850">&bull;</span>
+                    <a href="{{ route('portfolio') }}" class="hover:text-amber-400 transition duration-150">Portofolio</a>
+                    <span class="text-slate-850">&bull;</span>
+                    <a href="{{ route('pricing') }}" class="hover:text-amber-400 transition duration-150">Paket Harga</a>
+                    <span class="text-slate-850">&bull;</span>
+                    <a href="{{ route('social-media') }}" class="hover:text-amber-400 transition duration-150">Sosial Media</a>
+                    <span class="text-slate-850">&bull;</span>
+                    <a href="{{ route('blog') }}" class="hover:text-amber-400 transition duration-150">Blog</a>
+                    <span class="text-slate-850">&bull;</span>
+                    <a href="{{ route('about') }}" class="hover:text-amber-400 transition duration-150">Tentang Kami</a>
+                </div>
+                <div class="text-[11px] text-slate-500 font-light text-center md:text-right">
+                    &copy; 2026 HA Creative. Hak Cipta Dilindungi.
                 </div>
             </div>
         </div>
     </footer>
+
+    <!-- Floating Support Chat Widget -->
+    <div x-data="{ isOpen: true }" x-show="isOpen" 
+         class="fixed bottom-6 right-6 z-50 flex items-end space-x-3 max-w-xs md:max-w-sm"
+         x-transition:enter="transition ease-out duration-300 transform translate-y-4 opacity-0"
+         x-transition:enter-end="transform translate-y-0 opacity-100"
+         x-transition:leave="transition ease-in duration-250 transform translate-y-4 opacity-0">
+        
+        <!-- Speech Bubble -->
+        <div class="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl shadow-2xl text-xs text-slate-700 dark:text-slate-250 leading-normal max-w-[200px] mb-4">
+            <!-- Small triangle pointing to the avatar -->
+            <div class="absolute right-[-6px] bottom-6 w-3 h-3 bg-white dark:bg-slate-900 border-t border-r border-slate-200 dark:border-slate-800 transform rotate-45"></div>
+            
+            <!-- Close Button -->
+            <button @click.stop="isOpen = false" class="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-slate-900 dark:bg-slate-800 text-white flex items-center justify-center hover:bg-slate-700 dark:hover:bg-slate-600 transition shadow focus:outline-none" aria-label="Tutup">
+                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <p class="font-bold text-[#0f172a] dark:text-amber-450 mb-1">Butuh Bantuan?</p>
+            <p class="font-light">Ayo... chat seru dengan tim <span class="font-semibold text-emerald-600 dark:text-emerald-450">HA Creative!</span></p>
+            <a href="https://wa.me/6281214019947?text=Halo%20HA%20Creative,%20saya%20ingin%20konsultasi%20mengenai%20projek%20saya" target="_blank" 
+               class="inline-block mt-2 font-bold text-emerald-600 dark:text-emerald-450 hover:underline uppercase text-[9px] tracking-wider">
+                Chat Sekarang &rarr;
+            </a>
+        </div>
+        
+        <!-- Avatar Button -->
+        <a href="https://wa.me/6281214019947?text=Halo%20HA%20Creative,%20saya%20ingin%20konsultasi%20mengenai%20projek%20saya" target="_blank"
+           class="relative group focus:outline-none flex-shrink-0">
+            <!-- Ripple Wave Effect -->
+            <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+            
+            <!-- Main Avatar Container -->
+            <div class="relative w-16 h-16 rounded-full border-4 border-white dark:border-slate-800 bg-slate-100 overflow-hidden shadow-2xl group-hover:scale-105 transition duration-300">
+                <img src="{{ asset('support_agent_avatar.png') }}" alt="Customer Support" class="w-full h-full object-cover">
+            </div>
+            
+            <!-- Online status indicator -->
+            <span class="absolute bottom-1 right-1 block h-3.5 w-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-800 animate-pulse"></span>
+        </a>
+    </div>
 
     <!-- Theme Switcher Script logic -->
     <script>
