@@ -93,47 +93,69 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-                <!-- Card 1: Jasa Pembuatan Website -->
-                <div class="p-10 rounded-2xl border border-slate-150 dark:border-slate-800 bg-[#fcfbf9] dark:bg-[#0f1422] hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 group flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-lg bg-slate-900/5 dark:bg-slate-800 text-premium-navy dark:text-white flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-200">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                            </svg>
+                @forelse($services as $service)
+                    @php
+                        $href = $service->cta_link;
+                        if ($href) {
+                            if (Route::has($href)) {
+                                $href = route($href);
+                            }
+                        } else {
+                            $href = '#';
+                        }
+                    @endphp
+                    <div class="p-10 rounded-2xl border border-slate-150 dark:border-slate-800 bg-[#fcfbf9] dark:bg-[#0f1422] hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 group flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-lg bg-slate-900/5 dark:bg-slate-800 text-premium-navy dark:text-white flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-200">
+                                @if($service->icon === 'code')
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                                    </svg>
+                                @elseif($service->icon === 'palette')
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                @elseif($service->icon === 'calendar')
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                @elseif($service->icon === 'film')
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4" />
+                                    </svg>
+                                @elseif($service->icon === 'chart')
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z" />
+                                    </svg>
+                                @elseif($service->icon === 'camera')
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                @else
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                                    </svg>
+                                @endif
+                            </div>
+                            <h3 class="text-xl font-bold text-premium-navy dark:text-white mb-4">{{ $service->title }}</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 font-light">
+                                {{ $service->description }}
+                            </p>
                         </div>
-                        <h3 class="text-xl font-bold text-premium-navy dark:text-white mb-4">Jasa Pembuatan Website</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 font-light">
-                            Mulai dari landing page profil perusahaan, platform katalog produk, hingga sistem dashboard operasional custom yang cepat, ramah SEO, dan responsif di semua perangkat.
-                        </p>
+                        @if($service->cta_text)
+                            <a href="{{ $href }}" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-slate-200 hover:underline mt-4">
+                                <span>{{ $service->cta_text }}</span>
+                                <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        @endif
                     </div>
-                    <a href="{{ route('pricing') }}" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-slate-200 hover:underline mt-4">
-                        <span>Pesan Website & Lihat Paket</span>
-                        <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
-                </div>
-
-                <!-- Card 2: Jasa Desain Grafis & UI/UX -->
-                <div class="p-10 rounded-2xl border border-slate-150 dark:border-slate-800 bg-[#fcfbf9] dark:bg-[#0f1422] hover:shadow-lg hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 group flex flex-col justify-between">
-                    <div>
-                        <div class="w-12 h-12 rounded-lg bg-slate-900/5 dark:bg-slate-800 text-premium-navy dark:text-white flex items-center justify-center mb-8 group-hover:scale-105 transition-transform duration-200">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-premium-navy dark:text-white mb-4">Jasa Desain Grafis & UI/UX</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 font-light">
-                            Desain antarmuka (UI/UX) aplikasi web/mobile menggunakan Figma, rancangan identitas brand (logo & visual guidelines), serta desain media sosial yang premium dan profesional.
-                        </p>
+                @empty
+                    <div class="col-span-2 text-center py-12 text-slate-400 font-light">
+                        Belum ada data layanan yang ditambahkan.
                     </div>
-                    <a href="{{ route('social-media') }}" class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-slate-200 hover:underline mt-4">
-                        <span>Lihat Paket Sosmed & Desain</span>
-                        <svg class="w-3.5 h-3.5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                        </svg>
-                    </a>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>

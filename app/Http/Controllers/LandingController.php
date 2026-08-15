@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
+use App\Models\Service;
+use App\Models\Timeline;
 use Illuminate\Http\Request;
 
 class LandingController extends Controller
@@ -15,7 +17,10 @@ class LandingController extends Controller
         // Ambil semua portofolio terbaru untuk ditampilkan di landing page
         $portfolios = Portfolio::latest()->take(6)->get(); // Ambil 6 teratas untuk landing page
         
-        return view('welcome', compact('portfolios'));
+        // Ambil layanan bertipe Layanan
+        $services = Service::where('category', 'Layanan')->orderBy('order')->get();
+        
+        return view('welcome', compact('portfolios', 'services'));
     }
 
     /**
@@ -23,7 +28,8 @@ class LandingController extends Controller
      */
     public function pricing()
     {
-        return view('pricing');
+        $packages = \App\Models\PricingPackage::all();
+        return view('pricing', compact('packages'));
     }
 
     /**
@@ -40,7 +46,8 @@ class LandingController extends Controller
      */
     public function socialMedia()
     {
-        return view('social-media');
+        $services = Service::where('category', 'Sosmed')->orderBy('order')->get();
+        return view('social-media', compact('services'));
     }
 
     /**
@@ -48,6 +55,17 @@ class LandingController extends Controller
      */
     public function blog()
     {
-        return view('blog');
+        $posts = \App\Models\BlogPost::latest()->get();
+        return view('blog', compact('posts'));
+    }
+
+    /**
+     * Display the about us page.
+     */
+    public function about()
+    {
+        $pillars = Service::where('category', 'Pilar')->orderBy('order')->get();
+        $timelines = Timeline::orderBy('order')->orderBy('year')->get();
+        return view('about', compact('pillars', 'timelines'));
     }
 }

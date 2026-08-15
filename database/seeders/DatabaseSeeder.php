@@ -37,6 +37,10 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             PortfolioSeeder::class,
+            PricingPackageSeeder::class,
+            BlogPostSeeder::class,
+            ServiceSeeder::class,
+            TimelineSeeder::class,
         ]);
     }
 }

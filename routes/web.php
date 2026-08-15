@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PortfolioController;
+use App\Http\Controllers\Admin\PricingPackageController;
+use App\Http\Controllers\Admin\BlogPostController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\TimelineController;
 use App\Http\Controllers\LandingController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +20,7 @@ Route::get('/harga', [LandingController::class, 'pricing'])->name('pricing');
 Route::get('/portofolio', [LandingController::class, 'portfolio'])->name('portfolio');
 Route::get('/jasa-sosial-media-management', [LandingController::class, 'socialMedia'])->name('social-media');
 Route::get('/blog', [LandingController::class, 'blog'])->name('blog');
-Route::get('/tentang-saya', function () {
-    return view('about');
-})->name('about');
+Route::get('/tentang-saya', [LandingController::class, 'about'])->name('about');
 
 /*
 |--------------------------------------------------------------------------
@@ -29,12 +31,21 @@ Route::get('/tentang-saya', function () {
 Route::middleware(['auth', 'verified'])->group(function () {
     // Admin Dashboard (uses default Breeze name for authentication redirects)
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $portfolioCount = \App\Models\Portfolio::count();
+        $packageCount = \App\Models\PricingPackage::count();
+        $postCount = \App\Models\BlogPost::count();
+        $serviceCount = \App\Models\Service::count();
+        $timelineCount = \App\Models\Timeline::count();
+        return view('dashboard', compact('portfolioCount', 'packageCount', 'postCount', 'serviceCount', 'timelineCount'));
     })->name('dashboard');
 
-    // Admin Group for Portfolio CRUD and settings
+    // Admin Group for Portfolio, Package, Blog, Service and Timeline CRUD
     Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('portfolios', PortfolioController::class);
+        Route::resource('packages', PricingPackageController::class);
+        Route::resource('posts', BlogPostController::class);
+        Route::resource('services', ServiceController::class);
+        Route::resource('timelines', TimelineController::class);
     });
 });
 

@@ -1,3 +1,79 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply antialiased text-slate-800 dark:text-slate-200 bg-[#fcfbf9] dark:bg-[#0b0f19];
+    }
+}
+
+/* Premium Animations */
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.03);
+    }
+}
+
+.premium-glow {
+    animation: pulseGlow 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.dark .glass-panel {
+    background: rgba(15, 20, 34, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass-card {
+    background: rgba(21, 27, 45, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Accent Gradients */
+.gradient-text-emerald {
+    background: linear-gradient(135deg, #10b981 0%, #14b8a6 50%, #047857 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-indigo {
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #4338ca 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.gradient-bg-dark {
+    background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.08), transparent 45%),
+                radial-gradient(circle at bottom left, rgba(79, 70, 229, 0.05), transparent 45%),
+                #0b0f19;
+}
+
+.gradient-bg-light {
+    background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.03), transparent 45%),
+                radial-gradient(circle at bottom left, rgba(79, 70, 229, 0.03), transparent 45%),
+                #fcfbf9;
+}
