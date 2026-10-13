@@ -6,10 +6,10 @@
     <!-- Page Header -->
     <section class="py-20 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-800/80 text-center px-6">
         <div class="max-w-3xl mx-auto">
-            <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Daftar Paket Lengkap</span>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-premium-navy dark:text-white tracking-tight mb-4">Investasikan Bisnis Anda ke Ranah Digital</h1>
+            <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Daftar Paket Harga</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-premium-navy dark:text-white tracking-tight mb-4">Pilihan Paket Pembuatan Website & Desain</h1>
             <p class="text-slate-500 dark:text-slate-400 font-light text-sm md:text-base leading-relaxed">
-                Pilih paket pembuatan website atau desain yang paling sesuai dengan skala usaha Anda. Transparan, bergaransi, dan tanpa biaya tambahan yang tersembunyi.
+                Pilihan paket fleksibel sesuai skala kebutuhan usaha Anda. Biaya jelas dan transparan, sudah termasuk domain & hosting tanpa biaya tersembunyi.
             </p>
         </div>
     </section>

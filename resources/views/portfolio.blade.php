@@ -7,9 +7,9 @@
     <section class="py-20 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-800/80 text-center px-6">
         <div class="max-w-3xl mx-auto">
             <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Galeri Karya</span>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-premium-navy dark:text-white tracking-tight mb-4">Portofolio Projek Kami</h1>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-premium-navy dark:text-white tracking-tight mb-4">Portofolio Projek Terbaru</h1>
             <p class="text-slate-500 dark:text-slate-400 font-light text-sm md:text-base leading-relaxed">
-                Jelajahi kumpulan hasil karya desain antarmuka, aset visual branding, serta produk aplikasi web/kustom yang telah dikembangkan secara dinamis untuk para mitra bisnis kami.
+                Beberapa hasil pembuatan website, aplikasi, dan desain visual yang telah kami kerjakan untuk klien dari berbagai bidang usaha.
             </p>
         </div>
     </section>

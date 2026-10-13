@@ -1,21 +1,21 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center space-x-4">
-            <a href="{{ route('admin.services.index') }}" class="inline-flex items-center text-gray-500 hover:text-gray-700 transition duration-150 ease-in-out">
+            <a href="{{ route('admin.services.index') }}" class="inline-flex items-center text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition duration-150 ease-in-out">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
             </a>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Edit Layanan / Pilar') }}
+            <h2 class="font-bold text-2xl text-slate-800 dark:text-white tracking-tight">
+                {{ __('Edit Layanan / Pilar Studio') }}
             </h2>
         </div>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-2xl border border-gray-100">
-                <div class="p-8 text-gray-900">
+    <div class="py-8 bg-slate-50/50 dark:bg-[#0b0f19] min-h-screen">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-[#0f1422] overflow-hidden shadow-sm rounded-2xl border border-slate-200/60 dark:border-slate-800/80">
+                <div class="p-8 text-slate-900 dark:text-slate-100">
                     <form action="{{ route('admin.services.update', $service->id) }}" method="POST" class="space-y-6">
                         @csrf
                         @method('PUT')
@@ -23,98 +23,98 @@
                         <div class="grid md:grid-cols-2 gap-6">
                             <!-- Category -->
                             <div>
-                                <label for="category" class="block text-sm font-semibold text-gray-700">Kategori</label>
+                                <label for="category" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Penempatan Halaman</label>
                                 <select id="category" name="category" required 
-                                        class="mt-1.5 block w-full rounded-lg border-gray-250 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm">
-                                    <option value="Layanan" {{ old('category', $service->category) === 'Layanan' ? 'selected' : '' }}>Layanan (Landing Page)</option>
-                                    <option value="Sosmed" {{ old('category', $service->category) === 'Sosmed' ? 'selected' : '' }}>Sosmed (Jasa Sosmed Page)</option>
-                                    <option value="Pilar" {{ old('category', $service->category) === 'Pilar' ? 'selected' : '' }}>Pilar (Pilar Tentang Kami)</option>
+                                        class="w-full rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm transition duration-150">
+                                    <option value="Layanan" {{ old('category', $service->category) === 'Layanan' ? 'selected' : '' }}>Layanan Beranda (Landing Page)</option>
+                                    <option value="Sosmed" {{ old('category', $service->category) === 'Sosmed' ? 'selected' : '' }}>Layanan Media Sosial (Halaman Sosmed)</option>
+                                    <option value="Pilar" {{ old('category', $service->category) === 'Pilar' ? 'selected' : '' }}>Pilar Studio (Halaman Tentang Kami)</option>
                                 </select>
                                 @error('category')
-                                    <p class="text-rose-600 text-xs mt-1.5">{{ $message }}</p>
+                                    <p class="text-rose-600 text-xs mt-1.5 font-medium">{{ $message }}</p>
                                 @enderror
                             </div>
 
                             <!-- Sorting Order -->
                             <div>
-                                <label for="order" class="block text-sm font-semibold text-gray-700">Order / Urutan Tampil</label>
+                                <label for="order" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Urutan Tampil (Nomor Urut)</label>
                                 <input type="number" id="order" name="order" value="{{ old('order', $service->order) }}" required
-                                       class="mt-1.5 block w-full rounded-lg border-gray-250 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm">
+                                       class="w-full rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm transition duration-150">
                                 @error('order')
-                                    <p class="text-rose-600 text-xs mt-1.5">{{ $message }}</p>
+                                    <p class="text-rose-600 text-xs mt-1.5 font-medium">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
 
                         <!-- Title -->
                         <div>
-                            <label for="title" class="block text-sm font-semibold text-gray-700">Judul Layanan / Pilar</label>
-                            <input type="text" id="title" name="title" value="{{ old('title', $service->title) }}" required placeholder="Contoh: Jasa Pembuatan Website"
-                                   class="mt-1.5 block w-full rounded-lg border-gray-250 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm">
+                            <label for="title" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Judul Layanan / Pilar</label>
+                            <input type="text" id="title" name="title" value="{{ old('title', $service->title) }}" required placeholder="Contoh: Pembuatan Website Bisnis & Portofolio"
+                                   class="w-full rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm transition duration-150">
                             @error('title')
-                                <p class="text-rose-600 text-xs mt-1.5">{{ $message }}</p>
+                                <p class="text-rose-600 text-xs mt-1.5 font-medium">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <!-- Icon Selection -->
                         <div>
-                            <label for="icon" class="block text-sm font-semibold text-gray-700">Icon</label>
+                            <label for="icon" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Ikon Representasi</label>
                             <select id="icon" name="icon" required 
-                                    class="mt-1.5 block w-full rounded-lg border-gray-250 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm">
-                                <option value="code" {{ old('icon', $service->icon) === 'code' ? 'selected' : '' }}>Code (Website)</option>
-                                <option value="palette" {{ old('icon', $service->icon) === 'palette' ? 'selected' : '' }}>Palette (Desain Grafis / UI/UX)</option>
-                                <option value="calendar" {{ old('icon', $service->icon) === 'calendar' ? 'selected' : '' }}>Calendar (Management/Schedule)</option>
-                                <option value="film" {{ old('icon', $service->icon) === 'film' ? 'selected' : '' }}>Film (Video Konten)</option>
-                                <option value="chart" {{ old('icon', $service->icon) === 'chart' ? 'selected' : '' }}>Chart (Analitik/Iklan)</option>
-                                <option value="camera" {{ old('icon', $service->icon) === 'camera' ? 'selected' : '' }}>Camera (Photography)</option>
-                                <option value="chat" {{ old('icon', $service->icon) === 'chat' ? 'selected' : '' }}>Chat (Specialist/Komunikasi)</option>
+                                    class="w-full rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm transition duration-150">
+                                <option value="code" {{ old('icon', $service->icon) === 'code' ? 'selected' : '' }}>Code (Website / Development)</option>
+                                <option value="palette" {{ old('icon', $service->icon) === 'palette' ? 'selected' : '' }}>Palette (Desain Grafis & UI/UX)</option>
+                                <option value="calendar" {{ old('icon', $service->icon) === 'calendar' ? 'selected' : '' }}>Calendar (Perencanaan Konten / Jadwal)</option>
+                                <option value="film" {{ old('icon', $service->icon) === 'film' ? 'selected' : '' }}>Film (Video Editing & Reels)</option>
+                                <option value="chart" {{ old('icon', $service->icon) === 'chart' ? 'selected' : '' }}>Chart (Analitik & Performa Iklan)</option>
+                                <option value="camera" {{ old('icon', $service->icon) === 'camera' ? 'selected' : '' }}>Camera (Dokumentasi Visual / Foto)</option>
+                                <option value="chat" {{ old('icon', $service->icon) === 'chat' ? 'selected' : '' }}>Chat (Konsultasi & Komunikasi)</option>
                             </select>
                             @error('icon')
-                                <p class="text-rose-600 text-xs mt-1.5">{{ $message }}</p>
+                                <p class="text-rose-600 text-xs mt-1.5 font-medium">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <!-- Description -->
                         <div>
-                            <label for="description" class="block text-sm font-semibold text-gray-700">Deskripsi Singkat</label>
-                            <textarea id="description" name="description" rows="4" required placeholder="Masukkan penjelasan detail dari layanan..."
-                                      class="mt-1.5 block w-full rounded-lg border-gray-250 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm">{{ old('description', $service->description) }}</textarea>
+                            <label for="description" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Deskripsi Layanan / Penjelasan</label>
+                            <textarea id="description" name="description" rows="4" required placeholder="Tuliskan uraian jelas tentang cakupan layanan ini untuk klien..."
+                                      class="w-full rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm transition duration-150">{{ old('description', $service->description) }}</textarea>
                             @error('description')
-                                <p class="text-rose-600 text-xs mt-1.5">{{ $message }}</p>
+                                <p class="text-rose-600 text-xs mt-1.5 font-medium">{{ $message }}</p>
                             @enderror
                         </div>
 
-                        <div class="grid md:grid-cols-2 gap-6 border-t border-gray-100 pt-6">
+                        <div class="grid md:grid-cols-2 gap-6 border-t border-slate-100 dark:border-slate-800/80 pt-6">
                             <!-- CTA Text -->
                             <div>
-                                <label for="cta_text" class="block text-sm font-semibold text-gray-700">Teks Tombol CTA (Opsional)</label>
-                                <input type="text" id="cta_text" name="cta_text" value="{{ old('cta_text', $service->cta_text) }}" placeholder="Contoh: Pesan Website"
-                                       class="mt-1.5 block w-full rounded-lg border-gray-250 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm">
+                                <label for="cta_text" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Teks Tombol Aksi (Opsional)</label>
+                                <input type="text" id="cta_text" name="cta_text" value="{{ old('cta_text', $service->cta_text) }}" placeholder="Contoh: Konsultasi Website"
+                                       class="w-full rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm transition duration-150">
                                 @error('cta_text')
-                                    <p class="text-rose-600 text-xs mt-1.5">{{ $message }}</p>
+                                    <p class="text-rose-600 text-xs mt-1.5 font-medium">{{ $message }}</p>
                                 @enderror
                             </div>
 
                             <!-- CTA Link -->
                             <div>
-                                <label for="cta_link" class="block text-sm font-semibold text-gray-700">Link Tombol CTA (Opsional)</label>
-                                <input type="text" id="cta_link" name="cta_link" value="{{ old('cta_link', $service->cta_link) }}" placeholder="Contoh: pricing atau WhatsApp URL"
-                                       class="mt-1.5 block w-full rounded-lg border-gray-250 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-sm">
-                                <span class="text-[10px] text-gray-400 mt-1 block">Untuk link lokal gunakan nama rute atau slug (contoh: `pricing`, `social-media`), untuk eksternal gunakan URL lengkap (contoh: `https://wa.me/...`).</span>
+                                <label for="cta_link" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Tautan Aksi (Opsional)</label>
+                                <input type="text" id="cta_link" name="cta_link" value="{{ old('cta_link', $service->cta_link) }}" placeholder="Contoh: pricing, contact, atau https://wa.me/..."
+                                       class="w-full rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm transition duration-150">
+                                <span class="text-[11px] text-slate-400 dark:text-slate-500 mt-1.5 block">Gunakan nama halaman (contoh: `pricing`, `portfolio`) atau URL lengkap WhatsApp.</span>
                                 @error('cta_link')
-                                    <p class="text-rose-600 text-xs mt-1.5">{{ $message }}</p>
+                                    <p class="text-rose-600 text-xs mt-1.5 font-medium">{{ $message }}</p>
                                 @enderror
                             </div>
                         </div>
 
                         <!-- Buttons -->
-                        <div class="flex justify-end space-x-3 border-t border-gray-100 pt-6 mt-8">
+                        <div class="flex justify-end space-x-3 border-t border-slate-100 dark:border-slate-800/80 pt-6 mt-8">
                             <a href="{{ route('admin.services.index') }}" 
-                               class="inline-flex items-center px-4 py-2 border border-gray-250 text-gray-750 text-sm font-semibold rounded-lg hover:bg-gray-50 transition duration-150">
+                               class="inline-flex items-center px-4 py-2 border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-xl transition duration-150">
                                 Batal
                             </a>
                             <button type="submit" 
-                                    class="inline-flex items-center px-4 py-2 bg-indigo-600 hover:bg-indigo-705 text-white text-sm font-semibold rounded-lg shadow-sm transition duration-150">
+                                    class="inline-flex items-center px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl shadow-md transition duration-150">
                                 Perbarui Layanan
                             </button>
                         </div>

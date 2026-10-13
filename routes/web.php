@@ -28,7 +28,7 @@ Route::get('/tentang-saya', [LandingController::class, 'about'])->name('about');
 |--------------------------------------------------------------------------
 | These routes require authentication and email verification (if enabled).
 */
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     // Admin Dashboard (uses default Breeze name for authentication redirects)
     Route::get('/dashboard', function () {
         $portfolioCount = \App\Models\Portfolio::count();

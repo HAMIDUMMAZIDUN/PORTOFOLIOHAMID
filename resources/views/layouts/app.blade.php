@@ -13,7 +13,7 @@
             if ($r->routeIs('admin.packages.*'))      return 'Paket Harga';
             if ($r->routeIs('admin.posts.*'))         return 'Artikel Blog';
             if ($r->routeIs('admin.services.*'))      return 'Layanan & Pilar';
-            if ($r->routeIs('admin.timelines.*'))     return 'Timeline Sejarah';
+            if ($r->routeIs('admin.timelines.*'))     return 'Milestone Studio';
             if ($r->routeIs('profile.*'))             return 'Profil Akun';
             return 'Admin';
         })() }} | HA Creative. CMS</title>

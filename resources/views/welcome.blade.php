@@ -7,18 +7,18 @@
     <div class="max-w-5xl mx-auto text-center relative z-10">
         <!-- Subtle Badge -->
         <span class="inline-flex items-center px-4 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 text-[11px] font-semibold uppercase tracking-wider mb-8 bg-white dark:bg-[#0f1422] shadow-sm">
-            Desain & Pengembangan Website Premium
+            Jasa Pembuatan Website & Desain Grafis Bandung
         </span>
 
         <!-- Headline -->
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-premium-navy dark:text-white tracking-tight leading-[1.1] mb-8">
-            Wujudkan Visi Digital <br>
-            <span class="text-slate-400 dark:text-slate-500 font-light">Anda Bersama Kami.</span>
+            Website Rapi, Cepat & Terpercaya <br>
+            <span class="text-slate-400 dark:text-slate-500 font-light">untuk Bisnis Anda.</span>
         </h1>
 
         <!-- Sub-headline -->
         <p class="text-base md:text-lg text-slate-500 dark:text-slate-400 mb-12 max-w-2xl mx-auto leading-relaxed font-light font-sans">
-            Tingkatkan citra & kepercayaan bisnismu dengan website desain profesional premium, performa cepat, SEO friendly, dan fitur lengkap aktif 24 jam dengan jangkauan tanpa batas.
+            Bantu bisnis Anda tampil lebih profesional dan meyakinkan di mata calon pelanggan. Kami buatkan website siap pakai yang responsif di HP, cepat diakses, dan mudah dikelola.
         </p>
 
         <!-- Call to Actions -->
@@ -41,11 +41,11 @@
             <div class="p-6">
                 <div class="w-10 h-10 bg-slate-100 dark:bg-slate-800/60 text-premium-navy dark:text-white rounded-lg flex items-center justify-center mx-auto mb-4">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                 </div>
-                <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-white mb-2">Tim Profesional</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Dikerjakan oleh tim developer & desainer berpengalaman.</p>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-white mb-2">Tepat Waktu</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Jadwal dan tenggat pengerjaan disepakati jelas dari awal.</p>
             </div>
             <!-- feature 2 -->
             <div class="p-6">
@@ -54,8 +54,8 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                     </svg>
                 </div>
-                <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-white mb-2">Anti Lemot & Cepat</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Optimasi struktur kode & kompresi aset gambar maksimal.</p>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-white mb-2">Akses Cepat di HP</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Loading ringan dan nyaman dibaca dari berbagai ukuran layar.</p>
             </div>
             <!-- feature 3 -->
             <div class="p-6">
@@ -64,28 +64,28 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
                     </svg>
                 </div>
-                <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-white mb-2">Free Maintenance</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Dukungan pemeliharaan sistem gratis selama aktif.</p>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-white mb-2">Bantuan Teknis</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Pendampingan dan perbaikan gratis selama masa aktif website.</p>
             </div>
             <!-- feature 4 -->
             <div class="p-6">
                 <div class="w-10 h-10 bg-slate-100 dark:bg-slate-800/60 text-premium-navy dark:text-white rounded-lg flex items-center justify-center mx-auto mb-4">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
                 </div>
-                <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-white mb-2">SEO Friendly</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Membantu website bisnis Anda lebih mudah ditemukan di Google.</p>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-white mb-2">Siap Masuk Google</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Struktur halaman rapi agar profil bisnis Anda mudah dicari pelanggan.</p>
             </div>
             <!-- feature 5 -->
             <div class="p-6">
                 <div class="w-10 h-10 bg-slate-100 dark:bg-slate-800/60 text-premium-navy dark:text-white rounded-lg flex items-center justify-center mx-auto mb-4">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                 </div>
-                <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-white mb-2">Video Tutorial</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Modul video penggunaan untuk kelola konten mandiri.</p>
+                <h4 class="text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-white mb-2">Panduan Pakai</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Dilengkapi petunjuk jelas jika Anda ingin memperbarui isi konten.</p>
             </div>
         </div>
     </div>
@@ -96,9 +96,9 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-2xl mx-auto mb-20">
             <span class="text-premium-navy dark:text-slate-300 text-xs font-bold uppercase tracking-widest block mb-3">Layanan Kami</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-premium-navy dark:text-white">Keahlian Utama Kami</h2>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-premium-navy dark:text-white">Layanan yang Kami Tawarkan</h2>
             <p class="text-slate-500 dark:text-slate-400 mt-4 leading-relaxed font-light text-sm">
-                Fokus pada estetika visual berkelas dan performa kode yang optimal untuk melahirkan produk digital terbaik.
+                Solusi praktis dan terarah untuk kebutuhan website, materi visual, dan pengelolaan media sosial brand Anda.
             </p>
         </div>
 
@@ -293,7 +293,7 @@
                         </a>
                         @else
                         <button @click="lightboxMediaType = 'image'; lightboxSrc = '{{ asset('storage/' . $item->image) }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
-                            class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-350 hover:text-premium-navy dark:hover:text-white transition-colors duration-150">
+                            class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white transition-colors duration-150">
                             <span>Lihat Gambar</span>
                             <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -366,9 +366,9 @@
     <div class="max-w-7xl mx-auto px-6">
         <div class="text-center max-w-2xl mx-auto mb-20">
             <span class="text-premium-navy dark:text-slate-300 text-xs font-bold uppercase tracking-widest block mb-3">Cara Pemesanan</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-premium-navy dark:text-white">Langkah Mudah Memesan Layanan</h2>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-premium-navy dark:text-white">Alur Pengerjaan Projek</h2>
             <p class="text-slate-500 dark:text-slate-400 mt-4 leading-relaxed font-light text-sm">
-                Ikuti 4 langkah sederhana berikut hingga website/desain Anda siap diterbitkan secara global.
+                4 langkah mudah dari diskusi awal hingga website Anda siap dipakai.
             </p>
         </div>
 
@@ -378,32 +378,32 @@
                 <div class="w-12 h-12 bg-premium-navy dark:bg-indigo-900/60 text-white dark:text-indigo-200 text-sm font-bold rounded-full flex items-center justify-center mx-auto mb-6">
                     01
                 </div>
-                <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Konsultasi Ide</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Diskusikan id & fitur website melalui chat WhatsApp.</p>
+                <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Konsultasi Kebutuhan</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Sampaikan ide, referensi tampilan, atau fitur yang diinginkan via WhatsApp.</p>
             </div>
             <!-- Step 2 -->
             <div class="text-center relative">
                 <div class="w-12 h-12 bg-premium-navy dark:bg-indigo-900/60 text-white dark:text-indigo-200 text-sm font-bold rounded-full flex items-center justify-center mx-auto mb-6">
                     02
                 </div>
-                <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Pilih Paket</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Tentukan paket harga yang paling sesuai dengan kebutuhan bisnis.</p>
+                <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Pilih Paket Harga</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Tentukan paket yang sesuai budget dan jadwal pengerjaan yang disepakati.</p>
             </div>
             <!-- Step 3 -->
             <div class="text-center relative">
                 <div class="w-12 h-12 bg-premium-navy dark:bg-indigo-900/60 text-white dark:text-indigo-200 text-sm font-bold rounded-full flex items-center justify-center mx-auto mb-6">
                     03
                 </div>
-                <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Kirim Bahan</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Kirimkan materi logo, teks, dan foto produk ke tim kami.</p>
+                <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Kirim Materi</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Kirimkan teks profil, logo, foto produk/layanan, serta kontak usaha Anda.</p>
             </div>
             <!-- Step 4 -->
             <div class="text-center relative">
                 <div class="w-12 h-12 bg-premium-navy dark:bg-indigo-900/60 text-white dark:text-indigo-200 text-sm font-bold rounded-full flex items-center justify-center mx-auto mb-6">
                     04
                 </div>
-                <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Proses Pengerjaan</h4>
-                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Kami kerjakan projek & lakukan penyesuaian revisi sesuai kebutuhan.</p>
+                <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Pengerjaan & Rilis</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Website kami kerjakan, revisi jika ada masukan, lalu siap dipublikasikan.</p>
             </div>
         </div>
     </div>
@@ -414,9 +414,9 @@
     <div class="max-w-4xl mx-auto px-6">
         <div class="text-center max-w-2xl mx-auto mb-16">
             <span class="text-premium-navy dark:text-slate-300 text-xs font-bold uppercase tracking-widest block mb-3">FAQ</span>
-            <h2 class="text-3xl md:text-4xl font-extrabold text-premium-navy dark:text-white">Pertanyaan Umum</h2>
+            <h2 class="text-3xl md:text-4xl font-extrabold text-premium-navy dark:text-white">Pertanyaan yang Sering Diajukan</h2>
             <p class="text-slate-500 dark:text-slate-400 mt-4 leading-relaxed font-light text-sm">
-                Temukan jawaban atas pertanyaan paling umum tentang jasa pembuatan website & branding di bawah ini.
+                Hal-hal mendasar seputar proses pembuatan website, biaya, dan pemeliharaan.
             </p>
         </div>
 
@@ -425,13 +425,13 @@
             <div class="bg-white dark:bg-[#0f1422] rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm transition">
                 <button @click="activeFaq = activeFaq === 1 ? null : 1"
                     class="w-full px-6 py-5 text-left font-bold text-premium-navy dark:text-white flex justify-between items-center text-sm focus:outline-none">
-                    <span>Bagaimana cara memesan layanan pembuatan website?</span>
+                    <span>Bagaimana cara mulai memesan website?</span>
                     <svg class="w-4 h-4 transition-transform duration-200" :class="activeFaq === 1 ? 'transform rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
                 <div x-show="activeFaq === 1" x-collapse class="px-6 pb-5 text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                    Caranya sangat mudah. Cukup klik tombol konsultasi WhatsApp, sampaikan kebutuhan website Anda, pilih paket harga, kirimkan konten (teks/gambar), lakukan pembayaran, dan kami akan memproses pengerjaan serta revisi hingga website Anda siap diterbitkan.
+                    Cukup hubungi kami melalui tombol WhatsApp yang tersedia. Diskusikan jenis website yang dibutuhkan, pilih paket yang sesuai, kirim materi (teks/foto/logo), dan tim kami akan segera mulai pengerjaan. Anda bisa mengecek progres dan meminta revisi sebelum website resmi diluncurkan.
                 </div>
             </div>
 
@@ -439,13 +439,13 @@
             <div class="bg-white dark:bg-[#0f1422] rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm transition">
                 <button @click="activeFaq = activeFaq === 2 ? null : 2"
                     class="w-full px-6 py-5 text-left font-bold text-premium-navy dark:text-white flex justify-between items-center text-sm focus:outline-none">
-                    <span>Apakah ada garansi & pemeliharaan (maintenance) gratis?</span>
+                    <span>Apakah ada garansi dan bantuan pemeliharaan jika ada kendala?</span>
                     <svg class="w-4 h-4 transition-transform duration-200" :class="activeFaq === 2 ? 'transform rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
                 <div x-show="activeFaq === 2" x-collapse class="px-6 pb-5 text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                    Ya. Kami memberikan layanan pemeliharaan (maintenance) secara GRATIS selama domain dan hosting website Anda aktif. Dukungan mencakup perbaikan bug, pemantauan server, dan pembaruan sistem berkala.
+                    Ya, tentu. Selama masa aktif domain dan hosting (per tahun), kami memberikan bantuan teknis gratis untuk perbaikan kendala teknis atau error sistem agar website Anda selalu beroperasi lancar.
                 </div>
             </div>
 
@@ -453,13 +453,13 @@
             <div class="bg-white dark:bg-[#0f1422] rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm transition">
                 <button @click="activeFaq = activeFaq === 3 ? null : 3"
                     class="w-full px-6 py-5 text-left font-bold text-premium-navy dark:text-white flex justify-between items-center text-sm focus:outline-none">
-                    <span>Apa manfaat memiliki website bagi branding bisnis saya?</span>
+                    <span>Apakah saya bisa memperbarui isi website sendiri nantinya?</span>
                     <svg class="w-4 h-4 transition-transform duration-200" :class="activeFaq === 3 ? 'transform rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
                 <div x-show="activeFaq === 3" x-collapse class="px-6 pb-5 text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                    Website dapat memperkuat kredibilitas brand Anda, memberikan kesan profesional di mata pelanggan, mempermudah akses informasi 24 jam tanpa batas geografis, serta menjadi pusat pemasaran digital (Google Ads / SEO).
+                    Bisa. Setiap website dilengkapi halaman dashboard admin yang mudah digunakan untuk mengelola portofolio, artikel, maupun produk. Kami juga menyertakan panduan penggunaannya.
                 </div>
             </div>
 
@@ -467,13 +467,13 @@
             <div class="bg-white dark:bg-[#0f1422] rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm transition">
                 <button @click="activeFaq = activeFaq === 4 ? null : 4"
                     class="w-full px-6 py-5 text-left font-bold text-premium-navy dark:text-white flex justify-between items-center text-sm focus:outline-none">
-                    <span>Berapa lama proses pengerjaan pembuatan website?</span>
+                    <span>Berapa lama estimasi waktu pembuatan website?</span>
                     <svg class="w-4 h-4 transition-transform duration-200" :class="activeFaq === 4 ? 'transform rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
                     </svg>
                 </button>
                 <div x-show="activeFaq === 4" x-collapse class="px-6 pb-5 text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                    Durasi pengerjaan bervariasi bergantung pada tingkat kerumitan. Untuk Paket Landing Page / Hemat biasanya selesai dalam 3-5 hari kerja. Sedangkan untuk paket bisnis kustom / toko online membutuhkan waktu sekitar 7-14 hari kerja setelah bahan lengkap diterima.
+                    Untuk paket landing page profil bisnis rata-rata selesai dalam 3–5 hari kerja. Untuk website toko online atau sistem kustom butuh 7–14 hari kerja setelah seluruh materi dan kebutuhan disepakati.
                 </div>
             </div>
         </div>
@@ -484,10 +484,10 @@
 <section id="contact" class="py-24 bg-white dark:bg-[#0b0f19] relative overflow-hidden">
     <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
         <h2 class="text-3xl md:text-5xl font-extrabold text-premium-navy dark:text-white mb-6 tracking-tight">
-            Siap Memulai Proyek Anda?
+            Punya Rencana Projek Website?
         </h2>
         <p class="text-slate-500 dark:text-slate-400 mb-12 max-w-xl mx-auto font-light leading-relaxed">
-            Hubungi kami sekarang untuk mendapatkan estimasi penawaran dan jadwal konsultasi awal gratis.
+            Konsultasikan ide atau tanyakan rekomendasi paket terbaik untuk bisnis Anda. Gratis dan tanpa komitmen.
         </p>
 
         <!-- Centered WhatsApp Contact Widget Form -->

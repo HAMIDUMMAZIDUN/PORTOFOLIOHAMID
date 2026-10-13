@@ -36,7 +36,7 @@
                     @elseif(request()->routeIs('admin.services.*'))
                         Layanan & Pilar
                     @elseif(request()->routeIs('admin.timelines.*'))
-                        Timeline Sejarah
+                        Milestone Studio
                     @elseif(request()->routeIs('profile.*'))
                         Profil Akun
                     @else

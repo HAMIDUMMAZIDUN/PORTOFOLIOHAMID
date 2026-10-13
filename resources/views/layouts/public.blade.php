@@ -34,10 +34,13 @@
                     },
                     colors: {
                         premium: {
-                            navy: '#0f172a', // Dark Slate/Navy
-                            emerald: '#059669', // Emerald
-                            accent: '#1e40af', // Navy Blue
-                            bgLight: '#fcfbf9', // Putih Tulang
+                            navy: '#0f172a',
+                            emerald: '#059669',
+                            accent: '#1e40af',
+                            bgLight: '#fcfbf9',
+                        },
+                        slate: {
+                            850: '#1e293b',
                         }
                     }
                 }
@@ -71,7 +74,7 @@
     @yield('styles')
 </head>
 
-<body class="text-slate-900 dark:text-slate-100 antialiased selection:bg-slate-900 selection:text-white dark:selection:bg-white dark:selection:text-slate-950">
+<body class="text-slate-900 dark:text-slate-100 antialiased bg-[#fcfbf9] dark:bg-[#0b0f19] selection:bg-slate-900 selection:text-white dark:selection:bg-white dark:selection:text-slate-900">
 
     <!-- Sticky Navbar -->
     <nav class="sticky top-0 z-50 w-full border-b border-slate-200/60 dark:border-slate-800/80 nav-blur" x-data="{ mobileOpen: false }">
@@ -177,7 +180,7 @@
                         <span class="text-slate-400 font-light">Creative.</span>
                     </a>
                     <p class="text-slate-400 mb-6 font-light leading-relaxed">
-                        Premium Web & Design Studio. Melayani UMKM hingga Korporasi dengan mengedepankan estetika visual berkelas dan performa optimal.
+                        Studio pembuatan website dan desain grafis berbasis di Bandung. Melayani UMKM dan bisnis berkembang dengan hasil rapi, cepat, dan terpercaya.
                     </p>
 
                     <!-- Social Media Links (White Circle, Dark Icon inside) -->
@@ -203,7 +206,7 @@
                 <!-- Column 2: Hubungi Kami (lg:col-span-3) -->
                 <div class="lg:col-span-3">
                     <h3 class="text-sm font-bold uppercase tracking-wider text-amber-400 mb-6">Hubungi Kami</h3>
-                    <div class="space-y-4 text-slate-350">
+                    <div class="space-y-4">
                         <div>
                             <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Email / Contact</p>
                             <p class="text-sm text-white font-medium hover:text-amber-400 transition duration-150 mt-0.5">
@@ -266,17 +269,17 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-6">
                 <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-2 text-[10px] uppercase tracking-wider font-semibold text-slate-500">
                     <a href="{{ route('home') }}" class="hover:text-amber-400 transition duration-150">Home</a>
-                    <span class="text-slate-850">&bull;</span>
+                    <span class="text-slate-700">&bull;</span>
                     <a href="{{ route('home') }}#services" class="hover:text-amber-400 transition duration-150">Jasa Website</a>
-                    <span class="text-slate-850">&bull;</span>
+                    <span class="text-slate-700">&bull;</span>
                     <a href="{{ route('portfolio') }}" class="hover:text-amber-400 transition duration-150">Portofolio</a>
-                    <span class="text-slate-850">&bull;</span>
+                    <span class="text-slate-700">&bull;</span>
                     <a href="{{ route('pricing') }}" class="hover:text-amber-400 transition duration-150">Paket Harga</a>
-                    <span class="text-slate-850">&bull;</span>
+                    <span class="text-slate-700">&bull;</span>
                     <a href="{{ route('social-media') }}" class="hover:text-amber-400 transition duration-150">Sosial Media</a>
-                    <span class="text-slate-850">&bull;</span>
+                    <span class="text-slate-700">&bull;</span>
                     <a href="{{ route('blog') }}" class="hover:text-amber-400 transition duration-150">Blog</a>
-                    <span class="text-slate-850">&bull;</span>
+                    <span class="text-slate-700">&bull;</span>
                     <a href="{{ route('about') }}" class="hover:text-amber-400 transition duration-150">Tentang Kami</a>
                 </div>
                 <div class="text-[11px] text-slate-500 font-light text-center md:text-right">
@@ -294,7 +297,7 @@
         x-transition:leave="transition ease-in duration-250 transform translate-y-4 opacity-0">
 
         <!-- Speech Bubble -->
-        <div class="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl shadow-2xl text-xs text-slate-700 dark:text-slate-250 leading-normal max-w-[200px] mb-4">
+        <div class="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl shadow-2xl text-xs text-slate-700 dark:text-slate-200 leading-normal max-w-[200px] mb-4">
             <!-- Small triangle pointing to the avatar -->
             <div class="absolute right-[-6px] bottom-6 w-3 h-3 bg-white dark:bg-slate-900 border-t border-r border-slate-200 dark:border-slate-800 transform rotate-45"></div>
 
@@ -305,11 +308,11 @@
                 </svg>
             </button>
 
-            <p class="font-bold text-[#0f172a] dark:text-amber-450 mb-1">Butuh Bantuan?</p>
-            <p class="font-light">Ayo... chat seru dengan tim <span class="font-semibold text-emerald-600 dark:text-emerald-450">HA Creative!</span></p>
+            <p class="font-bold text-[#0f172a] dark:text-amber-400 mb-1">Butuh Konsultasi?</p>
+            <p class="font-light text-slate-600 dark:text-slate-300">Diskusikan kebutuhan website Anda bersama <span class="font-semibold text-emerald-600 dark:text-emerald-400">HA Creative</span>.</p>
             <a href="https://wa.me/6281214019947?text=Halo%20HA%20Creative,%20saya%20ingin%20konsultasi%20mengenai%20projek%20saya" target="_blank"
-                class="inline-block mt-2 font-bold text-emerald-600 dark:text-emerald-450 hover:underline uppercase text-[9px] tracking-wider">
-                Chat Sekarang &rarr;
+                class="inline-block mt-2 font-bold text-emerald-600 dark:text-emerald-400 hover:underline uppercase text-[9px] tracking-wider">
+                Chat WhatsApp &rarr;
             </a>
         </div>
 

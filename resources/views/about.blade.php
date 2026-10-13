@@ -11,17 +11,17 @@
             </span>
             
             <h1 class="text-4xl md:text-6xl font-extrabold text-premium-navy dark:text-white tracking-tight leading-tight mb-6">
-                Satu Atap untuk <br>
-                <span class="text-premium-emerald dark:text-emerald-400 font-light">Seluruh Solusi Kreatif Anda.</span>
+                Membantu Bisnis Anda <br>
+                <span class="text-premium-emerald dark:text-emerald-400 font-light">Tampil Meyakinkan di Ranah Online.</span>
             </h1>
             
             <p class="leading-relaxed text-slate-500 dark:text-slate-400 mb-10 max-w-2xl mx-auto font-light text-sm md:text-base font-sans">
-                Kami adalah agensi kreatif kolaboratif yang menggabungkan para ahli teknologi, fotografer cinematic, spesialis pemasaran digital, dan desainer visual untuk mempercepat pertumbuhan bisnis dan mengabadikan momen penting Anda.
+                HA Creative adalah studio pembuatan website dan desain visual yang berbasis di Bandung. Kami mendampingi pelaku usaha, UMKM, dan perorangan membangun kehadiran digital yang rapi, fungsional, dan dapat diandalkan untuk menunjang penjualan.
             </p>
             
             <div class="flex justify-center gap-4">
                 <a href="{{ route('home') }}#contact" class="px-7 py-3 bg-premium-navy dark:bg-emerald-600 hover:bg-slate-800 dark:hover:bg-emerald-500 text-white rounded-lg text-xs font-bold uppercase tracking-wider transition shadow-sm">
-                    Mulai Kolaborasi
+                    Mulai Konsultasi
                 </a>
                 <a href="{{ route('pricing') }}" class="px-7 py-3 border border-slate-300 dark:border-slate-700 hover:border-premium-navy dark:hover:border-white text-slate-700 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white bg-white dark:bg-[#0f1422] rounded-lg text-xs font-bold uppercase tracking-wider transition">
                     Lihat Paket Harga
@@ -34,10 +34,10 @@
     <section class="py-24 px-6 bg-slate-50 dark:bg-[#0e1320] border-b border-slate-200/60 dark:border-slate-850">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Layanan Terpadu</span>
-                <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white tracking-tight">4 Pilar Keahlian Kami</h2>
+                <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Fokus Layanan</span>
+                <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white tracking-tight">Bidang Keahlian Kami</h2>
                 <p class="text-slate-400 dark:text-slate-500 text-xs mt-2 max-w-lg mx-auto leading-relaxed">
-                    Dikerjakan secara sinergis oleh tim profesional untuk menghasilkan output berkualitas tinggi secara konsisten.
+                    Kami fokus pada layanan yang terbukti praktis dan berdampak langsung pada branding dan operasional bisnis Anda.
                 </p>
             </div>
 
@@ -79,8 +79,8 @@
     <section class="py-24 px-6 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-850">
         <div class="max-w-4xl mx-auto">
             <div class="text-center mb-16">
-                <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Sejarah Pembentukan</span>
-                <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white tracking-tight">Timeline Sejarah Agensi</h2>
+                <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Perjalanan Kami</span>
+                <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white tracking-tight">Perkembangan HA Creative</h2>
             </div>
             
             <div class="border-l-2 border-slate-200 dark:border-slate-800 ml-4 space-y-12">

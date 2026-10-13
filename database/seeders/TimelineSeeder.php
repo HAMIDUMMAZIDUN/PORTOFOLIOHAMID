@@ -12,20 +12,28 @@ class TimelineSeeder extends Seeder
      */
     public function run(): void
     {
+        Timeline::truncate();
         $timelines = [
             [
-                'year' => 'Tahun 2025',
-                'title' => 'Inisiasi & Perumusan Ide',
-                'subtitle' => 'Pengusulan Model Kolaborasi Agensi',
-                'content' => 'Gagasan awal lahir dari kebutuhan pasar akan pengerjaan digital satu pintu yang mulus. Para founder yang memiliki latar belakang berbeda (developer, desainer, fotografer) merancang struktur kerja kolaboratif agar dapat melayani kebutuhan klien secara efisien dan berkualitas tanpa batasan koordinasi pihak ketiga.',
+                'year' => '2024',
+                'title' => 'Awal Mula & Projek Pertama',
+                'subtitle' => 'Mengerjakan Pembuatan Website & Desain Klien Lokal',
+                'content' => 'Berawal dari proyek lepas mengerjakan website profil dan identitas visual untuk pelaku UMKM di Bandung. Fokus utama kami adalah menghadirkan website yang fungsional, rapi, dan terjangkau bagi pemilik usaha.',
                 'order' => 1,
             ],
             [
-                'year' => 'Tahun 2026',
-                'title' => 'Resmi Terbentuk & Ekspansi Layanan',
-                'subtitle' => 'Grand Launching HA Creative Agency',
-                'content' => 'Melalui perancangan matang setahun ke belakang, agensi resmi didirikan dan diluncurkan. Kami mengintegrasikan empat divisi inti kami dalam satu sistem operasi profesional untuk melayani puluhan UMKM dan pasangan pernikahan di seluruh Indonesia.',
+                'year' => '2025',
+                'title' => 'Mendirikan HA Creative',
+                'subtitle' => 'Integrasi Layanan Website & Media Sosial',
+                'content' => 'Merespons kebutuhan klien yang ingin tampilan visualnya konsisten, kami menyatukan layanan pembuatan website, desain grafis, dan pengelolaan media sosial dalam satu alur kerja yang teratur.',
                 'order' => 2,
+            ],
+            [
+                'year' => '2026',
+                'title' => 'Pertumbuhan & Kepercayaan Klien',
+                'subtitle' => 'Melayani Puluhan Mitra Bisnis di Indonesia',
+                'content' => 'Kini HA Creative telah dipercaya oleh puluhan pelaku usaha dari berbagai sektor bisnis. Kami terus menjaga komitmen pengerjaan tepat waktu, pendampingan ramah, dan hasil kerja berkualitas tinggi.',
+                'order' => 3,
             ],
         ];
 

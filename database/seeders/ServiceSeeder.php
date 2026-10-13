@@ -12,6 +12,7 @@ class ServiceSeeder extends Seeder
      */
     public function run(): void
     {
+        Service::truncate();
         $services = [
             // Category: Layanan (Landing Page)
             [
@@ -65,36 +66,36 @@ class ServiceSeeder extends Seeder
             // Category: Pilar (About Page Pillars)
             [
                 'category' => 'Pilar',
-                'title' => 'Jasa Web Development',
+                'title' => 'Pembuatan Website',
                 'icon' => 'code',
-                'description' => 'Pembuatan website profile bisnis, landing page conversion-oriented, portal e-learning, hingga e-commerce berfitur kustom dan SEO-friendly.',
+                'description' => 'Pembuatan landing page, website profil bisnis, katalog produk, hingga toko online yang siap pakai, cepat, dan responsif di HP.',
                 'cta_text' => null,
                 'cta_link' => null,
                 'order' => 1,
             ],
             [
                 'category' => 'Pilar',
-                'title' => 'Wedding Photography',
-                'icon' => 'camera',
-                'description' => 'Dokumentasi foto dan video wedding & pre-wedding profesional berskala sinematik, menangkap emosi nyata di setiap momen sakral Anda.',
+                'title' => 'Desain Grafis & Branding',
+                'icon' => 'palette',
+                'description' => 'Pembuatan logo, identitas visual brand, kemasan, hingga banner promosi digital yang rapi dan menarik perhatian calon pembeli.',
                 'cta_text' => null,
                 'cta_link' => null,
                 'order' => 2,
             ],
             [
                 'category' => 'Pilar',
-                'title' => 'Sosial Media Spesialis',
-                'icon' => 'chat',
-                'description' => 'Pengelolaan konten branding akun Instagram/TikTok, optimasi interaksi audiens, strategi caption terstruktur, dan analisis report berkala.',
+                'title' => 'Pengelolaan Media Sosial',
+                'icon' => 'calendar',
+                'description' => 'Perencanaan ide konten bulanan, desain visual feed, penulisan caption komunikatif, dan pengaturan jadwal tayang yang teratur.',
                 'cta_text' => null,
                 'cta_link' => null,
                 'order' => 3,
             ],
             [
                 'category' => 'Pilar',
-                'title' => 'Desain Grafis & UI/UX',
-                'icon' => 'palette',
-                'description' => 'Penyusunan identitas visual brand (logo guidlines), wireframing aplikasi, desain interface Figma interaktif, dan materi promosi cetak/digital.',
+                'title' => 'Maintenance & Sistem Kustom',
+                'icon' => 'chart',
+                'description' => 'Dukungan pemeliharaan website, perbaikan teknis, optimasi kecepatan server, serta pengembangan fitur dashboard custom.',
                 'cta_text' => null,
                 'cta_link' => null,
                 'order' => 4,

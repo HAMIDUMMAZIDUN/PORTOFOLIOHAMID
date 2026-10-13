@@ -12,6 +12,7 @@ class PricingPackageSeeder extends Seeder
      */
     public function run(): void
     {
+        PricingPackage::truncate();
         $packages = [
             [
                 'name' => 'Hemat',

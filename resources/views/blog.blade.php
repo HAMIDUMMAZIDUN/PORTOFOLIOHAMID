@@ -6,10 +6,10 @@
     <!-- Page Header -->
     <section class="py-20 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-800/80 text-center px-6">
         <div class="max-w-3xl mx-auto">
-            <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Blog & Insights</span>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-premium-navy dark:text-white tracking-tight mb-4">Wawasan Digital untuk Bisnis Anda</h1>
+            <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Artikel & Panduan Praktis</span>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-premium-navy dark:text-white tracking-tight mb-4">Tips Mengembangkan Website & Bisnis Online</h1>
             <p class="text-slate-500 dark:text-slate-400 font-light text-sm md:text-base leading-relaxed">
-                Temukan tips teraktual seputar pengembangan website, strategi iklan berbayar (Ads), optimasi mesin pencari (SEO), dan tren digital marketing terpopuler.
+                Kumpulan panduan praktis seputar pengelolaan website, optimasi tampilan, serta strategi digital untuk UMKM dan brand lokal.
             </p>
         </div>
     </section>

@@ -6,12 +6,12 @@
     <!-- Hero Header -->
     <section class="py-24 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-800 px-6">
         <div class="max-w-4xl mx-auto text-center">
-            <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-4">Creative Services</span>
+            <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-4">Layanan Media Sosial</span>
             <h1 class="text-4xl md:text-6xl font-extrabold text-premium-navy dark:text-white tracking-tight mb-6">
-                Jasa Sosial Media Management
+                Jasa Pengelolaan & Desain Media Sosial
             </h1>
             <p class="text-slate-500 dark:text-slate-400 font-light text-sm md:text-lg leading-relaxed max-w-2xl mx-auto mb-10">
-                HA Creative siap membantu bisnis Anda tumbuh lebih cepat, lebih dikenal, dan dikelola secara profesional dengan konten sosial media yang efektif, kreatif, dan impactful.
+                Bantu akun Instagram dan media sosial bisnis Anda tetap aktif, rapi, dan konsisten memikat calon pembeli tanpa menguras waktu operasional harian Anda.
             </p>
             <a href="https://wa.me/6281214019947?text=Halo%20HA%20Creative,%20saya%20ingin%20konsultasi%20Jasa%20Sosial%20Media%20Management" target="_blank"
                class="inline-flex items-center justify-center px-7 py-3.5 bg-premium-navy dark:bg-emerald-600 hover:bg-slate-800 dark:hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider rounded-lg shadow-sm transition duration-200">
@@ -24,10 +24,10 @@
     <section class="py-24 px-6 bg-slate-50 dark:bg-[#0e1320]">
         <div class="max-w-6xl mx-auto">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <span class="text-slate-400 dark:text-slate-550 text-xs font-bold uppercase tracking-wider block mb-2">Layanan Kami</span>
-                <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white">Di Mana Kreativitas Bertemu Strategi</h2>
+                <span class="text-slate-400 dark:text-slate-550 text-xs font-bold uppercase tracking-wider block mb-2">Layanan Konten</span>
+                <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white">Apa Saja yang Kami Kerjakan?</h2>
                 <p class="text-slate-500 dark:text-slate-400 mt-3 font-light text-xs md:text-sm">
-                    Kami memadukan desain visual berkelas dengan perencanaan taktis untuk mendominasi pasar digital.
+                    Mulai dari riset ide konten, pembuatan materi visual, hingga penulisan caption yang komunikatif.
                 </p>
             </div>
 
@@ -85,21 +85,21 @@
     <section class="py-24 px-6 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-800/80">
         <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
             <div>
-                <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-4">Mengapa Kami</span>
+                <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-4">Kenapa Memilih Kami</span>
                 <h2 class="text-3xl md:text-4xl font-extrabold text-premium-navy dark:text-white tracking-tight mb-6 leading-tight">
-                    Desain yang baik berawal dari latihan. Desain hebat berawal dari jiwa.
+                    Konten Terencana, Visual Konsisten, dan Bebas Pusing.
                 </h2>
                 <p class="text-slate-500 dark:text-slate-400 font-light text-xs md:text-sm leading-relaxed mb-8">
-                    Kami bukan hanya sekadar mengunggah gambar dan menulis caption. Dengan metodologi riset audiens dan pendekatan kreatif berbasis data-driven, setiap elemen dirancang khusus agar brand Anda diingat, dihormati, dan menghasilkan penjualan yang berkelanjutan.
+                    Mengelola media sosial sendiri sering kali terkendala waktu dan kehabisan ide. Kami hadir menjadi partner konten Anda agar feed terlihat profesional, pesan produk tersampaikan jelas, dan Anda tetap bisa fokus melayani pembeli.
                 </p>
                 <div class="grid grid-cols-2 gap-6">
                     <div>
-                        <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Desain Rapi & Elegan</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light">Visual bernilai estetika tinggi, memperkuat persepsi kemewahan bisnis.</p>
+                        <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Desain Khas Brand</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light">Visual rapi yang selaras dengan warna dan karakter produk Anda.</p>
                     </div>
                     <div>
-                        <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Tim Ahli Strategis</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light">Kami mengerti cara kerja algoritma, hashtag, dan tren terkini.</p>
+                        <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-2">Caption Komunikatif</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light">Gaya bahasa yang natural dan mengajak audiens untuk berinteraksi.</p>
                     </div>
                 </div>
             </div>
@@ -110,8 +110,8 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     </div>
                     <div>
-                        <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-1">Professional & Clean Design</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light">Setiap aset visual dibuat custom menggunakan guideline warna yang konsisten.</p>
+                        <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-1">Jadwal Posting Teratur</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light">Kalender konten bulanan yang terjadwal rapi tanpa bolong-bolong.</p>
                     </div>
                 </div>
                 <!-- feature 2 -->
@@ -120,8 +120,8 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     </div>
                     <div>
-                        <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-1">Creative Solution & Fresh Idea</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light">Solusi out-of-the-box untuk memecahkan kebosanan feed media sosial Anda.</p>
+                        <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-1">Format Konten Beragam</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light">Kombinasi feed tunggal, carousel edukasi, dan video pendek (Reels/TikTok).</p>
                     </div>
                 </div>
                 <!-- feature 3 -->
@@ -130,8 +130,8 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
                     </div>
                     <div>
-                        <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-1">Analytic & Reporting</h4>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light">Evaluasi berkala bulanan mengenai jangkauan, interaksi, dan tingkat konversi.</p>
+                        <h4 class="text-sm font-bold text-premium-navy dark:text-white mb-1">Laporan Perkembangan</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-light">Evaluasi bulanan untuk melihat pertumbuhan akun dan konten terbaik.</p>
                     </div>
                 </div>
             </div>

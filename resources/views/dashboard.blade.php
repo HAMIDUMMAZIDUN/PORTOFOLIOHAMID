@@ -16,10 +16,10 @@
             <!-- Welcome Admin Card -->
             <div class="rounded-2xl bg-white dark:bg-[#0f1422] border border-slate-200/60 dark:border-slate-800/80 shadow-sm mb-10 p-8 md:p-10 border-l-4 border-l-indigo-500 dark:border-l-indigo-500">
                 <div class="max-w-3xl">
-                    <span class="text-xs font-bold uppercase tracking-widest text-indigo-500 dark:text-indigo-400 mb-2 block">CMS Administrator</span>
+                    <span class="text-xs font-bold uppercase tracking-widest text-indigo-500 dark:text-indigo-400 mb-2 block">Panel Pengelola Konten</span>
                     <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Selamat Datang, <span class="text-indigo-500 dark:text-indigo-400 font-light">{{ Auth::user()->name }}</span></h3>
                     <p class="text-slate-500 dark:text-slate-400 font-light mt-3 text-sm md:text-base leading-relaxed">
-                        Kelola seluruh konten, portofolio karya, daftar paket harga jasa, artikel blog, pilar keahlian agensi, dan timeline sejarah dengan mudah dari pusat kontrol dinamis ini.
+                        Kelola portofolio projek, daftar paket harga, artikel blog, dan layanan website HA Creative. Perubahan yang Anda simpan akan langsung diperbarui di halaman depan.
                     </p>
                 </div>
             </div>
@@ -39,9 +39,9 @@
                                 </div>
                                 <span class="text-4xl font-extrabold tracking-tight text-slate-800 dark:text-white">{{ $portfolioCount }}</span>
                             </div>
-                            <h4 class="text-base font-bold text-slate-800 dark:text-slate-100">Koleksi Portofolio</h4>
+                            <h4 class="text-base font-bold text-slate-800 dark:text-slate-100">Portofolio Projek</h4>
                             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 font-light leading-relaxed">
-                                Proyek website, desain visual, dan hasil dokumentasi video/foto yang dipublikasikan.
+                                Daftar website, karya desain grafis, dan video yang ditampilkan ke calon klien.
                             </p>
                         </div>
                         <a href="{{ route('admin.portfolios.index') }}" class="block text-center py-2.5 mt-6 bg-slate-900 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl shadow-sm transition duration-150">
@@ -60,9 +60,9 @@
                                 </div>
                                 <span class="text-4xl font-extrabold tracking-tight text-slate-800 dark:text-white">{{ $packageCount }}</span>
                             </div>
-                            <h4 class="text-base font-bold text-slate-800 dark:text-slate-100">Paket Harga Jasa</h4>
+                            <h4 class="text-base font-bold text-slate-800 dark:text-slate-100">Paket Harga</h4>
                             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 font-light leading-relaxed">
-                                Konfigurasi harga jasa website, desain grafis, dan sosial media untuk landing page.
+                                Atur nama paket, daftar fitur, dan harga pembuatan website atau layanan desain.
                             </p>
                         </div>
                         <a href="{{ route('admin.packages.index') }}" class="block text-center py-2.5 mt-6 bg-slate-900 hover:bg-emerald-700 text-white text-xs font-semibold rounded-xl shadow-sm transition duration-150">
@@ -81,9 +81,9 @@
                                 </div>
                                 <span class="text-4xl font-extrabold tracking-tight text-slate-800 dark:text-white">{{ $postCount }}</span>
                             </div>
-                            <h4 class="text-base font-bold text-slate-800 dark:text-slate-100">Artikel Blog & Wawasan</h4>
+                            <h4 class="text-base font-bold text-slate-800 dark:text-slate-100">Artikel Blog & Panduan</h4>
                             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 font-light leading-relaxed">
-                                Publikasi edukasi bisnis, pembaruan teknologi, dan artikel tips digital agensi.
+                                Tulis dan publikasikan panduan serta tips praktis seputar website untuk pembaca.
                             </p>
                         </div>
                         <a href="{{ route('admin.posts.index') }}" class="block text-center py-2.5 mt-6 bg-slate-900 hover:bg-rose-700 text-white text-xs font-semibold rounded-xl shadow-sm transition duration-150">
@@ -102,13 +102,13 @@
                                 </div>
                                 <span class="text-4xl font-extrabold tracking-tight text-slate-800 dark:text-white">{{ $serviceCount }}</span>
                             </div>
-                            <h4 class="text-base font-bold text-slate-800 dark:text-slate-100">Layanan & Pilar Agensi</h4>
+                            <h4 class="text-base font-bold text-slate-800 dark:text-slate-100">Layanan Utama</h4>
                             <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 font-light leading-relaxed">
-                                Kelola pilar keahlian utama, kartu penawaran landing page, dan sub-layanan.
+                                Kelola kartu layanan di beranda serta bidang keahlian di halaman Tentang Kami.
                             </p>
                         </div>
                         <a href="{{ route('admin.services.index') }}" class="block text-center py-2.5 mt-6 bg-slate-900 hover:bg-blue-700 text-white text-xs font-semibold rounded-xl shadow-sm transition duration-150">
-                            Kelola Layanan/Pilar
+                            Kelola Layanan
                         </a>
                     </div>
                 </div>
@@ -118,32 +118,32 @@
                     <!-- Timeline Summary Panel -->
                     <div class="bg-white dark:bg-[#0f1422] rounded-2xl border border-slate-200/60 dark:border-slate-800/80 p-6 shadow-sm flex flex-col justify-between hover:shadow-md transition duration-350">
                         <div class="flex items-center justify-between mb-4">
-                            <h4 class="text-sm font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wider">Perkembangan Sejarah</h4>
-                            <span class="text-xl font-black text-slate-800 dark:text-white">{{ $timelineCount }} Event</span>
+                            <h4 class="text-sm font-bold text-slate-800 dark:text-slate-100 uppercase tracking-wider">Milestone Studio</h4>
+                            <span class="text-xl font-black text-slate-800 dark:text-white">{{ $timelineCount }} Periode</span>
                         </div>
                         <p class="text-xs text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                            Alur perkembangan/sejarah agensi HA Creative yang tampil pada halaman Tentang Kami secara berurutan.
+                            Tahapan perjalanan dan perkembangan HA Creative yang tampil di halaman Tentang Kami.
                         </p>
                         <a href="{{ route('admin.timelines.index') }}" class="block text-center py-2.5 mt-6 border border-slate-200 dark:border-slate-800 hover:border-indigo-600 dark:hover:border-indigo-500 text-slate-700 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 text-xs font-semibold rounded-xl transition duration-150">
-                            Kelola Timeline Sejarah
+                            Kelola Milestone
                         </a>
                     </div>
 
                     <!-- Quick Guideline Panel -->
                     <div class="bg-gradient-to-br from-indigo-900 to-slate-900 text-white rounded-2xl p-6 shadow-sm border border-slate-850">
-                        <h4 class="text-sm font-bold uppercase tracking-wider mb-4 text-indigo-300">Panduan Administrator</h4>
-                        <ul class="space-y-3.5 text-xs text-slate-350 font-light">
+                        <h4 class="text-sm font-bold uppercase tracking-wider mb-4 text-indigo-300">Tips Pengelolaan Konten</h4>
+                        <ul class="space-y-3.5 text-xs text-slate-300 font-light">
                             <li class="flex items-start">
                                 <span class="text-emerald-400 mr-2 font-bold">•</span>
-                                Gunakan ikon resmi dari generator pilihan saat menambahkan pilar atau penawaran baru.
+                                <span><strong>Gambar Portofolio:</strong> Gunakan rasio 16:9 atau 4:3 (JPG/PNG/WebP, maks 2MB) agar tampilan feed tetap rapi.</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-emerald-400 mr-2 font-bold">•</span>
-                                Pastikan link WhatsApp (CTA) untuk order berformat tautan internasional lengkap.
+                                <span><strong>Nomor WhatsApp:</strong> Awali dengan format internasional 62 (contoh: 62812xxxx) untuk tautan chat otomatis.</span>
                             </li>
                             <li class="flex items-start">
                                 <span class="text-emerald-400 mr-2 font-bold">•</span>
-                                Hubungkan portofolio dengan kategori yang tepat agar secara otomatis masuk filter.
+                                <span><strong>Kategori:</strong> Pastikan memilih kategori yang tepat agar proyek masuk ke tab filter halaman depan.</span>
                             </li>
                         </ul>
                     </div>

@@ -48,7 +48,7 @@
                             ['route' => 'admin.packages.index',   'match' => 'admin.packages.*',       'icon' => 'tag',       'label' => 'Paket Harga'],
                             ['route' => 'admin.posts.index',      'match' => 'admin.posts.*',          'icon' => 'document',  'label' => 'Artikel Blog'],
                             ['route' => 'admin.services.index',   'match' => 'admin.services.*',       'icon' => 'briefcase', 'label' => 'Layanan & Pilar'],
-                            ['route' => 'admin.timelines.index',  'match' => 'admin.timelines.*',      'icon' => 'clock',     'label' => 'Timeline Sejarah'],
+                            ['route' => 'admin.timelines.index',  'match' => 'admin.timelines.*',      'icon' => 'clock',     'label' => 'Milestone Studio'],
                         ];
                     @endphp
 
