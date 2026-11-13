@@ -14,8 +14,8 @@ class LandingController extends Controller
      */
     public function index()
     {
-        // Ambil semua portofolio terbaru untuk ditampilkan di landing page
-        $portfolios = Portfolio::latest()->take(6)->get();
+        // Ambil semua portofolio untuk galeri dan filter di homepage
+        $portfolios = Portfolio::latest()->get();
         return view('welcome', compact('portfolios'));
     }
 

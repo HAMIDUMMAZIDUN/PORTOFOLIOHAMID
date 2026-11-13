@@ -402,22 +402,22 @@
 
             <!-- Desktop Nav Links with Yoggui Numbered Styling -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide" aria-label="Navigasi Utama">
-                <a href="{{ route('portfolio') }}" 
+                <a href="{{ request()->routeIs('home') ? '#portfolio' : route('home') . '#portfolio' }}" 
                    data-nav="portfolio"
                    class="nav-link {{ request()->routeIs('portfolio') ? 'is-active' : '' }}">
                     <span class="nav-num">01</span>Portofolio
                 </a>
-                <a href="{{ route('home') }}#skills" 
+                <a href="{{ request()->routeIs('home') ? '#skills' : route('home') . '#skills' }}" 
                    data-nav="skills"
                    class="nav-link">
                     <span class="nav-num">02</span>Keahlian
                 </a>
-                <a href="{{ route('about') }}" 
-                   data-nav="about"
+                <a href="{{ request()->routeIs('home') ? '#experience' : route('home') . '#experience' }}" 
+                   data-nav="experience"
                    class="nav-link {{ request()->routeIs('about') ? 'is-active' : '' }}">
                     <span class="nav-num">03</span>Pengalaman
                 </a>
-                <a href="{{ route('home') }}#contact" 
+                <a href="{{ request()->routeIs('home') ? '#contact' : route('home') . '#contact' }}" 
                    data-nav="contact"
                    class="nav-link">
                     <span class="nav-num">04</span>Kontak
@@ -484,25 +484,25 @@
             
             <ul class="space-y-4 pt-4">
                 <li>
-                    <a href="{{ route('portfolio') }}" @click="mobileOpen = false" 
+                    <a href="{{ request()->routeIs('home') ? '#portfolio' : route('home') . '#portfolio' }}" @click="mobileOpen = false" 
                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
                         <span class="nav-num text-sm text-sky-400 mr-3">01</span> Portofolio
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('home') }}#skills" @click="mobileOpen = false" 
+                    <a href="{{ request()->routeIs('home') ? '#skills' : route('home') . '#skills' }}" @click="mobileOpen = false" 
                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
                         <span class="nav-num text-sm text-sky-400 mr-3">02</span> Keahlian
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('about') }}" @click="mobileOpen = false" 
+                    <a href="{{ request()->routeIs('home') ? '#experience' : route('home') . '#experience' }}" @click="mobileOpen = false" 
                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
                         <span class="nav-num text-sm text-sky-400 mr-3">03</span> Pengalaman
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('home') }}#contact" @click="mobileOpen = false" 
+                    <a href="{{ request()->routeIs('home') ? '#contact' : route('home') . '#contact' }}" @click="mobileOpen = false" 
                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
                         <span class="nav-num text-sm text-sky-400 mr-3">04</span> Kontak
                     </a>
@@ -517,7 +517,7 @@
                 @endauth
                 <a href="{{ route('home') }}#contact" @click="mobileOpen = false" 
                    class="cta-btn w-full justify-between">
-                    <span>Mulai Konsultasi Projek</span>
+                    <span>Hubungi Saya Langsung</span>
                     <span class="cta-btn-icon">
                         <i data-lucide="arrow-right" class="cta-btn-arrow"></i>
                     </span>
@@ -578,10 +578,10 @@
             <div class="pt-8 border-t border-slate-100 dark:border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium">
                 <div class="flex flex-wrap justify-center gap-6 text-slate-600 dark:text-slate-400">
                     <a href="{{ route('home') }}" class="hover:text-brand-600 dark:hover:text-white transition">Home</a>
-                    <a href="{{ route('portfolio') }}" class="hover:text-brand-600 dark:hover:text-white transition">Portofolio</a>
-                    <a href="{{ route('home') }}#skills" class="hover:text-brand-600 dark:hover:text-white transition">Keahlian</a>
-                    <a href="{{ route('about') }}" class="hover:text-brand-600 dark:hover:text-white transition">Pengalaman</a>
-                    <a href="{{ route('home') }}#contact" class="hover:text-brand-600 dark:hover:text-white transition">Kontak</a>
+                    <a href="{{ request()->routeIs('home') ? '#portfolio' : route('home') . '#portfolio' }}" class="hover:text-brand-600 dark:hover:text-white transition">Portofolio</a>
+                    <a href="{{ request()->routeIs('home') ? '#skills' : route('home') . '#skills' }}" class="hover:text-brand-600 dark:hover:text-white transition">Keahlian</a>
+                    <a href="{{ request()->routeIs('home') ? '#experience' : route('home') . '#experience' }}" class="hover:text-brand-600 dark:hover:text-white transition">Pengalaman</a>
+                    <a href="{{ request()->routeIs('home') ? '#contact' : route('home') . '#contact' }}" class="hover:text-brand-600 dark:hover:text-white transition">Kontak</a>
                     <a href="{{ route('login') }}" class="hover:text-brand-600 dark:hover:text-white transition text-slate-400">Admin Login</a>
                 </div>
                 <div class="text-slate-400 dark:text-slate-500 text-center sm:text-right">
@@ -607,12 +607,12 @@
 
             <p class="font-bold text-slate-900 dark:text-white mb-0.5 flex items-center gap-1.5">
                 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                Konsultasi Online
+                Tersedia Online
             </p>
             <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-light">
-                Diskusikan website atau kebutuhan digital Anda via WhatsApp.
+                Hubungi langsung via WhatsApp untuk kolaborasi atau tanya-tanya.
             </p>
-            <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website" target="_blank"
+            <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20tertarik%20untuk%20kolaborasi%20pembuatan%20website" target="_blank"
                 class="inline-flex items-center gap-1 mt-2 font-bold text-brand-600 dark:text-sky-300 hover:underline uppercase text-[10px] tracking-wider">
                 <span>Chat Sekarang</span>
                 <i data-lucide="arrow-right" class="w-3 h-3"></i>
@@ -682,13 +682,11 @@
             }
 
             // ===== SCROLL-SPY: Active nav link highlight =====
-            // Only run on homepage where sections exist
             const sections = [
-                { id: 'skills',   nav: 'skills' },
-                { id: 'portfolio', nav: 'portfolio' },
-                { id: 'process',  nav: 'contact' },
-                { id: 'faq',      nav: 'contact' },
-                { id: 'contact',  nav: 'contact' },
+                { id: 'portfolio',  nav: 'portfolio' },
+                { id: 'skills',     nav: 'skills' },
+                { id: 'experience', nav: 'experience' },
+                { id: 'contact',    nav: 'contact' },
             ];
 
             const navLinks = document.querySelectorAll('.nav-link[data-nav]');
@@ -703,7 +701,7 @@
                 });
             }
 
-            if (sections.length && document.getElementById('skills')) {
+            if (document.getElementById('portfolio')) {
                 // We're on the homepage — use IntersectionObserver
                 const observer = new IntersectionObserver(function(entries) {
                     entries.forEach(function(entry) {
@@ -712,17 +710,16 @@
                             if (matched) setActive(matched.nav);
                         }
                     });
-                }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+                }, { rootMargin: '-25% 0px -45% 0px', threshold: 0.1 });
 
                 sections.forEach(function(s) {
                     const el = document.getElementById(s.id);
                     if (el) observer.observe(el);
                 });
 
-                // Default: highlight Portofolio until user scrolls
-                // (top of page = no section in view yet = clear all)
+                // Clear highlights when at top of hero
                 window.addEventListener('scroll', function() {
-                    if (window.scrollY < 200) {
+                    if (window.scrollY < 180) {
                         navLinks.forEach(l => l.classList.remove('is-active'));
                     }
                 }, { passive: true });

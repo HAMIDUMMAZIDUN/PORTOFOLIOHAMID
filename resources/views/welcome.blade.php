@@ -77,15 +77,15 @@
                 <!-- Call to Actions -->
                 <div class="flex flex-wrap items-center gap-4">
                     <a href="#contact" class="cta-btn">
-                        <span>Konsultasi Gratis</span>
+                        <span>Hubungi Saya</span>
                         <span class="cta-btn-icon" aria-hidden="true">
                             <i data-lucide="arrow-right" class="cta-btn-arrow"></i>
                         </span>
                     </a>
-                    <a href="{{ route('portfolio') }}" 
+                    <a href="#portfolio" 
                        class="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-white bg-white/10 hover:bg-white/15 ring-1 ring-white/20 transition backdrop-blur">
                         <span>Lihat Portofolio</span>
-                        <i data-lucide="external-link" class="w-4 h-4 text-sky-300"></i>
+                        <i data-lucide="arrow-down" class="w-4 h-4 text-sky-300"></i>
                     </a>
                 </div>
             </div>
@@ -200,14 +200,159 @@
 </section>
 
 <!-- =========================================================================
-     3. KEAHLIAN & SPESIALISASI (Yoggui #skills Style)
+     3. PORTOFOLIO SECTION (Yoggui Project Card Grid with Hover Overlay)
      ========================================================================= -->
-<section id="skills" class="py-24 bg-slate-50 dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5">
+<section id="portfolio" class="py-24 bg-white dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5 scroll-mt-20"
+         x-data="{ activeCategory: 'Semua', lightboxOpen: false, lightboxMediaType: '', lightboxSrc: '', lightboxTitle: '' }">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <p class="eyebrow mb-2">01 &middot; Portofolio</p>
+                <h2 class="section-title text-slate-900 dark:text-white">
+                    <span class="text-gradient">Karya</span> yang Telah Dibangun
+                </h2>
+            </div>
+
+            <!-- Sleek Category Filter Switcher -->
+            <div class="flex items-center space-x-1 bg-slate-100 dark:bg-white/5 p-1.5 rounded-2xl border border-slate-200/80 dark:border-white/10">
+                <button @click="activeCategory = 'Semua'"
+                    :class="activeCategory === 'Semua' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
+                    Semua
+                </button>
+                <button @click="activeCategory = 'Website'"
+                    :class="activeCategory === 'Website' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
+                    Website
+                </button>
+                <button @click="activeCategory = 'Desain'"
+                    :class="activeCategory === 'Desain' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
+                    Desain
+                </button>
+            </div>
+        </div>
+
+        @if($portfolios->isEmpty())
+        <div class="text-center py-20 bg-slate-50 dark:bg-white/5 rounded-3xl border border-slate-200 dark:border-white/10 max-w-md mx-auto">
+            <i data-lucide="folder-code" class="w-12 h-12 mx-auto text-slate-400 mb-4"></i>
+            <h3 class="text-base font-bold text-slate-800 dark:text-slate-200">Portofolio Belum Diunggah</h3>
+            <p class="text-xs text-slate-400 mt-1">Gunakan panel admin untuk menambahkan portofolio baru.</p>
+        </div>
+        @else
+        <!-- Modern Grid with Yoggui .project-card layout -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            @foreach($portfolios as $item)
+            <div x-show="activeCategory === 'Semua' || activeCategory === '{{ $item->category }}'"
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0 scale-95"
+                 x-transition:enter-end="opacity-100 scale-100"
+                 class="project-card group cursor-pointer"
+                 @if($item->media_type === 'video')
+                 @click="lightboxMediaType = 'video'; lightboxSrc = '{{ $item->video_file ? asset('storage/' . $item->video_file) : ($item->video_url ?? '') }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
+                 @elseif($item->media_type === 'link' && $item->link)
+                 @click="window.open('{{ $item->link }}', '_blank')"
+                 @else
+                 @click="lightboxMediaType = 'image'; lightboxSrc = '{{ asset('storage/' . $item->image) }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
+                 @endif>
+
+                <!-- Project Thumbnail Image -->
+                @if($item->image)
+                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" loading="lazy">
+                @else
+                    <div class="w-full h-full bg-slate-900 flex items-center justify-center text-slate-500">
+                        <span class="text-xs font-bold uppercase tracking-wider">Preview Media</span>
+                    </div>
+                @endif
+
+                <!-- Category Tag Top Left -->
+                <div class="absolute top-4 left-4 z-10 flex items-center gap-1.5">
+                    <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase bg-slate-950/80 text-white backdrop-blur border border-white/10">
+                        {{ $item->category }}
+                    </span>
+                    @if($item->media_type === 'video')
+                    <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-brand-600 text-white flex items-center gap-1">
+                        <i data-lucide="play" class="w-3 h-3 fill-current"></i> Video
+                    </span>
+                    @endif
+                </div>
+
+                <!-- Hover Gradient Overlay (Yoggui Style) -->
+                <div class="project-overlay flex flex-col justify-end">
+                    <h3 class="text-xl font-bold text-white mb-1.5 group-hover:text-sky-300 transition-colors">
+                        {{ $item->title }}
+                    </h3>
+                    <p class="text-xs text-white/75 line-clamp-2 leading-relaxed mb-4 font-light">
+                        {{ $item->description }}
+                    </p>
+                    <div class="flex items-center gap-2 text-xs font-bold text-white">
+                        <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform">
+                            <span>Lihat Detail</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+            @endforeach
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="{{ route('portfolio') }}" 
+               class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-slate-300 dark:border-white/15 text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 font-bold text-xs uppercase tracking-wider transition">
+                <span>Eksplor Halaman Portofolio Lengkap</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+        @endif
+
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div x-show="lightboxOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+        x-transition style="display: none;" @keydown.escape.window="lightboxOpen = false">
+        
+        <button @click="lightboxOpen = false" class="absolute top-6 right-6 text-white/70 hover:text-white z-10 p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+
+        <div class="bg-slate-950 rounded-3xl overflow-hidden max-w-4xl w-full border border-white/10 shadow-2xl flex flex-col"
+            @click.away="lightboxOpen = false">
+            
+            <div class="aspect-video bg-black flex items-center justify-center relative overflow-hidden">
+                <template x-if="lightboxOpen && lightboxMediaType === 'video' && (lightboxSrc.includes('http') && !lightboxSrc.includes('.mp4') && !lightboxSrc.includes('.mov'))">
+                    <iframe class="w-full h-full" :src="lightboxSrc" frameborder="0" allowfullscreen></iframe>
+                </template>
+
+                <template x-if="lightboxOpen && lightboxMediaType === 'video' && (lightboxSrc.includes('.mp4') || lightboxSrc.includes('.mov') || !lightboxSrc.includes('http'))">
+                    <video class="w-full h-full object-contain" controls autoplay>
+                        <source :src="lightboxSrc" type="video/mp4">
+                    </video>
+                </template>
+
+                <template x-if="lightboxOpen && lightboxMediaType === 'image'">
+                    <img :src="lightboxSrc" class="max-w-full max-h-full object-contain" :alt="lightboxTitle">
+                </template>
+            </div>
+
+            <div class="p-6 bg-slate-900 border-t border-white/10 text-white flex justify-between items-center">
+                <h4 class="text-base font-bold" x-text="lightboxTitle"></h4>
+                <button @click="lightboxOpen = false" class="text-xs text-slate-400 hover:text-white uppercase tracking-wider font-semibold">Tutup</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================================
+     4. KEAHLIAN & SPESIALISASI (Yoggui #skills Style)
+     ========================================================================= -->
+<section id="skills" class="py-24 bg-slate-50 dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5 scroll-mt-20">
     <div class="max-w-7xl mx-auto px-6">
         
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-                <p class="eyebrow mb-2">Keahlian</p>
+                <p class="eyebrow mb-2">02 &middot; Keahlian</p>
                 <h2 class="section-title text-slate-900 dark:text-white">
                     Yang Saya <span class="text-gradient">Kerjakan</span>
                 </h2>
@@ -334,152 +479,185 @@
 </section>
 
 <!-- =========================================================================
-     4. PORTOFOLIO SECTION (Yoggui Project Card Grid with Hover Overlay)
+     5. PENGALAMAN & CV SECTION (Yoggui Experience Style — inline single page)
      ========================================================================= -->
-<section id="portfolio" class="py-24 bg-white dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5"
-         x-data="{ activeCategory: 'Semua', lightboxOpen: false, lightboxMediaType: '', lightboxSrc: '', lightboxTitle: '' }">
+<section id="experience" class="py-24 bg-white dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5 scroll-mt-20">
     <div class="max-w-7xl mx-auto px-6">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
-                <p class="eyebrow mb-2">Portofolio</p>
-                <h2 class="section-title text-slate-900 dark:text-white">
-                    <span class="text-gradient">Karya</span> yang Telah Dibangun
-                </h2>
+                <p class="eyebrow mb-2">03 &middot; Pengalaman & CV</p>
+                <h2 class="section-title text-slate-900 dark:text-white">Pengalaman <span class="text-gradient">Profesional</span></h2>
             </div>
-
-            <!-- Sleek Category Filter Switcher -->
-            <div class="flex items-center space-x-1 bg-slate-100 dark:bg-white/5 p-1.5 rounded-2xl border border-slate-200/80 dark:border-white/10">
-                <button @click="activeCategory = 'Semua'"
-                    :class="activeCategory === 'Semua' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
-                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
-                    Semua
-                </button>
-                <button @click="activeCategory = 'Website'"
-                    :class="activeCategory === 'Website' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
-                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
-                    Website
-                </button>
-                <button @click="activeCategory = 'Desain'"
-                    :class="activeCategory === 'Desain' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
-                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
-                    Desain
-                </button>
+            <div class="flex flex-col gap-3">
+                <p class="text-slate-500 dark:text-slate-400 max-w-md font-light text-sm">
+                    Pengalaman membangun sistem web, infrastruktur IT, dan platform digital — berbasis di Bandung, Jawa Barat.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="{{ route('about') }}"
+                       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-400 dark:hover:text-sky-300 font-bold text-xs uppercase tracking-wider transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        Lihat Profil Lengkap
+                    </a>
+                    <a href="https://drive.google.com/file/d/1XF5AqXUPARTom1QgcTpluF7BCM4zcm/view?usp=sharing"
+                       target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-400 dark:hover:text-sky-300 font-bold text-xs uppercase tracking-wider transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        Unduh CV
+                    </a>
+                </div>
             </div>
         </div>
 
-        @if($portfolios->isEmpty())
-        <div class="text-center py-20 bg-slate-50 dark:bg-white/5 rounded-3xl border border-slate-200 dark:border-white/10 max-w-md mx-auto">
-            <i data-lucide="folder-code" class="w-12 h-12 mx-auto text-slate-400 mb-4"></i>
-            <h3 class="text-base font-bold text-slate-800 dark:text-slate-200">Portofolio Belum Diunggah</h3>
-            <p class="text-xs text-slate-400 mt-1">Gunakan panel admin untuk menambahkan portofolio baru.</p>
-        </div>
-        @else
-        <!-- Modern Grid with Yoggui .project-card layout -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            @foreach($portfolios as $item)
-            <div x-show="activeCategory === 'Semua' || activeCategory === '{{ $item->category }}'"
-                 x-transition:enter="transition ease-out duration-300"
-                 x-transition:enter-start="opacity-0 scale-95"
-                 x-transition:enter-end="opacity-100 scale-100"
-                 class="project-card group cursor-pointer"
-                 @if($item->media_type === 'video')
-                 @click="lightboxMediaType = 'video'; lightboxSrc = '{{ $item->video_file ? asset('storage/' . $item->video_file) : ($item->video_url ?? '') }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
-                 @elseif($item->media_type === 'link' && $item->link)
-                 @click="window.open('{{ $item->link }}', '_blank')"
-                 @else
-                 @click="lightboxMediaType = 'image'; lightboxSrc = '{{ asset('storage/' . $item->image) }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
-                 @endif>
+        <div class="grid lg:grid-cols-[4fr_8fr] gap-8 lg:gap-12 items-start">
 
-                <!-- Project Thumbnail Image -->
-                @if($item->image)
-                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" loading="lazy">
-                @else
-                    <div class="w-full h-full bg-slate-900 flex items-center justify-center text-slate-500">
-                        <span class="text-xs font-bold uppercase tracking-wider">Preview Media</span>
+            <!-- Left: Profile Photo Card -->
+            <div class="relative aspect-[4/5] lg:aspect-auto lg:sticky lg:top-28 rounded-3xl overflow-hidden bg-slate-900 ring-1 ring-slate-200 dark:ring-white/10 shadow-xl group">
+                <img src="{{ asset('hamid.jpg') }}" alt="Hamid Abdul Aziz"
+                     class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
+                     onerror="this.src='{{ asset('support_agent_avatar.png') }}'">
+                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-8 pt-24 text-white">
+                    <p class="text-3xl sm:text-4xl font-extrabold font-display">Hamid Abdul Aziz</p>
+                    <p class="mt-1 text-sm text-white/70 font-light">Teknik Informatika · UNIKOM Bandung</p>
+                    <div class="flex flex-wrap gap-2 mt-3 text-[10px]">
+                        <a href="tel:081214019947" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/20 font-semibold hover:bg-white/20 transition">
+                            📞 081214019947
+                        </a>
+                        <a href="mailto:hamidabdulaziz36@gmail.com" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/20 font-semibold hover:bg-white/20 transition">
+                            ✉ Email
+                        </a>
                     </div>
-                @endif
+                </div>
+            </div>
 
-                <!-- Category Tag Top Left -->
-                <div class="absolute top-4 left-4 z-10 flex items-center gap-1.5">
-                    <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase bg-slate-950/80 text-white backdrop-blur border border-white/10">
-                        {{ $item->category }}
-                    </span>
-                    @if($item->media_type === 'video')
-                    <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-brand-600 text-white flex items-center gap-1">
-                        <i data-lucide="play" class="w-3 h-3 fill-current"></i> Video
-                    </span>
-                    @endif
+            <!-- Right: Experience List -->
+            <div class="exp-list">
+
+                <!-- Section Header: Pengalaman Kerja -->
+                <div class="mb-5">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Pengalaman Kerja</span>
                 </div>
 
-                <!-- Hover Gradient Overlay (Yoggui Style) -->
-                <div class="project-overlay flex flex-col justify-end">
-                    <h3 class="text-xl font-bold text-white mb-1.5 group-hover:text-sky-300 transition-colors">
-                        {{ $item->title }}
-                    </h3>
-                    <p class="text-xs text-white/75 line-clamp-2 leading-relaxed mb-4 font-light">
-                        {{ $item->description }}
+                <!-- 1. PT LSP Manajemen Pendidikan Islam -->
+                <div class="exp-row group">
+                    <div class="flex items-center gap-4">
+                        <div class="exp-logo"><span>LSP</span></div>
+                        <div class="min-w-0">
+                            <h3 class="exp-company">PT.LSP Manajemen Pendidikan Islam</h3>
+                            <p class="exp-period">Apr – Okt 2026 &middot; <span>Staff IT &bull; Jl. Gedebage Selatan, Bandung</span></p>
+                        </div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        Mengelola dan memelihara seluruh infrastruktur situs web serta sistem informasi LSP MPI. Bertanggung jawab atas stabilitas server, pembuatan konten portal sertifikasi, keamanan data, serta memberikan dukungan teknis (IT Support) untuk kelancaran operasional digital organisasi.
                     </p>
-                    <div class="flex items-center gap-2 text-xs font-bold text-white">
-                        <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform">
-                            <span>Lihat Detail</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-                        </span>
-                    </div>
+                    <ul class="flex flex-wrap gap-2 mt-1">
+                        <li class="exp-tag">Server Management</li>
+                        <li class="exp-tag">IT Support</li>
+                        <li class="exp-tag">Keamanan Data</li>
+                        <li class="exp-tag">Portal Sertifikasi</li>
+                    </ul>
                 </div>
 
-            </div>
-            @endforeach
-        </div>
+                <!-- 2. PT Digi Tekno Indonesia -->
+                <div class="exp-row group">
+                    <div class="flex items-center gap-4">
+                        <div class="exp-logo"><span>DTI</span></div>
+                        <div class="min-w-0">
+                            <h3 class="exp-company">PT. Digi Tekno Indonesia</h3>
+                            <p class="exp-period">Ags – Sep 2025 &middot; <span>Magang &bull; Sumarecon Komplek Magna, Bandung</span></p>
+                        </div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        Software & Hardware Engineer Intern — merancang dan mengembangkan Sistem Presensi Digital Berbasis IoT (ESP32/Arduino & RFID) yang terintegrasi secara real-time dengan web dashboard backend untuk otomasi presensi dan rekap kehadiran karyawan.
+                    </p>
+                    <ul class="flex flex-wrap gap-2 mt-1">
+                        <li class="exp-tag">IoT / ESP32</li>
+                        <li class="exp-tag">Arduino & RFID</li>
+                        <li class="exp-tag">Web Dashboard</li>
+                        <li class="exp-tag">Laravel</li>
+                    </ul>
+                </div>
 
-        <div class="text-center mt-12">
-            <a href="{{ route('portfolio') }}" 
-               class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-slate-300 dark:border-white/15 text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 font-bold text-xs uppercase tracking-wider transition">
-                <span>Eksplor Semua Portofolio</span>
-                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-            </a>
-        </div>
-        @endif
+                <!-- 3. Freelance -->
+                <div class="exp-row group">
+                    <div class="flex items-center gap-4">
+                        <div class="exp-logo"><span>FL</span></div>
+                        <div class="min-w-0">
+                            <h3 class="exp-company">Freelance Web Developer</h3>
+                            <p class="exp-period">Jan 2025 – Sekarang &middot; <span>Fullstack Developer &bull; Bandung, Jawa Barat</span></p>
+                        </div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        Membangun aplikasi web <em>full-stack</em> kustom berbasis Laravel, PHP, MySQL, Tailwind CSS & Bootstrap. Proyek unggulan: <strong>Eduva Space</strong> (platform manajemen properti mahasiswa), <strong>Digital Certificate Generator</strong>, dan <strong>Digital Wedding Guestbook & RSVP</strong>.
+                    </p>
+                    <ul class="flex flex-wrap gap-2 mt-1">
+                        <li class="exp-tag">Laravel</li>
+                        <li class="exp-tag">PHP</li>
+                        <li class="exp-tag">MySQL</li>
+                        <li class="exp-tag">Tailwind CSS</li>
+                        <li class="exp-tag">JavaScript</li>
+                    </ul>
+                </div>
 
-    </div>
+                <!-- Section Header: Pendidikan -->
+                <div class="mt-10 mb-5">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Jenjang Pendidikan</span>
+                </div>
 
-    <!-- Lightbox Modal -->
-    <div x-show="lightboxOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
-        x-transition style="display: none;" @keydown.escape.window="lightboxOpen = false">
-        
-        <button @click="lightboxOpen = false" class="absolute top-6 right-6 text-white/70 hover:text-white z-10 p-2">
-            <i data-lucide="x" class="w-8 h-8"></i>
-        </button>
+                <!-- UNIKOM -->
+                <div class="exp-row group">
+                    <div class="flex items-center gap-4">
+                        <div class="exp-logo"><span>UNIKOM</span></div>
+                        <div class="min-w-0">
+                            <h3 class="exp-company">Universitas Komputer Indonesia</h3>
+                            <p class="exp-period">Ags 2022 – Ags 2026 &middot; <span>S1 Teknik Informatika &bull; IPK 3.05 &bull; Coblong, Bandung</span></p>
+                        </div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        Tugas akhir: Aplikasi Ujian Berbasis Android (Flutter & Firestore) — merancang dan membangun aplikasi ujian mobile dengan keamanan Native Screen Pinning API dan panel pemantauan multi-peran, diuji oleh 403 pengguna nyata.
+                    </p>
+                    <ul class="flex flex-wrap gap-2 mt-1">
+                        <li class="exp-tag">Flutter</li>
+                        <li class="exp-tag">Dart</li>
+                        <li class="exp-tag">Firebase</li>
+                        <li class="exp-tag">Android</li>
+                    </ul>
+                </div>
 
-        <div class="bg-slate-950 rounded-3xl overflow-hidden max-w-4xl w-full border border-white/10 shadow-2xl flex flex-col"
-            @click.away="lightboxOpen = false">
-            
-            <div class="aspect-video bg-black flex items-center justify-center relative overflow-hidden">
-                <template x-if="lightboxOpen && lightboxMediaType === 'video' && (lightboxSrc.includes('http') && !lightboxSrc.includes('.mp4') && !lightboxSrc.includes('.mov'))">
-                    <iframe class="w-full h-full" :src="lightboxSrc" frameborder="0" allowfullscreen></iframe>
-                </template>
+                <!-- Section Header: Skills & Sertifikasi -->
+                <div class="mt-10 mb-5">
+                    <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Skills & Sertifikasi</span>
+                </div>
 
-                <template x-if="lightboxOpen && lightboxMediaType === 'video' && (lightboxSrc.includes('.mp4') || lightboxSrc.includes('.mov') || !lightboxSrc.includes('http'))">
-                    <video class="w-full h-full object-contain" controls autoplay>
-                        <source :src="lightboxSrc" type="video/mp4">
-                    </video>
-                </template>
+                <div class="exp-row group">
+                    <div class="flex items-center gap-4">
+                        <div class="exp-logo"><span>🏆</span></div>
+                        <div class="min-w-0">
+                            <h3 class="exp-company">Pencapaian & Sertifikasi</h3>
+                            <p class="exp-period">2019 – 2026 &middot; <span>Berbagai Platform & Lembaga Internasional</span></p>
+                        </div>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed mb-2">
+                        <strong>Soft Skills:</strong> Analytical Thinking, Critical Thinking, Logical Thinking, Leadership, Teamwork, Integrity & Project Management.
+                    </p>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        <strong>Sertifikasi:</strong> From Business Idea to Action — King's College London (2019) &bull; Business Development — Hari Senin Mini School (2021) &bull; AI for Business (AI-HUSTLER) — BisnAI Academy (2022).
+                    </p>
+                    <ul class="flex flex-wrap gap-2 mt-3">
+                        <li class="exp-tag">Project Management</li>
+                        <li class="exp-tag">AI for Business</li>
+                        <li class="exp-tag">Leadership</li>
+                        <li class="exp-tag">King's College London</li>
+                    </ul>
+                </div>
 
-                <template x-if="lightboxOpen && lightboxMediaType === 'image'">
-                    <img :src="lightboxSrc" class="max-w-full max-h-full object-contain" :alt="lightboxTitle">
-                </template>
-            </div>
-
-            <div class="p-6 bg-slate-900 border-t border-white/10 text-white flex justify-between items-center">
-                <h4 class="text-base font-bold" x-text="lightboxTitle"></h4>
-                <button @click="lightboxOpen = false" class="text-xs text-slate-400 hover:text-white uppercase tracking-wider font-semibold">Tutup</button>
             </div>
         </div>
     </div>
 </section>
 
 <!-- =========================================================================
-     5. PROCESS / ALUR PENGERJAAN SECTION (Clean Steps)
+     6. PROCESS / ALUR PENGERJAAN SECTION (Clean Steps)
      ========================================================================= -->
 <section id="process" class="py-24 bg-slate-50 dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5">
     <div class="max-w-7xl mx-auto px-6">
@@ -582,7 +760,7 @@
 <!-- =========================================================================
      7. SHOWSTOPPER CONTACT SECTION (Yoggui .cta-card with Glowing Background & Figma Box)
      ========================================================================= -->
-<section id="contact" class="py-24 bg-slate-50 dark:bg-[#020617]">
+<section id="contact" class="py-24 bg-slate-50 dark:bg-[#020617] scroll-mt-20">
     <div class="max-w-7xl mx-auto px-6">
         
         <div class="cta-card">
@@ -596,6 +774,8 @@
                 <!-- Left Column: Copy with Figma Selection Box -->
                 <div class="lg:col-span-7">
                     
+                    <span class="eyebrow mb-4 !text-sky-300">04 &middot; Kontak & Kolaborasi</span>
+
                     <div class="cta-selection mb-6">
                         <span class="cta-handle -top-1.5 -left-1.5"></span>
                         <span class="cta-handle -top-1.5 -right-1.5"></span>
