@@ -16,27 +16,39 @@ class PortfolioSeeder extends Seeder
         Portfolio::truncate();
 
         Portfolio::create([
-            'title' => 'E-Undangan Digital "Biru"',
+            'title' => 'Eduva Space - Manajemen Kos & Hunian Mahasiswa',
             'category' => 'Website',
-            'image' => 'portfolios/scanundangan.png',
-            'link' => 'https://bybiru.my.id/',
-            'description' => 'Platform undangan pernikahan digital interaktif yang dapat dikustomisasi secara instan dengan desain elegan dan audio latar.',
+            'image' => 'portfolios/eduva-space-kos.jpg',
+            'link' => 'https://eduvaspace.com/',
+            'description' => 'Platform manajemen properti dan hunian kos mahasiswa terintegrasi dengan pemetaan kamar, penagihan sewa otomatis, serta dashboard monitoring multi-peran.',
+            'media_type' => 'link',
         ]);
 
         Portfolio::create([
             'title' => 'Backend System PT DIGI TEKO',
             'category' => 'Website',
-            'image' => 'portfolios/landpage-pt-digi.jpg',
+            'image' => 'portfolios/pt-digi-tekno.jpg',
             'link' => 'https://absensiptdigidemoweb.vercel.app/',
-            'description' => 'Sistem absensi, manajemen projek, dan dashboard real-time berbasis Laravel untuk efisiensi operasional internal perusahaan IT.',
+            'description' => 'Sistem absensi, manajemen projek, dan dashboard real-time berbasis IoT dan Laravel untuk efisiensi operasional internal PT Digi Tekno Indonesia.',
+            'media_type' => 'link',
         ]);
 
         Portfolio::create([
-            'title' => 'Desain Undangan Pernikahan Salsa & Sidik',
+            'title' => 'E-Undangan Digital "Biru"',
+            'category' => 'Website',
+            'image' => 'portfolios/JvuKTxpqxyCVMm9efgVYlR1TaRGqwzEWzSSBfn2d.png',
+            'link' => 'https://bybiru.my.id/',
+            'description' => 'Platform undangan pernikahan digital interaktif yang dapat dikustomisasi secara instan dengan desain elegan dan audio latar.',
+            'media_type' => 'image',
+        ]);
+
+        Portfolio::create([
+            'title' => 'Desain Undangan Pernikahan Salsa & Ricky',
             'category' => 'Desain',
-            'image' => 'portfolios/wedding-salsa-sidik.jpg',
+            'image' => 'portfolios/undangan-salsa-ricky.jpg',
             'link' => null,
-            'description' => 'Desain visual undangan pernikahan cetak bertema floral modern rustic dengan tipografi premium dan palet warna hangat.',
+            'description' => 'Desain visual dan layout undangan pernikahan Salsa & Ricky dengan sentuhan adat elegan, tipografi premium, dan ornamen eksklusif.',
+            'media_type' => 'image',
         ]);
     }
 }

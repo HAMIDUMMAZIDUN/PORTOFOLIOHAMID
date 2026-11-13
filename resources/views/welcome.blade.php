@@ -13,10 +13,7 @@
         <i data-lucide="mouse-pointer-2" class="w-6 h-6 text-sky-300 drop-shadow" fill="currentColor"></i>
         <span class="bg-sky-500">Web Developer</span>
     </div>
-    <div class="cta-cursor hero-cursor-2 hidden lg:flex" style="bottom: 38%; right: 12%;" aria-hidden="true">
-        <i data-lucide="mouse-pointer-2" class="w-6 h-6 text-fuchsia-300 drop-shadow" fill="currentColor"></i>
-        <span class="bg-fuchsia-500">Client / UMKM</span>
-    </div>
+
     <div class="cta-cursor hero-cursor-3 hidden lg:flex" style="top: 18%; left: 58%;" aria-hidden="true">
         <i data-lucide="mouse-pointer-2" class="w-6 h-6 text-violet-300 drop-shadow" fill="currentColor"></i>
         <span class="bg-violet-500">UI/UX Designer</span>
@@ -25,15 +22,9 @@
     <!-- Main Hero Content Container -->
     <div class="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center py-8">
         <div class="grid lg:grid-cols-12 gap-12 items-center">
-            
+
             <!-- Left Column: Copy & Figma Frame -->
             <div class="lg:col-span-8 z-10">
-                
-                <!-- Pill Badge -->
-                <div class="inline-flex items-center gap-2 rounded-full bg-white/10 px-5 py-2 text-xs sm:text-sm font-semibold ring-1 ring-white/30 backdrop-blur mb-6">
-                    <span class="w-2.5 h-2.5 rounded-full bg-sky-300 animate-pulse"></span>
-                    <span>Web Developer & UI/UX Specialist Bandung</span>
-                </div>
 
                 <!-- Figma Selection Bounding Box around Name & Title -->
                 <div class="hero-selection mb-8">
@@ -82,8 +73,8 @@
                             <i data-lucide="arrow-right" class="cta-btn-arrow"></i>
                         </span>
                     </a>
-                    <a href="#portfolio" 
-                       class="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-white bg-white/10 hover:bg-white/15 ring-1 ring-white/20 transition backdrop-blur">
+                    <a href="#portfolio"
+                        class="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-white bg-white/10 hover:bg-white/15 ring-1 ring-white/20 transition backdrop-blur">
                         <span>Lihat Portofolio</span>
                         <i data-lucide="arrow-down" class="w-4 h-4 text-sky-300"></i>
                     </a>
@@ -93,19 +84,13 @@
             <!-- Right Column: Profile Visual Card -->
             <div class="lg:col-span-4 flex justify-center lg:justify-end z-10">
                 <div class="relative w-64 sm:w-72 aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-white/20 bg-slate-900 shadow-2xl group">
-                    <img src="{{ asset('hamid.jpg') }}" alt="Hamid - Web Developer" 
-                         class="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                         onerror="this.src='{{ asset('support_agent_avatar.png') }}'">
-                    
+                    <img src="{{ asset('hamid.jpg') }}" alt="Hamid - Web Developer"
+                        class="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                        onerror="this.src='{{ asset('support_agent_avatar.png') }}'">
+
                     <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-6 pt-16 text-white">
-                        <span class="text-[10px] font-bold uppercase tracking-widest text-sky-300 block mb-1">Tersedia untuk Projek</span>
                         <p class="text-lg font-bold">Hamid Abdul Aziz</p>
                         <p class="text-xs text-white/70">Fullstack Web & Desain Grafis</p>
-                    </div>
-
-                    <div class="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-950/70 border border-white/10 backdrop-blur text-[10px] font-semibold text-emerald-400">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        Online
                     </div>
                 </div>
             </div>
@@ -203,9 +188,9 @@
      3. PORTOFOLIO SECTION (Yoggui Project Card Grid with Hover Overlay)
      ========================================================================= -->
 <section id="portfolio" class="py-24 bg-white dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5 scroll-mt-20"
-         x-data="{ activeCategory: 'Semua', lightboxOpen: false, lightboxMediaType: '', lightboxSrc: '', lightboxTitle: '' }">
+    x-data="{ activeCategory: 'Semua', lightboxOpen: false, lightboxMediaType: '', lightboxSrc: '', lightboxTitle: '' }">
     <div class="max-w-7xl mx-auto px-6">
-        
+
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div>
                 <p class="eyebrow mb-2">01 &middot; Portofolio</p>
@@ -245,25 +230,25 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @foreach($portfolios as $item)
             <div x-show="activeCategory === 'Semua' || activeCategory === '{{ $item->category }}'"
-                 x-transition:enter="transition ease-out duration-300"
-                 x-transition:enter-start="opacity-0 scale-95"
-                 x-transition:enter-end="opacity-100 scale-100"
-                 class="project-card group cursor-pointer"
-                 @if($item->media_type === 'video')
-                 @click="lightboxMediaType = 'video'; lightboxSrc = '{{ $item->video_file ? asset('storage/' . $item->video_file) : ($item->video_url ?? '') }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
-                 @elseif($item->media_type === 'link' && $item->link)
-                 @click="window.open('{{ $item->link }}', '_blank')"
-                 @else
-                 @click="lightboxMediaType = 'image'; lightboxSrc = '{{ asset('storage/' . $item->image) }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
-                 @endif>
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                class="project-card group cursor-pointer"
+                @if($item->media_type === 'video')
+                @click="lightboxMediaType = 'video'; lightboxSrc = '{{ $item->video_file ? asset('storage/' . $item->video_file) : ($item->video_url ?? '') }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
+                @elseif($item->media_type === 'link' && $item->link)
+                @click="window.open('{{ $item->link }}', '_blank')"
+                @else
+                @click="lightboxMediaType = 'image'; lightboxSrc = '{{ asset('storage/' . $item->image) }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
+                @endif>
 
                 <!-- Project Thumbnail Image -->
                 @if($item->image)
-                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" loading="lazy">
+                <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" loading="lazy">
                 @else
-                    <div class="w-full h-full bg-slate-900 flex items-center justify-center text-slate-500">
-                        <span class="text-xs font-bold uppercase tracking-wider">Preview Media</span>
-                    </div>
+                <div class="w-full h-full bg-slate-900 flex items-center justify-center text-slate-500">
+                    <span class="text-xs font-bold uppercase tracking-wider">Preview Media</span>
+                </div>
                 @endif
 
                 <!-- Category Tag Top Left -->
@@ -286,10 +271,10 @@
                     <p class="text-xs text-white/75 line-clamp-2 leading-relaxed mb-4 font-light">
                         {{ $item->description }}
                     </p>
-                    <div class="flex items-center gap-2 text-xs font-bold text-white">
-                        <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform">
-                            <span>Lihat Detail</span>
-                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
+                        <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform shadow-sm">
+                            <span>{{ ($item->media_type === 'link' && $item->link) ? 'Buka Website' : 'Lihat Detail' }}</span>
+                            <i data-lucide="{{ ($item->media_type === 'link' && $item->link) ? 'external-link' : 'arrow-right' }}" class="w-3.5 h-3.5"></i>
                         </span>
                     </div>
                 </div>
@@ -299,8 +284,8 @@
         </div>
 
         <div class="text-center mt-12">
-            <a href="{{ route('portfolio') }}" 
-               class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-slate-300 dark:border-white/15 text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 font-bold text-xs uppercase tracking-wider transition">
+            <a href="{{ route('portfolio') }}"
+                class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-slate-300 dark:border-white/15 text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 font-bold text-xs uppercase tracking-wider transition">
                 <span>Eksplor Halaman Portofolio Lengkap</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
@@ -312,14 +297,14 @@
     <!-- Lightbox Modal -->
     <div x-show="lightboxOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
         x-transition style="display: none;" @keydown.escape.window="lightboxOpen = false">
-        
+
         <button @click="lightboxOpen = false" class="absolute top-6 right-6 text-white/70 hover:text-white z-10 p-2">
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
 
         <div class="bg-slate-950 rounded-3xl overflow-hidden max-w-4xl w-full border border-white/10 shadow-2xl flex flex-col"
             @click.away="lightboxOpen = false">
-            
+
             <div class="aspect-video bg-black flex items-center justify-center relative overflow-hidden">
                 <template x-if="lightboxOpen && lightboxMediaType === 'video' && (lightboxSrc.includes('http') && !lightboxSrc.includes('.mp4') && !lightboxSrc.includes('.mov'))">
                     <iframe class="w-full h-full" :src="lightboxSrc" frameborder="0" allowfullscreen></iframe>
@@ -349,7 +334,7 @@
      ========================================================================= -->
 <section id="skills" class="py-24 bg-slate-50 dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5 scroll-mt-20">
     <div class="max-w-7xl mx-auto px-6">
-        
+
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
             <div>
                 <p class="eyebrow mb-2">02 &middot; Keahlian</p>
@@ -495,14 +480,18 @@
                 </p>
                 <div class="flex flex-wrap gap-3">
                     <a href="{{ route('about') }}"
-                       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-400 dark:hover:text-sky-300 font-bold text-xs uppercase tracking-wider transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-400 dark:hover:text-sky-300 font-bold text-xs uppercase tracking-wider transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
                         Lihat Profil Lengkap
                     </a>
                     <a href="https://drive.google.com/file/d/1XF5AqXUPARTom1QgcTpluF7BCM4zcm/view?usp=sharing"
-                       target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-400 dark:hover:text-sky-300 font-bold text-xs uppercase tracking-wider transition">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                        target="_blank" rel="noopener"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-400 dark:hover:text-sky-300 font-bold text-xs uppercase tracking-wider transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
                         Unduh CV
                     </a>
                 </div>
@@ -517,122 +506,122 @@
                 <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Pengalaman Kerja</span>
             </div>
 
-                <!-- 1. PT LSP Manajemen Pendidikan Islam -->
-                <div class="exp-row group">
-                    <div class="flex items-center gap-4">
-                        <div class="exp-logo"><span>LSP</span></div>
-                        <div class="min-w-0">
-                            <h3 class="exp-company">PT.LSP Manajemen Pendidikan Islam</h3>
-                            <p class="exp-period">Apr – Okt 2026 &middot; <span>Staff IT &bull; Jl. Gedebage Selatan, Bandung</span></p>
-                        </div>
+            <!-- 1. PT LSP Manajemen Pendidikan Islam -->
+            <div class="exp-row group">
+                <div class="flex items-center gap-4">
+                    <div class="exp-logo"><span>LSP</span></div>
+                    <div class="min-w-0">
+                        <h3 class="exp-company">PT.LSP Manajemen Pendidikan Islam</h3>
+                        <p class="exp-period">Apr – Okt 2026 &middot; <span>Staff IT &bull; Jl. Gedebage Selatan, Bandung</span></p>
                     </div>
-                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                        Mengelola dan memelihara seluruh infrastruktur situs web serta sistem informasi LSP MPI. Bertanggung jawab atas stabilitas server, pembuatan konten portal sertifikasi, keamanan data, serta memberikan dukungan teknis (IT Support) untuk kelancaran operasional digital organisasi.
-                    </p>
-                    <ul class="flex flex-wrap gap-2 mt-1">
-                        <li class="exp-tag">Server Management</li>
-                        <li class="exp-tag">IT Support</li>
-                        <li class="exp-tag">Keamanan Data</li>
-                        <li class="exp-tag">Portal Sertifikasi</li>
-                    </ul>
                 </div>
-
-                <!-- 2. PT Digi Tekno Indonesia -->
-                <div class="exp-row group">
-                    <div class="flex items-center gap-4">
-                        <div class="exp-logo"><span>DTI</span></div>
-                        <div class="min-w-0">
-                            <h3 class="exp-company">PT. Digi Tekno Indonesia</h3>
-                            <p class="exp-period">Ags – Sep 2025 &middot; <span>Magang &bull; Sumarecon Komplek Magna, Bandung</span></p>
-                        </div>
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                        Software & Hardware Engineer Intern — merancang dan mengembangkan Sistem Presensi Digital Berbasis IoT (ESP32/Arduino & RFID) yang terintegrasi secara real-time dengan web dashboard backend untuk otomasi presensi dan rekap kehadiran karyawan.
-                    </p>
-                    <ul class="flex flex-wrap gap-2 mt-1">
-                        <li class="exp-tag">IoT / ESP32</li>
-                        <li class="exp-tag">Arduino & RFID</li>
-                        <li class="exp-tag">Web Dashboard</li>
-                        <li class="exp-tag">Laravel</li>
-                    </ul>
-                </div>
-
-                <!-- 3. Freelance -->
-                <div class="exp-row group">
-                    <div class="flex items-center gap-4">
-                        <div class="exp-logo"><span>FL</span></div>
-                        <div class="min-w-0">
-                            <h3 class="exp-company">Freelance Web Developer</h3>
-                            <p class="exp-period">Jan 2025 – Sekarang &middot; <span>Fullstack Developer &bull; Bandung, Jawa Barat</span></p>
-                        </div>
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                        Membangun aplikasi web <em>full-stack</em> kustom berbasis Laravel, PHP, MySQL, Tailwind CSS & Bootstrap. Proyek unggulan: <strong>Eduva Space</strong> (platform manajemen properti mahasiswa), <strong>Digital Certificate Generator</strong>, dan <strong>Digital Wedding Guestbook & RSVP</strong>.
-                    </p>
-                    <ul class="flex flex-wrap gap-2 mt-1">
-                        <li class="exp-tag">Laravel</li>
-                        <li class="exp-tag">PHP</li>
-                        <li class="exp-tag">MySQL</li>
-                        <li class="exp-tag">Tailwind CSS</li>
-                        <li class="exp-tag">JavaScript</li>
-                    </ul>
-                </div>
-
-                <!-- Section Header: Pendidikan -->
-                <div class="mt-10 mb-5">
-                    <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Jenjang Pendidikan</span>
-                </div>
-
-                <!-- UNIKOM -->
-                <div class="exp-row group">
-                    <div class="flex items-center gap-4">
-                        <div class="exp-logo"><span>UNIKOM</span></div>
-                        <div class="min-w-0">
-                            <h3 class="exp-company">Universitas Komputer Indonesia</h3>
-                            <p class="exp-period">Ags 2022 – Ags 2026 &middot; <span>S1 Teknik Informatika &bull; IPK 3.05 &bull; Coblong, Bandung</span></p>
-                        </div>
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                        Tugas akhir: Aplikasi Ujian Berbasis Android (Flutter & Firestore) — merancang dan membangun aplikasi ujian mobile dengan keamanan Native Screen Pinning API dan panel pemantauan multi-peran, diuji oleh 403 pengguna nyata.
-                    </p>
-                    <ul class="flex flex-wrap gap-2 mt-1">
-                        <li class="exp-tag">Flutter</li>
-                        <li class="exp-tag">Dart</li>
-                        <li class="exp-tag">Firebase</li>
-                        <li class="exp-tag">Android</li>
-                    </ul>
-                </div>
-
-                <!-- Section Header: Skills & Sertifikasi -->
-                <div class="mt-10 mb-5">
-                    <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Skills & Sertifikasi</span>
-                </div>
-
-                <div class="exp-row group">
-                    <div class="flex items-center gap-4">
-                        <div class="exp-logo"><span>🏆</span></div>
-                        <div class="min-w-0">
-                            <h3 class="exp-company">Pencapaian & Sertifikasi</h3>
-                            <p class="exp-period">2019 – 2026 &middot; <span>Berbagai Platform & Lembaga Internasional</span></p>
-                        </div>
-                    </div>
-                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed mb-2">
-                        <strong>Soft Skills:</strong> Analytical Thinking, Critical Thinking, Logical Thinking, Leadership, Teamwork, Integrity & Project Management.
-                    </p>
-                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
-                        <strong>Sertifikasi:</strong> From Business Idea to Action — King's College London (2019) &bull; Business Development — Hari Senin Mini School (2021) &bull; AI for Business (AI-HUSTLER) — BisnAI Academy (2022).
-                    </p>
-                    <ul class="flex flex-wrap gap-2 mt-3">
-                        <li class="exp-tag">Project Management</li>
-                        <li class="exp-tag">AI for Business</li>
-                        <li class="exp-tag">Leadership</li>
-                        <li class="exp-tag">King's College London</li>
-                    </ul>
-                </div>
-
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    Mengelola dan memelihara seluruh infrastruktur situs web serta sistem informasi LSP MPI. Bertanggung jawab atas stabilitas server, pembuatan konten portal sertifikasi, keamanan data, serta memberikan dukungan teknis (IT Support) untuk kelancaran operasional digital organisasi.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-1">
+                    <li class="exp-tag">Server Management</li>
+                    <li class="exp-tag">IT Support</li>
+                    <li class="exp-tag">Keamanan Data</li>
+                    <li class="exp-tag">Portal Sertifikasi</li>
+                </ul>
             </div>
+
+            <!-- 2. PT Digi Tekno Indonesia -->
+            <div class="exp-row group">
+                <div class="flex items-center gap-4">
+                    <div class="exp-logo"><span>DTI</span></div>
+                    <div class="min-w-0">
+                        <h3 class="exp-company">PT. Digi Tekno Indonesia</h3>
+                        <p class="exp-period">Ags – Sep 2025 &middot; <span>Magang &bull; Sumarecon Komplek Magna, Bandung</span></p>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    Software & Hardware Engineer Intern — merancang dan mengembangkan Sistem Presensi Digital Berbasis IoT (ESP32/Arduino & RFID) yang terintegrasi secara real-time dengan web dashboard backend untuk otomasi presensi dan rekap kehadiran karyawan.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-1">
+                    <li class="exp-tag">IoT / ESP32</li>
+                    <li class="exp-tag">Arduino & RFID</li>
+                    <li class="exp-tag">Web Dashboard</li>
+                    <li class="exp-tag">Laravel</li>
+                </ul>
+            </div>
+
+            <!-- 3. Freelance -->
+            <div class="exp-row group">
+                <div class="flex items-center gap-4">
+                    <div class="exp-logo"><span>FL</span></div>
+                    <div class="min-w-0">
+                        <h3 class="exp-company">Freelance Web Developer</h3>
+                        <p class="exp-period">Jan 2025 – Sekarang &middot; <span>Fullstack Developer &bull; Bandung, Jawa Barat</span></p>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    Membangun aplikasi web <em>full-stack</em> kustom berbasis Laravel, PHP, MySQL, Tailwind CSS & Bootstrap. Proyek unggulan: <strong>Eduva Space</strong> (platform manajemen properti mahasiswa), <strong>Digital Certificate Generator</strong>, dan <strong>Digital Wedding Guestbook & RSVP</strong>.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-1">
+                    <li class="exp-tag">Laravel</li>
+                    <li class="exp-tag">PHP</li>
+                    <li class="exp-tag">MySQL</li>
+                    <li class="exp-tag">Tailwind CSS</li>
+                    <li class="exp-tag">JavaScript</li>
+                </ul>
+            </div>
+
+            <!-- Section Header: Pendidikan -->
+            <div class="mt-10 mb-5">
+                <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Jenjang Pendidikan</span>
+            </div>
+
+            <!-- UNIKOM -->
+            <div class="exp-row group">
+                <div class="flex items-center gap-4">
+                    <div class="exp-logo"><span>UNIKOM</span></div>
+                    <div class="min-w-0">
+                        <h3 class="exp-company">Universitas Komputer Indonesia</h3>
+                        <p class="exp-period">Ags 2022 – Ags 2026 &middot; <span>S1 Teknik Informatika &bull; IPK 3.05 &bull; Coblong, Bandung</span></p>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    Tugas akhir: Aplikasi Ujian Berbasis Android (Flutter & Firestore) — merancang dan membangun aplikasi ujian mobile dengan keamanan Native Screen Pinning API dan panel pemantauan multi-peran, diuji oleh 403 pengguna nyata.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-1">
+                    <li class="exp-tag">Flutter</li>
+                    <li class="exp-tag">Dart</li>
+                    <li class="exp-tag">Firebase</li>
+                    <li class="exp-tag">Android</li>
+                </ul>
+            </div>
+
+            <!-- Section Header: Skills & Sertifikasi -->
+            <div class="mt-10 mb-5">
+                <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Skills & Sertifikasi</span>
+            </div>
+
+            <div class="exp-row group">
+                <div class="flex items-center gap-4">
+                    <div class="exp-logo"><span>🏆</span></div>
+                    <div class="min-w-0">
+                        <h3 class="exp-company">Pencapaian & Sertifikasi</h3>
+                        <p class="exp-period">2019 – 2026 &middot; <span>Berbagai Platform & Lembaga Internasional</span></p>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed mb-2">
+                    <strong>Soft Skills:</strong> Analytical Thinking, Critical Thinking, Logical Thinking, Leadership, Teamwork, Integrity & Project Management.
+                </p>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    <strong>Sertifikasi:</strong> From Business Idea to Action — King's College London (2019) &bull; Business Development — Hari Senin Mini School (2021) &bull; AI for Business (AI-HUSTLER) — BisnAI Academy (2022).
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-3">
+                    <li class="exp-tag">Project Management</li>
+                    <li class="exp-tag">AI for Business</li>
+                    <li class="exp-tag">Leadership</li>
+                    <li class="exp-tag">King's College London</li>
+                </ul>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
 
 <!-- =========================================================================
      6. PROCESS / ALUR PENGERJAAN SECTION (Clean Steps)
@@ -740,7 +729,7 @@
      ========================================================================= -->
 <section id="contact" class="py-24 bg-slate-50 dark:bg-[#020617] scroll-mt-20">
     <div class="max-w-7xl mx-auto px-6">
-        
+
         <div class="cta-card">
             <!-- Radiant Background Glow Spots (Yoggui Style) -->
             <div class="cta-glow cta-glow-1"></div>
@@ -748,10 +737,10 @@
             <div class="cta-glow cta-glow-3"></div>
 
             <div class="grid lg:grid-cols-12 gap-12 items-center relative z-10">
-                
+
                 <!-- Left Column: Copy with Figma Selection Box -->
                 <div class="lg:col-span-7">
-                    
+
                     <span class="eyebrow mb-4 !text-sky-300">04 &middot; Kontak & Kolaborasi</span>
 
                     <div class="cta-selection mb-6">
@@ -774,15 +763,15 @@
 
                     <div class="flex flex-wrap items-center gap-4">
                         <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20ingin%20konsultasi%20mengenai%20projek%20website" target="_blank"
-                           class="cta-btn">
+                            class="cta-btn">
                             <span>Konsultasi via WhatsApp</span>
                             <span class="cta-btn-icon" aria-hidden="true">
                                 <i data-lucide="arrow-right" class="cta-btn-arrow"></i>
                             </span>
                         </a>
 
-                        <a href="mailto:hamidabdulaziz36@gmail.com" 
-                           class="inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white ring-1 ring-white/20 hover:bg-white/10 transition">
+                        <a href="mailto:hamidabdulaziz36@gmail.com"
+                            class="inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white ring-1 ring-white/20 hover:bg-white/10 transition">
                             <i data-lucide="mail" class="w-4 h-4 text-sky-300"></i>
                             <span>hamidabdulaziz36@gmail.com</span>
                         </a>
@@ -792,8 +781,8 @@
                 <!-- Right Column: Interactive WhatsApp Fast-Form Card -->
                 <div class="lg:col-span-5">
                     <div class="rounded-3xl p-6 sm:p-8 bg-[#0b1120]/80 border border-white/10 backdrop-blur-xl shadow-2xl text-white"
-                         x-data="{ name: '', service: 'Pembuatan Website Baru', message: '', get waUrl() { return 'https://wa.me/6281214019947?text=' + encodeURIComponent('Halo Hamid,\n\nNama: ' + this.name + '\nKebutuhan: ' + this.service + '\nPesan: ' + this.message) } }">
-                        
+                        x-data="{ name: '', service: 'Pembuatan Website Baru', message: '', get waUrl() { return 'https://wa.me/6281214019947?text=' + encodeURIComponent('Halo Hamid,\n\nNama: ' + this.name + '\nKebutuhan: ' + this.service + '\nPesan: ' + this.message) } }">
+
                         <div class="flex items-center justify-between mb-6">
                             <div>
                                 <span class="text-[10px] font-mono uppercase tracking-widest text-sky-400 block font-bold">Fast Response</span>
@@ -806,14 +795,14 @@
                             <div>
                                 <label for="form_name" class="block text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wider">Nama Lengkap / Instansi</label>
                                 <input type="text" id="form_name" x-model="name" required
-                                       class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition"
-                                       placeholder="Nama Anda atau Perusahaan">
+                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition"
+                                    placeholder="Nama Anda atau Perusahaan">
                             </div>
 
                             <div>
                                 <label for="form_service" class="block text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wider">Kebutuhan Projek</label>
                                 <select id="form_service" x-model="service" required
-                                        class="w-full bg-[#0b1120] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition">
+                                    class="w-full bg-[#0b1120] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition">
                                     <option value="Pembuatan Website Baru">Pembuatan Website Baru (Landing Page / Web Profil)</option>
                                     <option value="Redesign & Optimasi Website">Redesign & Peningkatan Tampilan Website</option>
                                     <option value="Pengembangan Web App / Sistem">Pengembangan Web App / Sistem Kustom</option>
@@ -825,12 +814,12 @@
                             <div>
                                 <label for="form_message" class="block text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wider">Pesan / Catatan Tambahan</label>
                                 <textarea id="form_message" x-model="message" rows="3" required
-                                          class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition"
-                                          placeholder="Ceritakan gambaran singkat atau referensi website impian Anda..."></textarea>
+                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition"
+                                    placeholder="Ceritakan gambaran singkat atau referensi website impian Anda..."></textarea>
                             </div>
 
-                            <button type="submit" 
-                                    class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm tracking-wide shadow-lg shadow-emerald-500/25 transition flex items-center justify-center gap-2 cursor-pointer">
+                            <button type="submit"
+                                class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm tracking-wide shadow-lg shadow-emerald-500/25 transition flex items-center justify-center gap-2 cursor-pointer">
                                 <i data-lucide="send" class="w-4 h-4"></i>
                                 <span>Kirim ke WhatsApp Hamid</span>
                             </button>
@@ -856,7 +845,7 @@
         let charIdx = 0;
         let isDeleting = false;
         const target = document.getElementById('typewriter-text');
-        
+
         if (target) {
             function typeLoop() {
                 const current = words[wordIdx];

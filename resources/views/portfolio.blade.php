@@ -96,10 +96,10 @@
                             <p class="text-xs text-white/75 line-clamp-2 leading-relaxed mb-4 font-light">
                                 {{ $item->description }}
                             </p>
-                            <div class="flex items-center gap-2 text-xs font-bold text-white">
-                                <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform">
-                                    <span>Lihat Detail</span>
-                                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                            <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
+                                <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform shadow-sm">
+                                    <span>{{ ($item->media_type === 'link' && $item->link) ? 'Buka Website' : 'Lihat Detail' }}</span>
+                                    <i data-lucide="{{ ($item->media_type === 'link' && $item->link) ? 'external-link' : 'arrow-right' }}" class="w-3.5 h-3.5"></i>
                                 </span>
                             </div>
                         </div>
