@@ -77,13 +77,16 @@
         .nav-link {
             position: relative;
         }
+
         .nav-link.is-active {
             color: #ffffff !important;
         }
+
         .nav-link.is-active .nav-num {
             color: #7dd3fc;
             text-shadow: 0 0 10px rgba(125, 211, 252, 0.8);
         }
+
         .nav-link.is-active::after {
             content: '';
             position: absolute;
@@ -99,10 +102,10 @@
         /* YOGGUI DESIGN SYSTEM - Core Inlines */
         .hero-dark {
             background: radial-gradient(60% 80% at 0% 0%, rgba(37, 99, 235, 0.75), transparent 70%),
-                        radial-gradient(55% 80% at 100% 100%, rgba(124, 58, 237, 0.85), transparent 70%),
-                        radial-gradient(40% 50% at 55% 110%, rgba(125, 211, 252, 0.3), transparent 70%),
-                        radial-gradient(35% 50% at 75% 30%, rgba(109, 40, 217, 0.35), transparent 70%),
-                        #020617;
+                radial-gradient(55% 80% at 100% 100%, rgba(124, 58, 237, 0.85), transparent 70%),
+                radial-gradient(40% 50% at 55% 110%, rgba(125, 211, 252, 0.3), transparent 70%),
+                radial-gradient(35% 50% at 75% 30%, rgba(109, 40, 217, 0.35), transparent 70%),
+                #020617;
         }
 
         .site-nav {
@@ -131,7 +134,8 @@
             align-items: center;
         }
 
-        .nav-link:hover, .nav-link.active {
+        .nav-link:hover,
+        .nav-link.active {
             color: #ffffff;
         }
 
@@ -362,37 +366,62 @@
         }
 
         @keyframes cta-btn-flow {
-            to { background-position: -200% 0; }
+            to {
+                background-position: -200% 0;
+            }
         }
 
         @keyframes cta-btn-shine {
-            0%, 55% { background-position: 150% 0; }
-            100% { background-position: -50% 0; }
+
+            0%,
+            55% {
+                background-position: 150% 0;
+            }
+
+            100% {
+                background-position: -50% 0;
+            }
         }
 
         @keyframes cta-btn-pulse {
-            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6); }
-            100% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+            }
+
+            100% {
+                box-shadow: 0 0 0 12px rgba(255, 255, 255, 0);
+            }
         }
 
         @keyframes cta-btn-arrow {
-            0% { transform: translate(0); }
-            45% { transform: translate(160%); }
-            46% { transform: translate(-160%); }
-            100% { transform: translate(0); }
+            0% {
+                transform: translate(0);
+            }
+
+            45% {
+                transform: translate(160%);
+            }
+
+            46% {
+                transform: translate(-160%);
+            }
+
+            100% {
+                transform: translate(0);
+            }
         }
     </style>
     @yield('styles')
 </head>
 
 <body class="text-slate-900 dark:text-slate-100 antialiased bg-[#f8fafc] dark:bg-[#020617] selection:bg-brand-600 selection:text-white"
-      x-data="{ scrolled: false, mobileOpen: false }"
-      @scroll.window="scrolled = (window.pageYOffset > 20)">
+    x-data="{ scrolled: false, mobileOpen: false }"
+    @scroll.window="scrolled = (window.pageYOffset > 20)">
 
     <!-- Modern Yoggui-Style Fixed Navbar -->
     <header class="site-nav" :class="{ 'is-scrolled': scrolled }">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            
+
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="flex items-center space-x-2 group">
                 <span class="text-2xl font-black tracking-tight text-white font-display">
@@ -402,24 +431,24 @@
 
             <!-- Desktop Nav Links with Yoggui Numbered Styling -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide" aria-label="Navigasi Utama">
-                <a href="{{ request()->routeIs('home') ? '#portfolio' : route('home') . '#portfolio' }}" 
-                   data-nav="portfolio"
-                   class="nav-link {{ request()->routeIs('portfolio') ? 'is-active' : '' }}">
+                <a href="{{ request()->routeIs('home') ? '#portfolio' : route('home') . '#portfolio' }}"
+                    data-nav="portfolio"
+                    class="nav-link {{ request()->routeIs('portfolio') ? 'is-active' : '' }}">
                     <span class="nav-num">01</span>Portofolio
                 </a>
-                <a href="{{ request()->routeIs('home') ? '#skills' : route('home') . '#skills' }}" 
-                   data-nav="skills"
-                   class="nav-link">
+                <a href="{{ request()->routeIs('home') ? '#skills' : route('home') . '#skills' }}"
+                    data-nav="skills"
+                    class="nav-link">
                     <span class="nav-num">02</span>Keahlian
                 </a>
-                <a href="{{ request()->routeIs('home') ? '#experience' : route('home') . '#experience' }}" 
-                   data-nav="experience"
-                   class="nav-link {{ request()->routeIs('about') ? 'is-active' : '' }}">
+                <a href="{{ request()->routeIs('home') ? '#experience' : route('home') . '#experience' }}"
+                    data-nav="experience"
+                    class="nav-link {{ request()->routeIs('about') ? 'is-active' : '' }}">
                     <span class="nav-num">03</span>Pengalaman
                 </a>
-                <a href="{{ request()->routeIs('home') ? '#contact' : route('home') . '#contact' }}" 
-                   data-nav="contact"
-                   class="nav-link">
+                <a href="{{ request()->routeIs('home') ? '#contact' : route('home') . '#contact' }}"
+                    data-nav="contact"
+                    class="nav-link">
                     <span class="nav-num">04</span>Kontak
                 </a>
             </nav>
@@ -427,9 +456,9 @@
             <!-- Right Controls: Theme Toggle only -->
             <div class="hidden md:flex items-center space-x-3">
                 <!-- Theme Toggle Button -->
-                <button id="theme-toggle" type="button" 
-                        class="p-2.5 text-white/80 hover:text-white bg-white/10 hover:bg-white/15 rounded-full text-sm transition ring-1 ring-white/15 focus:outline-none" 
-                        title="Ubah Tema Terang/Gelap">
+                <button id="theme-toggle" type="button"
+                    class="p-2.5 text-white/80 hover:text-white bg-white/10 hover:bg-white/15 rounded-full text-sm transition ring-1 ring-white/15 focus:outline-none"
+                    title="Ubah Tema Terang/Gelap">
                     <!-- Dark Icon (Moon) -->
                     <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -450,8 +479,8 @@
             <!-- Hamburger Button (Mobile) -->
             <div class="flex items-center space-x-2 md:hidden">
                 <!-- Mobile Theme Toggle -->
-                <button id="theme-toggle-mobile" type="button" 
-                        class="p-2 text-white/80 hover:text-white bg-white/10 rounded-full focus:outline-none">
+                <button id="theme-toggle-mobile" type="button"
+                    class="p-2 text-white/80 hover:text-white bg-white/10 rounded-full focus:outline-none">
                     <svg id="theme-toggle-mobile-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                     </svg>
@@ -460,9 +489,9 @@
                     </svg>
                 </button>
 
-                <button @click="mobileOpen = !mobileOpen" 
-                        class="p-2.5 rounded-full bg-white/10 text-white hover:bg-white/15 focus:outline-none ring-1 ring-white/15"
-                        aria-label="Buka Menu">
+                <button @click="mobileOpen = !mobileOpen"
+                    class="p-2.5 rounded-full bg-white/10 text-white hover:bg-white/15 focus:outline-none ring-1 ring-white/15"
+                    aria-label="Buka Menu">
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path x-show="!mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path x-show="mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" style="display: none;" />
@@ -472,38 +501,38 @@
         </div>
 
         <!-- Fullscreen Mobile Navigation Menu Overlay (Yoggui Style) -->
-        <div x-show="mobileOpen" 
-             x-transition:enter="transition ease-out duration-300"
-             x-transition:enter-start="opacity-0 -translate-y-4"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             x-transition:leave="transition ease-in duration-200"
-             x-transition:leave-start="opacity-100 translate-y-0"
-             x-transition:leave-end="opacity-0 -translate-y-4"
-             class="md:hidden fixed inset-0 top-20 z-40 bg-[#020617]/95 backdrop-blur-2xl p-6 flex flex-col justify-between overflow-y-auto border-t border-white/10" 
-             style="display: none;">
-            
+        <div x-show="mobileOpen"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-4"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4"
+            class="md:hidden fixed inset-0 top-20 z-40 bg-[#020617]/95 backdrop-blur-2xl p-6 flex flex-col justify-between overflow-y-auto border-t border-white/10"
+            style="display: none;">
+
             <ul class="space-y-4 pt-4">
                 <li>
-                    <a href="{{ request()->routeIs('home') ? '#portfolio' : route('home') . '#portfolio' }}" @click="mobileOpen = false" 
-                       class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                    <a href="{{ request()->routeIs('home') ? '#portfolio' : route('home') . '#portfolio' }}" @click="mobileOpen = false"
+                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
                         <span class="nav-num text-sm text-sky-400 mr-3">01</span> Portofolio
                     </a>
                 </li>
                 <li>
-                    <a href="{{ request()->routeIs('home') ? '#skills' : route('home') . '#skills' }}" @click="mobileOpen = false" 
-                       class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                    <a href="{{ request()->routeIs('home') ? '#skills' : route('home') . '#skills' }}" @click="mobileOpen = false"
+                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
                         <span class="nav-num text-sm text-sky-400 mr-3">02</span> Keahlian
                     </a>
                 </li>
                 <li>
-                    <a href="{{ request()->routeIs('home') ? '#experience' : route('home') . '#experience' }}" @click="mobileOpen = false" 
-                       class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                    <a href="{{ request()->routeIs('home') ? '#experience' : route('home') . '#experience' }}" @click="mobileOpen = false"
+                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
                         <span class="nav-num text-sm text-sky-400 mr-3">03</span> Pengalaman
                     </a>
                 </li>
                 <li>
-                    <a href="{{ request()->routeIs('home') ? '#contact' : route('home') . '#contact' }}" @click="mobileOpen = false" 
-                       class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                    <a href="{{ request()->routeIs('home') ? '#contact' : route('home') . '#contact' }}" @click="mobileOpen = false"
+                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
                         <span class="nav-num text-sm text-sky-400 mr-3">04</span> Kontak
                     </a>
                 </li>
@@ -515,8 +544,8 @@
                     Dashboard Admin
                 </a>
                 @endauth
-                <a href="{{ route('home') }}#contact" @click="mobileOpen = false" 
-                   class="cta-btn w-full justify-between">
+                <a href="{{ route('home') }}#contact" @click="mobileOpen = false"
+                    class="cta-btn w-full justify-between">
                     <span>Hubungi Saya Langsung</span>
                     <span class="cta-btn-icon">
                         <i data-lucide="arrow-right" class="cta-btn-arrow"></i>
@@ -536,7 +565,7 @@
 
     <!-- Ultra-Sleek Modern Footer (Yoggui Style) -->
     <footer class="border-t border-slate-200 dark:border-white/10 py-12 bg-white dark:bg-[#020617] text-slate-500 dark:text-slate-400 text-sm">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center text-center gap-5">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center text-center gap-4">
             <!-- Hak Cipta (Center & di Atas Link Sosmed) -->
             <p class="text-slate-500 dark:text-slate-400 text-xs font-medium tracking-wide">
                 &copy; {{ date('Y') }} Hamid Abdul Aziz. Hak Cipta Dilindungi.
@@ -547,35 +576,35 @@
                 <li>
                     <a href="https://www.instagram.com/hamidajaaaaa/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram" title="Instagram @hamidajaaaaa">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                         </svg>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.linkedin.com/in/hamid-abdul-aziz/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn" title="LinkedIn Hamid Abdul Aziz">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                         </svg>
                     </a>
                 </li>
                 <li>
                     <a href="https://www.tiktok.com/@ham1dun" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok" title="TikTok @ham1dun">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.11V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.27 6.27 0 0 0 1.93-4.52V8.75a8.28 8.28 0 0 0 4.84 1.56V6.86c-.34 0-.68-.06-1-.17z"/>
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.11V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.27 6.27 0 0 0 1.93-4.52V8.75a8.28 8.28 0 0 0 4.84 1.56V6.86c-.34 0-.68-.06-1-.17z" />
                         </svg>
                     </a>
                 </li>
                 <li>
                     <a href="https://github.com/HAMIDUMMAZIDUN" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub" title="GitHub">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
                         </svg>
                     </a>
                 </li>
                 <li>
                     <a href="https://wa.me/6281214019947" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp" title="WhatsApp 081214019947">
                         <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
                         </svg>
                     </a>
                 </li>
@@ -674,11 +703,22 @@
             }
 
             // ===== SCROLL-SPY: Active nav link highlight =====
-            const sections = [
-                { id: 'portfolio',  nav: 'portfolio' },
-                { id: 'skills',     nav: 'skills' },
-                { id: 'experience', nav: 'experience' },
-                { id: 'contact',    nav: 'contact' },
+            const sections = [{
+                    id: 'portfolio',
+                    nav: 'portfolio'
+                },
+                {
+                    id: 'skills',
+                    nav: 'skills'
+                },
+                {
+                    id: 'experience',
+                    nav: 'experience'
+                },
+                {
+                    id: 'contact',
+                    nav: 'contact'
+                },
             ];
 
             const navLinks = document.querySelectorAll('.nav-link[data-nav]');
@@ -702,7 +742,10 @@
                             if (matched) setActive(matched.nav);
                         }
                     });
-                }, { rootMargin: '-25% 0px -45% 0px', threshold: 0.1 });
+                }, {
+                    rootMargin: '-25% 0px -45% 0px',
+                    threshold: 0.1
+                });
 
                 sections.forEach(function(s) {
                     const el = document.getElementById(s.id);
@@ -714,7 +757,9 @@
                     if (window.scrollY < 180) {
                         navLinks.forEach(l => l.classList.remove('is-active'));
                     }
-                }, { passive: true });
+                }, {
+                    passive: true
+                });
             }
         });
     </script>

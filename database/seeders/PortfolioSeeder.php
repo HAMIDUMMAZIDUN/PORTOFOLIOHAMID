@@ -16,6 +16,15 @@ class PortfolioSeeder extends Seeder
         Portfolio::truncate();
 
         Portfolio::create([
+            'title' => 'Portal LSP Manajemen Pendidikan Islam',
+            'category' => 'Website',
+            'image' => 'portfolios/lsp-mpi.jpg',
+            'link' => 'https://lspmpi.com/',
+            'description' => 'Sistem informasi dan portal resmi Lembaga Sertifikasi Profesi Manajemen Pendidikan Islam (LSP MPI) mencakup fitur registrasi, uji kompetensi, dan direktori sertifikasi terakreditasi.',
+            'media_type' => 'link',
+        ]);
+
+        Portfolio::create([
             'title' => 'Eduva Space - Manajemen Kos & Hunian Mahasiswa',
             'category' => 'Website',
             'image' => 'portfolios/eduva-space-kos.jpg',
