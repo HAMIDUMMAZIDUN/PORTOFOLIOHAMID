@@ -103,12 +103,12 @@
         <ul class="grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
             <li class="flex flex-col">
                 <span class="text-xs font-mono font-bold text-sky-300 mb-1">#01 PENGALAMAN</span>
-                <span class="text-2xl sm:text-3xl font-extrabold text-white">5+ Tahun</span>
+                <span class="text-2xl sm:text-3xl font-extrabold text-white">3+ Tahun</span>
                 <span class="text-xs text-white/60 font-light mt-0.5">Membangun website & sistem web</span>
             </li>
             <li class="flex flex-col">
                 <span class="text-xs font-mono font-bold text-sky-300 mb-1">#02 PORTOFOLIO</span>
-                <span class="text-2xl sm:text-3xl font-extrabold text-white">50+ Projek</span>
+                <span class="text-2xl sm:text-3xl font-extrabold text-white">5 Projek</span>
                 <span class="text-xs text-white/60 font-light mt-0.5">Selesai & aktif beroperasi online</span>
             </li>
             <li class="flex flex-col">
@@ -509,7 +509,6 @@
             <!-- 1. PT LSP Manajemen Pendidikan Islam -->
             <div class="exp-row group">
                 <div class="flex items-center gap-4">
-                    <div class="exp-logo"><span>LSP</span></div>
                     <div class="min-w-0">
                         <h3 class="exp-company">PT.LSP Manajemen Pendidikan Islam</h3>
                         <p class="exp-period">Apr – Okt 2026 &middot; <span>Staff IT &bull; Jl. Gedebage Selatan, Bandung</span></p>
@@ -529,7 +528,6 @@
             <!-- 2. PT Digi Tekno Indonesia -->
             <div class="exp-row group">
                 <div class="flex items-center gap-4">
-                    <div class="exp-logo"><span>DTI</span></div>
                     <div class="min-w-0">
                         <h3 class="exp-company">PT. Digi Tekno Indonesia</h3>
                         <p class="exp-period">Ags – Sep 2025 &middot; <span>Magang &bull; Sumarecon Komplek Magna, Bandung</span></p>
@@ -549,7 +547,6 @@
             <!-- 3. Freelance -->
             <div class="exp-row group">
                 <div class="flex items-center gap-4">
-                    <div class="exp-logo"><span>FL</span></div>
                     <div class="min-w-0">
                         <h3 class="exp-company">Freelance Web Developer</h3>
                         <p class="exp-period">Jan 2025 – Sekarang &middot; <span>Fullstack Developer &bull; Bandung, Jawa Barat</span></p>
@@ -575,7 +572,6 @@
             <!-- UNIKOM -->
             <div class="exp-row group">
                 <div class="flex items-center gap-4">
-                    <div class="exp-logo"><span>UNIKOM</span></div>
                     <div class="min-w-0">
                         <h3 class="exp-company">Universitas Komputer Indonesia</h3>
                         <p class="exp-period">Ags 2022 – Ags 2026 &middot; <span>S1 Teknik Informatika &bull; IPK 3.05 &bull; Coblong, Bandung</span></p>
@@ -599,7 +595,6 @@
 
             <div class="exp-row group">
                 <div class="flex items-center gap-4">
-                    <div class="exp-logo"><span>🏆</span></div>
                     <div class="min-w-0">
                         <h3 class="exp-company">Pencapaian & Sertifikasi</h3>
                         <p class="exp-period">2019 – 2026 &middot; <span>Berbagai Platform & Lembaga Internasional</span></p>
