@@ -509,34 +509,13 @@
             </div>
         </div>
 
-        <div class="grid lg:grid-cols-[4fr_8fr] gap-8 lg:gap-12 items-start">
+        <!-- Experience List (Full Width - Fills Left and Right) -->
+        <div class="exp-list w-full">
 
-            <!-- Left: Profile Photo Card -->
-            <div class="relative aspect-[4/5] lg:aspect-auto lg:sticky lg:top-28 rounded-3xl overflow-hidden bg-slate-900 ring-1 ring-slate-200 dark:ring-white/10 shadow-xl group">
-                <img src="{{ asset('hamid.jpg') }}" alt="Hamid Abdul Aziz"
-                     class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
-                     onerror="this.src='{{ asset('support_agent_avatar.png') }}'">
-                <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-8 pt-24 text-white">
-                    <p class="text-3xl sm:text-4xl font-extrabold font-display">Hamid Abdul Aziz</p>
-                    <p class="mt-1 text-sm text-white/70 font-light">Teknik Informatika · UNIKOM Bandung</p>
-                    <div class="flex flex-wrap gap-2 mt-3 text-[10px]">
-                        <a href="tel:081214019947" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/20 font-semibold hover:bg-white/20 transition">
-                            📞 081214019947
-                        </a>
-                        <a href="mailto:hamidabdulaziz36@gmail.com" class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 ring-1 ring-white/20 font-semibold hover:bg-white/20 transition">
-                            ✉ Email
-                        </a>
-                    </div>
-                </div>
+            <!-- Section Header: Pengalaman Kerja -->
+            <div class="mb-5">
+                <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Pengalaman Kerja</span>
             </div>
-
-            <!-- Right: Experience List -->
-            <div class="exp-list">
-
-                <!-- Section Header: Pengalaman Kerja -->
-                <div class="mb-5">
-                    <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Pengalaman Kerja</span>
-                </div>
 
                 <!-- 1. PT LSP Manajemen Pendidikan Islam -->
                 <div class="exp-row group">
@@ -653,8 +632,7 @@
 
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <!-- =========================================================================
      6. PROCESS / ALUR PENGERJAAN SECTION (Clean Steps)

@@ -563,15 +563,30 @@
     width: 3rem;
     height: 3rem;
     border-radius: 1rem;
-    background: linear-gradient(135deg, #2563eb, #7c3aed);
-    color: #ffffff;
+    background: transparent;
+    border: 1.5px solid #cbd5e1;
+    color: #0f172a;
     font-weight: 800;
+    font-size: 0.8125rem;
+    letter-spacing: 0.025em;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     overflow: hidden;
     flex-shrink: 0;
+    transition: all 0.3s ease;
+}
+
+.dark .exp-logo {
+    border-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    background: transparent;
+}
+
+.exp-row:hover .exp-logo {
+    border-color: #38bdf8;
+    color: #38bdf8;
 }
 
 .exp-company {

@@ -53,22 +53,8 @@
                 </div>
             </div>
 
-            <div class="grid lg:grid-cols-[4fr_8fr] gap-8 lg:gap-12 items-start">
-                
-                <!-- Left Sticky Portrait Card (Yoggui Style) -->
-                <div class="relative aspect-[4/5] lg:aspect-auto lg:h-full rounded-3xl overflow-hidden bg-slate-900 ring-1 ring-slate-200 dark:ring-white/10 shadow-xl group">
-                    <img src="{{ asset('hamid.jpg') }}" alt="Hamid Abdul Aziz" 
-                         class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
-                         onerror="this.src='{{ asset('support_agent_avatar.png') }}'">
-                    
-                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-8 pt-24 text-white">
-                        <p class="text-3xl sm:text-4xl font-extrabold font-display">3+ Tahun</p>
-                        <p class="mt-1 text-sm text-white/70 font-light">Membangun sistem & produk digital terpercaya</p>
-                    </div>
-                </div>
-
-                <!-- Right Timeline Career List (exp-list Yoggui Style) -->
-                <div class="exp-list">
+            <!-- Timeline Career List (Full Width) -->
+            <div class="exp-list w-full">
 
                     {{-- ==================== PENGALAMAN KERJA ==================== --}}
                     <div class="mb-6">
@@ -201,7 +187,6 @@
                     </div>
 
                 </div>
-
             </div>
         </div>
     </section>
