@@ -44,7 +44,7 @@
                         <!-- Title -->
                         <div>
                             <label for="title" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Judul Milestone</label>
-                            <input type="text" id="title" name="title" value="{{ old('title') }}" required placeholder="Contoh: Awal Pendirian HA Creative Studio"
+                            <input type="text" id="title" name="title" value="{{ old('title') }}" required placeholder="Contoh: Memulai Karier Web Development"
                                    class="w-full rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm transition duration-150">
                             @error('title')
                                 <p class="text-rose-600 text-xs mt-1.5 font-medium">{{ $message }}</p>

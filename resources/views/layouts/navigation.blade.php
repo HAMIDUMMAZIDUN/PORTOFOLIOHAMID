@@ -32,9 +32,8 @@
             <div>
                 <!-- Brand Logo — same as public site -->
                 <div class="h-16 flex items-center px-6 border-b border-slate-200/60 dark:border-slate-800/80 bg-white dark:bg-[#0c1120]">
-                    <a href="{{ route('dashboard') }}" class="flex items-center space-x-1 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
-                        <span class="font-extrabold">HA</span>
-                        <span class="text-slate-400 dark:text-slate-500 font-light">Creative.</span>
+                    <a href="{{ route('dashboard') }}" class="flex items-center space-x-1 text-xl font-bold tracking-tight text-slate-900 dark:text-white font-display">
+                        <span class="font-extrabold">Hamid</span><span class="text-sky-400">.</span>
                     </a>
                     <span class="ml-auto text-[9px] font-bold uppercase tracking-widest text-slate-400 dark:text-slate-600 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">CMS</span>
                 </div>
@@ -44,11 +43,8 @@
                     @php
                         $navLinks = [
                             ['route' => 'dashboard',              'match' => 'dashboard',              'icon' => 'grid',      'label' => 'Dashboard'],
-                            ['route' => 'admin.portfolios.index', 'match' => 'admin.portfolios.*',     'icon' => 'image',     'label' => 'Portofolio'],
-                            ['route' => 'admin.packages.index',   'match' => 'admin.packages.*',       'icon' => 'tag',       'label' => 'Paket Harga'],
-                            ['route' => 'admin.posts.index',      'match' => 'admin.posts.*',          'icon' => 'document',  'label' => 'Artikel Blog'],
-                            ['route' => 'admin.services.index',   'match' => 'admin.services.*',       'icon' => 'briefcase', 'label' => 'Layanan & Pilar'],
-                            ['route' => 'admin.timelines.index',  'match' => 'admin.timelines.*',      'icon' => 'clock',     'label' => 'Milestone Studio'],
+                            ['route' => 'admin.portfolios.index', 'match' => 'admin.portfolios.*',     'icon' => 'image',     'label' => 'Portofolio Projek'],
+                            ['route' => 'admin.timelines.index',  'match' => 'admin.timelines.*',      'icon' => 'clock',     'label' => 'Pengalaman & Riwayat'],
                         ];
                     @endphp
 

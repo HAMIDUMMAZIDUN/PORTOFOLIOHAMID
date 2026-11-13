@@ -20,7 +20,7 @@
         <div class="mb-5">
             <label for="email" class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Email Administrator</label>
             <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus autocomplete="username"
-                   placeholder="admin@hacreative.com"
+                   placeholder="admin@example.com"
                    class="w-full mt-2 px-4 py-3.5 bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-850 rounded-xl text-xs font-medium text-slate-800 dark:text-slate-100 placeholder-slate-400/70 focus:outline-none focus:border-premium-emerald focus:ring-1 focus:ring-premium-emerald transition duration-150">
             @error('email')
                 <p class="text-red-500 text-[10px] mt-1.5 font-semibold">{{ $message }}</p>

@@ -15,12 +15,8 @@ class LandingController extends Controller
     public function index()
     {
         // Ambil semua portofolio terbaru untuk ditampilkan di landing page
-        $portfolios = Portfolio::latest()->take(6)->get(); // Ambil 6 teratas untuk landing page
-        
-        // Ambil layanan bertipe Layanan
-        $services = Service::where('category', 'Layanan')->orderBy('order')->get();
-        
-        return view('welcome', compact('portfolios', 'services'));
+        $portfolios = Portfolio::latest()->take(6)->get();
+        return view('welcome', compact('portfolios'));
     }
 
     /**
@@ -64,8 +60,7 @@ class LandingController extends Controller
      */
     public function about()
     {
-        $pillars = Service::where('category', 'Pilar')->orderBy('order')->get();
         $timelines = Timeline::orderBy('order')->orderBy('year')->get();
-        return view('about', compact('pillars', 'timelines'));
+        return view('about', compact('timelines'));
     }
 }

@@ -16,11 +16,13 @@ use Illuminate\Support\Facades\Route;
 | These routes are accessible by anyone visiting the site.
 */
 Route::get('/', [LandingController::class, 'index'])->name('home');
-Route::get('/harga', [LandingController::class, 'pricing'])->name('pricing');
 Route::get('/portofolio', [LandingController::class, 'portfolio'])->name('portfolio');
-Route::get('/jasa-sosial-media-management', [LandingController::class, 'socialMedia'])->name('social-media');
-Route::get('/blog', [LandingController::class, 'blog'])->name('blog');
 Route::get('/tentang-saya', [LandingController::class, 'about'])->name('about');
+
+// Redirect legacy routes ke portofolio
+Route::redirect('/harga', '/portofolio')->name('pricing');
+Route::redirect('/jasa-sosial-media-management', '/portofolio')->name('social-media');
+Route::redirect('/blog', '/portofolio')->name('blog');
 
 /*
 |--------------------------------------------------------------------------

@@ -1,109 +1,220 @@
 @extends('layouts.public')
 
-@section('title', 'Tentang Kami')
+@section('title', 'Tentang Saya')
 
 @section('content')
-    <!-- Profile Header / Hero -->
-    <section class="py-24 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-800/80 px-6 text-center relative overflow-hidden">
-        <div class="max-w-4xl mx-auto relative z-10">
-            <span class="inline-flex items-center px-4 py-1.5 rounded-full border border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 text-[10px] font-semibold uppercase tracking-wider mb-6 bg-white dark:bg-[#0f1422] shadow-sm">
-                Tentang HA Creative
-            </span>
-            
-            <h1 class="text-4xl md:text-6xl font-extrabold text-premium-navy dark:text-white tracking-tight leading-tight mb-6">
-                Membantu Bisnis Anda <br>
-                <span class="text-premium-emerald dark:text-emerald-400 font-light">Tampil Meyakinkan di Ranah Online.</span>
+    <!-- Profile Header / Hero (Mini Hero Dark - Yoggui Style) -->
+    <section class="hero-dark relative isolate pt-32 pb-20 px-6 rounded-b-[2.5rem] sm:rounded-b-[3.5rem] text-white text-center overflow-hidden">
+        <div class="max-w-3xl mx-auto relative z-10">
+            <span class="eyebrow mb-4">Profil & Riwayat Hidup</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+                Hamid Abdul Aziz — <span class="text-gradient">Curriculum Vitae</span>
             </h1>
-            
-            <p class="leading-relaxed text-slate-500 dark:text-slate-400 mb-10 max-w-2xl mx-auto font-light text-sm md:text-base font-sans">
-                HA Creative adalah studio pembuatan website dan desain visual yang berbasis di Bandung. Kami mendampingi pelaku usaha, UMKM, dan perorangan membangun kehadiran digital yang rapi, fungsional, dan dapat diandalkan untuk menunjang penjualan.
+            <p class="text-white/70 font-light text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+                S1 Teknik Informatika, Universitas Komputer Indonesia. Lulusan Ilmu Komputer yang selalu memperbarui pengalaman di bidang Pemrograman Website dan Aplikasi Android — berbasis di Bandung, Jawa Barat.
             </p>
-            
-            <div class="flex justify-center gap-4">
-                <a href="{{ route('home') }}#contact" class="px-7 py-3 bg-premium-navy dark:bg-emerald-600 hover:bg-slate-800 dark:hover:bg-emerald-500 text-white rounded-lg text-xs font-bold uppercase tracking-wider transition shadow-sm">
-                    Mulai Konsultasi
+            <div class="flex flex-wrap justify-center gap-3 mt-6 text-xs">
+                <a href="tel:081214019947" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 ring-1 ring-white/20 font-semibold hover:bg-white/20 transition">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                    081214019947
                 </a>
-                <a href="{{ route('pricing') }}" class="px-7 py-3 border border-slate-300 dark:border-slate-700 hover:border-premium-navy dark:hover:border-white text-slate-700 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white bg-white dark:bg-[#0f1422] rounded-lg text-xs font-bold uppercase tracking-wider transition">
-                    Lihat Paket Harga
+                <a href="mailto:hamidabdulaziz36@gmail.com" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 ring-1 ring-white/20 font-semibold hover:bg-white/20 transition">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    hamidabdulaziz36@gmail.com
+                </a>
+                <a href="https://www.linkedin.com/in/hamid-abdul-aziz-51b8623b1" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-sky-500/20 ring-1 ring-sky-400/40 font-semibold text-sky-300 hover:bg-sky-500/30 transition">
+                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    LinkedIn
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Core Services Pillars -->
-    <section class="py-24 px-6 bg-slate-50 dark:bg-[#0e1320] border-b border-slate-200/60 dark:border-slate-850">
+    <!-- Experience & Timeline Section (Yoggui Experience Style) -->
+    <section class="py-24 px-6 bg-slate-50 dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5">
         <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Fokus Layanan</span>
-                <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white tracking-tight">Bidang Keahlian Kami</h2>
-                <p class="text-slate-400 dark:text-slate-500 text-xs mt-2 max-w-lg mx-auto leading-relaxed">
-                    Kami fokus pada layanan yang terbukti praktis dan berdampak langsung pada branding dan operasional bisnis Anda.
-                </p>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <p class="eyebrow mb-2">Riwayat & CV</p>
+                    <h2 class="section-title text-slate-900 dark:text-white">Pengalaman <span class="text-gradient">Profesional</span></h2>
+                </div>
+                <div class="flex flex-col gap-3">
+                    <p class="text-slate-500 dark:text-slate-400 max-w-md font-light text-sm">
+                        Pengalaman membangun sistem web, infrastruktur IT, dan platform digital sejak 2022.
+                    </p>
+                    <a href="https://drive.google.com/file/d/1XF5AqXUPARTom1QgcTpluF7BCM4zcm/view?usp=sharing"
+                       target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-400 dark:hover:text-sky-300 font-bold text-xs uppercase tracking-wider transition self-start">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        Unduh CV Lengkap
+                    </a>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                @forelse($pillars as $pillar)
-                    <div class="bg-white dark:bg-[#0f1422] p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md transition">
-                        <div class="w-12 h-12 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-center text-premium-navy dark:text-white mb-6">
-                            @if($pillar->icon === 'code')
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-                            @elseif($pillar->icon === 'palette')
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                            @elseif($pillar->icon === 'calendar')
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-                            @elseif($pillar->icon === 'film')
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4"/></svg>
-                            @elseif($pillar->icon === 'chart')
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"/></svg>
-                            @elseif($pillar->icon === 'camera')
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                            @else
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"/></svg>
-                            @endif
+            <div class="grid lg:grid-cols-[4fr_8fr] gap-8 lg:gap-12 items-start">
+                
+                <!-- Left Sticky Portrait Card (Yoggui Style) -->
+                <div class="relative aspect-[4/5] lg:aspect-auto lg:h-full rounded-3xl overflow-hidden bg-slate-900 ring-1 ring-slate-200 dark:ring-white/10 shadow-xl group">
+                    <img src="{{ asset('hamid.jpg') }}" alt="Hamid Abdul Aziz" 
+                         class="absolute inset-0 w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700"
+                         onerror="this.src='{{ asset('support_agent_avatar.png') }}'">
+                    
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-8 pt-24 text-white">
+                        <p class="text-3xl sm:text-4xl font-extrabold font-display">3+ Tahun</p>
+                        <p class="mt-1 text-sm text-white/70 font-light">Membangun sistem & produk digital terpercaya</p>
+                    </div>
+                </div>
+
+                <!-- Right Timeline Career List (exp-list Yoggui Style) -->
+                <div class="exp-list">
+
+                    {{-- ==================== PENGALAMAN KERJA ==================== --}}
+                    <div class="mb-6">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-sky-400 block mb-4">Pengalaman Kerja</span>
+                    </div>
+
+                    {{-- 1. PT LSP Manajemen Pendidikan Islam --}}
+                    <div class="exp-row group">
+                        <div class="flex items-center gap-4">
+                            <div class="exp-logo">
+                                <span>LSP</span>
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="exp-company">PT.LSP Manajemen Pendidikan Islam</h3>
+                                <p class="exp-period">Apr – Okt 2026 &middot; <span>Staff IT &bull; Jl. Gedebage Selatan, Bandung</span></p>
+                            </div>
                         </div>
-                        <h3 class="text-lg font-bold text-premium-navy dark:text-white mb-3">{{ $pillar->title }}</h3>
-                        <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light font-sans">
-                            {{ $pillar->description }}
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                            Mengelola dan memelihara seluruh infrastruktur situs web serta sistem informasi LSP MPI. Bertanggung jawab atas stabilitas server, pembuatan konten portal sertifikasi, keamanan data, serta memberikan dukungan teknis (IT Support) untuk kelancaran operasional digital organisasi.
                         </p>
+                        <ul class="flex flex-wrap gap-2 mt-1">
+                            <li class="exp-tag">Server Management</li>
+                            <li class="exp-tag">IT Support</li>
+                            <li class="exp-tag">Keamanan Data</li>
+                            <li class="exp-tag">Portal Sertifikasi</li>
+                        </ul>
                     </div>
-                @empty
-                    <div class="col-span-4 text-center py-12 text-slate-400 font-light">
-                        Belum ada data pilar keahlian yang ditambahkan.
+
+                    {{-- 2. PT Digi Tekno Indonesia --}}
+                    <div class="exp-row group">
+                        <div class="flex items-center gap-4">
+                            <div class="exp-logo">
+                                <span>DTI</span>
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="exp-company">PT. Digi Tekno Indonesia</h3>
+                                <p class="exp-period">Ags – Sep 2025 &middot; <span>Magang &bull; Sumarecon Komplek Magna, Bandung</span></p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                            Software & Hardware Engineer Intern — merancang dan mengembangkan Sistem Presensi Digital Berbasis IoT (ESP32/Arduino & RFID) yang terintegrasi secara real-time dengan web dashboard backend untuk otomasi presensi dan rekap kehadiran karyawan.
+                        </p>
+                        <ul class="flex flex-wrap gap-2 mt-1">
+                            <li class="exp-tag">IoT / ESP32</li>
+                            <li class="exp-tag">Arduino & RFID</li>
+                            <li class="exp-tag">Web Dashboard</li>
+                            <li class="exp-tag">Laravel</li>
+                        </ul>
                     </div>
-                @endforelse
+
+                    {{-- 3. Freelance Website --}}
+                    <div class="exp-row group">
+                        <div class="flex items-center gap-4">
+                            <div class="exp-logo">
+                                <span>FL</span>
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="exp-company">Freelance Web Developer</h3>
+                                <p class="exp-period">Jan 2025 – Sekarang &middot; <span>Fullstack Developer &bull; Bandung, Jawa Barat</span></p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                            Menyediakan jasa pengembangan aplikasi web <em>full-stack</em> kustom berbasis Laravel, PHP, MySQL, JavaScript, Tailwind CSS & Bootstrap. Proyek unggulan: <strong>Eduva Space</strong> (platform manajemen properti mahasiswa), <strong>Digital Certificate Generator Web System</strong>, dan <strong>Digital Wedding Guestbook & RSVP Platform</strong>.
+                        </p>
+                        <ul class="flex flex-wrap gap-2 mt-1">
+                            <li class="exp-tag">Laravel</li>
+                            <li class="exp-tag">PHP</li>
+                            <li class="exp-tag">MySQL</li>
+                            <li class="exp-tag">Tailwind CSS</li>
+                            <li class="exp-tag">JavaScript</li>
+                        </ul>
+                    </div>
+
+                    {{-- ==================== PENDIDIKAN ==================== --}}
+                    <div class="mt-10 mb-6">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-sky-400 block mb-4">Jenjang Pendidikan</span>
+                    </div>
+
+                    {{-- Universitas Komputer Indonesia --}}
+                    <div class="exp-row group">
+                        <div class="flex items-center gap-4">
+                            <div class="exp-logo">
+                                <span>UNIKOM</span>
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="exp-company">Universitas Komputer Indonesia</h3>
+                                <p class="exp-period">Ags 2022 – Ags 2026 &middot; <span>S1 Teknik Informatika &bull; IPK 3.05 &bull; Coblong, Bandung</span></p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                            Aplikasi Ujian Berbasis Android (Flutter & Firestore) — merancang dan membangun aplikasi ujian mobile berbasis Flutter, Dart, dan Cloud Firestore. Implementasi keamanan tinggi menggunakan Native Screen Pinning API dan panel pemantauan multi-peran (multi-role monitoring) yang telah diuji oleh 403 pengguna.
+                        </p>
+                        <ul class="flex flex-wrap gap-2 mt-1">
+                            <li class="exp-tag">Flutter</li>
+                            <li class="exp-tag">Dart</li>
+                            <li class="exp-tag">Firebase</li>
+                            <li class="exp-tag">Android</li>
+                        </ul>
+                    </div>
+
+                    {{-- ==================== KEAHLIAN & PENCAPAIAN ==================== --}}
+                    <div class="mt-10 mb-6">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-sky-400 block mb-4">Skills & Pencapaian</span>
+                    </div>
+
+                    <div class="exp-row group">
+                        <div class="flex items-center gap-4">
+                            <div class="exp-logo">
+                                <span>🏆</span>
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="exp-company">Proyek & Sertifikasi</h3>
+                                <p class="exp-period">2019 – 2026 &middot; <span>Berbagai Platform & Lembaga</span></p>
+                            </div>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed mb-3">
+                            <strong>Proyek (2026):</strong> Sistem Web Buku Undangan Pernikahan, Sistem Web LSP Manajemen Pendidikan Islam, Sistem Admin berbasis Arduino untuk pengawas ujian.
+                        </p>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed mb-3">
+                            <strong>Soft Skills:</strong> Analytical Thinking, Critical Thinking, Logical Thinking, Leadership, Teamwork, Integrity & Project Management.
+                        </p>
+                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                            <strong>Sertifikasi:</strong> From Business Idea to Action — King's College London (2019) &bull; Business Development — Hari Senin Mini School (2021) &bull; AI for Business (AI-HUSTLER) — BisnAI Academy (2022).
+                        </p>
+                        <ul class="flex flex-wrap gap-2 mt-3">
+                            <li class="exp-tag">Project Management</li>
+                            <li class="exp-tag">AI for Business</li>
+                            <li class="exp-tag">Leadership</li>
+                        </ul>
+                    </div>
+
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Timeline Perjalanan Agensi -->
-    <section class="py-24 px-6 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-850">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-16">
-                <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Perjalanan Kami</span>
-                <h2 class="text-3xl font-extrabold text-premium-navy dark:text-white tracking-tight">Perkembangan HA Creative</h2>
-            </div>
-            
-            <div class="border-l-2 border-slate-200 dark:border-slate-800 ml-4 space-y-12">
-                @forelse($timelines as $timeline)
-                    <div class="relative pl-8">
-                        <div class="absolute -left-[9px] top-1.5 w-4 h-4 bg-premium-navy dark:bg-emerald-600 rounded-full border-4 border-white dark:border-[#0b0f19]"></div>
-                        <div class="bg-slate-50 dark:bg-[#0f1422] p-8 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-sm">
-                            <span class="text-[10px] font-bold text-premium-emerald dark:text-emerald-400 tracking-wider uppercase">{{ $timeline->year }}</span>
-                            <h3 class="text-lg font-bold text-premium-navy dark:text-white mt-1">{{ $timeline->title }}</h3>
-                            @if($timeline->subtitle)
-                                <p class="text-slate-400 dark:text-slate-500 text-xs mb-4">{{ $timeline->subtitle }}</p>
-                            @endif
-                            <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light font-sans">
-                                {{ $timeline->content }}
-                            </p>
-                        </div>
-                    </div>
-                @empty
-                    <div class="text-center py-12 text-slate-400 font-light pl-8">
-                        Belum ada data timeline sejarah yang ditambahkan.
-                    </div>
-                @endforelse
-            </div>
+    <!-- Quick Call to Action -->
+    <section class="py-20 px-6 bg-slate-50 dark:bg-[#020617] text-center">
+        <div class="max-w-3xl mx-auto">
+            <h3 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-4">Siap Memulai Projek Bersama?</h3>
+            <p class="text-slate-500 dark:text-slate-400 font-light text-sm mb-8">Diskusikan kebutuhan website atau branding usaha Anda secara santai dan gratis.</p>
+            <a href="{{ route('home') }}#contact" class="cta-btn">
+                <span>Hubungi Hamid via WhatsApp</span>
+                <span class="cta-btn-icon"><i data-lucide="arrow-right" class="cta-btn-arrow"></i></span>
+            </a>
         </div>
     </section>
 @endsection

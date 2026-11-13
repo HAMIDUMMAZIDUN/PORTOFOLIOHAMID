@@ -23,7 +23,7 @@ class TimelineSeeder extends Seeder
             ],
             [
                 'year' => '2025',
-                'title' => 'Mendirikan HA Creative',
+                'title' => 'Ekspansi Layanan Digital',
                 'subtitle' => 'Integrasi Layanan Website & Media Sosial',
                 'content' => 'Merespons kebutuhan klien yang ingin tampilan visualnya konsisten, kami menyatukan layanan pembuatan website, desain grafis, dan pengelolaan media sosial dalam satu alur kerja yang teratur.',
                 'order' => 2,
@@ -32,7 +32,7 @@ class TimelineSeeder extends Seeder
                 'year' => '2026',
                 'title' => 'Pertumbuhan & Kepercayaan Klien',
                 'subtitle' => 'Melayani Puluhan Mitra Bisnis di Indonesia',
-                'content' => 'Kini HA Creative telah dipercaya oleh puluhan pelaku usaha dari berbagai sektor bisnis. Kami terus menjaga komitmen pengerjaan tepat waktu, pendampingan ramah, dan hasil kerja berkualitas tinggi.',
+                'content' => 'Kini kami telah dipercaya oleh puluhan pelaku usaha dari berbagai sektor bisnis. Kami terus menjaga komitmen pengerjaan tepat waktu, pendampingan ramah, dan hasil kerja berkualitas tinggi.',
                 'order' => 3,
             ],
         ];

@@ -4,16 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@hasSection('title') @yield('title') | HA Creative. @else HA Creative. | Jasa Pembuatan Website & Desain Grafis Premium @endif</title>
+    <title>@hasSection('title') @yield('title') | Hamid &mdash; Web Developer & UI/UX Designer @else Hamid &mdash; Web Developer & UI/UX Designer @endif</title>
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
-    <!-- Fonts -->
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Scripts & Styling -->
+    <!-- Tailwind & Scripts -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Dark Mode Init Script -->
     <script>
@@ -30,109 +35,435 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
                     },
                     colors: {
-                        premium: {
-                            navy: '#0f172a',
-                            emerald: '#059669',
-                            accent: '#1e40af',
-                            bgLight: '#fcfbf9',
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                        },
+                        sky: {
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
                         },
                         slate: {
-                            850: '#1e293b',
+                            850: '#151d2f',
+                            950: '#020617',
                         }
                     }
                 }
             }
         }
     </script>
+
     <style>
         body {
-            font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
-            background-color: #fcfbf9;
-            /* Putih tulang */
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .dark body {
-            background-color: #0b0f19;
-            /* Dark Background */
+            background-color: #020617;
         }
 
-        .nav-blur {
-            background: rgba(252, 251, 249, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: background 0.3s ease;
+        /* ===== NAVBAR ACTIVE GLOW STYLES ===== */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link.is-active {
+            color: #ffffff !important;
+        }
+        .nav-link.is-active .nav-num {
+            color: #7dd3fc;
+            text-shadow: 0 0 10px rgba(125, 211, 252, 0.8);
+        }
+        .nav-link.is-active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #38bdf8, #8b5cf6);
+            border-radius: 9999px;
+            box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
         }
 
-        .dark .nav-blur {
-            background: rgba(11, 15, 25, 0.85);
+        /* YOGGUI DESIGN SYSTEM - Core Inlines */
+        .hero-dark {
+            background: radial-gradient(60% 80% at 0% 0%, rgba(37, 99, 235, 0.75), transparent 70%),
+                        radial-gradient(55% 80% at 100% 100%, rgba(124, 58, 237, 0.85), transparent 70%),
+                        radial-gradient(40% 50% at 55% 110%, rgba(125, 211, 252, 0.3), transparent 70%),
+                        radial-gradient(35% 50% at 75% 30%, rgba(109, 40, 217, 0.35), transparent 70%),
+                        #020617;
+        }
+
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+
+        .site-nav.is-scrolled {
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-link {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #ffffff;
+        }
+
+        .nav-num {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.75rem;
+            color: #38bdf8;
+            font-weight: 700;
+            margin-right: 0.375rem;
+        }
+
+        .nav-cta {
+            font-size: 0.8125rem;
+            background: #ffffff;
+            color: #020617 !important;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding: 0.25rem 0.25rem 0.25rem 1.25rem;
+            font-weight: 700;
+            transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-cta-icon {
+            color: #ffffff;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 9999px;
+            width: 2rem;
+            height: 2rem;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        .nav-cta-arrow {
+            width: 1rem;
+            height: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .nav-cta:hover .nav-cta-arrow {
+            animation: cta-btn-arrow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Eyebrow & Titles */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background-image: linear-gradient(to right, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: #38bdf8;
+            border-radius: 9999px;
+            box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            letter-spacing: -0.025em;
+            font-weight: 800;
+            line-height: 1.15;
+        }
+
+        @media (min-width: 640px) {
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
+        .text-gradient {
+            background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* CTA Card */
+        .cta-card {
+            isolation: isolate;
+            background: #020617;
+            border-radius: 2rem;
+            padding: 4rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        @media (min-width: 640px) {
+            .cta-card {
+                padding: 5.5rem 3.5rem;
+                border-radius: 2.5rem;
+            }
+        }
+
+        .cta-glow {
+            z-index: -1;
+            filter: blur(80px);
+            pointer-events: none;
+            border-radius: 9999px;
+            position: absolute;
+        }
+
+        .cta-glow-1 {
+            background: #2563eb;
+            opacity: 0.55;
+            width: 55%;
+            height: 80%;
+            top: -20%;
+            left: -10%;
+        }
+
+        .cta-glow-2 {
+            background: #7c3aed;
+            opacity: 0.6;
+            width: 55%;
+            height: 90%;
+            bottom: -30%;
+            right: -10%;
+        }
+
+        .cta-glow-3 {
+            background: #38bdf8;
+            opacity: 0.35;
+            width: 30%;
+            height: 50%;
+            bottom: -20%;
+            right: 15%;
+        }
+
+        .cta-selection {
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            padding: 0.75rem 1.25rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .cta-handle {
+            width: 0.625rem;
+            height: 0.625rem;
+            box-shadow: 0 0 0 2px #a78bfa;
+            background: #ffffff;
+            border-radius: 2px;
+            position: absolute;
+        }
+
+        .cta-btn {
+            isolation: isolate;
+            color: #ffffff;
+            border-radius: 9999px;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.4rem 0.5rem 0.4rem 1.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            position: relative;
+            box-shadow: 0 12px 28px -12px rgba(76, 29, 149, 0.7);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+            cursor: pointer;
+        }
+
+        .cta-btn::before {
+            content: "";
+            z-index: -1;
+            border-radius: inherit;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+            background-size: 200% 100%;
+            animation: cta-btn-flow 6s linear infinite;
+        }
+
+        .cta-btn::after {
+            content: "";
+            z-index: -1;
+            border-radius: inherit;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, transparent 40%, rgba(255, 255, 255, 0.35), transparent 60%) 150% 0/250% 100% no-repeat;
+            animation: cta-btn-shine 4s ease-in-out 1.5s infinite;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.25), 0 18px 36px -12px rgba(76, 29, 149, 0.85);
+        }
+
+        .cta-btn-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            color: #7c3aed;
+            background: #ffffff;
+            border-radius: 9999px;
+            place-items: center;
+            display: grid;
+            overflow: hidden;
+            animation: cta-btn-pulse 2.4s ease-out infinite;
+            flex-shrink: 0;
+        }
+
+        .cta-btn-arrow {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .cta-btn:hover .cta-btn-arrow {
+            animation: cta-btn-arrow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @keyframes cta-btn-flow {
+            to { background-position: -200% 0; }
+        }
+
+        @keyframes cta-btn-shine {
+            0%, 55% { background-position: 150% 0; }
+            100% { background-position: -50% 0; }
+        }
+
+        @keyframes cta-btn-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6); }
+            100% { box-shadow: 0 0 0 12px rgba(255, 255, 255, 0); }
+        }
+
+        @keyframes cta-btn-arrow {
+            0% { transform: translate(0); }
+            45% { transform: translate(160%); }
+            46% { transform: translate(-160%); }
+            100% { transform: translate(0); }
         }
     </style>
     @yield('styles')
 </head>
 
-<body class="text-slate-900 dark:text-slate-100 antialiased bg-[#fcfbf9] dark:bg-[#0b0f19] selection:bg-slate-900 selection:text-white dark:selection:bg-white dark:selection:text-slate-900">
+<body class="text-slate-900 dark:text-slate-100 antialiased bg-[#f8fafc] dark:bg-[#020617] selection:bg-brand-600 selection:text-white"
+      x-data="{ scrolled: false, mobileOpen: false }"
+      @scroll.window="scrolled = (window.pageYOffset > 20)">
 
-    <!-- Sticky Navbar -->
-    <nav class="sticky top-0 z-50 w-full border-b border-slate-200/60 dark:border-slate-800/80 nav-blur" x-data="{ mobileOpen: false }">
+    <!-- Modern Yoggui-Style Fixed Navbar -->
+    <header class="site-nav" :class="{ 'is-scrolled': scrolled }">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            
             <!-- Brand Logo -->
-            <a href="{{ route('home') }}" class="text-xl font-bold tracking-tight text-premium-navy dark:text-white flex items-center space-x-1">
-                <span>HA</span>
-                <span class="text-slate-400 font-light">Creative.</span>
+            <a href="{{ route('home') }}" class="flex items-center space-x-2 group">
+                <span class="text-2xl font-black tracking-tight text-white font-display">
+                    Hamid<span class="text-sky-400 group-hover:text-brand-400 transition-colors">.</span>
+                </span>
             </a>
 
-            <!-- Navigation Links (Desktop) -->
-            <div class="hidden md:flex items-center space-x-8 text-[13px] font-semibold tracking-wide uppercase">
-                <a href="{{ route('home') }}#services" class="border-b-2 {{ request()->routeIs('home') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Layanan</a>
-                <a href="{{ route('pricing') }}" class="border-b-2 {{ request()->routeIs('pricing') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Paket Harga</a>
-                <a href="{{ route('portfolio') }}" class="border-b-2 {{ request()->routeIs('portfolio') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Portofolio</a>
-                <a href="{{ route('social-media') }}" class="border-b-2 {{ request()->routeIs('social-media') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Sosmed</a>
-                <a href="{{ route('blog') }}" class="border-b-2 {{ request()->routeIs('blog') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Blog</a>
-                <a href="{{ route('about') }}" class="border-b-2 {{ request()->routeIs('about') ? 'text-premium-emerald dark:text-emerald-400 font-bold border-premium-emerald dark:border-emerald-400' : 'border-transparent text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white' }} pb-1 transition-all duration-200">Tentang</a>
-            </div>
+            <!-- Desktop Nav Links with Yoggui Numbered Styling -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide" aria-label="Navigasi Utama">
+                <a href="{{ route('portfolio') }}" 
+                   data-nav="portfolio"
+                   class="nav-link {{ request()->routeIs('portfolio') ? 'is-active' : '' }}">
+                    <span class="nav-num">01</span>Portofolio
+                </a>
+                <a href="{{ route('home') }}#skills" 
+                   data-nav="skills"
+                   class="nav-link">
+                    <span class="nav-num">02</span>Keahlian
+                </a>
+                <a href="{{ route('about') }}" 
+                   data-nav="about"
+                   class="nav-link {{ request()->routeIs('about') ? 'is-active' : '' }}">
+                    <span class="nav-num">03</span>Pengalaman
+                </a>
+                <a href="{{ route('home') }}#contact" 
+                   data-nav="contact"
+                   class="nav-link">
+                    <span class="nav-num">04</span>Kontak
+                </a>
+            </nav>
 
-            <!-- CTA / Theme Switcher / Admin Login (Desktop) -->
-            <div class="hidden md:flex items-center space-x-6">
+            <!-- Right Controls: Theme Toggle only -->
+            <div class="hidden md:flex items-center space-x-3">
                 <!-- Theme Toggle Button -->
-                <button id="theme-toggle" type="button" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-sm transition focus:outline-none" title="Ubah Tema">
+                <button id="theme-toggle" type="button" 
+                        class="p-2.5 text-white/80 hover:text-white bg-white/10 hover:bg-white/15 rounded-full text-sm transition ring-1 ring-white/15 focus:outline-none" 
+                        title="Ubah Tema Terang/Gelap">
                     <!-- Dark Icon (Moon) -->
-                    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                     </svg>
                     <!-- Light Icon (Sun) -->
-                    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
                     </svg>
                 </button>
 
                 @auth
-                <a href="{{ route('dashboard') }}" class="text-xs font-semibold uppercase tracking-wider text-premium-navy dark:text-slate-200 hover:underline">
+                <a href="{{ route('dashboard') }}" class="text-xs font-bold uppercase tracking-wider text-sky-400 hover:text-white px-3 py-1.5 rounded-full bg-sky-950/60 border border-sky-500/30 transition">
                     Dashboard
                 </a>
                 @endauth
-                <a href="{{ route('home') }}#contact" class="inline-flex items-center justify-center px-5 py-2.5 bg-premium-navy dark:bg-emerald-600 hover:bg-slate-800 dark:hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider rounded-lg shadow-sm transition duration-200">
-                    Konsultasi
-                </a>
             </div>
 
             <!-- Hamburger Button (Mobile) -->
-            <div class="flex items-center space-x-3 md:hidden">
-                <!-- Theme Toggle Button (Mobile Icon) -->
-                <button id="theme-toggle-mobile" type="button" class="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg text-sm transition focus:outline-none">
-                    <svg id="theme-toggle-mobile-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <div class="flex items-center space-x-2 md:hidden">
+                <!-- Mobile Theme Toggle -->
+                <button id="theme-toggle-mobile" type="button" 
+                        class="p-2 text-white/80 hover:text-white bg-white/10 rounded-full focus:outline-none">
+                    <svg id="theme-toggle-mobile-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
                     </svg>
-                    <svg id="theme-toggle-mobile-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <svg id="theme-toggle-mobile-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
                     </svg>
                 </button>
 
-                <button @click="mobileOpen = !mobileOpen" class="p-2 text-premium-navy dark:text-white focus:outline-none">
-                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <button @click="mobileOpen = !mobileOpen" 
+                        class="p-2.5 rounded-full bg-white/10 text-white hover:bg-white/15 focus:outline-none ring-1 ring-white/15"
+                        aria-label="Buka Menu">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path x-show="!mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path x-show="mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" style="display: none;" />
                     </svg>
@@ -140,219 +471,185 @@
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu -->
-        <div x-show="mobileOpen" @click.away="mobileOpen = false" x-transition
-            class="md:hidden border-t border-slate-200 dark:border-slate-800 bg-[#fcfbf9] dark:bg-[#0b0f19] px-6 py-6 space-y-4 shadow-inner" style="display: none;">
-            <a href="{{ route('home') }}#services" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('home') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Layanan</a>
-            <a href="{{ route('pricing') }}" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('pricing') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Paket Harga</a>
-            <a href="{{ route('portfolio') }}" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('portfolio') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Portofolio</a>
-            <a href="{{ route('social-media') }}" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('social-media') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Sosmed</a>
-            <a href="{{ route('blog') }}" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('blog') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Blog</a>
-            <a href="{{ route('about') }}" @click="mobileOpen = false" class="block text-sm font-bold pl-3 border-l-2 {{ request()->routeIs('about') ? 'text-premium-emerald dark:text-emerald-400 border-premium-emerald dark:border-emerald-400' : 'text-slate-600 dark:text-slate-300 hover:text-premium-navy dark:hover:text-white border-transparent' }}">Tentang</a>
-            <hr class="border-slate-200 dark:border-slate-800 my-2">
-            <div class="flex items-center justify-between">
+        <!-- Fullscreen Mobile Navigation Menu Overlay (Yoggui Style) -->
+        <div x-show="mobileOpen" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 -translate-y-4"
+             x-transition:enter-end="opacity-100 translate-y-0"
+             x-transition:leave="transition ease-in duration-200"
+             x-transition:leave-start="opacity-100 translate-y-0"
+             x-transition:leave-end="opacity-0 -translate-y-4"
+             class="md:hidden fixed inset-0 top-20 z-40 bg-[#020617]/95 backdrop-blur-2xl p-6 flex flex-col justify-between overflow-y-auto border-t border-white/10" 
+             style="display: none;">
+            
+            <ul class="space-y-4 pt-4">
+                <li>
+                    <a href="{{ route('portfolio') }}" @click="mobileOpen = false" 
+                       class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                        <span class="nav-num text-sm text-sky-400 mr-3">01</span> Portofolio
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('home') }}#skills" @click="mobileOpen = false" 
+                       class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                        <span class="nav-num text-sm text-sky-400 mr-3">02</span> Keahlian
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('about') }}" @click="mobileOpen = false" 
+                       class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                        <span class="nav-num text-sm text-sky-400 mr-3">03</span> Pengalaman
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('home') }}#contact" @click="mobileOpen = false" 
+                       class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                        <span class="nav-num text-sm text-sky-400 mr-3">04</span> Kontak
+                    </a>
+                </li>
+            </ul>
+
+            <div class="pt-8 pb-6 border-t border-white/10 space-y-4">
                 @auth
-                <a href="{{ route('dashboard') }}" class="text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-slate-300">Dashboard</a>
-                @else
-                <span></span>
-                @endauth
-                <a href="{{ route('home') }}#contact" @click="mobileOpen = false" class="inline-flex items-center justify-center px-4 py-2 bg-premium-navy dark:bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider rounded-lg">
-                    Konsultasi
+                <a href="{{ route('dashboard') }}" class="block text-center py-2.5 text-xs font-bold uppercase tracking-wider text-sky-300 bg-sky-950/60 rounded-xl border border-sky-500/30">
+                    Dashboard Admin
                 </a>
+                @endauth
+                <a href="{{ route('home') }}#contact" @click="mobileOpen = false" 
+                   class="cta-btn w-full justify-between">
+                    <span>Mulai Konsultasi Projek</span>
+                    <span class="cta-btn-icon">
+                        <i data-lucide="arrow-right" class="cta-btn-arrow"></i>
+                    </span>
+                </a>
+                <p class="text-center text-xs text-slate-400 pt-2">
+                    Email: <a href="mailto:hamidabdulaziz36@gmail.com" class="text-sky-400 underline">hamidabdulaziz36@gmail.com</a>
+                </p>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Main Content -->
+    <!-- Main Content Area -->
     <main>
         @yield('content')
     </main>
 
-    <!-- Footer -->
-    <footer class="pt-20 pb-10 bg-[#0f172a] dark:bg-[#0b0f19] border-t border-slate-800 text-slate-400 text-xs">
+    <!-- Ultra-Sleek Modern Footer (Yoggui Style) -->
+    <footer class="border-t border-slate-200 dark:border-white/10 py-16 bg-white dark:bg-[#020617] text-slate-500 dark:text-slate-400 text-sm">
         <div class="max-w-7xl mx-auto px-6">
-            <!-- Grid Layout -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-16">
-                <!-- Column 1: Logo, Slogan, Socials, Trust Badge (lg:col-span-4) -->
-                <div class="lg:col-span-4 flex flex-col items-start">
-                    <a href="{{ route('home') }}" class="text-2xl font-bold tracking-tight text-white flex items-center space-x-1 mb-4">
-                        <span>HA</span>
-                        <span class="text-slate-400 font-light">Creative.</span>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
+                <!-- Brand Info -->
+                <div class="text-center md:text-left">
+                    <a href="{{ route('home') }}" class="inline-flex items-center space-x-2 text-2xl font-black text-slate-900 dark:text-white font-display">
+                        <span>Hamid</span><span class="text-sky-400">.</span>
+                        <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/10 ml-2">Studio</span>
                     </a>
-                    <p class="text-slate-400 mb-6 font-light leading-relaxed">
-                        Studio pembuatan website dan desain grafis berbasis di Bandung. Melayani UMKM dan bisnis berkembang dengan hasil rapi, cepat, dan terpercaya.
+                    <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 max-w-sm">
+                        Web Developer & UI/UX Specialist Bandung. Merancang website modern yang cepat, rapi, dan berdampak.
                     </p>
+                </div>
 
-                    <!-- Social Media Links (White Circle, Dark Icon inside) -->
-                    <div class="flex items-center space-x-3 mb-6">
-                        <a href="https://facebook.com" class="w-9 h-9 rounded-full bg-white hover:bg-slate-200 text-slate-900 flex items-center justify-center transition duration-150" target="_blank" aria-label="Facebook">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                                <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z" />
-                            </svg>
+                <!-- Social Icons in Rounded Circle Buttons -->
+                <ul class="flex items-center gap-3">
+                    <li>
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram">
+                            <i data-lucide="instagram" class="w-4 h-4"></i>
                         </a>
-                        <a href="https://instagram.com" class="w-9 h-9 rounded-full bg-white hover:bg-slate-200 text-slate-900 flex items-center justify-center transition duration-150" target="_blank" aria-label="Instagram">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                            </svg>
+                    </li>
+                    <li>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                            <i data-lucide="linkedin" class="w-4 h-4"></i>
                         </a>
-                        <a href="https://linkedin.com" class="w-9 h-9 rounded-full bg-white hover:bg-slate-200 text-slate-900 flex items-center justify-center transition duration-150" target="_blank" aria-label="LinkedIn">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                            </svg>
+                    </li>
+                    <li>
+                        <a href="https://github.com" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                            <i data-lucide="github" class="w-4 h-4"></i>
                         </a>
-                    </div>
-                </div>
-
-                <!-- Column 2: Hubungi Kami (lg:col-span-3) -->
-                <div class="lg:col-span-3">
-                    <h3 class="text-sm font-bold uppercase tracking-wider text-amber-400 mb-6">Hubungi Kami</h3>
-                    <div class="space-y-4">
-                        <div>
-                            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Email / Contact</p>
-                            <p class="text-sm text-white font-medium hover:text-amber-400 transition duration-150 mt-0.5">
-                                <a href="mailto:hamidabdulaziz36@gmail.com">hamidabdulaziz36@gmail.com</a>
-                            </p>
-                        </div>
-                        <div>
-                            <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Bandung (HQ)</p>
-                            <p class="text-xs text-slate-300 font-light mt-0.5 leading-relaxed">
-                                Kota Bandung,<br>
-                                Jawa Barat, Indonesia
-                            </p>
-                            <a href="https://maps.google.com" target="_blank" class="inline-flex items-center text-[10px] font-semibold text-amber-400 hover:underline mt-1.5">
-                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
-                                </svg>
-                                Lihat Peta
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Column 3: Rekomendasi Layanan & Tutorial (lg:col-span-2) -->
-                <div class="lg:col-span-2">
-                    <h3 class="text-sm font-bold uppercase tracking-wider text-amber-400 mb-6">Layanan Kami</h3>
-                    <ul class="space-y-2.5 text-slate-300 mb-8 font-light">
-                        <li><a href="{{ route('home') }}#services" class="hover:text-amber-400 transition duration-150">Jasa Pembuatan Website</a></li>
-                        <li><a href="{{ route('social-media') }}" class="hover:text-amber-400 transition duration-150">Sosial Media Management</a></li>
-                        <li><a href="{{ route('home') }}#services" class="hover:text-amber-400 transition duration-150">Desain Grafis Premium</a></li>
-                        <li><a href="{{ route('portfolio') }}" class="hover:text-amber-400 transition duration-150">Landing Page Bisnis</a></li>
-                        <li><a href="{{ route('home') }}#services" class="hover:text-amber-400 transition duration-150">Custom Web Development</a></li>
-                    </ul>
-
-                    <h3 class="text-sm font-bold uppercase tracking-wider text-amber-400 mb-6">Tutorial</h3>
-                    <ul class="space-y-2.5 text-slate-300 font-light">
-                        <li><a href="{{ route('blog') }}" class="hover:text-amber-400 transition duration-150">Blog Edukasi</a></li>
-                        <li><a href="{{ route('blog') }}" class="hover:text-amber-400 transition duration-150">Panduan Kelola Web</a></li>
-                    </ul>
-                </div>
-
-                <!-- Column 4: Informasi (lg:col-span-3) -->
-                <div class="lg:col-span-3">
-                    <h3 class="text-sm font-bold uppercase tracking-wider text-amber-400 mb-6">Informasi</h3>
-                    <ul class="space-y-2.5 text-slate-300 font-light">
-                        <li><a href="{{ route('about') }}" class="hover:text-amber-400 transition duration-150">Tentang HA Creative</a></li>
-                        <li><a href="{{ route('pricing') }}" class="hover:text-amber-400 transition duration-150">Paket Harga</a></li>
-                        <li><a href="{{ route('portfolio') }}" class="hover:text-amber-400 transition duration-150">Karya Portofolio</a></li>
-                        <li><a href="{{ route('home') }}#contact" class="hover:text-amber-400 transition duration-150">Konsultasi Project</a></li>
-                        <li><a href="{{ route('login') }}" class="hover:text-amber-400 transition duration-150 text-slate-500">Admin Login</a></li>
-                        <li><a href="#" class="hover:text-amber-400 transition duration-150">Syarat & Ketentuan</a></li>
-                        <li><a href="#" class="hover:text-amber-400 transition duration-150">Kebijakan Privasi</a></li>
-                    </ul>
-                </div>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/6281214019947" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp">
+                            <i data-lucide="message-circle" class="w-4 h-4"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
 
-            <!-- Horizontal Divider -->
-            <hr class="border-slate-800 my-8">
-
-            <!-- Bottom Row: Sublinks and Copyright -->
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
-                <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-2 text-[10px] uppercase tracking-wider font-semibold text-slate-500">
-                    <a href="{{ route('home') }}" class="hover:text-amber-400 transition duration-150">Home</a>
-                    <span class="text-slate-700">&bull;</span>
-                    <a href="{{ route('home') }}#services" class="hover:text-amber-400 transition duration-150">Jasa Website</a>
-                    <span class="text-slate-700">&bull;</span>
-                    <a href="{{ route('portfolio') }}" class="hover:text-amber-400 transition duration-150">Portofolio</a>
-                    <span class="text-slate-700">&bull;</span>
-                    <a href="{{ route('pricing') }}" class="hover:text-amber-400 transition duration-150">Paket Harga</a>
-                    <span class="text-slate-700">&bull;</span>
-                    <a href="{{ route('social-media') }}" class="hover:text-amber-400 transition duration-150">Sosial Media</a>
-                    <span class="text-slate-700">&bull;</span>
-                    <a href="{{ route('blog') }}" class="hover:text-amber-400 transition duration-150">Blog</a>
-                    <span class="text-slate-700">&bull;</span>
-                    <a href="{{ route('about') }}" class="hover:text-amber-400 transition duration-150">Tentang Kami</a>
+            <!-- Bottom Navigation Bar -->
+            <div class="pt-8 border-t border-slate-100 dark:border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium">
+                <div class="flex flex-wrap justify-center gap-6 text-slate-600 dark:text-slate-400">
+                    <a href="{{ route('home') }}" class="hover:text-brand-600 dark:hover:text-white transition">Home</a>
+                    <a href="{{ route('portfolio') }}" class="hover:text-brand-600 dark:hover:text-white transition">Portofolio</a>
+                    <a href="{{ route('home') }}#skills" class="hover:text-brand-600 dark:hover:text-white transition">Keahlian</a>
+                    <a href="{{ route('about') }}" class="hover:text-brand-600 dark:hover:text-white transition">Pengalaman</a>
+                    <a href="{{ route('home') }}#contact" class="hover:text-brand-600 dark:hover:text-white transition">Kontak</a>
+                    <a href="{{ route('login') }}" class="hover:text-brand-600 dark:hover:text-white transition text-slate-400">Admin Login</a>
                 </div>
-                <div class="text-[11px] text-slate-500 font-light text-center md:text-right">
-                    &copy; 2026 HA Creative. Hak Cipta Dilindungi.
+                <div class="text-slate-400 dark:text-slate-500 text-center sm:text-right">
+                    &copy; 2026 Hamid Abdul Aziz. Hak Cipta Dilindungi.
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Support Chat Widget -->
+    <!-- Sleek Floating WhatsApp Consultation Pill -->
     <div x-data="{ isOpen: true }" x-show="isOpen"
-        class="fixed bottom-6 right-6 z-50 flex items-end space-x-3 max-w-xs md:max-w-sm"
+        class="fixed bottom-6 right-6 z-40 flex items-end space-x-3 max-w-xs"
         x-transition:enter="transition ease-out duration-300 transform translate-y-4 opacity-0"
         x-transition:enter-end="transform translate-y-0 opacity-100"
-        x-transition:leave="transition ease-in duration-250 transform translate-y-4 opacity-0">
+        x-transition:leave="transition ease-in duration-200 transform translate-y-4 opacity-0">
 
         <!-- Speech Bubble -->
-        <div class="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 rounded-2xl shadow-2xl text-xs text-slate-700 dark:text-slate-200 leading-normal max-w-[200px] mb-4">
-            <!-- Small triangle pointing to the avatar -->
-            <div class="absolute right-[-6px] bottom-6 w-3 h-3 bg-white dark:bg-slate-900 border-t border-r border-slate-200 dark:border-slate-800 transform rotate-45"></div>
-
+        <div class="relative bg-white dark:bg-[#0b1120] border border-slate-200 dark:border-white/10 p-3.5 rounded-2xl shadow-xl text-xs text-slate-700 dark:text-slate-200 max-w-[210px] mb-2">
             <!-- Close Button -->
-            <button @click.stop="isOpen = false" class="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-slate-900 dark:bg-slate-800 text-white flex items-center justify-center hover:bg-slate-700 dark:hover:bg-slate-600 transition shadow focus:outline-none" aria-label="Tutup">
-                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
+            <button @click.stop="isOpen = false" class="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-slate-800 text-white flex items-center justify-center hover:bg-slate-700 transition shadow" aria-label="Tutup">
+                <i data-lucide="x" class="w-3 h-3"></i>
             </button>
 
-            <p class="font-bold text-[#0f172a] dark:text-amber-400 mb-1">Butuh Konsultasi?</p>
-            <p class="font-light text-slate-600 dark:text-slate-300">Diskusikan kebutuhan website Anda bersama <span class="font-semibold text-emerald-600 dark:text-emerald-400">HA Creative</span>.</p>
-            <a href="https://wa.me/6281214019947?text=Halo%20HA%20Creative,%20saya%20ingin%20konsultasi%20mengenai%20projek%20saya" target="_blank"
-                class="inline-block mt-2 font-bold text-emerald-600 dark:text-emerald-400 hover:underline uppercase text-[9px] tracking-wider">
-                Chat WhatsApp &rarr;
+            <p class="font-bold text-slate-900 dark:text-white mb-0.5 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Konsultasi Online
+            </p>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-light">
+                Diskusikan website atau kebutuhan digital Anda via WhatsApp.
+            </p>
+            <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website" target="_blank"
+                class="inline-flex items-center gap-1 mt-2 font-bold text-brand-600 dark:text-sky-300 hover:underline uppercase text-[10px] tracking-wider">
+                <span>Chat Sekarang</span>
+                <i data-lucide="arrow-right" class="w-3 h-3"></i>
             </a>
         </div>
 
-        <!-- Avatar Button -->
-        <a href="https://wa.me/6281214019947?text=Halo%20HA%20Creative,%20saya%20ingin%20konsultasi%20mengenai%20projek%20saya" target="_blank"
-            class="relative group focus:outline-none flex-shrink-0">
-            <!-- Ripple Wave Effect -->
-            <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
-
-            <!-- Main Avatar Container -->
-            <div class="relative w-16 h-16 rounded-full border-4 border-white dark:border-slate-800 bg-slate-100 overflow-hidden shadow-2xl group-hover:scale-105 transition duration-300">
-                <img src="{{ asset('support_agent_avatar.png') }}" alt="Customer Support" class="w-full h-full object-cover">
+        <!-- Avatar / WA Button -->
+        <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website" target="_blank"
+            class="relative group focus:outline-none flex-shrink-0" title="Chat WhatsApp">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-60 animate-ping"></span>
+            <div class="relative w-14 h-14 rounded-full border-2 border-white dark:border-slate-800 bg-slate-900 overflow-hidden shadow-xl group-hover:scale-105 transition duration-300">
+                <img src="{{ asset('hamid.jpg') }}" alt="Hamid" class="w-full h-full object-cover" onerror="this.src='{{ asset('support_agent_avatar.png') }}'">
             </div>
-
-            <!-- Online status indicator -->
-            <span class="absolute bottom-1 right-1 block h-3.5 w-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-800 animate-pulse"></span>
+            <span class="absolute bottom-0 right-0 block h-3.5 w-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900"></span>
         </a>
     </div>
 
-    <!-- Theme Switcher Script logic -->
+    <!-- Theme Switcher Script & Lucide Icon Activator -->
     <script>
         var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
         var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
         var themeToggleMobileDarkIcon = document.getElementById('theme-toggle-mobile-dark-icon');
         var themeToggleMobileLightIcon = document.getElementById('theme-toggle-mobile-light-icon');
 
-        // Change the icons inside the buttons based on previous settings
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            themeToggleLightIcon.classList.remove('hidden');
-            themeToggleMobileLightIcon.classList.remove('hidden');
+            if (themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
+            if (themeToggleMobileLightIcon) themeToggleMobileLightIcon.classList.remove('hidden');
         } else {
-            themeToggleDarkIcon.classList.remove('hidden');
-            themeToggleMobileDarkIcon.classList.remove('hidden');
+            if (themeToggleDarkIcon) themeToggleDarkIcon.classList.remove('hidden');
+            if (themeToggleMobileDarkIcon) themeToggleMobileDarkIcon.classList.remove('hidden');
         }
 
         function toggleTheme() {
-            themeToggleDarkIcon.classList.toggle('hidden');
-            themeToggleLightIcon.classList.toggle('hidden');
-            themeToggleMobileDarkIcon.classList.toggle('hidden');
-            themeToggleMobileLightIcon.classList.toggle('hidden');
+            if (themeToggleDarkIcon) themeToggleDarkIcon.classList.toggle('hidden');
+            if (themeToggleLightIcon) themeToggleLightIcon.classList.toggle('hidden');
+            if (themeToggleMobileDarkIcon) themeToggleMobileDarkIcon.classList.toggle('hidden');
+            if (themeToggleMobileLightIcon) themeToggleMobileLightIcon.classList.toggle('hidden');
 
             if (localStorage.getItem('color-theme')) {
                 if (localStorage.getItem('color-theme') === 'light') {
@@ -373,8 +670,64 @@
             }
         }
 
-        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
-        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+        var btnDesktop = document.getElementById('theme-toggle');
+        var btnMobile = document.getElementById('theme-toggle-mobile');
+        if (btnDesktop) btnDesktop.addEventListener('click', toggleTheme);
+        if (btnMobile) btnMobile.addEventListener('click', toggleTheme);
+
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // ===== SCROLL-SPY: Active nav link highlight =====
+            // Only run on homepage where sections exist
+            const sections = [
+                { id: 'skills',   nav: 'skills' },
+                { id: 'portfolio', nav: 'portfolio' },
+                { id: 'process',  nav: 'contact' },
+                { id: 'faq',      nav: 'contact' },
+                { id: 'contact',  nav: 'contact' },
+            ];
+
+            const navLinks = document.querySelectorAll('.nav-link[data-nav]');
+
+            function setActive(navKey) {
+                navLinks.forEach(function(link) {
+                    if (link.dataset.nav === navKey) {
+                        link.classList.add('is-active');
+                    } else {
+                        link.classList.remove('is-active');
+                    }
+                });
+            }
+
+            if (sections.length && document.getElementById('skills')) {
+                // We're on the homepage — use IntersectionObserver
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const matched = sections.find(s => s.id === entry.target.id);
+                            if (matched) setActive(matched.nav);
+                        }
+                    });
+                }, { rootMargin: '-40% 0px -55% 0px', threshold: 0 });
+
+                sections.forEach(function(s) {
+                    const el = document.getElementById(s.id);
+                    if (el) observer.observe(el);
+                });
+
+                // Default: highlight Portofolio until user scrolls
+                // (top of page = no section in view yet = clear all)
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY < 200) {
+                        navLinks.forEach(l => l.classList.remove('is-active'));
+                    }
+                }, { passive: true });
+            }
+        });
     </script>
     @yield('scripts')
 </body>

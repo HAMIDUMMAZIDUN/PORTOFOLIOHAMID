@@ -3,197 +3,143 @@
 @section('title', 'Portofolio')
 
 @section('content')
-    <!-- Page Header -->
-    <section class="py-20 bg-white dark:bg-[#0b0f19] border-b border-slate-200/60 dark:border-slate-800/80 text-center px-6">
-        <div class="max-w-3xl mx-auto">
-            <span class="text-premium-emerald text-xs font-bold uppercase tracking-widest block mb-3">Galeri Karya</span>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-premium-navy dark:text-white tracking-tight mb-4">Portofolio Projek Terbaru</h1>
-            <p class="text-slate-500 dark:text-slate-400 font-light text-sm md:text-base leading-relaxed">
-                Beberapa hasil pembuatan website, aplikasi, dan desain visual yang telah kami kerjakan untuk klien dari berbagai bidang usaha.
+    <!-- Page Header (Mini Hero Dark - Yoggui Style) -->
+    <section class="hero-dark relative isolate pt-32 pb-20 px-6 rounded-b-[2.5rem] sm:rounded-b-[3.5rem] text-white text-center overflow-hidden">
+        <div class="max-w-3xl mx-auto relative z-10">
+            <span class="eyebrow mb-4">Galeri Projek</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+                Karya & <span class="text-gradient">Studi Kasus</span>
+            </h1>
+            <p class="text-white/70 font-light text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+                Eksplorasi pembuatan website, toko online, web application, dan desain grafis yang kami bangun untuk menunjang pertumbuhan bisnis klien.
             </p>
         </div>
     </section>
 
     <!-- Portfolio Grid with Filters -->
-    <section class="py-20 px-6" x-data="{ activeCategory: 'Semua', lightboxOpen: false, lightboxMediaType: '', lightboxSrc: '', lightboxTitle: '' }">
+    <section class="py-20 px-6 bg-slate-50 dark:bg-[#020617]" x-data="{ activeCategory: 'Semua', lightboxOpen: false, lightboxMediaType: '', lightboxSrc: '', lightboxTitle: '' }">
         <div class="max-w-7xl mx-auto">
-            <!-- Filter Tabs -->
-            <div class="flex justify-center items-center mb-16 space-x-1 bg-slate-200/40 dark:bg-slate-800/60 p-1 rounded-xl max-w-lg mx-auto flex-wrap gap-y-1">
+            
+            <!-- Category Filter Pills Switcher -->
+            <div class="flex justify-center items-center mb-16 space-x-1.5 bg-slate-200/60 dark:bg-white/5 p-1.5 rounded-2xl max-w-md mx-auto border border-slate-300/50 dark:border-white/10 flex-wrap gap-y-1">
                 <button @click="activeCategory = 'Semua'" 
-                    :class="activeCategory === 'Semua' ? 'bg-white dark:bg-[#0b0f19] text-premium-navy dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-premium-navy dark:hover:text-white'"
-                    class="px-4 py-2 text-xs font-bold rounded-lg transition duration-150 flex-1 min-w-[70px]">
+                    :class="activeCategory === 'Semua' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
                     Semua
                 </button>
                 <button @click="activeCategory = 'Website'" 
-                    :class="activeCategory === 'Website' ? 'bg-white dark:bg-[#0b0f19] text-premium-navy dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-premium-navy dark:hover:text-white'"
-                    class="px-4 py-2 text-xs font-bold rounded-lg transition duration-150 flex-1 min-w-[70px]">
+                    :class="activeCategory === 'Website' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
                     Website
                 </button>
                 <button @click="activeCategory = 'Desain'" 
-                    :class="activeCategory === 'Desain' ? 'bg-white dark:bg-[#0b0f19] text-premium-navy dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-premium-navy dark:hover:text-white'"
-                    class="px-4 py-2 text-xs font-bold rounded-lg transition duration-150 flex-1 min-w-[70px]">
+                    :class="activeCategory === 'Desain' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
                     Desain
                 </button>
                 <button @click="activeCategory = 'Video'" 
-                    :class="activeCategory === 'Video' ? 'bg-white dark:bg-[#0b0f19] text-premium-navy dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-premium-navy dark:hover:text-white'"
-                    class="px-4 py-2 text-xs font-bold rounded-lg transition duration-150 flex-1 min-w-[70px]">
+                    :class="activeCategory === 'Video' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
                     Video
-                </button>
-                <button @click="activeCategory = 'Lainnya'" 
-                    :class="activeCategory === 'Lainnya' ? 'bg-white dark:bg-[#0b0f19] text-premium-navy dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-premium-navy dark:hover:text-white'"
-                    class="px-4 py-2 text-xs font-bold rounded-lg transition duration-150 flex-1 min-w-[70px]">
-                    Lainnya
                 </button>
             </div>
 
-            <!-- Dynamic Grid -->
+            <!-- Dynamic Grid (Yoggui .project-card layout) -->
             @if($portfolios->isEmpty())
-                <div class="text-center py-24 bg-white dark:bg-[#0f1422] rounded-2xl border border-slate-200/60 dark:border-slate-800 max-w-md mx-auto shadow-sm">
-                    <svg class="mx-auto h-12 w-12 text-slate-300 dark:text-slate-700 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                    </svg>
-                    <h3 class="text-sm font-semibold text-slate-800 dark:text-slate-200">Portofolio Belum Tersedia</h3>
+                <div class="text-center py-24 bg-white dark:bg-[#0b1120] rounded-3xl border border-slate-200/80 dark:border-white/10 max-w-md mx-auto shadow-sm">
+                    <i data-lucide="folder-code" class="w-12 h-12 mx-auto text-slate-300 dark:text-slate-600 mb-4"></i>
+                    <h3 class="text-base font-bold text-slate-800 dark:text-slate-200">Portofolio Belum Tersedia</h3>
                     <p class="text-xs text-slate-400 dark:text-slate-500 mt-1">Silakan tambahkan portofolio baru di dashboard admin.</p>
                 </div>
             @else
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach($portfolios as $item)
-                        <div x-show="activeCategory === 'Semua' || activeCategory === '{{ $item->category }}'"
-                             x-transition:enter="transition ease-out duration-300"
-                             x-transition:enter-start="opacity-0 transform scale-95"
-                             x-transition:enter-end="opacity-100 transform scale-100"
-                             class="bg-white dark:bg-[#0f1422] border border-slate-200/50 dark:border-slate-800 shadow-sm overflow-hidden flex flex-col hover:shadow-md dark:hover:border-slate-700 transition-all duration-300 group">
-                            
-                            <!-- Image / Video Container -->
-                            <div class="relative overflow-hidden aspect-[4/3] bg-slate-900 border-b border-slate-100 dark:border-slate-800 cursor-pointer"
-                                 @if($item->media_type === 'video')
-                                     @click="lightboxMediaType = 'video'; lightboxSrc = '{{ $item->video_file ? asset('storage/' . $item->video_file) : ($item->video_url ?? '') }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
-                                 @elseif($item->media_type === 'link')
-                                     @click="window.open('{{ $item->link }}', '_blank')"
-                                 @else
-                                     @click="lightboxMediaType = 'image'; lightboxSrc = '{{ asset('storage/' . $item->image) }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
-                                 @endif>
-                                
-                                @if($item->image)
-                                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}"
-                                         class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500 opacity-90 group-hover:opacity-100">
-                                @else
-                                    <!-- Fallback block if video file only -->
-                                    <div class="w-full h-full bg-slate-900 flex items-center justify-center text-slate-500">
-                                        <span class="text-xs uppercase tracking-widest font-bold">Media Video</span>
-                                    </div>
-                                @endif
+                    <div x-show="activeCategory === 'Semua' || activeCategory === '{{ $item->category }}'"
+                         x-transition:enter="transition ease-out duration-300"
+                         x-transition:enter-start="opacity-0 scale-95"
+                         x-transition:enter-end="opacity-100 scale-100"
+                         class="project-card group cursor-pointer"
+                         @if($item->media_type === 'video')
+                         @click="lightboxMediaType = 'video'; lightboxSrc = '{{ $item->video_file ? asset('storage/' . $item->video_file) : ($item->video_url ?? '') }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
+                         @elseif($item->media_type === 'link' && $item->link)
+                         @click="window.open('{{ $item->link }}', '_blank')"
+                         @else
+                         @click="lightboxMediaType = 'image'; lightboxSrc = '{{ asset('storage/' . $item->image) }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
+                         @endif>
 
-                                <!-- Play button overlay if media_type = video -->
-                                @if($item->media_type === 'video')
-                                    <div class="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors duration-200">
-                                        <div class="w-14 h-14 bg-white/90 dark:bg-slate-800/90 hover:bg-white text-premium-navy dark:text-white rounded-full flex items-center justify-center shadow-lg transition-transform duration-200 transform group-hover:scale-105">
-                                            <svg class="w-6 h-6 fill-current translate-x-0.5" viewBox="0 0 24 24">
-                                                <path d="M8 5v14l11-7z" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                @endif
-
-                                <!-- Category & Media Type Tag Overlay -->
-                                <div class="absolute top-4 left-4 flex items-center space-x-1.5">
-                                    <span class="bg-premium-navy dark:bg-indigo-950/80 text-white text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm">
-                                        {{ $item->category }}
-                                    </span>
-                                    <span class="bg-white/95 dark:bg-slate-900 text-slate-800 dark:text-slate-200 text-[9px] font-bold uppercase tracking-wider px-2.5 py-1 rounded shadow-sm border border-slate-200 dark:border-slate-850 capitalize">
-                                        {{ $item->media_type }}
-                                    </span>
-                                </div>
+                        <!-- Thumbnail -->
+                        @if($item->image)
+                            <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->title }}" loading="lazy">
+                        @else
+                            <div class="w-full h-full bg-slate-900 flex items-center justify-center text-slate-500">
+                                <span class="text-xs font-bold uppercase tracking-wider">Preview Media</span>
                             </div>
+                        @endif
 
-                            <!-- Content Details -->
-                            <div class="p-6 flex-1 flex flex-col justify-between">
-                                <div>
-                                    <h3 class="text-lg font-bold text-premium-navy dark:text-white mb-2 line-clamp-1">
-                                        {{ $item->title }}
-                                    </h3>
-                                    <p class="text-slate-500 dark:text-slate-400 text-xs leading-relaxed mb-6 line-clamp-3 font-light font-sans">
-                                        {{ $item->description }}
-                                    </p>
-                                </div>
+                        <!-- Category Badge -->
+                        <div class="absolute top-4 left-4 z-10 flex items-center gap-1.5">
+                            <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase bg-slate-950/80 text-white backdrop-blur border border-white/10">
+                                {{ $item->category }}
+                            </span>
+                            @if($item->media_type === 'video')
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase bg-brand-600 text-white flex items-center gap-1">
+                                <i data-lucide="play" class="w-3 h-3 fill-current"></i> Video
+                            </span>
+                            @endif
+                        </div>
 
-                                <!-- CTA Link logic -->
-                                <div class="pt-4 border-t border-slate-100 dark:border-slate-800/60 flex items-center justify-between">
-                                    @if($item->media_type === 'video')
-                                        <button @click="lightboxMediaType = 'video'; lightboxSrc = '{{ $item->video_file ? asset('storage/' . $item->video_file) : ($item->video_url ?? '') }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
-                                                class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-premium-emerald dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-350 transition-colors duration-150">
-                                            <span>Putar Video</span>
-                                            <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                            </svg>
-                                        </button>
-                                    @elseif($item->media_type === 'link' || ($item->category === 'Website' && $item->link))
-                                        <a href="{{ $item->link }}" target="_blank" 
-                                           class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-premium-navy dark:text-slate-200 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-150">
-                                            <span>Kunjungi Link</span>
-                                            <svg class="w-3.5 h-3.5 ml-1.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                            </svg>
-                                        </a>
-                                    @else
-                                        <button @click="lightboxMediaType = 'image'; lightboxSrc = '{{ asset('storage/' . $item->image) }}'; lightboxTitle = '{{ $item->title }}'; lightboxOpen = true"
-                                                class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-350 hover:text-premium-navy dark:hover:text-white transition-colors duration-150">
-                                            <span>Lihat Gambar</span>
-                                            <svg class="w-3.5 h-3.5 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                            </svg>
-                                        </button>
-                                    @endif
-                                </div>
+                        <!-- Hover Gradient Overlay (Yoggui Style) -->
+                        <div class="project-overlay flex flex-col justify-end">
+                            <h3 class="text-xl font-bold text-white mb-1.5 group-hover:text-sky-300 transition-colors">
+                                {{ $item->title }}
+                            </h3>
+                            <p class="text-xs text-white/75 line-clamp-2 leading-relaxed mb-4 font-light">
+                                {{ $item->description }}
+                            </p>
+                            <div class="flex items-center gap-2 text-xs font-bold text-white">
+                                <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform">
+                                    <span>Lihat Detail</span>
+                                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                                </span>
                             </div>
                         </div>
+
+                    </div>
                     @endforeach
                 </div>
             @endif
+
         </div>
 
-        <!-- Lightbox Modal Container -->
+        <!-- Lightbox Modal -->
         <div x-show="lightboxOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
-             x-transition style="display: none;" @keydown.escape.window="lightboxOpen = false">
+            x-transition style="display: none;" @keydown.escape.window="lightboxOpen = false">
             
-            <!-- Close Button -->
-            <button @click="lightboxOpen = false" class="absolute top-6 right-6 text-white/70 hover:text-white focus:outline-none z-10">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
+            <button @click="lightboxOpen = false" class="absolute top-6 right-6 text-white/70 hover:text-white z-10 p-2">
+                <i data-lucide="x" class="w-8 h-8"></i>
             </button>
-            
-            <!-- Modal Body -->
-            <div class="bg-slate-950 rounded-2xl overflow-hidden max-w-4xl w-full border border-slate-800 shadow-2xl flex flex-col justify-between" 
-                 @click.away="lightboxOpen = false">
+
+            <div class="bg-slate-950 rounded-3xl overflow-hidden max-w-4xl w-full border border-white/10 shadow-2xl flex flex-col"
+                @click.away="lightboxOpen = false">
                 
-                <!-- Media Player -->
                 <div class="aspect-video bg-black flex items-center justify-center relative overflow-hidden">
-                    
-                    <!-- Youtube/Web Embed Iframe -->
                     <template x-if="lightboxOpen && lightboxMediaType === 'video' && (lightboxSrc.includes('http') && !lightboxSrc.includes('.mp4') && !lightboxSrc.includes('.mov'))">
-                        <iframe class="w-full h-full" :src="lightboxSrc" frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe class="w-full h-full" :src="lightboxSrc" frameborder="0" allowfullscreen></iframe>
                     </template>
 
-                    <!-- Native HTML5 video player -->
                     <template x-if="lightboxOpen && lightboxMediaType === 'video' && (lightboxSrc.includes('.mp4') || lightboxSrc.includes('.mov') || !lightboxSrc.includes('http'))">
                         <video class="w-full h-full object-contain" controls autoplay>
                             <source :src="lightboxSrc" type="video/mp4">
-                            Browser Anda tidak mendukung pemutaran video.
                         </video>
                     </template>
 
-                    <!-- Image Display -->
                     <template x-if="lightboxOpen && lightboxMediaType === 'image'">
                         <img :src="lightboxSrc" class="max-w-full max-h-full object-contain" :alt="lightboxTitle">
                     </template>
                 </div>
 
-                <!-- Title & Meta -->
-                <div class="p-6 bg-slate-900 border-t border-slate-800 text-white flex justify-between items-center">
-                    <h4 class="text-sm font-bold tracking-tight" x-text="lightboxTitle"></h4>
+                <div class="p-6 bg-slate-900 border-t border-white/10 text-white flex justify-between items-center">
+                    <h4 class="text-base font-bold" x-text="lightboxTitle"></h4>
                     <button @click="lightboxOpen = false" class="text-xs text-slate-400 hover:text-white uppercase tracking-wider font-semibold">Tutup</button>
                 </div>
             </div>

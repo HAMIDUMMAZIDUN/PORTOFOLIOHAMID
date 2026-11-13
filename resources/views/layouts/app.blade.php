@@ -16,7 +16,7 @@
             if ($r->routeIs('admin.timelines.*'))     return 'Milestone Studio';
             if ($r->routeIs('profile.*'))             return 'Profil Akun';
             return 'Admin';
-        })() }} | HA Creative. CMS</title>
+        })() }} | Admin CMS</title>
         <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
 
         <!-- Premium Fonts -->

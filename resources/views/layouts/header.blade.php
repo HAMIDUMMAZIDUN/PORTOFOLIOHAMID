@@ -19,7 +19,7 @@
             <!-- Dynamic Breadcrumb / Page Title -->
             <div class="hidden sm:flex items-center gap-2 text-xs font-medium">
                 <a href="{{ route('dashboard') }}" class="text-slate-400 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-200 transition duration-150">
-                    HA Creative CMS
+                    Portfolio CMS
                 </a>
                 <svg class="w-3.5 h-3.5 text-slate-300 dark:text-slate-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

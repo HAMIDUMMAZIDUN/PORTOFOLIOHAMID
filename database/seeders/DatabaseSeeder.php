@@ -29,7 +29,7 @@ class DatabaseSeeder extends Seeder
         // Cek apakah user admin@hacreative.com sudah ada sebelum membuat baru
         if (!User::where('email', 'admin@hacreative.com')->exists()) {
             User::factory()->create([
-                'name' => 'HA Creative Admin',
+                'name' => 'Hamid Admin',
                 'email' => 'admin@hacreative.com',
                 'password' => bcrypt('password'), // password default
             ]);

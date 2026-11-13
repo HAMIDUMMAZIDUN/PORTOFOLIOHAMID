@@ -84,7 +84,7 @@
                             <label for="wa_text" class="block text-sm font-semibold text-slate-700 dark:text-slate-200 mb-2">Teks Pesan WhatsApp Otomatis (Opsional)</label>
                             <input type="text" name="wa_text" id="wa_text" value="{{ old('wa_text') }}" 
                                 class="w-full rounded-xl border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-900 dark:text-white shadow-sm focus:border-indigo-500 focus:ring-indigo-500 text-sm transition duration-150" 
-                                placeholder="Contoh: Halo HA Creative, saya ingin konsultasi mengenai Paket Landing Page UMKM">
+                                placeholder="Contoh: Halo Hamid, saya ingin konsultasi mengenai Paket Landing Page">
                             @error('wa_text')
                                 <p class="text-rose-600 text-xs mt-1.5 font-medium">{{ $message }}</p>
                             @enderror
