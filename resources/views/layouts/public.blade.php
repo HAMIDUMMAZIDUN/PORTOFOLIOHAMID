@@ -535,66 +535,42 @@
     </main>
 
     <!-- Ultra-Sleek Modern Footer (Yoggui Style) -->
-    <footer class="border-t border-slate-200 dark:border-white/10 py-16 bg-white dark:bg-[#020617] text-slate-500 dark:text-slate-400 text-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-12">
-                <!-- Brand Info -->
-                <div class="text-center md:text-left">
-                    <a href="{{ route('home') }}" class="inline-flex items-center space-x-2 text-2xl font-black text-slate-900 dark:text-white font-display">
-                        <span>Hamid</span><span class="text-sky-400">.</span>
-                        <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/10 ml-2">Studio</span>
+    <footer class="border-t border-slate-200 dark:border-white/10 py-12 bg-white dark:bg-[#020617] text-slate-500 dark:text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="text-slate-400 dark:text-slate-500 text-xs text-center sm:text-left order-2 sm:order-1">
+                &copy; {{ date('Y') }} Hamid Abdul Aziz. Hak Cipta Dilindungi.
+            </div>
+
+            <!-- Social Icons in Rounded Circle Buttons -->
+            <ul class="flex items-center gap-3 order-1 sm:order-2">
+                <li>
+                    <a href="https://www.instagram.com/hamidajaaaaa/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram" title="Instagram @hamidajaaaaa">
+                        <i data-lucide="instagram" class="w-4 h-4"></i>
                     </a>
-                    <p class="mt-2 text-xs text-slate-500 dark:text-slate-400 max-w-sm">
-                        Web Developer & UI/UX Specialist Bandung. Merancang website modern yang cepat, rapi, dan berdampak.
-                    </p>
-                </div>
-
-                <!-- Social Icons in Rounded Circle Buttons -->
-                <ul class="flex items-center gap-3">
-                    <li>
-                        <a href="https://www.instagram.com/hamidajaaaaa/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram" title="Instagram @hamidajaaaaa">
-                            <i data-lucide="instagram" class="w-4 h-4"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/hamid-abdul-aziz/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn" title="LinkedIn Hamid Abdul Aziz">
-                            <i data-lucide="linkedin" class="w-4 h-4"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.tiktok.com/@ham1dun" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok" title="TikTok @ham1dun">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.11V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.27 6.27 0 0 0 1.93-4.52V8.75a8.28 8.28 0 0 0 4.84 1.56V6.86c-.34 0-.68-.06-1-.17z"/>
-                            </svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://github.com/HAMIDUMMAZIDUN" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub" title="GitHub">
-                            <i data-lucide="github" class="w-4 h-4"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://wa.me/6281214019947" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp" title="WhatsApp 081214019947">
-                            <i data-lucide="message-circle" class="w-4 h-4"></i>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Bottom Navigation Bar -->
-            <div class="pt-8 border-t border-slate-100 dark:border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs font-medium">
-                <div class="flex flex-wrap justify-center gap-6 text-slate-600 dark:text-slate-400">
-                    <a href="{{ route('home') }}" class="hover:text-brand-600 dark:hover:text-white transition">Home</a>
-                    <a href="{{ request()->routeIs('home') ? '#portfolio' : route('home') . '#portfolio' }}" class="hover:text-brand-600 dark:hover:text-white transition">Portofolio</a>
-                    <a href="{{ request()->routeIs('home') ? '#skills' : route('home') . '#skills' }}" class="hover:text-brand-600 dark:hover:text-white transition">Keahlian</a>
-                    <a href="{{ request()->routeIs('home') ? '#experience' : route('home') . '#experience' }}" class="hover:text-brand-600 dark:hover:text-white transition">Pengalaman</a>
-                    <a href="{{ request()->routeIs('home') ? '#contact' : route('home') . '#contact' }}" class="hover:text-brand-600 dark:hover:text-white transition">Kontak</a>
-                    <a href="{{ route('login') }}" class="hover:text-brand-600 dark:hover:text-white transition text-slate-400">Admin Login</a>
-                </div>
-                <div class="text-slate-400 dark:text-slate-500 text-center sm:text-right">
-                    &copy; 2026 Hamid Abdul Aziz. Hak Cipta Dilindungi.
-                </div>
-            </div>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/hamid-abdul-aziz/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn" title="LinkedIn Hamid Abdul Aziz">
+                        <i data-lucide="linkedin" class="w-4 h-4"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/@ham1dun" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok" title="TikTok @ham1dun">
+                        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.11V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.27 6.27 0 0 0 1.93-4.52V8.75a8.28 8.28 0 0 0 4.84 1.56V6.86c-.34 0-.68-.06-1-.17z"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/HAMIDUMMAZIDUN" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub" title="GitHub">
+                        <i data-lucide="github" class="w-4 h-4"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/6281214019947" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp" title="WhatsApp 081214019947">
+                        <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
     </footer>
 
