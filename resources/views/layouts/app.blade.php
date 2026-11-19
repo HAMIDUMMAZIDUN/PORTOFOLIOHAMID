@@ -10,9 +10,6 @@
             $r = request();
             if ($r->routeIs('dashboard'))             return 'Dashboard';
             if ($r->routeIs('admin.portfolios.*'))    return 'Kelola Portofolio';
-            if ($r->routeIs('admin.packages.*'))      return 'Paket Harga';
-            if ($r->routeIs('admin.posts.*'))         return 'Artikel Blog';
-            if ($r->routeIs('admin.services.*'))      return 'Layanan & Pilar';
             if ($r->routeIs('admin.timelines.*'))     return 'Milestone Studio';
             if ($r->routeIs('profile.*'))             return 'Profil Akun';
             return 'Admin';

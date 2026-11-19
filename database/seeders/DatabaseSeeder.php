@@ -15,8 +15,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
         // Cek apakah user test@example.com sudah ada sebelum membuat baru
         if (!User::where('email', 'test@example.com')->exists()) {
             User::factory()->create([
@@ -37,9 +35,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             PortfolioSeeder::class,
-            PricingPackageSeeder::class,
-            BlogPostSeeder::class,
-            ServiceSeeder::class,
             TimelineSeeder::class,
         ]);
     }

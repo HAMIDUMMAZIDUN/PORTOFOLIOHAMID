@@ -19,7 +19,7 @@
                     <span class="text-xs font-bold uppercase tracking-widest text-indigo-500 dark:text-indigo-400 mb-2 block">Panel Pengelola Konten</span>
                     <h3 class="text-2xl md:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">Selamat Datang, <span class="text-indigo-500 dark:text-indigo-400 font-light">{{ Auth::user()->name }}</span></h3>
                     <p class="text-slate-500 dark:text-slate-400 font-light mt-3 text-sm md:text-base leading-relaxed">
-                        Kelola portofolio projek, daftar paket harga, artikel blog, dan layanan website Anda. Perubahan yang Anda simpan akan langsung diperbarui di halaman depan.
+                        Kelola portofolio projek dan riwayat pengalaman karier Anda.
                     </p>
                 </div>
             </div>

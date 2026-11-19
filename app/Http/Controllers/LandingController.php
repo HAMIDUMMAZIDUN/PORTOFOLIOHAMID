@@ -78,49 +78,4 @@ class LandingController extends Controller
         $portfolios = self::getStaticPortfolios();
         return view('welcome', compact('portfolios'));
     }
-
-    /**
-     * Display the full portfolio page (100% static, no DB).
-     */
-    public function portfolio()
-    {
-        $portfolios = self::getStaticPortfolios();
-        return view('portfolio', compact('portfolios'));
-    }
-
-    /**
-     * Display the pricing packages page.
-     */
-    public function pricing()
-    {
-        $packages = collect();
-        return view('pricing', compact('packages'));
-    }
-
-    /**
-     * Display the social media management service page.
-     */
-    public function socialMedia()
-    {
-        $services = collect();
-        return view('social-media', compact('services'));
-    }
-
-    /**
-     * Display the blog page.
-     */
-    public function blog()
-    {
-        $posts = collect();
-        return view('blog', compact('posts'));
-    }
-
-    /**
-     * Display the about us page.
-     */
-    public function about()
-    {
-        $timelines = collect();
-        return view('about', compact('timelines'));
-    }
 }

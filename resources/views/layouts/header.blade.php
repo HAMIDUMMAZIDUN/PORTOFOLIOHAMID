@@ -29,12 +29,6 @@
                         Dashboard
                     @elseif(request()->routeIs('admin.portfolios.*'))
                         Kelola Portofolio
-                    @elseif(request()->routeIs('admin.packages.*'))
-                        Paket Harga
-                    @elseif(request()->routeIs('admin.posts.*'))
-                        Artikel Blog
-                    @elseif(request()->routeIs('admin.services.*'))
-                        Layanan & Pilar
                     @elseif(request()->routeIs('admin.timelines.*'))
                         Milestone Studio
                     @elseif(request()->routeIs('profile.*'))
