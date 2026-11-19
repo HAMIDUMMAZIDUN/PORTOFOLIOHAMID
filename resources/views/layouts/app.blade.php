@@ -27,11 +27,16 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+        <script>
+            localStorage.removeItem('color-theme');
+            document.documentElement.classList.remove('dark');
+        </script>
+
         <style>
             body { font-family: 'Plus Jakarta Sans', 'Inter', sans-serif; }
         </style>
     </head>
-    <body class="font-sans antialiased bg-slate-50 dark:bg-[#0b0f19] text-slate-900 dark:text-slate-100">
+    <body class="font-sans antialiased bg-slate-50 text-slate-900">
         <div
             x-data="{ sidebarOpen: false, sidebarMobileOpen: false, hovered: false }"
             class="min-h-screen flex flex-col"

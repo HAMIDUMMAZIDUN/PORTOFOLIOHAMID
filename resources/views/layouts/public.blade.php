@@ -20,18 +20,14 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-    <!-- Dark Mode Init Script -->
+    <!-- Enforce Pure Light Mode Script -->
     <script>
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
+        localStorage.removeItem('color-theme');
+        document.documentElement.classList.remove('dark');
     </script>
 
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -51,6 +47,7 @@
                             300: '#7dd3fc',
                             400: '#38bdf8',
                             500: '#0ea5e9',
+                            600: '#0284c7',
                         },
                         slate: {
                             850: '#151d2f',
@@ -66,25 +63,52 @@
         body {
             font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
             background-color: #f8fafc;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            color: #0f172a;
         }
 
-        .dark body {
-            background-color: #020617;
+        /* ===== NAVBAR LIGHT STYLES ===== */
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            transition: all 0.3s ease;
         }
 
-        /* ===== NAVBAR ACTIVE GLOW STYLES ===== */
+        .site-nav.is-scrolled {
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(203, 213, 225, 0.9);
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+        }
+
         .nav-link {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #475569;
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
             position: relative;
         }
 
+        .nav-link:hover {
+            color: #0f172a;
+        }
+
         .nav-link.is-active {
-            color: #ffffff !important;
+            color: #0f172a !important;
         }
 
         .nav-link.is-active .nav-num {
-            color: #7dd3fc;
-            text-shadow: 0 0 10px rgba(125, 211, 252, 0.8);
+            color: #2563eb;
+            text-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
         }
 
         .nav-link.is-active::after {
@@ -94,63 +118,23 @@
             left: 0;
             right: 0;
             height: 2px;
-            background: linear-gradient(90deg, #38bdf8, #8b5cf6);
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
             border-radius: 9999px;
-            box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
-        }
-
-        /* YOGGUI DESIGN SYSTEM - Core Inlines */
-        .hero-dark {
-            background: radial-gradient(60% 80% at 0% 0%, rgba(37, 99, 235, 0.75), transparent 70%),
-                radial-gradient(55% 80% at 100% 100%, rgba(124, 58, 237, 0.85), transparent 70%),
-                radial-gradient(40% 50% at 55% 110%, rgba(125, 211, 252, 0.3), transparent 70%),
-                radial-gradient(35% 50% at 75% 30%, rgba(109, 40, 217, 0.35), transparent 70%),
-                #020617;
-        }
-
-        .site-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            transition: all 0.3s ease;
-        }
-
-        .site-nav.is-scrolled {
-            background: rgba(2, 6, 23, 0.9);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-        }
-
-        .nav-link {
-            font-size: 0.8125rem;
-            font-weight: 600;
-            color: rgba(255, 255, 255, 0.8);
-            transition: color 0.2s ease;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: #ffffff;
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
         }
 
         .nav-num {
             font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
             font-size: 0.75rem;
-            color: #38bdf8;
+            color: #2563eb;
             font-weight: 700;
             margin-right: 0.375rem;
         }
 
         .nav-cta {
             font-size: 0.8125rem;
-            background: #ffffff;
-            color: #020617 !important;
+            background: #0f172a;
+            color: #ffffff !important;
             border-radius: 9999px;
             display: inline-flex;
             align-items: center;
@@ -159,12 +143,12 @@
             padding: 0.25rem 0.25rem 0.25rem 1.25rem;
             font-weight: 700;
             transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
         }
 
         .nav-cta-icon {
@@ -188,6 +172,14 @@
             animation: cta-btn-arrow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
+        /* Hero Light Gradient */
+        .hero-light {
+            background: radial-gradient(65% 65% at 5% 0%, rgba(219, 234, 254, 0.75), transparent 70%),
+                        radial-gradient(60% 60% at 95% 100%, rgba(237, 233, 254, 0.75), transparent 70%),
+                        radial-gradient(45% 45% at 50% 90%, rgba(224, 242, 254, 0.5), transparent 70%),
+                        #ffffff;
+        }
+
         /* Eyebrow & Titles */
         .eyebrow {
             display: inline-flex;
@@ -207,9 +199,9 @@
             content: "";
             width: 0.5rem;
             height: 0.5rem;
-            background-color: #38bdf8;
+            background-color: #2563eb;
             border-radius: 9999px;
-            box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+            box-shadow: 0 0 8px rgba(37, 99, 235, 0.6);
             flex-shrink: 0;
         }
 
@@ -218,6 +210,7 @@
             letter-spacing: -0.025em;
             font-weight: 800;
             line-height: 1.15;
+            color: #0f172a;
         }
 
         @media (min-width: 640px) {
@@ -227,21 +220,111 @@
         }
 
         .text-gradient {
-            background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+            background-image: linear-gradient(to right, #2563eb, #7c3aed);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
-        /* CTA Card */
+        /* Hero Figma Selection Box */
+        .hero-selection {
+            border: 1.5px solid #2563eb;
+            background: rgba(37, 99, 235, 0.03);
+            border-radius: 0.5rem;
+            padding: 1.75rem;
+            position: relative;
+            box-shadow: 0 4px 20px -2px rgba(37, 99, 235, 0.08);
+        }
+
+        .hero-layer {
+            position: absolute;
+            top: -0.75rem;
+            left: 1rem;
+            background: #2563eb;
+            color: #ffffff;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            padding: 0.125rem 0.5rem;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            letter-spacing: 0.025em;
+        }
+
+        .hero-size {
+            position: absolute;
+            bottom: -0.75rem;
+            right: 1rem;
+            background: #2563eb;
+            color: #ffffff;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            padding: 0.125rem 0.5rem;
+            border-radius: 4px;
+            letter-spacing: 0.025em;
+        }
+
+        .hero-handle {
+            width: 0.5625rem;
+            height: 0.5625rem;
+            background: #ffffff;
+            box-shadow: 0 0 0 2px #2563eb;
+            border-radius: 2px;
+            position: absolute;
+        }
+
+        /* Floating Cursors */
+        .cta-cursor {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+            pointer-events: none;
+            z-index: 20;
+            animation: cursor-float 4s ease-in-out infinite;
+        }
+
+        .cta-cursor span {
+            font-size: 0.6875rem;
+            font-weight: 700;
+            color: #ffffff;
+            padding: 0.2rem 0.5rem;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        @keyframes cursor-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Typewriter Caret */
+        .hero-caret {
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: #2563eb;
+            vertical-align: -0.1em;
+            margin-left: 4px;
+            animation: caret-blink 0.9s infinite;
+        }
+
+        @keyframes caret-blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        /* CTA Card in Light Mode */
         .cta-card {
             isolation: isolate;
-            background: #020617;
+            background: linear-gradient(135deg, #ffffff, #f8fafc);
             border-radius: 2rem;
             padding: 4rem 1.5rem;
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.07);
         }
 
         @media (min-width: 640px) {
@@ -260,8 +343,8 @@
         }
 
         .cta-glow-1 {
-            background: #2563eb;
-            opacity: 0.55;
+            background: #93c5fd;
+            opacity: 0.45;
             width: 55%;
             height: 80%;
             top: -20%;
@@ -269,8 +352,8 @@
         }
 
         .cta-glow-2 {
-            background: #7c3aed;
-            opacity: 0.6;
+            background: #c4b5fd;
+            opacity: 0.45;
             width: 55%;
             height: 90%;
             bottom: -30%;
@@ -278,7 +361,7 @@
         }
 
         .cta-glow-3 {
-            background: #38bdf8;
+            background: #bae6fd;
             opacity: 0.35;
             width: 30%;
             height: 50%;
@@ -287,16 +370,18 @@
         }
 
         .cta-selection {
-            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            border: 1.5px solid #2563eb;
+            background: rgba(37, 99, 235, 0.03);
+            border-radius: 0.5rem;
             padding: 0.75rem 1.25rem;
             display: inline-block;
             position: relative;
         }
 
         .cta-handle {
-            width: 0.625rem;
-            height: 0.625rem;
-            box-shadow: 0 0 0 2px #a78bfa;
+            width: 0.5625rem;
+            height: 0.5625rem;
+            box-shadow: 0 0 0 2px #2563eb;
             background: #ffffff;
             border-radius: 2px;
             position: absolute;
@@ -312,7 +397,7 @@
             font-weight: 700;
             display: inline-flex;
             position: relative;
-            box-shadow: 0 12px 28px -12px rgba(76, 29, 149, 0.7);
+            box-shadow: 0 12px 28px -12px rgba(37, 99, 235, 0.5);
             transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
             cursor: pointer;
         }
@@ -323,7 +408,7 @@
             border-radius: inherit;
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+            background: linear-gradient(90deg, #2563eb, #7c3aed, #2563eb);
             background-size: 200% 100%;
             animation: cta-btn-flow 6s linear infinite;
         }
@@ -340,13 +425,13 @@
 
         .cta-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.25), 0 18px 36px -12px rgba(76, 29, 149, 0.85);
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2), 0 18px 36px -12px rgba(37, 99, 235, 0.6);
         }
 
         .cta-btn-icon {
             width: 2.5rem;
             height: 2.5rem;
-            color: #7c3aed;
+            color: #2563eb;
             background: #ffffff;
             border-radius: 9999px;
             place-items: center;
@@ -372,64 +457,41 @@
         }
 
         @keyframes cta-btn-shine {
-
-            0%,
-            55% {
-                background-position: 150% 0;
-            }
-
-            100% {
-                background-position: -50% 0;
-            }
+            0%, 55% { background-position: 150% 0; }
+            100% { background-position: -50% 0; }
         }
 
         @keyframes cta-btn-pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
-            }
-
-            100% {
-                box-shadow: 0 0 0 12px rgba(255, 255, 255, 0);
-            }
+            0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.5); }
+            100% { box-shadow: 0 0 0 12px rgba(37, 99, 235, 0); }
         }
 
         @keyframes cta-btn-arrow {
-            0% {
-                transform: translate(0);
-            }
-
-            45% {
-                transform: translate(160%);
-            }
-
-            46% {
-                transform: translate(-160%);
-            }
-
-            100% {
-                transform: translate(0);
-            }
+            0% { transform: translate(0); }
+            45% { transform: translate(160%); }
+            46% { transform: translate(-160%); }
+            100% { transform: translate(0); }
         }
     </style>
     @yield('styles')
 </head>
 
-<body class="text-slate-900 dark:text-slate-100 antialiased bg-[#f8fafc] dark:bg-[#020617] selection:bg-brand-600 selection:text-white"
+<body class="text-slate-800 antialiased bg-[#f8fafc] selection:bg-brand-600 selection:text-white"
     x-data="{ scrolled: false, mobileOpen: false }"
     @scroll.window="scrolled = (window.pageYOffset > 20)">
 
-    <!-- Modern Yoggui-Style Fixed Navbar -->
+    <!-- Modern Fixed Navbar (Clean Light Mode) -->
     <header class="site-nav" :class="{ 'is-scrolled': scrolled }">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
 
             <!-- Brand Logo -->
             <a href="{{ route('home') }}" class="flex items-center space-x-2 group">
-                <span class="text-2xl font-black tracking-tight text-white font-display">
-                    Hamid<span class="text-sky-400 group-hover:text-brand-400 transition-colors">.</span>
+                <span class="text-2xl font-black tracking-tight text-slate-900 font-display">
+                    Hamid<span class="text-brand-600 group-hover:text-blue-600 transition-colors">.</span>
                 </span>
             </a>
 
-            <!-- Desktop Nav Links with Yoggui Numbered Styling -->
+            <!-- Desktop Nav Links with Numbered Styling -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide" aria-label="Navigasi Utama">
                 <a href="{{ request()->routeIs('home') ? '#portfolio' : route('home') . '#portfolio' }}"
                     data-nav="portfolio"
@@ -453,44 +515,20 @@
                 </a>
             </nav>
 
-            <!-- Right Controls: Theme Toggle only -->
-            <div class="hidden md:flex items-center space-x-3">
-                <!-- Theme Toggle Button -->
-                <button id="theme-toggle" type="button"
-                    class="p-2.5 text-white/80 hover:text-white bg-white/10 hover:bg-white/15 rounded-full text-sm transition ring-1 ring-white/15 focus:outline-none"
-                    title="Ubah Tema Terang/Gelap">
-                    <!-- Dark Icon (Moon) -->
-                    <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                    </svg>
-                    <!-- Light Icon (Sun) -->
-                    <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-
-                @auth
-                <a href="{{ route('dashboard') }}" class="text-xs font-bold uppercase tracking-wider text-sky-400 hover:text-white px-3 py-1.5 rounded-full bg-sky-950/60 border border-sky-500/30 transition">
-                    Dashboard
+            <!-- Right Controls: Clean Hubungi Saya Button (No Theme Toggle) -->
+            <div class="hidden md:flex items-center">
+                <a href="#contact" class="nav-cta">
+                    <span>Hubungi Saya</span>
+                    <span class="nav-cta-icon">
+                        <i data-lucide="arrow-right" class="nav-cta-arrow"></i>
+                    </span>
                 </a>
-                @endauth
             </div>
 
-            <!-- Hamburger Button (Mobile) -->
-            <div class="flex items-center space-x-2 md:hidden">
-                <!-- Mobile Theme Toggle -->
-                <button id="theme-toggle-mobile" type="button"
-                    class="p-2 text-white/80 hover:text-white bg-white/10 rounded-full focus:outline-none">
-                    <svg id="theme-toggle-mobile-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                    </svg>
-                    <svg id="theme-toggle-mobile-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
-                    </svg>
-                </button>
-
+            <!-- Hamburger Button (Mobile Only) -->
+            <div class="flex items-center md:hidden">
                 <button @click="mobileOpen = !mobileOpen"
-                    class="p-2.5 rounded-full bg-white/10 text-white hover:bg-white/15 focus:outline-none ring-1 ring-white/15"
+                    class="p-2.5 rounded-full bg-slate-100 text-slate-800 hover:bg-slate-200 border border-slate-200 focus:outline-none"
                     aria-label="Buka Menu">
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path x-show="!mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -500,7 +538,7 @@
             </div>
         </div>
 
-        <!-- Fullscreen Mobile Navigation Menu Overlay (Yoggui Style) -->
+        <!-- Fullscreen Mobile Navigation Menu Overlay (Light Mode) -->
         <div x-show="mobileOpen"
             x-transition:enter="transition ease-out duration-300"
             x-transition:enter-start="opacity-0 -translate-y-4"
@@ -508,42 +546,37 @@
             x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="opacity-100 translate-y-0"
             x-transition:leave-end="opacity-0 -translate-y-4"
-            class="md:hidden fixed inset-0 top-20 z-40 bg-[#020617]/95 backdrop-blur-2xl p-6 flex flex-col justify-between overflow-y-auto border-t border-white/10"
+            class="md:hidden fixed inset-0 top-20 z-40 bg-white/95 backdrop-blur-2xl p-6 flex flex-col justify-between overflow-y-auto border-t border-slate-200 shadow-2xl"
             style="display: none;">
 
             <ul class="space-y-4 pt-4">
                 <li>
                     <a href="{{ request()->routeIs('home') ? '#portfolio' : route('home') . '#portfolio' }}" @click="mobileOpen = false"
-                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
-                        <span class="nav-num text-sm text-sky-400 mr-3">01</span> Portofolio
+                        class="flex items-center text-xl font-bold text-slate-900 hover:text-brand-600 py-2 border-b border-slate-100">
+                        <span class="nav-num text-sm text-brand-600 mr-3">01</span> Portofolio
                     </a>
                 </li>
                 <li>
                     <a href="{{ request()->routeIs('home') ? '#skills' : route('home') . '#skills' }}" @click="mobileOpen = false"
-                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
-                        <span class="nav-num text-sm text-sky-400 mr-3">02</span> Keahlian
+                        class="flex items-center text-xl font-bold text-slate-900 hover:text-brand-600 py-2 border-b border-slate-100">
+                        <span class="nav-num text-sm text-brand-600 mr-3">02</span> Keahlian
                     </a>
                 </li>
                 <li>
                     <a href="{{ request()->routeIs('home') ? '#experience' : route('home') . '#experience' }}" @click="mobileOpen = false"
-                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
-                        <span class="nav-num text-sm text-sky-400 mr-3">03</span> Pengalaman
+                        class="flex items-center text-xl font-bold text-slate-900 hover:text-brand-600 py-2 border-b border-slate-100">
+                        <span class="nav-num text-sm text-brand-600 mr-3">03</span> Pengalaman
                     </a>
                 </li>
                 <li>
                     <a href="{{ request()->routeIs('home') ? '#contact' : route('home') . '#contact' }}" @click="mobileOpen = false"
-                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
-                        <span class="nav-num text-sm text-sky-400 mr-3">04</span> Kontak
+                        class="flex items-center text-xl font-bold text-slate-900 hover:text-brand-600 py-2 border-b border-slate-100">
+                        <span class="nav-num text-sm text-brand-600 mr-3">04</span> Kontak
                     </a>
                 </li>
             </ul>
 
-            <div class="pt-8 pb-6 border-t border-white/10 space-y-4">
-                @auth
-                <a href="{{ route('dashboard') }}" class="block text-center py-2.5 text-xs font-bold uppercase tracking-wider text-sky-300 bg-sky-950/60 rounded-xl border border-sky-500/30">
-                    Dashboard Admin
-                </a>
-                @endauth
+            <div class="pt-8 pb-6 border-t border-slate-200 space-y-4">
                 <a href="{{ route('home') }}#contact" @click="mobileOpen = false"
                     class="cta-btn w-full justify-between">
                     <span>Hubungi Saya Langsung</span>
@@ -551,8 +584,8 @@
                         <i data-lucide="arrow-right" class="cta-btn-arrow"></i>
                     </span>
                 </a>
-                <p class="text-center text-xs text-slate-400 pt-2">
-                    Email: <a href="mailto:hamidabdulaziz36@gmail.com" class="text-sky-400 underline">hamidabdulaziz36@gmail.com</a>
+                <p class="text-center text-xs text-slate-500 pt-2">
+                    Email: <a href="mailto:hamidabdulaziz36@gmail.com" class="text-brand-600 underline">hamidabdulaziz36@gmail.com</a>
                 </p>
             </div>
         </div>
@@ -563,11 +596,11 @@
         @yield('content')
     </main>
 
-    <!-- Ultra-Sleek Modern Footer (Yoggui Style) -->
-    <footer class="border-t border-slate-200 dark:border-white/10 py-12 bg-white dark:bg-[#020617] text-slate-500 dark:text-slate-400 text-sm">
+    <!-- Ultra-Sleek Modern Footer (Light Mode) -->
+    <footer class="border-t border-slate-200 py-12 bg-white text-slate-500 text-sm">
         <div class="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center text-center gap-4">
             <!-- Hak Cipta (Center & di Atas Link Sosmed) -->
-            <p class="text-slate-500 dark:text-slate-400 text-xs font-medium tracking-wide">
+            <p class="text-slate-500 text-xs font-medium tracking-wide">
                 &copy; {{ date('Y') }} Hamid Abdul Aziz. Hak Cipta Dilindungi.
             </p>
 
@@ -612,7 +645,7 @@
         </div>
     </footer>
 
-    <!-- Sleek Floating WhatsApp Consultation Pill -->
+    <!-- Sleek Floating WhatsApp Consultation Pill (Light Mode) -->
     <div x-data="{ isOpen: true }" x-show="isOpen"
         class="fixed bottom-6 right-6 z-40 flex items-end space-x-3 max-w-xs"
         x-transition:enter="transition ease-out duration-300 transform translate-y-4 opacity-0"
@@ -620,21 +653,21 @@
         x-transition:leave="transition ease-in duration-200 transform translate-y-4 opacity-0">
 
         <!-- Speech Bubble -->
-        <div class="relative bg-white dark:bg-[#0b1120] border border-slate-200 dark:border-white/10 p-3.5 rounded-2xl shadow-xl text-xs text-slate-700 dark:text-slate-200 max-w-[210px] mb-2">
+        <div class="relative bg-white border border-slate-200 p-3.5 rounded-2xl shadow-xl text-xs text-slate-700 max-w-[210px] mb-2">
             <!-- Close Button -->
             <button @click.stop="isOpen = false" class="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-slate-800 text-white flex items-center justify-center hover:bg-slate-700 transition shadow" aria-label="Tutup">
                 <i data-lucide="x" class="w-3 h-3"></i>
             </button>
 
-            <p class="font-bold text-slate-900 dark:text-white mb-0.5 flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <p class="font-bold text-slate-900 mb-0.5 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                 Tersedia Online
             </p>
-            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-light">
+            <p class="text-[11px] text-slate-500 leading-relaxed font-light">
                 Hubungi langsung via WhatsApp untuk kolaborasi atau tanya-tanya.
             </p>
             <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20tertarik%20untuk%20kolaborasi%20pembuatan%20website" target="_blank"
-                class="inline-flex items-center gap-1 mt-2 font-bold text-brand-600 dark:text-sky-300 hover:underline uppercase text-[10px] tracking-wider">
+                class="inline-flex items-center gap-1 mt-2 font-bold text-brand-600 hover:underline uppercase text-[10px] tracking-wider">
                 <span>Chat Sekarang</span>
                 <i data-lucide="arrow-right" class="w-3 h-3"></i>
             </a>
@@ -644,59 +677,15 @@
         <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website" target="_blank"
             class="relative group focus:outline-none flex-shrink-0" title="Chat WhatsApp">
             <span class="absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-60 animate-ping"></span>
-            <div class="relative w-14 h-14 rounded-full border-2 border-white dark:border-slate-800 bg-slate-900 overflow-hidden shadow-xl group-hover:scale-105 transition duration-300">
+            <div class="relative w-14 h-14 rounded-full border-2 border-white bg-slate-900 overflow-hidden shadow-xl group-hover:scale-105 transition duration-300">
                 <img src="{{ asset('hamid.jpg') }}" alt="Hamid" class="w-full h-full object-cover" onerror="this.src='{{ asset('support_agent_avatar.png') }}'">
             </div>
-            <span class="absolute bottom-0 right-0 block h-3.5 w-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900"></span>
+            <span class="absolute bottom-0 right-0 block h-3.5 w-3.5 rounded-full bg-emerald-500 border-2 border-white"></span>
         </a>
     </div>
 
-    <!-- Theme Switcher Script & Lucide Icon Activator -->
+    <!-- Lucide Icon Activator & Scroll Spy Script -->
     <script>
-        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
-        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
-        var themeToggleMobileDarkIcon = document.getElementById('theme-toggle-mobile-dark-icon');
-        var themeToggleMobileLightIcon = document.getElementById('theme-toggle-mobile-light-icon');
-
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            if (themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
-            if (themeToggleMobileLightIcon) themeToggleMobileLightIcon.classList.remove('hidden');
-        } else {
-            if (themeToggleDarkIcon) themeToggleDarkIcon.classList.remove('hidden');
-            if (themeToggleMobileDarkIcon) themeToggleMobileDarkIcon.classList.remove('hidden');
-        }
-
-        function toggleTheme() {
-            if (themeToggleDarkIcon) themeToggleDarkIcon.classList.toggle('hidden');
-            if (themeToggleLightIcon) themeToggleLightIcon.classList.toggle('hidden');
-            if (themeToggleMobileDarkIcon) themeToggleMobileDarkIcon.classList.toggle('hidden');
-            if (themeToggleMobileLightIcon) themeToggleMobileLightIcon.classList.toggle('hidden');
-
-            if (localStorage.getItem('color-theme')) {
-                if (localStorage.getItem('color-theme') === 'light') {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                }
-            } else {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
-                    localStorage.setItem('color-theme', 'light');
-                } else {
-                    document.documentElement.classList.add('dark');
-                    localStorage.setItem('color-theme', 'dark');
-                }
-            }
-        }
-
-        var btnDesktop = document.getElementById('theme-toggle');
-        var btnMobile = document.getElementById('theme-toggle-mobile');
-        if (btnDesktop) btnDesktop.addEventListener('click', toggleTheme);
-        if (btnMobile) btnMobile.addEventListener('click', toggleTheme);
-
-        // Initialize Lucide icons
         document.addEventListener('DOMContentLoaded', function() {
             if (typeof lucide !== 'undefined') {
                 lucide.createIcons();
@@ -734,7 +723,6 @@
             }
 
             if (document.getElementById('portfolio')) {
-                // We're on the homepage — use IntersectionObserver
                 const observer = new IntersectionObserver(function(entries) {
                     entries.forEach(function(entry) {
                         if (entry.isIntersecting) {
@@ -752,7 +740,6 @@
                     if (el) observer.observe(el);
                 });
 
-                // Clear highlights when at top of hero
                 window.addEventListener('scroll', function() {
                     if (window.scrollY < 180) {
                         navLinks.forEach(l => l.classList.remove('is-active'));
