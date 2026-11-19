@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Web Developer &amp; Desain Grafis Bandung | Hamid &mdash; Web Developer & UI/UX Designer </title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind & Scripts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script type="module" src="http://[::1]:5173/@vite/client"></script><link rel="stylesheet" href="http://[::1]:5173/resources/css/app.css" /><script type="module" src="http://[::1]:5173/resources/js/app.js"></script>
+    <!-- Dark Mode Init Script -->
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                        display: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            400: '#a78bfa',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                        },
+                        sky: {
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                        },
+                        slate: {
+                            850: '#151d2f',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            background-color: #f8fafc;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dark body {
+            background-color: #020617;
+        }
+
+        /* ===== NAVBAR ACTIVE GLOW STYLES ===== */
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link.is-active {
+            color: #ffffff !important;
+        }
+
+        .nav-link.is-active .nav-num {
+            color: #7dd3fc;
+            text-shadow: 0 0 10px rgba(125, 211, 252, 0.8);
+        }
+
+        .nav-link.is-active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #38bdf8, #8b5cf6);
+            border-radius: 9999px;
+            box-shadow: 0 0 8px rgba(56, 189, 248, 0.7);
+        }
+
+        /* YOGGUI DESIGN SYSTEM - Core Inlines */
+        .hero-dark {
+            background: radial-gradient(60% 80% at 0% 0%, rgba(37, 99, 235, 0.75), transparent 70%),
+                radial-gradient(55% 80% at 100% 100%, rgba(124, 58, 237, 0.85), transparent 70%),
+                radial-gradient(40% 50% at 55% 110%, rgba(125, 211, 252, 0.3), transparent 70%),
+                radial-gradient(35% 50% at 75% 30%, rgba(109, 40, 217, 0.35), transparent 70%),
+                #020617;
+        }
+
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+
+        .site-nav.is-scrolled {
+            background: rgba(2, 6, 23, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-link {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #ffffff;
+        }
+
+        .nav-num {
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 0.75rem;
+            color: #38bdf8;
+            font-weight: 700;
+            margin-right: 0.375rem;
+        }
+
+        .nav-cta {
+            font-size: 0.8125rem;
+            background: #ffffff;
+            color: #020617 !important;
+            border-radius: 9999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            padding: 0.25rem 0.25rem 0.25rem 1.25rem;
+            font-weight: 700;
+            transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-cta-icon {
+            color: #ffffff;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border-radius: 9999px;
+            width: 2rem;
+            height: 2rem;
+            display: grid;
+            place-items: center;
+            overflow: hidden;
+        }
+
+        .nav-cta-arrow {
+            width: 1rem;
+            height: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .nav-cta:hover .nav-cta-arrow {
+            animation: cta-btn-arrow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Eyebrow & Titles */
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8125rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background-image: linear-gradient(to right, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .eyebrow::before {
+            content: "";
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: #38bdf8;
+            border-radius: 9999px;
+            box-shadow: 0 0 8px rgba(56, 189, 248, 0.8);
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            letter-spacing: -0.025em;
+            font-weight: 800;
+            line-height: 1.15;
+        }
+
+        @media (min-width: 640px) {
+            .section-title {
+                font-size: 3rem;
+            }
+        }
+
+        .text-gradient {
+            background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* CTA Card */
+        .cta-card {
+            isolation: isolate;
+            background: #020617;
+            border-radius: 2rem;
+            padding: 4rem 1.5rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        @media (min-width: 640px) {
+            .cta-card {
+                padding: 5.5rem 3.5rem;
+                border-radius: 2.5rem;
+            }
+        }
+
+        .cta-glow {
+            z-index: -1;
+            filter: blur(80px);
+            pointer-events: none;
+            border-radius: 9999px;
+            position: absolute;
+        }
+
+        .cta-glow-1 {
+            background: #2563eb;
+            opacity: 0.55;
+            width: 55%;
+            height: 80%;
+            top: -20%;
+            left: -10%;
+        }
+
+        .cta-glow-2 {
+            background: #7c3aed;
+            opacity: 0.6;
+            width: 55%;
+            height: 90%;
+            bottom: -30%;
+            right: -10%;
+        }
+
+        .cta-glow-3 {
+            background: #38bdf8;
+            opacity: 0.35;
+            width: 30%;
+            height: 50%;
+            bottom: -20%;
+            right: 15%;
+        }
+
+        .cta-selection {
+            border: 1.5px solid rgba(255, 255, 255, 0.35);
+            padding: 0.75rem 1.25rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .cta-handle {
+            width: 0.625rem;
+            height: 0.625rem;
+            box-shadow: 0 0 0 2px #a78bfa;
+            background: #ffffff;
+            border-radius: 2px;
+            position: absolute;
+        }
+
+        .cta-btn {
+            isolation: isolate;
+            color: #ffffff;
+            border-radius: 9999px;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.4rem 0.5rem 0.4rem 1.75rem;
+            font-weight: 700;
+            display: inline-flex;
+            position: relative;
+            box-shadow: 0 12px 28px -12px rgba(76, 29, 149, 0.7);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s;
+            cursor: pointer;
+        }
+
+        .cta-btn::before {
+            content: "";
+            z-index: -1;
+            border-radius: inherit;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
+            background-size: 200% 100%;
+            animation: cta-btn-flow 6s linear infinite;
+        }
+
+        .cta-btn::after {
+            content: "";
+            z-index: -1;
+            border-radius: inherit;
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, transparent 40%, rgba(255, 255, 255, 0.35), transparent 60%) 150% 0/250% 100% no-repeat;
+            animation: cta-btn-shine 4s ease-in-out 1.5s infinite;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.25), 0 18px 36px -12px rgba(76, 29, 149, 0.85);
+        }
+
+        .cta-btn-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            color: #7c3aed;
+            background: #ffffff;
+            border-radius: 9999px;
+            place-items: center;
+            display: grid;
+            overflow: hidden;
+            animation: cta-btn-pulse 2.4s ease-out infinite;
+            flex-shrink: 0;
+        }
+
+        .cta-btn-arrow {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        .cta-btn:hover .cta-btn-arrow {
+            animation: cta-btn-arrow 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        @keyframes cta-btn-flow {
+            to {
+                background-position: -200% 0;
+            }
+        }
+
+        @keyframes cta-btn-shine {
+
+            0%,
+            55% {
+                background-position: 150% 0;
+            }
+
+            100% {
+                background-position: -50% 0;
+            }
+        }
+
+        @keyframes cta-btn-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6);
+            }
+
+            100% {
+                box-shadow: 0 0 0 12px rgba(255, 255, 255, 0);
+            }
+        }
+
+        @keyframes cta-btn-arrow {
+            0% {
+                transform: translate(0);
+            }
+
+            45% {
+                transform: translate(160%);
+            }
+
+            46% {
+                transform: translate(-160%);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+    </style>
+    </head>
+
+<body class="text-slate-900 dark:text-slate-100 antialiased bg-[#f8fafc] dark:bg-[#020617] selection:bg-brand-600 selection:text-white"
+    x-data="{ scrolled: false, mobileOpen: false }"
+    @scroll.window="scrolled = (window.pageYOffset > 20)">
+
+    <!-- Modern Yoggui-Style Fixed Navbar -->
+    <header class="site-nav" :class="{ 'is-scrolled': scrolled }">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-2 group">
+                <span class="text-2xl font-black tracking-tight text-white font-display">
+                    Hamid<span class="text-sky-400 group-hover:text-brand-400 transition-colors">.</span>
+                </span>
+            </a>
+
+            <!-- Desktop Nav Links with Yoggui Numbered Styling -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide" aria-label="Navigasi Utama">
+                <a href="#portfolio"
+                    data-nav="portfolio"
+                    class="nav-link ">
+                    <span class="nav-num">01</span>Portofolio
+                </a>
+                <a href="#skills"
+                    data-nav="skills"
+                    class="nav-link">
+                    <span class="nav-num">02</span>Keahlian
+                </a>
+                <a href="#experience"
+                    data-nav="experience"
+                    class="nav-link ">
+                    <span class="nav-num">03</span>Pengalaman
+                </a>
+                <a href="#contact"
+                    data-nav="contact"
+                    class="nav-link">
+                    <span class="nav-num">04</span>Kontak
+                </a>
+            </nav>
+
+            <!-- Right Controls: Theme Toggle only -->
+            <div class="hidden md:flex items-center space-x-3">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" type="button"
+                    class="p-2.5 text-white/80 hover:text-white bg-white/10 hover:bg-white/15 rounded-full text-sm transition ring-1 ring-white/15 focus:outline-none"
+                    title="Ubah Tema Terang/Gelap">
+                    <!-- Dark Icon (Moon) -->
+                    <svg id="theme-toggle-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <!-- Light Icon (Sun) -->
+                    <svg id="theme-toggle-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+
+                            </div>
+
+            <!-- Hamburger Button (Mobile) -->
+            <div class="flex items-center space-x-2 md:hidden">
+                <!-- Mobile Theme Toggle -->
+                <button id="theme-toggle-mobile" type="button"
+                    class="p-2 text-white/80 hover:text-white bg-white/10 rounded-full focus:outline-none">
+                    <svg id="theme-toggle-mobile-dark-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                    </svg>
+                    <svg id="theme-toggle-mobile-light-icon" class="hidden w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.46 5.05l-.707-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+
+                <button @click="mobileOpen = !mobileOpen"
+                    class="p-2.5 rounded-full bg-white/10 text-white hover:bg-white/15 focus:outline-none ring-1 ring-white/15"
+                    aria-label="Buka Menu">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path x-show="!mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        <path x-show="mobileOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" style="display: none;" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Fullscreen Mobile Navigation Menu Overlay (Yoggui Style) -->
+        <div x-show="mobileOpen"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-4"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-4"
+            class="md:hidden fixed inset-0 top-20 z-40 bg-[#020617]/95 backdrop-blur-2xl p-6 flex flex-col justify-between overflow-y-auto border-t border-white/10"
+            style="display: none;">
+
+            <ul class="space-y-4 pt-4">
+                <li>
+                    <a href="#portfolio" @click="mobileOpen = false"
+                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                        <span class="nav-num text-sm text-sky-400 mr-3">01</span> Portofolio
+                    </a>
+                </li>
+                <li>
+                    <a href="#skills" @click="mobileOpen = false"
+                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                        <span class="nav-num text-sm text-sky-400 mr-3">02</span> Keahlian
+                    </a>
+                </li>
+                <li>
+                    <a href="#experience" @click="mobileOpen = false"
+                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                        <span class="nav-num text-sm text-sky-400 mr-3">03</span> Pengalaman
+                    </a>
+                </li>
+                <li>
+                    <a href="#contact" @click="mobileOpen = false"
+                        class="flex items-center text-xl font-bold text-white hover:text-sky-300 py-2 border-b border-white/10">
+                        <span class="nav-num text-sm text-sky-400 mr-3">04</span> Kontak
+                    </a>
+                </li>
+            </ul>
+
+            <div class="pt-8 pb-6 border-t border-white/10 space-y-4">
+                                <a href="#contact" @click="mobileOpen = false"
+                    class="cta-btn w-full justify-between">
+                    <span>Hubungi Saya Langsung</span>
+                    <span class="cta-btn-icon">
+                        <i data-lucide="arrow-right" class="cta-btn-arrow"></i>
+                    </span>
+                </a>
+                <p class="text-center text-xs text-slate-400 pt-2">
+                    Email: <a href="mailto:hamidabdulaziz36@gmail.com" class="text-sky-400 underline">hamidabdulaziz36@gmail.com</a>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <!-- =========================================================================
+     1. HERO SECTION (Yoggui Dark Aesthetic with Figma Selection & Floating Cursors)
+     ========================================================================= -->
+<header class="hero-dark relative isolate flex min-h-[calc(100svh-4rem)] flex-col justify-between overflow-hidden rounded-b-[2.5rem] text-white sm:rounded-b-[4rem] pt-24 pb-12 px-6">
+
+    <!-- Floating Collaborator Cursors (Figma Style) -->
+    <div class="cta-cursor hero-cursor-1 hidden lg:flex" style="top: 24%; right: 28%;" aria-hidden="true">
+        <i data-lucide="mouse-pointer-2" class="w-6 h-6 text-sky-300 drop-shadow" fill="currentColor"></i>
+        <span class="bg-sky-500">Web Developer</span>
+    </div>
+
+    <div class="cta-cursor hero-cursor-3 hidden lg:flex" style="top: 18%; left: 58%;" aria-hidden="true">
+        <i data-lucide="mouse-pointer-2" class="w-6 h-6 text-violet-300 drop-shadow" fill="currentColor"></i>
+        <span class="bg-violet-500">UI/UX Designer</span>
+    </div>
+
+    <!-- Main Hero Content Container -->
+    <div class="max-w-7xl mx-auto w-full flex-1 flex flex-col justify-center py-8">
+        <div class="grid lg:grid-cols-12 gap-12 items-center">
+
+            <!-- Left Column: Copy & Figma Frame -->
+            <div class="lg:col-span-8 z-10">
+
+                <!-- Figma Selection Bounding Box around Name & Title -->
+                <div class="hero-selection mb-8">
+                    <!-- Top Layer Label -->
+                    <span class="hero-layer" aria-hidden="true">
+                        <i data-lucide="type" class="w-3.5 h-3.5"></i>
+                        Heading / Hamid
+                    </span>
+
+                    <!-- 4 Corner Handles -->
+                    <span class="hero-handle -top-1.5 -left-1.5"></span>
+                    <span class="hero-handle -top-1.5 -right-1.5"></span>
+                    <span class="hero-handle -bottom-1.5 -left-1.5"></span>
+                    <span class="hero-handle -right-1.5 -bottom-1.5"></span>
+
+                    <!-- Main Headline with Typewriter -->
+                    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.05] text-white">
+                        <span class="block text-lg sm:text-xl font-semibold text-white/70 tracking-normal mb-2">
+                            Hai, Saya
+                        </span>
+                        HAMIDUN<br>
+                        <span class="text-sky-300 whitespace-nowrap">
+                            <span id="typewriter-text">WEB DEVELOPER</span><span class="hero-caret"></span>
+                        </span>
+                    </h1>
+
+                    <!-- Bottom Dimension Pill -->
+                    <span class="hero-size" aria-hidden="true">Hug &times; Hug</span>
+                </div>
+
+                <!-- Philosophy Line -->
+                <p class="text-2xl sm:text-3xl font-bold font-display text-white mb-4 leading-snug">
+                    Website yang baik terasa cepat, rapi, dan meyakinkan.
+                </p>
+
+                <!-- Sub-headline Description -->
+                <p class="text-base sm:text-lg text-white/70 max-w-2xl font-light leading-relaxed mb-10">
+                    Membantu pelaku usaha, brand, dan kreator membangun website siap pakai yang optimal di HP, cepat diakses, terindeks Google, dan mudah dikelola.
+                </p>
+
+                <!-- Call to Actions -->
+                <div class="flex flex-wrap items-center gap-4">
+                    <a href="#contact" class="cta-btn">
+                        <span>Hubungi Saya</span>
+                        <span class="cta-btn-icon" aria-hidden="true">
+                            <i data-lucide="arrow-right" class="cta-btn-arrow"></i>
+                        </span>
+                    </a>
+                    <a href="#portfolio"
+                        class="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-white bg-white/10 hover:bg-white/15 ring-1 ring-white/20 transition backdrop-blur">
+                        <span>Lihat Portofolio</span>
+                        <i data-lucide="arrow-down" class="w-4 h-4 text-sky-300"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Column: Profile Visual Card -->
+            <div class="lg:col-span-4 flex justify-center lg:justify-end z-10">
+                <div class="relative w-64 sm:w-72 aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-white/20 bg-slate-900 shadow-2xl group">
+                    <img src="./hamid.jpg" alt="Hamid - Web Developer"
+                        class="w-full h-full object-cover grayscale contrast-110 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                        onerror="this.src='./support_agent_avatar.png'">
+
+                    <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent p-6 pt-16 text-white">
+                        <p class="text-lg font-bold">Hamid Abdul Aziz</p>
+                        <p class="text-xs text-white/70">Fullstack Web & Desain Grafis</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bottom Hero Stats Row (#01, #02, #03, #04 - Yoggui Style) -->
+    <div class="max-w-7xl mx-auto w-full pt-8 border-t border-white/10">
+        <ul class="grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+            <li class="flex flex-col">
+                <span class="text-xs font-mono font-bold text-sky-300 mb-1">#01 PENGALAMAN</span>
+                <span class="text-2xl sm:text-3xl font-extrabold text-white">3+ Tahun</span>
+                <span class="text-xs text-white/60 font-light mt-0.5">Membangun website & sistem web</span>
+            </li>
+            <li class="flex flex-col">
+                <span class="text-xs font-mono font-bold text-sky-300 mb-1">#02 PORTOFOLIO</span>
+                <span class="text-2xl sm:text-3xl font-extrabold text-white">5 Projek</span>
+                <span class="text-xs text-white/60 font-light mt-0.5">Selesai & aktif beroperasi online</span>
+            </li>
+            <li class="flex flex-col">
+                <span class="text-xs font-mono font-bold text-sky-300 mb-1">#03 PERFORMA</span>
+                <span class="text-2xl sm:text-3xl font-extrabold text-white">100% Responsif</span>
+                <span class="text-xs text-white/60 font-light mt-0.5">Cepat & optimal di semua layar HP</span>
+            </li>
+            <li class="flex flex-col">
+                <span class="text-xs font-mono font-bold text-sky-300 mb-1">#04 DUKUNGAN</span>
+                <span class="text-2xl sm:text-3xl font-extrabold text-white">Garansi Sistem</span>
+                <span class="text-xs text-white/60 font-light mt-0.5">Bantuan perbaikan & panduan pakai</span>
+            </li>
+        </ul>
+    </div>
+
+</header>
+
+<!-- =========================================================================
+     2. CLIENT TRUST TICKER (Infinite Marquee - Yoggui Style)
+     ========================================================================= -->
+<section aria-label="Client Trust" class="py-12 bg-white dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-6 text-center">
+        <p class="text-xs font-bold tracking-widest text-slate-400 dark:text-slate-500 uppercase">
+            Dipercaya untuk Berbagai Solusi Digital & Website Bisnis
+        </p>
+    </div>
+
+    <div class="marquee py-2">
+        <div class="marquee-track">
+            <!-- Brand Badges in Marquee -->
+            <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold text-sm tracking-wide">
+                <i data-lucide="briefcase" class="w-4 h-4 text-brand-600 dark:text-sky-400"></i>
+                <span>PT Digi Inovasi</span>
+            </div>
+            <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold text-sm tracking-wide">
+                <i data-lucide="store" class="w-4 h-4 text-brand-600 dark:text-sky-400"></i>
+                <span>UMKM Bandung Juara</span>
+            </div>
+            <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold text-sm tracking-wide">
+                <i data-lucide="heart-handshake" class="w-4 h-4 text-brand-600 dark:text-sky-400"></i>
+                <span>Wedding Creative</span>
+            </div>
+            <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold text-sm tracking-wide">
+                <i data-lucide="building" class="w-4 h-4 text-brand-600 dark:text-sky-400"></i>
+                <span>Kahuripan Studio</span>
+            </div>
+            <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold text-sm tracking-wide">
+                <i data-lucide="sparkles" class="w-4 h-4 text-brand-600 dark:text-sky-400"></i>
+                <span>Salsa & Sidik Project</span>
+            </div>
+            <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold text-sm tracking-wide">
+                <i data-lucide="globe" class="w-4 h-4 text-brand-600 dark:text-sky-400"></i>
+                <span>Company Profile Pro</span>
+            </div>
+            <!-- Repeated for seamless marquee scroll -->
+            <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold text-sm tracking-wide">
+                <i data-lucide="briefcase" class="w-4 h-4 text-brand-600 dark:text-sky-400"></i>
+                <span>PT Digi Inovasi</span>
+            </div>
+            <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold text-sm tracking-wide">
+                <i data-lucide="store" class="w-4 h-4 text-brand-600 dark:text-sky-400"></i>
+                <span>UMKM Bandung Juara</span>
+            </div>
+            <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold text-sm tracking-wide">
+                <i data-lucide="heart-handshake" class="w-4 h-4 text-brand-600 dark:text-sky-400"></i>
+                <span>Wedding Creative</span>
+            </div>
+            <div class="flex items-center gap-3 px-5 py-2 rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-700 dark:text-slate-300 font-bold text-sm tracking-wide">
+                <i data-lucide="building" class="w-4 h-4 text-brand-600 dark:text-sky-400"></i>
+                <span>Kahuripan Studio</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================================
+     3. PORTOFOLIO SECTION (Yoggui Project Card Grid with Hover Overlay)
+     ========================================================================= -->
+<section id="portfolio" class="py-24 bg-white dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5 scroll-mt-20"
+    x-data="{ activeCategory: 'Semua', lightboxOpen: false, lightboxMediaType: '', lightboxSrc: '', lightboxTitle: '' }">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+                <p class="eyebrow mb-2">01 &middot; Portofolio</p>
+                <h2 class="section-title text-slate-900 dark:text-white">
+                    <span class="text-gradient">Karya</span> yang Telah Dibangun
+                </h2>
+            </div>
+
+            <!-- Sleek Category Filter Switcher -->
+            <div class="flex items-center space-x-1 bg-slate-100 dark:bg-white/5 p-1.5 rounded-2xl border border-slate-200/80 dark:border-white/10">
+                <button @click="activeCategory = 'Semua'"
+                    :class="activeCategory === 'Semua' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
+                    Semua
+                </button>
+                <button @click="activeCategory = 'Website'"
+                    :class="activeCategory === 'Website' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
+                    Website
+                </button>
+                <button @click="activeCategory = 'Desain'"
+                    :class="activeCategory === 'Desain' ? 'bg-white dark:bg-white/15 text-slate-900 dark:text-white shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'"
+                    class="px-5 py-2 text-xs font-bold rounded-xl transition duration-150">
+                    Desain
+                </button>
+            </div>
+        </div>
+
+                <!-- Modern Grid with Yoggui .project-card layout -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div x-show="activeCategory === 'Semua' || activeCategory === 'Website'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                class="project-card group cursor-pointer"
+                                @click="window.open('https://lspmpi.com/', '_blank')"
+                >
+
+                <!-- Project Thumbnail Image -->
+                                <img src="./portfolios/lsp-mpi.jpg" alt="Portal LSP Manajemen Pendidikan Islam" loading="lazy">
+                
+                <!-- Category Tag Top Left -->
+                <div class="absolute top-4 left-4 z-10 flex items-center gap-1.5">
+                    <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase bg-slate-950/80 text-white backdrop-blur border border-white/10">
+                        Website
+                    </span>
+                                    </div>
+
+                <!-- Hover Gradient Overlay (Yoggui Style) -->
+                <div class="project-overlay flex flex-col justify-end">
+                    <h3 class="text-xl font-bold text-white mb-1.5 group-hover:text-sky-300 transition-colors">
+                        Portal LSP Manajemen Pendidikan Islam
+                    </h3>
+                    <p class="text-xs text-white/75 line-clamp-2 leading-relaxed mb-4 font-light">
+                        Sistem informasi dan portal resmi Lembaga Sertifikasi Profesi Manajemen Pendidikan Islam (LSP MPI) mencakup fitur registrasi, uji kompetensi, dan direktori sertifikasi terakreditasi.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
+                        <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform shadow-sm">
+                            <span>Buka Website</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+                        <div x-show="activeCategory === 'Semua' || activeCategory === 'Website'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                class="project-card group cursor-pointer"
+                                @click="window.open('https://eduvaspace.com/', '_blank')"
+                >
+
+                <!-- Project Thumbnail Image -->
+                                <img src="./portfolios/eduva-space-kos.jpg" alt="Eduva Space - Manajemen Kos &amp; Hunian Mahasiswa" loading="lazy">
+                
+                <!-- Category Tag Top Left -->
+                <div class="absolute top-4 left-4 z-10 flex items-center gap-1.5">
+                    <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase bg-slate-950/80 text-white backdrop-blur border border-white/10">
+                        Website
+                    </span>
+                                    </div>
+
+                <!-- Hover Gradient Overlay (Yoggui Style) -->
+                <div class="project-overlay flex flex-col justify-end">
+                    <h3 class="text-xl font-bold text-white mb-1.5 group-hover:text-sky-300 transition-colors">
+                        Eduva Space - Manajemen Kos &amp; Hunian Mahasiswa
+                    </h3>
+                    <p class="text-xs text-white/75 line-clamp-2 leading-relaxed mb-4 font-light">
+                        Platform manajemen properti dan hunian mahasiswa terintegrasi (end-to-end) dengan pemetaan kamar, tagihan sewa otomatis, portal monitoring multi-peran, dan modul e-learning.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
+                        <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform shadow-sm">
+                            <span>Buka Website</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+                        <div x-show="activeCategory === 'Semua' || activeCategory === 'Desain'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                class="project-card group cursor-pointer"
+                                @click="lightboxMediaType = 'image'; lightboxSrc = './portfolios/undangan-salsa-ricky.jpg'; lightboxTitle = 'Desain Undangan Pernikahan Salsa &amp; Ricky'; lightboxOpen = true"
+                >
+
+                <!-- Project Thumbnail Image -->
+                                <img src="./portfolios/undangan-salsa-ricky.jpg" alt="Desain Undangan Pernikahan Salsa &amp; Ricky" loading="lazy">
+                
+                <!-- Category Tag Top Left -->
+                <div class="absolute top-4 left-4 z-10 flex items-center gap-1.5">
+                    <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase bg-slate-950/80 text-white backdrop-blur border border-white/10">
+                        Desain
+                    </span>
+                                    </div>
+
+                <!-- Hover Gradient Overlay (Yoggui Style) -->
+                <div class="project-overlay flex flex-col justify-end">
+                    <h3 class="text-xl font-bold text-white mb-1.5 group-hover:text-sky-300 transition-colors">
+                        Desain Undangan Pernikahan Salsa &amp; Ricky
+                    </h3>
+                    <p class="text-xs text-white/75 line-clamp-2 leading-relaxed mb-4 font-light">
+                        Desain grafis dan layout visual elegan untuk undangan pernikahan eksklusif dengan tema adat bernuansa modern.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
+                        <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform shadow-sm">
+                            <span>Lihat Detail</span>
+                            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+                        <div x-show="activeCategory === 'Semua' || activeCategory === 'Website'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                class="project-card group cursor-pointer"
+                                @click="window.open('https://absensiptdigidemoweb.vercel.app/', '_blank')"
+                >
+
+                <!-- Project Thumbnail Image -->
+                                <img src="./portfolios/pt-digi-tekno.jpg" alt="Backend System PT DIGI TEKO" loading="lazy">
+                
+                <!-- Category Tag Top Left -->
+                <div class="absolute top-4 left-4 z-10 flex items-center gap-1.5">
+                    <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase bg-slate-950/80 text-white backdrop-blur border border-white/10">
+                        Website
+                    </span>
+                                    </div>
+
+                <!-- Hover Gradient Overlay (Yoggui Style) -->
+                <div class="project-overlay flex flex-col justify-end">
+                    <h3 class="text-xl font-bold text-white mb-1.5 group-hover:text-sky-300 transition-colors">
+                        Backend System PT DIGI TEKO
+                    </h3>
+                    <p class="text-xs text-white/75 line-clamp-2 leading-relaxed mb-4 font-light">
+                        Sistem Presensi Digital Berbasis IoT (ESP32/Arduino &amp; RFID) yang terintegrasi secara real-time dengan web dashboard backend untuk otomatisasi pencatatan dan rekapitulasi kehadiran karyawan.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
+                        <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform shadow-sm">
+                            <span>Buka Website</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+                        <div x-show="activeCategory === 'Semua' || activeCategory === 'Website'"
+                x-transition:enter="transition ease-out duration-300"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                class="project-card group cursor-pointer"
+                                @click="window.open('https://bybiru.my.id/', '_blank')"
+                >
+
+                <!-- Project Thumbnail Image -->
+                                <img src="./portfolios/JvuKTxpqxyCVMm9efgVYlR1TaRGqwzEWzSSBfn2d.png" alt="E-Undangan Digital &quot;Biru&quot;" loading="lazy">
+                
+                <!-- Category Tag Top Left -->
+                <div class="absolute top-4 left-4 z-10 flex items-center gap-1.5">
+                    <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-wide uppercase bg-slate-950/80 text-white backdrop-blur border border-white/10">
+                        Website
+                    </span>
+                                    </div>
+
+                <!-- Hover Gradient Overlay (Yoggui Style) -->
+                <div class="project-overlay flex flex-col justify-end">
+                    <h3 class="text-xl font-bold text-white mb-1.5 group-hover:text-sky-300 transition-colors">
+                        E-Undangan Digital &quot;Biru&quot;
+                    </h3>
+                    <p class="text-xs text-white/75 line-clamp-2 leading-relaxed mb-4 font-light">
+                        Platform undangan digital interaktif dan responsif berbagai perangkat dengan integrasi RSVP, navigasi maps, dan galeri interaktif.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-900">
+                        <span class="px-4 py-2 rounded-full bg-white text-slate-900 flex items-center gap-1.5 group-hover:scale-105 transition-transform shadow-sm">
+                            <span>Buka Website</span>
+                            <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+                    </div>
+
+        <div class="text-center mt-12">
+            <a href="#contact"
+                class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-slate-300 dark:border-white/15 text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 font-bold text-xs uppercase tracking-wider transition">
+                <span>Tertarik Berkolaborasi? Hubungi Saya</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+        </div>
+        
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div x-show="lightboxOpen" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+        x-transition style="display: none;" @keydown.escape.window="lightboxOpen = false">
+
+        <button @click="lightboxOpen = false" class="absolute top-6 right-6 text-white/70 hover:text-white z-10 p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+
+        <div class="bg-slate-950 rounded-3xl overflow-hidden max-w-4xl w-full border border-white/10 shadow-2xl flex flex-col"
+            @click.away="lightboxOpen = false">
+
+            <div class="aspect-video bg-black flex items-center justify-center relative overflow-hidden">
+                <template x-if="lightboxOpen && lightboxMediaType === 'video' && (lightboxSrc.includes('http') && !lightboxSrc.includes('.mp4') && !lightboxSrc.includes('.mov'))">
+                    <iframe class="w-full h-full" :src="lightboxSrc" frameborder="0" allowfullscreen></iframe>
+                </template>
+
+                <template x-if="lightboxOpen && lightboxMediaType === 'video' && (lightboxSrc.includes('.mp4') || lightboxSrc.includes('.mov') || !lightboxSrc.includes('http'))">
+                    <video class="w-full h-full object-contain" controls autoplay>
+                        <source :src="lightboxSrc" type="video/mp4">
+                    </video>
+                </template>
+
+                <template x-if="lightboxOpen && lightboxMediaType === 'image'">
+                    <img :src="lightboxSrc" class="max-w-full max-h-full object-contain" :alt="lightboxTitle">
+                </template>
+            </div>
+
+            <div class="p-6 bg-slate-900 border-t border-white/10 text-white flex justify-between items-center">
+                <h4 class="text-base font-bold" x-text="lightboxTitle"></h4>
+                <button @click="lightboxOpen = false" class="text-xs text-slate-400 hover:text-white uppercase tracking-wider font-semibold">Tutup</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================================
+     4. KEAHLIAN & SPESIALISASI (Yoggui #skills Style)
+     ========================================================================= -->
+<section id="skills" class="py-24 bg-slate-50 dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+                <p class="eyebrow mb-2">02 &middot; Keahlian</p>
+                <h2 class="section-title text-slate-900 dark:text-white">
+                    Yang Saya <span class="text-gradient">Kerjakan</span>
+                </h2>
+            </div>
+            <p class="text-slate-500 dark:text-slate-400 max-w-md font-light text-sm leading-relaxed">
+                Dari arsitektur kode hingga perancangan antarmuka visual: bidang keahlian dan fokus utama saya dalam membangun produk digital.
+            </p>
+        </div>
+
+        <!-- Skills List (sk-list Yoggui Style) -->
+        <div class="grid lg:grid-cols-2 gap-4 mb-16">
+            <div class="sk-row group">
+                <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-white/5 border border-brand-100 dark:border-white/10 flex items-center justify-center text-brand-600 dark:text-sky-300 flex-shrink-0 group-hover:scale-110 transition duration-300">
+                    <i data-lucide="code-2" class="w-6 h-6"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-sky-300 transition-colors">
+                        Fullstack Web Development
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        Membangun website dan aplikasi web performa tinggi menggunakan Laravel, PHP modern, dan integrasi API yang aman.
+                    </p>
+                </div>
+                <span class="sk-num">01</span>
+            </div>
+
+            <div class="sk-row group">
+                <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-white/5 border border-brand-100 dark:border-white/10 flex items-center justify-center text-brand-600 dark:text-sky-300 flex-shrink-0 group-hover:scale-110 transition duration-300">
+                    <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-sky-300 transition-colors">
+                        UI/UX & Responsive Design
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        Merancang pengalaman antarmuka yang estetis, mudah dipahami pengguna, dan nyaman dibuka dari semua ukuran layar HP.
+                    </p>
+                </div>
+                <span class="sk-num">02</span>
+            </div>
+
+            <div class="sk-row group">
+                <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-white/5 border border-brand-100 dark:border-white/10 flex items-center justify-center text-brand-600 dark:text-sky-300 flex-shrink-0 group-hover:scale-110 transition duration-300">
+                    <i data-lucide="component" class="w-6 h-6"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-sky-300 transition-colors">
+                        Design System & Components
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        Standardisasi token warna, tipografi, dan komponen modular Tailwind CSS agar website konsisten dan mudah dikembangkan.
+                    </p>
+                </div>
+                <span class="sk-num">03</span>
+            </div>
+
+            <div class="sk-row group">
+                <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-white/5 border border-brand-100 dark:border-white/10 flex items-center justify-center text-brand-600 dark:text-sky-300 flex-shrink-0 group-hover:scale-110 transition duration-300">
+                    <i data-lucide="database" class="w-6 h-6"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-sky-300 transition-colors">
+                        Database & Backend Architecture
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        Desain skema database MySQL terstruktur, kueri cepat, serta proteksi keamanan data aplikasi.
+                    </p>
+                </div>
+                <span class="sk-num">04</span>
+            </div>
+
+            <div class="sk-row group">
+                <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-white/5 border border-brand-100 dark:border-white/10 flex items-center justify-center text-brand-600 dark:text-sky-300 flex-shrink-0 group-hover:scale-110 transition duration-300">
+                    <i data-lucide="zap" class="w-6 h-6"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-sky-300 transition-colors">
+                        Performance & SEO Tuning
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        Optimasi kecepatan aset, skrip efisien, dan penerapan metadata Google agar website ramah mesin pencari.
+                    </p>
+                </div>
+                <span class="sk-num">05</span>
+            </div>
+
+            <div class="sk-row group">
+                <div class="w-12 h-12 rounded-2xl bg-brand-50 dark:bg-white/5 border border-brand-100 dark:border-white/10 flex items-center justify-center text-brand-600 dark:text-sky-300 flex-shrink-0 group-hover:scale-110 transition duration-300">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div class="min-w-0 flex-1">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-sky-300 transition-colors">
+                        Custom Dashboard & CMS
+                    </h3>
+                    <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                        Panel kelola data yang bersih dan mudah digunakan sendiri untuk mengunggah portofolio, artikel, atau produk.
+                    </p>
+                </div>
+                <span class="sk-num">06</span>
+            </div>
+        </div>
+
+        <!-- Tech Stack & Tools Showcase (Yoggui Style) -->
+        <div class="rounded-3xl p-8 bg-white dark:bg-[#0b1120] border border-slate-200/80 dark:border-white/10 shadow-sm">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
+                <div>
+                    <span class="text-xs font-mono font-bold text-sky-400 uppercase tracking-widest block mb-1">Teknologi & Toolstack</span>
+                    <h4 class="text-xl font-bold text-slate-900 dark:text-white">Standar Modern & Handal</h4>
+                </div>
+                <div class="flex flex-wrap items-center justify-center sm:justify-end gap-2.5">
+                    <span class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-700 dark:text-slate-300">Laravel</span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-700 dark:text-slate-300">PHP 8.x</span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-700 dark:text-slate-300">Tailwind CSS</span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-700 dark:text-slate-300">Alpine.js</span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-700 dark:text-slate-300">MySQL</span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-700 dark:text-slate-300">Figma</span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-700 dark:text-slate-300">WordPress</span>
+                    <span class="px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-xs font-semibold text-slate-700 dark:text-slate-300">Git</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- =========================================================================
+     5. PENGALAMAN & CV SECTION (Yoggui Experience Style — inline single page)
+     ========================================================================= -->
+<section id="experience" class="py-24 bg-white dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5 scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+            <div>
+                <p class="eyebrow mb-2">03 &middot; Pengalaman & CV</p>
+                <h2 class="section-title text-slate-900 dark:text-white">Pengalaman <span class="text-gradient">Profesional</span></h2>
+            </div>
+            <div class="flex flex-col gap-3">
+                <p class="text-slate-500 dark:text-slate-400 max-w-md font-light text-sm">
+                    Pengalaman membangun sistem web, infrastruktur IT, dan platform digital — berbasis di Bandung, Jawa Barat.
+                </p>
+                <div class="flex flex-wrap gap-3">
+                    <a href="./cv-hamid.pdf" target="_blank"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-400 dark:hover:text-sky-300 font-bold text-xs uppercase tracking-wider transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        Unduh CV (PDF)
+                    </a>
+                    <a href="https://drive.google.com/file/d/1XF5AqXUPARTom1QgcTpluF7BCM4zcm/view?usp=sharing"
+                        target="_blank" rel="noopener"
+                        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-400 dark:hover:text-sky-300 font-bold text-xs uppercase tracking-wider transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        Google Drive CV
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Experience List (Full Width - Fills Left and Right) -->
+        <div class="exp-list w-full">
+
+            <!-- Section Header: Pengalaman Kerja -->
+            <div class="mb-5">
+                <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Pengalaman Kerja</span>
+            </div>
+
+            <!-- 1. PT LSP Manajemen Pendidikan Islam -->
+            <div class="exp-row group">
+                <div class="flex items-center gap-4">
+                    <div class="min-w-0">
+                        <h3 class="exp-company">PT.LSP Manajemen Pendidikan Islam</h3>
+                        <p class="exp-period">Apr – Okt 2026 &middot; <span>Staff IT &bull; Jl. Gedebage Selatan, Bandung</span></p>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    Mengelola dan memelihara seluruh infrastruktur situs web serta sistem informasi LSP MPI. Bertanggung jawab atas stabilitas server, pembuatan konten portal sertifikasi, keamanan data, serta memberikan dukungan teknis (IT Support) untuk kelancaran operasional digital organisasi.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-1">
+                    <li class="exp-tag">Server Management</li>
+                    <li class="exp-tag">IT Support</li>
+                    <li class="exp-tag">Keamanan Data</li>
+                    <li class="exp-tag">Portal Sertifikasi</li>
+                </ul>
+            </div>
+
+            <!-- 2. PT Digi Tekno Indonesia -->
+            <div class="exp-row group">
+                <div class="flex items-center gap-4">
+                    <div class="min-w-0">
+                        <h3 class="exp-company">PT. Digi Tekno Indonesia</h3>
+                        <p class="exp-period">Ags – Sep 2025 &middot; <span>Magang &bull; Sumarecon Komplek Magna, Bandung</span></p>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    Software & Hardware Engineer Intern — merancang dan mengembangkan Sistem Presensi Digital Berbasis IoT (ESP32/Arduino & RFID) yang terintegrasi secara real-time dengan web dashboard backend untuk otomasi presensi dan rekap kehadiran karyawan.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-1">
+                    <li class="exp-tag">IoT / ESP32</li>
+                    <li class="exp-tag">Arduino & RFID</li>
+                    <li class="exp-tag">Web Dashboard</li>
+                    <li class="exp-tag">Laravel</li>
+                </ul>
+            </div>
+
+            <!-- 3. Freelance -->
+            <div class="exp-row group">
+                <div class="flex items-center gap-4">
+                    <div class="min-w-0">
+                        <h3 class="exp-company">Freelance Web Developer</h3>
+                        <p class="exp-period">Jan 2025 – Sekarang &middot; <span>Fullstack Developer &bull; Bandung, Jawa Barat</span></p>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    Membangun aplikasi web <em>full-stack</em> kustom berbasis Laravel, PHP, MySQL, Tailwind CSS & Bootstrap. Proyek unggulan: <strong>Eduva Space</strong> (platform manajemen properti mahasiswa), <strong>Digital Certificate Generator</strong>, dan <strong>Digital Wedding Guestbook & RSVP</strong>.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-1">
+                    <li class="exp-tag">Laravel</li>
+                    <li class="exp-tag">PHP</li>
+                    <li class="exp-tag">MySQL</li>
+                    <li class="exp-tag">Tailwind CSS</li>
+                    <li class="exp-tag">JavaScript</li>
+                </ul>
+            </div>
+
+            <!-- Section Header: Pendidikan -->
+            <div class="mt-10 mb-5">
+                <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Jenjang Pendidikan</span>
+            </div>
+
+            <!-- UNIKOM -->
+            <div class="exp-row group">
+                <div class="flex items-center gap-4">
+                    <div class="min-w-0">
+                        <h3 class="exp-company">Universitas Komputer Indonesia</h3>
+                        <p class="exp-period">Ags 2022 – Ags 2026 &middot; <span>S1 Teknik Informatika &bull; IPK 3.05 &bull; Coblong, Bandung</span></p>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    Tugas akhir: Aplikasi Ujian Berbasis Android (Flutter & Firestore) — merancang dan membangun aplikasi ujian mobile dengan keamanan Native Screen Pinning API dan panel pemantauan multi-peran, diuji oleh 403 pengguna nyata.
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-1">
+                    <li class="exp-tag">Flutter</li>
+                    <li class="exp-tag">Dart</li>
+                    <li class="exp-tag">Firebase</li>
+                    <li class="exp-tag">Android</li>
+                </ul>
+            </div>
+
+            <!-- Section Header: Skills & Sertifikasi -->
+            <div class="mt-10 mb-5">
+                <span class="text-[10px] font-black uppercase tracking-widest text-sky-400">Skills & Sertifikasi</span>
+            </div>
+
+            <div class="exp-row group">
+                <div class="flex items-center gap-4">
+                    <div class="min-w-0">
+                        <h3 class="exp-company">Pencapaian & Sertifikasi</h3>
+                        <p class="exp-period">2019 – 2026 &middot; <span>Berbagai Platform & Lembaga Internasional</span></p>
+                    </div>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed mb-2">
+                    <strong>Soft Skills:</strong> Analytical Thinking, Critical Thinking, Logical Thinking, Leadership, Teamwork, Integrity & Project Management.
+                </p>
+                <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-light leading-relaxed">
+                    <strong>Sertifikasi:</strong> From Business Idea to Action — King's College London (2019) &bull; Business Development — Hari Senin Mini School (2021) &bull; AI for Business (AI-HUSTLER) — BisnAI Academy (2022).
+                </p>
+                <ul class="flex flex-wrap gap-2 mt-3">
+                    <li class="exp-tag">Project Management</li>
+                    <li class="exp-tag">AI for Business</li>
+                    <li class="exp-tag">Leadership</li>
+                    <li class="exp-tag">King's College London</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================================
+     6. PROCESS / ALUR PENGERJAAN SECTION (Clean Steps)
+     ========================================================================= -->
+<section id="process" class="py-24 bg-slate-50 dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <p class="eyebrow mb-2">Alur Kolaborasi</p>
+            <h2 class="section-title text-slate-900 dark:text-white">Proses <span class="text-gradient">Transparan</span></h2>
+            <p class="text-slate-500 dark:text-slate-400 mt-3 font-light text-sm">
+                4 langkah mudah dari konsultasi awal hingga website Anda live dan siap menghasilkan penjualan.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="p-8 rounded-3xl bg-white dark:bg-[#0b1120] border border-slate-200/80 dark:border-white/10 shadow-sm relative group hover:border-brand-500 transition duration-300">
+                <span class="text-3xl font-mono font-extrabold text-sky-400 dark:text-sky-400 mb-4 block">01</span>
+                <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">Diskusi Kebutuhan</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Sampaikan referensi, tujuan bisnis, dan fitur yang ingin Anda miliki melalui WhatsApp.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-white dark:bg-[#0b1120] border border-slate-200/80 dark:border-white/10 shadow-sm relative group hover:border-brand-500 transition duration-300">
+                <span class="text-3xl font-mono font-extrabold text-sky-400 dark:text-sky-400 mb-4 block">02</span>
+                <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">Perencanaan & Solusi</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Menyusun konsep antarmuka, pemilihan teknologi yang tepat, dan estimasi waktu pengerjaan.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-white dark:bg-[#0b1120] border border-slate-200/80 dark:border-white/10 shadow-sm relative group hover:border-brand-500 transition duration-300">
+                <span class="text-3xl font-mono font-extrabold text-sky-400 dark:text-sky-400 mb-4 block">03</span>
+                <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">Penyusunan Materi</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Kirim logo, teks profil, atau foto produk. Saya bantu rapikan bila belum tersedia.</p>
+            </div>
+            <div class="p-8 rounded-3xl bg-white dark:bg-[#0b1120] border border-slate-200/80 dark:border-white/10 shadow-sm relative group hover:border-brand-500 transition duration-300">
+                <span class="text-3xl font-mono font-extrabold text-sky-400 dark:text-sky-400 mb-4 block">04</span>
+                <h4 class="text-base font-bold text-slate-900 dark:text-white mb-2">Pengerjaan & Peluncuran</h4>
+                <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-light">Website dikembangkan, direview bersama, revisi masukan, lalu resmi dipublikasikan live.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================================
+     6. FAQ ACCORDION SECTION
+     ========================================================================= -->
+<section id="faq" class="py-24 bg-white dark:bg-[#020617] border-b border-slate-200/60 dark:border-white/5" x-data="{ activeFaq: 1 }">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <p class="eyebrow mb-2">FAQ</p>
+            <h2 class="section-title text-slate-900 dark:text-white">Pertanyaan <span class="text-gradient">Umum</span></h2>
+            <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm font-light">Informasi penting seputar proses, biaya, dan perawatan website.</p>
+        </div>
+
+        <div class="space-y-4">
+            <!-- FAQ 1 -->
+            <div class="rounded-2xl border border-slate-200/80 dark:border-white/10 bg-slate-50/50 dark:bg-[#0b1120] overflow-hidden transition">
+                <button @click="activeFaq = activeFaq === 1 ? null : 1"
+                    class="w-full px-6 py-5 text-left font-bold text-slate-900 dark:text-white flex justify-between items-center text-sm focus:outline-none">
+                    <span>Bagaimana cara mulai memesan jasa website?</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-200" :class="activeFaq === 1 ? 'rotate-180 text-brand-600' : ''"></i>
+                </button>
+                <div x-show="activeFaq === 1" x-collapse class="px-6 pb-5 text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light border-t border-slate-100 dark:border-white/5 pt-3">
+                    Cukup klik tombol WhatsApp atau isi formulir di bawah. Ceritakan ide atau kebutuhan Anda, dan saya akan memberikan masukan arsitektur solusi serta estimasi timeline pengerjaan.
+                </div>
+            </div>
+
+            <!-- FAQ 2 -->
+            <div class="rounded-2xl border border-slate-200/80 dark:border-white/10 bg-slate-50/50 dark:bg-[#0b1120] overflow-hidden transition">
+                <button @click="activeFaq = activeFaq === 2 ? null : 2"
+                    class="w-full px-6 py-5 text-left font-bold text-slate-900 dark:text-white flex justify-between items-center text-sm focus:outline-none">
+                    <span>Berapa lama estimasi waktu pembuatan website?</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-200" :class="activeFaq === 2 ? 'rotate-180 text-brand-600' : ''"></i>
+                </button>
+                <div x-show="activeFaq === 2" x-collapse class="px-6 pb-5 text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light border-t border-slate-100 dark:border-white/5 pt-3">
+                    Untuk landing page atau website profil rata-rata selesai dalam 3–5 hari kerja. Untuk sistem web atau aplikasi kustom disesuaikan dengan kompleksitas fitur yang disepakati.
+                </div>
+            </div>
+
+            <!-- FAQ 3 -->
+            <div class="rounded-2xl border border-slate-200/80 dark:border-white/10 bg-slate-50/50 dark:bg-[#0b1120] overflow-hidden transition">
+                <button @click="activeFaq = activeFaq === 3 ? null : 3"
+                    class="w-full px-6 py-5 text-left font-bold text-slate-900 dark:text-white flex justify-between items-center text-sm focus:outline-none">
+                    <span>Apakah ada garansi jika website mengalami error?</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-200" :class="activeFaq === 3 ? 'rotate-180 text-brand-600' : ''"></i>
+                </button>
+                <div x-show="activeFaq === 3" x-collapse class="px-6 pb-5 text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light border-t border-slate-100 dark:border-white/5 pt-3">
+                    Ya, saya menyediakan bantuan teknis dan perbaikan error gratis untuk memastikan sistem dan website Anda selalu beroperasi lancar.
+                </div>
+            </div>
+
+            <!-- FAQ 4 -->
+            <div class="rounded-2xl border border-slate-200/80 dark:border-white/10 bg-slate-50/50 dark:bg-[#0b1120] overflow-hidden transition">
+                <button @click="activeFaq = activeFaq === 4 ? null : 4"
+                    class="w-full px-6 py-5 text-left font-bold text-slate-900 dark:text-white flex justify-between items-center text-sm focus:outline-none">
+                    <span>Apakah saya bisa memperbarui isi konten website sendiri?</span>
+                    <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-200" :class="activeFaq === 4 ? 'rotate-180 text-brand-600' : ''"></i>
+                </button>
+                <div x-show="activeFaq === 4" x-collapse class="px-6 pb-5 text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-light border-t border-slate-100 dark:border-white/5 pt-3">
+                    Bisa! Setiap website saya sediakan dashboard admin yang intuitif dan mudah dioperasikan dari HP atau laptop tanpa perlu paham coding. Saya sertakan juga video tutorialnya.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- =========================================================================
+     7. SHOWSTOPPER CONTACT SECTION (Yoggui .cta-card with Glowing Background & Figma Box)
+     ========================================================================= -->
+<section id="contact" class="py-24 bg-slate-50 dark:bg-[#020617] scroll-mt-20">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="cta-card">
+            <!-- Radiant Background Glow Spots (Yoggui Style) -->
+            <div class="cta-glow cta-glow-1"></div>
+            <div class="cta-glow cta-glow-2"></div>
+            <div class="cta-glow cta-glow-3"></div>
+
+            <div class="grid lg:grid-cols-12 gap-12 items-center relative z-10">
+
+                <!-- Left Column: Copy with Figma Selection Box -->
+                <div class="lg:col-span-7">
+
+                    <span class="eyebrow mb-4 !text-sky-300">04 &middot; Kontak & Kolaborasi</span>
+
+                    <div class="cta-selection mb-6">
+                        <span class="cta-handle -top-1.5 -left-1.5"></span>
+                        <span class="cta-handle -top-1.5 -right-1.5"></span>
+                        <span class="cta-handle -bottom-1.5 -left-1.5"></span>
+                        <span class="cta-handle -right-1.5 -bottom-1.5"></span>
+
+                        <h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.1]">
+                            Mari Bangun Website yang
+                            <span class="bg-gradient-to-r from-sky-300 via-violet-300 to-fuchsia-300 bg-clip-text text-transparent">
+                                Berdampak
+                            </span>
+                        </h2>
+                    </div>
+
+                    <p class="text-base sm:text-lg text-white/75 font-light leading-relaxed max-w-xl mb-8">
+                        Punya ide projek, usaha baru, atau ingin merombak website lama Anda agar tampil modern dan meyakinkan? Ceritakan kebutuhan Anda, gratis tanpa komitmen.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4">
+                        <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20ingin%20konsultasi%20mengenai%20projek%20website" target="_blank"
+                            class="cta-btn">
+                            <span>Konsultasi via WhatsApp</span>
+                            <span class="cta-btn-icon" aria-hidden="true">
+                                <i data-lucide="arrow-right" class="cta-btn-arrow"></i>
+                            </span>
+                        </a>
+
+                        <a href="mailto:hamidabdulaziz36@gmail.com"
+                            class="inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold text-white ring-1 ring-white/20 hover:bg-white/10 transition">
+                            <i data-lucide="mail" class="w-4 h-4 text-sky-300"></i>
+                            <span>hamidabdulaziz36@gmail.com</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive WhatsApp Fast-Form Card -->
+                <div class="lg:col-span-5">
+                    <div class="rounded-3xl p-6 sm:p-8 bg-[#0b1120]/80 border border-white/10 backdrop-blur-xl shadow-2xl text-white"
+                        x-data="{ name: '', service: 'Pembuatan Website Baru', message: '', get waUrl() { return 'https://wa.me/6281214019947?text=' + encodeURIComponent('Halo Hamid,\n\nNama: ' + this.name + '\nKebutuhan: ' + this.service + '\nPesan: ' + this.message) } }">
+
+                        <div class="flex items-center justify-between mb-6">
+                            <div>
+                                <span class="text-[10px] font-mono uppercase tracking-widest text-sky-400 block font-bold">Fast Response</span>
+                                <h4 class="text-lg font-bold">Kirim Pesan Cepat</h4>
+                            </div>
+                            <span class="w-3 h-3 rounded-full bg-emerald-400 animate-pulse"></span>
+                        </div>
+
+                        <form @submit.prevent="window.open(waUrl, '_blank')" class="space-y-4">
+                            <div>
+                                <label for="form_name" class="block text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wider">Nama Lengkap / Instansi</label>
+                                <input type="text" id="form_name" x-model="name" required
+                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition"
+                                    placeholder="Nama Anda atau Perusahaan">
+                            </div>
+
+                            <div>
+                                <label for="form_service" class="block text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wider">Kebutuhan Projek</label>
+                                <select id="form_service" x-model="service" required
+                                    class="w-full bg-[#0b1120] border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition">
+                                    <option value="Pembuatan Website Baru">Pembuatan Website Baru (Landing Page / Web Profil)</option>
+                                    <option value="Redesign & Optimasi Website">Redesign & Peningkatan Tampilan Website</option>
+                                    <option value="Pengembangan Web App / Sistem">Pengembangan Web App / Sistem Kustom</option>
+                                    <option value="UI/UX & Desain Antarmuka">UI/UX & Desain Antarmuka Produk</option>
+                                    <option value="Kolaborasi Projek Lainnya">Kolaborasi Projek / Freelance Lainnya</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="form_message" class="block text-xs font-semibold text-white/70 mb-1.5 uppercase tracking-wider">Pesan / Catatan Tambahan</label>
+                                <textarea id="form_message" x-model="message" rows="3" required
+                                    class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-sky-400 transition"
+                                    placeholder="Ceritakan gambaran singkat atau referensi website impian Anda..."></textarea>
+                            </div>
+
+                            <button type="submit"
+                                class="w-full py-3.5 px-6 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm tracking-wide shadow-lg shadow-emerald-500/25 transition flex items-center justify-center gap-2 cursor-pointer">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span>Kirim ke WhatsApp Hamid</span>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+    </main>
+
+    <!-- Ultra-Sleek Modern Footer (Yoggui Style) -->
+    <footer class="border-t border-slate-200 dark:border-white/10 py-12 bg-white dark:bg-[#020617] text-slate-500 dark:text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center text-center gap-4">
+            <!-- Hak Cipta (Center & di Atas Link Sosmed) -->
+            <p class="text-slate-500 dark:text-slate-400 text-xs font-medium tracking-wide">
+                &copy; 2026 Hamid Abdul Aziz. Hak Cipta Dilindungi.
+            </p>
+
+            <!-- Link & Icon Sosmed (Center & di Bawah Hak Cipta) -->
+            <ul class="flex items-center justify-center gap-3">
+                <li>
+                    <a href="https://www.instagram.com/hamidajaaaaa/" target="_blank" rel="noopener" class="social-icon" aria-label="Instagram" title="Instagram @hamidajaaaaa">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/hamid-abdul-aziz/" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn" title="LinkedIn Hamid Abdul Aziz">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tiktok.com/@ham1dun" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok" title="TikTok @ham1dun">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.11V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.82 4.49 6.27 6.27 0 0 0 1.93-4.52V8.75a8.28 8.28 0 0 0 4.84 1.56V6.86c-.34 0-.68-.06-1-.17z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/HAMIDUMMAZIDUN" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub" title="GitHub">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://wa.me/6281214019947" target="_blank" rel="noopener" class="social-icon" aria-label="WhatsApp" title="WhatsApp 081214019947">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Sleek Floating WhatsApp Consultation Pill -->
+    <div x-data="{ isOpen: true }" x-show="isOpen"
+        class="fixed bottom-6 right-6 z-40 flex items-end space-x-3 max-w-xs"
+        x-transition:enter="transition ease-out duration-300 transform translate-y-4 opacity-0"
+        x-transition:enter-end="transform translate-y-0 opacity-100"
+        x-transition:leave="transition ease-in duration-200 transform translate-y-4 opacity-0">
+
+        <!-- Speech Bubble -->
+        <div class="relative bg-white dark:bg-[#0b1120] border border-slate-200 dark:border-white/10 p-3.5 rounded-2xl shadow-xl text-xs text-slate-700 dark:text-slate-200 max-w-[210px] mb-2">
+            <!-- Close Button -->
+            <button @click.stop="isOpen = false" class="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-slate-800 text-white flex items-center justify-center hover:bg-slate-700 transition shadow" aria-label="Tutup">
+                <i data-lucide="x" class="w-3 h-3"></i>
+            </button>
+
+            <p class="font-bold text-slate-900 dark:text-white mb-0.5 flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                Tersedia Online
+            </p>
+            <p class="text-[11px] text-slate-500 dark:text-slate-400 leading-relaxed font-light">
+                Hubungi langsung via WhatsApp untuk kolaborasi atau tanya-tanya.
+            </p>
+            <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20tertarik%20untuk%20kolaborasi%20pembuatan%20website" target="_blank"
+                class="inline-flex items-center gap-1 mt-2 font-bold text-brand-600 dark:text-sky-300 hover:underline uppercase text-[10px] tracking-wider">
+                <span>Chat Sekarang</span>
+                <i data-lucide="arrow-right" class="w-3 h-3"></i>
+            </a>
+        </div>
+
+        <!-- Avatar / WA Button -->
+        <a href="https://wa.me/6281214019947?text=Halo%20Hamid,%20saya%20tertarik%20untuk%20konsultasi%20pembuatan%20website" target="_blank"
+            class="relative group focus:outline-none flex-shrink-0" title="Chat WhatsApp">
+            <span class="absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-60 animate-ping"></span>
+            <div class="relative w-14 h-14 rounded-full border-2 border-white dark:border-slate-800 bg-slate-900 overflow-hidden shadow-xl group-hover:scale-105 transition duration-300">
+                <img src="./hamid.jpg" alt="Hamid" class="w-full h-full object-cover" onerror="this.src='./support_agent_avatar.png'">
+            </div>
+            <span class="absolute bottom-0 right-0 block h-3.5 w-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900"></span>
+        </a>
+    </div>
+
+    <!-- Theme Switcher Script & Lucide Icon Activator -->
+    <script>
+        var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        var themeToggleMobileDarkIcon = document.getElementById('theme-toggle-mobile-dark-icon');
+        var themeToggleMobileLightIcon = document.getElementById('theme-toggle-mobile-light-icon');
+
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            if (themeToggleLightIcon) themeToggleLightIcon.classList.remove('hidden');
+            if (themeToggleMobileLightIcon) themeToggleMobileLightIcon.classList.remove('hidden');
+        } else {
+            if (themeToggleDarkIcon) themeToggleDarkIcon.classList.remove('hidden');
+            if (themeToggleMobileDarkIcon) themeToggleMobileDarkIcon.classList.remove('hidden');
+        }
+
+        function toggleTheme() {
+            if (themeToggleDarkIcon) themeToggleDarkIcon.classList.toggle('hidden');
+            if (themeToggleLightIcon) themeToggleLightIcon.classList.toggle('hidden');
+            if (themeToggleMobileDarkIcon) themeToggleMobileDarkIcon.classList.toggle('hidden');
+            if (themeToggleMobileLightIcon) themeToggleMobileLightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        }
+
+        var btnDesktop = document.getElementById('theme-toggle');
+        var btnMobile = document.getElementById('theme-toggle-mobile');
+        if (btnDesktop) btnDesktop.addEventListener('click', toggleTheme);
+        if (btnMobile) btnMobile.addEventListener('click', toggleTheme);
+
+        // Initialize Lucide icons
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+
+            // ===== SCROLL-SPY: Active nav link highlight =====
+            const sections = [{
+                    id: 'portfolio',
+                    nav: 'portfolio'
+                },
+                {
+                    id: 'skills',
+                    nav: 'skills'
+                },
+                {
+                    id: 'experience',
+                    nav: 'experience'
+                },
+                {
+                    id: 'contact',
+                    nav: 'contact'
+                },
+            ];
+
+            const navLinks = document.querySelectorAll('.nav-link[data-nav]');
+
+            function setActive(navKey) {
+                navLinks.forEach(function(link) {
+                    if (link.dataset.nav === navKey) {
+                        link.classList.add('is-active');
+                    } else {
+                        link.classList.remove('is-active');
+                    }
+                });
+            }
+
+            if (document.getElementById('portfolio')) {
+                // We're on the homepage — use IntersectionObserver
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const matched = sections.find(s => s.id === entry.target.id);
+                            if (matched) setActive(matched.nav);
+                        }
+                    });
+                }, {
+                    rootMargin: '-25% 0px -45% 0px',
+                    threshold: 0.1
+                });
+
+                sections.forEach(function(s) {
+                    const el = document.getElementById(s.id);
+                    if (el) observer.observe(el);
+                });
+
+                // Clear highlights when at top of hero
+                window.addEventListener('scroll', function() {
+                    if (window.scrollY < 180) {
+                        navLinks.forEach(l => l.classList.remove('is-active'));
+                    }
+                }, {
+                    passive: true
+                });
+            }
+        });
+    </script>
+    <script>
+    // Typewriter effect in Hero section (matching yoggui typewriter)
+    document.addEventListener('DOMContentLoaded', function() {
+        const words = ['WEB DEVELOPER', 'UI/UX DESIGNER', 'CREATIVE PARTNER', 'FULLSTACK BUILDER'];
+        let wordIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+        const target = document.getElementById('typewriter-text');
+
+        if (target) {
+            function typeLoop() {
+                const current = words[wordIdx];
+                if (isDeleting) {
+                    target.textContent = current.substring(0, charIdx - 1);
+                    charIdx--;
+                } else {
+                    target.textContent = current.substring(0, charIdx + 1);
+                    charIdx++;
+                }
+
+                let speed = isDeleting ? 40 : 110;
+
+                if (!isDeleting && charIdx === current.length) {
+                    isDeleting = true;
+                    speed = 2200; // Pause at end of word
+                } else if (isDeleting && charIdx === 0) {
+                    isDeleting = false;
+                    wordIdx = (wordIdx + 1) % words.length;
+                    speed = 400; // Pause before typing new word
+                }
+
+                setTimeout(typeLoop, speed);
+            }
+            typeLoop();
+        }
+
+        // Re-run lucide icons to catch dynamically inserted elements
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    });
+</script>
+</body>
+
+</html>

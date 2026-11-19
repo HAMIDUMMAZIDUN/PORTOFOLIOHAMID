@@ -284,9 +284,9 @@
         </div>
 
         <div class="text-center mt-12">
-            <a href="{{ route('portfolio') }}"
+            <a href="#contact"
                 class="inline-flex items-center gap-2 px-8 py-4 rounded-full border border-slate-300 dark:border-white/15 text-slate-800 dark:text-white hover:bg-slate-100 dark:hover:bg-white/10 font-bold text-xs uppercase tracking-wider transition">
-                <span>Eksplor Halaman Portofolio Lengkap</span>
+                <span>Tertarik Berkolaborasi? Hubungi Saya</span>
                 <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
         </div>
@@ -479,20 +479,20 @@
                     Pengalaman membangun sistem web, infrastruktur IT, dan platform digital — berbasis di Bandung, Jawa Barat.
                 </p>
                 <div class="flex flex-wrap gap-3">
-                    <a href="{{ route('about') }}"
+                    <a href="{{ asset('cv-hamid.pdf') }}" target="_blank"
                         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-400 dark:hover:text-sky-300 font-bold text-xs uppercase tracking-wider transition">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        Lihat Profil Lengkap
+                        Unduh CV (PDF)
                     </a>
                     <a href="https://drive.google.com/file/d/1XF5AqXUPARTom1QgcTpluF7BCM4zcm/view?usp=sharing"
                         target="_blank" rel="noopener"
                         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 dark:border-white/15 text-slate-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-400 dark:hover:text-sky-300 font-bold text-xs uppercase tracking-wider transition">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
-                        Unduh CV
+                        Google Drive CV
                     </a>
                 </div>
             </div>
